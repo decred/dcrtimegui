@@ -47,7 +47,7 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
       <Dropzone
         multiple={multiple}
         style={DropZoneStyle}
-        acceptStyle={{ border: "1px solid green", background: "lightgreen" }}
+        acceptStyle={DropZoneAcceptStyle}
         onDrop={(accFiles, _rejFiles) => {
           processFiles(accFiles).then(processedFiles => {
             setFiles([...files, ...processedFiles]);
@@ -76,6 +76,11 @@ const FileItemRemove = styled.i`
   cursor: pointer;
   margin-left: 5px;
 `;
+
+const DropZoneAcceptStyle = {
+  border: "1px solid green",
+  background: "lightgreen"
+};
 
 const DropZoneStyle = {
   border: "1px dashed gray",

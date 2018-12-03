@@ -1,21 +1,24 @@
 import React from "react";
 import { Message, Table, TableRow, TableData, TableHeader, Link } from "cobra";
 import { CardWrapper, CardContent } from "./CommonComponents";
+import {
+  SUCCESS,
+  FILE_ALREADY_EXISTS,
+  FILE_DOES_NOT_EXIST,
+  DISABLED
+} from "../constants";
 
 const getHumanReadableResult = result => {
   const mapCodeToMessage = {
-    0: "Success",
-    1: "File already existent",
-    2: "File does not exist",
-    3: "Disabled"
+    [SUCCESS]: "Success",
+    [FILE_ALREADY_EXISTS]: "File already existent",
+    [FILE_DOES_NOT_EXIST]: "File does not exist",
+    [DISABLED]: "Disabled"
   };
   return mapCodeToMessage[result] || "Invalid result";
 };
 
-export const AuthenticationResult = ({
-  files,
-  result: { digests, results }
-}) => (
+export const AuthenticationResult = ({ files }) => (
   <>
     <Message style={{ width: "80%" }} type="success" text="Files Uploaded!" />
     <CardWrapper>
@@ -26,11 +29,11 @@ export const AuthenticationResult = ({
             <TableHeader>Digest</TableHeader>
             <TableHeader>Result</TableHeader>
           </TableRow>
-          {digests.map((d, i) => (
+          {files.map((file, i) => (
             <TableRow key={`file-result-${i}`}>
-              <TableData>{files[i].name}</TableData>
-              <TableData style={{ fontSize: "8px" }}>{d}</TableData>
-              <TableData>{getHumanReadableResult(results[i])}</TableData>
+              <TableData>{file.name}</TableData>
+              <TableData style={{ fontSize: "8px" }}>{file.digest}</TableData>
+              <TableData>{getHumanReadableResult(file.result)}</TableData>
             </TableRow>
           ))}
         </Table>
@@ -39,7 +42,7 @@ export const AuthenticationResult = ({
   </>
 );
 
-export const VerificationResult = ({ files, result: { digests } }) => (
+export const VerificationResult = ({ files }) => (
   <>
     <Message style={{ width: "80%" }} type="success" text="Files Verified!" />
     <CardWrapper>
@@ -50,13 +53,19 @@ export const VerificationResult = ({ files, result: { digests } }) => (
             <TableHeader>Transaction</TableHeader>
             <TableHeader>Result</TableHeader>
           </TableRow>
-          {digests.map(
+          {files.map(
             (
-              { result, chaininformation: { chaintimestamp, transaction } },
+              {
+                name,
+                digest: {
+                  result,
+                  chaininformation: { chaintimestamp, transaction }
+                }
+              },
               i
             ) => (
               <TableRow key={`file-result-${i}`}>
-                <TableData>{files[i].name}</TableData>
+                <TableData>{name}</TableData>
                 <TableData style={{ fontSize: "8px" }}>
                   {chaintimestamp && transaction ? (
                     <Link

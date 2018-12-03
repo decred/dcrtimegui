@@ -24,18 +24,13 @@ export const SubTitle = styled.span`
 
 export const CardTitle = styled.span`
   text-transform: uppercase;
-  text-align: left;
   color: ${theme.primaryColor};
-  width: calc(100% - 12px);
-  padding: 6px 12px;
-  background: ${theme.lightGrayColor};
 `;
 
 export const CardWrapper = styled(Card)`
   ${flexColumnCenter}
   margin-top: 10px;
   width: 80%;
-  padding: 0;
 `;
 
 export const CardContent = styled.div`
