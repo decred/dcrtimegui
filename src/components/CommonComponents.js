@@ -35,4 +35,5 @@ export const CardWrapper = styled(Card)`
 
 export const CardContent = styled.div`
   padding: 12px;
+  width: 100%;
 `;

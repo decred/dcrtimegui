@@ -21,14 +21,17 @@ const processFiles = files =>
   });
 
 const FilesList = ({ files, onRemoveFile }) => (
-  <List>
+  <List style={{ width: "100%" }}>
     {files.map((file, i) => (
       <ListItem
-        style={{ display: "flex", alignItems: "center" }}
+        style={{
+          display: "flex",
+          justifyContent: "space-between"
+        }}
         key={`file-item-${i}`}
       >
-        {file.name}
-        <div style={{ flex: 1, textAlign: "right" }}>
+        <span style={{ textAlign: "left" }}>{file.name}</span>
+        <div>
           <FileItemRemove
             className="material-icons"
             onClick={() => onRemoveFile(i)}
