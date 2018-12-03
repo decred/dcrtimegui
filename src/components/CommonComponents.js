@@ -2,15 +2,15 @@ import styled from "styled-components";
 import { H1, Card, theme } from "cobra";
 import { flexColumnCenter } from "../styles";
 
-export const TabWrapper = styled.div`
+export const ContentWrapper = styled.div`
   ${flexColumnCenter}
-  padding: 20px 0 10px;
+  padding: 20px 0;
 `;
 
 export const Main = styled.div`
   margin: 0 auto;
-  height: 100%;
   max-width: 800px;
+  text-align: center;
 `;
 
 export const Title = styled(H1)`

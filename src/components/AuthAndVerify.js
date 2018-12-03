@@ -5,7 +5,7 @@ import { timestampFiles, verifyFiles } from "../services/api";
 import {
   CardTitle,
   CardWrapper,
-  TabWrapper,
+  ContentWrapper,
   CardContent
 } from "./CommonComponents";
 import { AuthenticationResult } from "./Results";
@@ -73,7 +73,7 @@ const AuthenticateTab = () => {
   if (error) throw error;
 
   return (
-    <TabWrapper>
+    <ContentWrapper>
       {submited ? (
         <>
           {authSuccess && authorizedFiles.length > 0 && (
@@ -82,7 +82,11 @@ const AuthenticateTab = () => {
           {verifySuccess && verifiedFiles.length > 0 && (
             <VerificationResult files={verifiedFiles} />
           )}
-          <Link href="#" onClick={handleUploadMoreFiles}>
+          <Link
+            href="#"
+            style={{ margin: "20px 0" }}
+            onClick={handleUploadMoreFiles}
+          >
             Authenticate or verify more files
           </Link>
         </>
@@ -106,7 +110,7 @@ const AuthenticateTab = () => {
           </Button>
         </>
       )}
-    </TabWrapper>
+    </ContentWrapper>
   );
 };
 

@@ -7,12 +7,7 @@ const AuthAndVerify = lazy(() => import("./components/AuthAndVerify"));
 
 const App = () => {
   return (
-    <div
-      style={{
-        textAlign: "center",
-        height: "100%"
-      }}
-    >
+    <div>
       <Header logo={"Auth It!"} />
       <ErrorBoundary>
         <Main>
