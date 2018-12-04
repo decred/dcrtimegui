@@ -14,7 +14,7 @@ import {
   mergeFilesAndVerifyResult,
   mergeFilesAndAuthResult,
   filterFilesByVerifiedStatus
-} from "../services/helpers";
+} from "../helpers/bytes";
 
 const AuthenticateTab = () => {
   const [authorizedFiles, setAuthorizedFiles] = useState([]);
