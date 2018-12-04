@@ -24,7 +24,7 @@ const parseResponseBody = response => {
 };
 
 const POST = (path, json) =>
-  fetch(getUrl(path), getOptions(json, "POST")).then(parseResponseBody);
+  fetch(getUrl(path), getOptions(json, "POST")).then(parseResponseBody).catch(err => console.log(err));
 
 export const timestampFiles = (files, id) =>
   POST("timestamp/", {
