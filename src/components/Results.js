@@ -7,6 +7,7 @@ import {
   FILE_DOES_NOT_EXIST,
   DISABLED
 } from "../constants";
+import {convertTsToStringDate} from "../helpers/dates";
 
 const getHumanReadableResult = result => {
   const mapCodeToMessage = {
@@ -49,6 +50,7 @@ export const VerificationResult = ({ files }) => (
       <CardContent>
         <Table>
           <TableRow>
+            <TableHeader>Anchored Date</TableHeader>
             <TableHeader>File</TableHeader>
             <TableHeader>Transaction</TableHeader>
             <TableHeader>Result</TableHeader>
@@ -65,6 +67,7 @@ export const VerificationResult = ({ files }) => (
               i
             ) => (
               <TableRow key={`file-result-${i}`}>
+                <TableData>{convertTsToStringDate(chaintimestamp)}</TableData>
                 <TableData>{name}</TableData>
                 <TableData style={{ fontSize: "8px" }}>
                   {chaintimestamp && transaction ? (
@@ -75,7 +78,7 @@ export const VerificationResult = ({ files }) => (
                       {transaction}
                     </Link>
                   ) : (
-                    "-"
+                    "not anchored yet"
                   )}
                 </TableData>
                 <TableData>{getHumanReadableResult(result)}</TableData>
