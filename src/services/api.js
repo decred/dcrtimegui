@@ -1,5 +1,5 @@
 import "isomorphic-fetch";
-import { digestPayload } from "./helpers";
+import { digestPayload } from "../helpers/bytes";
 
 const apiBase = "api";
 const getUrl = (path, version = "v1") => `${apiBase}/${version}/${path}`;
@@ -24,7 +24,7 @@ const parseResponseBody = response => {
 };
 
 const POST = (path, json) =>
-  fetch(getUrl(path), getOptions(json, "POST")).then(parseResponseBody);
+  fetch(getUrl(path), getOptions(json, "POST")).then(parseResponseBody).catch(err => console.log(err));
 
 export const timestampFiles = (files, id) =>
   POST("timestamp/", {
