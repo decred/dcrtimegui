@@ -90,7 +90,6 @@ export const VerificationResult = ({ files }) => (
                 <ResultsTableData>
                   {chaintimestamp ? convertTsToStringDate(chaintimestamp) : "-"}
                 </ResultsTableData>
-                {/* <TableData style={{ fontSize: "8px" }}> */}
                 <ResultsTableData
                   onMouseEnter={el => {
                     el.target.setAttribute("title", name);
@@ -99,13 +98,13 @@ export const VerificationResult = ({ files }) => (
                   {name}
                 </ResultsTableData>
                 <ResultsTableData
-                  style={{ fontFamily: "monospace" }}
                   onMouseEnter={el => {
                     el.target.setAttribute("title", transaction);
                   }}
                 >
                   {chaintimestamp && transaction ? (
                     <Link
+                      style={{ fontFamily: "monospace" }}
                       target="_blank"
                       href={`https://testnet.dcrdata.org/tx/${transaction}`}
                     >
