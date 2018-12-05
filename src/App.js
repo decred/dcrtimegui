@@ -13,7 +13,7 @@ const App = () => {
         <Main>
           <div style={{ margin: "25px auto" }}>
             <Title>Auth It!</Title>
-            <SubTitle>Authenticate your files with Blockchain.</SubTitle>
+            <SubTitle>Timestamp your files with Blockchain.</SubTitle>
           </div>
           <Suspense fallback={<h4>Loading ...</h4>}>
             <AuthAndVerify />
