@@ -8,15 +8,14 @@ import {
   ContentWrapper,
   CardContent
 } from "./CommonComponents";
-import { AuthenticationResult } from "./Results";
-import { VerificationResult } from "./Results";
+import { AuthenticationResult, VerificationResult } from "./Results";
 import {
   mergeFilesAndVerifyResult,
   mergeFilesAndAuthResult,
   filterFilesByVerifiedStatus
 } from "../helpers/bytes";
 
-const AuthenticateTab = () => {
+const AuthAndVerifyTab = () => {
   const [authorizedFiles, setAuthorizedFiles] = useState([]);
   const [verifiedFiles, setVerifiedFiles] = useState([]);
   const [files, setFiles] = useState([]);
@@ -87,12 +86,12 @@ const AuthenticateTab = () => {
             style={{ margin: "20px 0" }}
             onClick={handleUploadMoreFiles}
           >
-            Authenticate or verify more files
+            Timestamp or verify more files
           </Link>
         </>
       ) : (
         <>
-          <CardWrapper title={<CardTitle>Authenticate and Verify</CardTitle>}>
+          <CardWrapper title={<CardTitle>Timestamp and Verify</CardTitle>}>
             <CardContent>
               <FileInput
                 key="auth-files-input"
@@ -114,4 +113,4 @@ const AuthenticateTab = () => {
   );
 };
 
-export default AuthenticateTab;
+export default AuthAndVerifyTab;

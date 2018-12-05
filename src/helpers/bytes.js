@@ -51,8 +51,3 @@ export const filterFilesByVerifiedStatus = filesAndResult => ({
   newFiles: filesAndResult.filter(fileNotVerified),
   verifiedFiles: filesAndResult.filter(fileVerified)
 });
-
-export const filterFilesByDegest = filesAndResult => ({
-  newFiles: filesAndResult.filter(fileNotVerified), // file does not exist yet
-  verifiedFiles: filesAndResult.filter(fileVerified)
-});

@@ -1,13 +1,13 @@
 import React from "react";
-import { Message, Table, TableRow, TableData, TableHeader, Link } from "cobra";
-import { CardWrapper, CardContent } from "./CommonComponents";
+import { Message, Table, TableRow, TableHeader, Link } from "cobra";
+import { CardWrapper, CardContent, ResultsTableData } from "./CommonComponents";
 import {
   SUCCESS,
   FILE_ALREADY_EXISTS,
   FILE_DOES_NOT_EXIST,
   DISABLED
 } from "../constants";
-import {convertTsToStringDate} from "../helpers/dates";
+import { convertTsToStringDate } from "../helpers/dates";
 
 const getHumanReadableResult = result => {
   const mapCodeToMessage = {
@@ -24,7 +24,12 @@ export const AuthenticationResult = ({ files }) => (
     <Message style={{ width: "80%" }} type="success" text="Files Uploaded!" />
     <CardWrapper>
       <CardContent>
-        <Table>
+        <Table
+          style={{
+            tableLayout: "fixed",
+            width: "100%"
+          }}
+        >
           <TableRow>
             <TableHeader>File</TableHeader>
             <TableHeader>Digest</TableHeader>
@@ -32,9 +37,24 @@ export const AuthenticationResult = ({ files }) => (
           </TableRow>
           {files.map((file, i) => (
             <TableRow key={`file-result-${i}`}>
-              <TableData>{file.name}</TableData>
-              <TableData style={{ fontSize: "8px" }}>{file.digest}</TableData>
-              <TableData>{getHumanReadableResult(file.result)}</TableData>
+              <ResultsTableData
+                onMouseEnter={el => {
+                  el.target.setAttribute("title", file.name);
+                }}
+              >
+                {file.name}
+              </ResultsTableData>
+              <ResultsTableData
+                style={{ fontFamily: "monospace" }}
+                onMouseEnter={el => {
+                  el.target.setAttribute("title", file.digest);
+                }}
+              >
+                {file.digest}
+              </ResultsTableData>
+              <ResultsTableData>
+                {getHumanReadableResult(file.result)}
+              </ResultsTableData>
             </TableRow>
           ))}
         </Table>
@@ -67,9 +87,23 @@ export const VerificationResult = ({ files }) => (
               i
             ) => (
               <TableRow key={`file-result-${i}`}>
-                <TableData>{chaintimestamp ? convertTsToStringDate(chaintimestamp) : "-"}</TableData>
-                <TableData>{name}</TableData>
-                <TableData style={{ fontSize: "8px" }}>
+                <ResultsTableData>
+                  {chaintimestamp ? convertTsToStringDate(chaintimestamp) : "-"}
+                </ResultsTableData>
+                {/* <TableData style={{ fontSize: "8px" }}> */}
+                <ResultsTableData
+                  onMouseEnter={el => {
+                    el.target.setAttribute("title", name);
+                  }}
+                >
+                  {name}
+                </ResultsTableData>
+                <ResultsTableData
+                  style={{ fontFamily: "monospace" }}
+                  onMouseEnter={el => {
+                    el.target.setAttribute("title", transaction);
+                  }}
+                >
                   {chaintimestamp && transaction ? (
                     <Link
                       target="_blank"
@@ -80,8 +114,10 @@ export const VerificationResult = ({ files }) => (
                   ) : (
                     "not anchored yet"
                   )}
-                </TableData>
-                <TableData>{getHumanReadableResult(result)}</TableData>
+                </ResultsTableData>
+                <ResultsTableData>
+                  {getHumanReadableResult(result)}
+                </ResultsTableData>
               </TableRow>
             )
           )}
