@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H1, Card, theme } from "cobra";
+import { H1, Card, theme, TableData } from "cobra";
 import { flexColumnCenter } from "../styles";
 
 export const ContentWrapper = styled.div`
@@ -36,4 +36,11 @@ export const CardWrapper = styled(Card)`
 export const CardContent = styled.div`
   padding: 12px;
   width: 100%;
+`;
+
+export const ResultsTableData = styled(TableData)`
+  max-width: 130px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
