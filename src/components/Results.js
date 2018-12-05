@@ -67,7 +67,7 @@ export const VerificationResult = ({ files }) => (
               i
             ) => (
               <TableRow key={`file-result-${i}`}>
-                <TableData>{convertTsToStringDate(chaintimestamp)}</TableData>
+                <TableData>{chaintimestamp ? convertTsToStringDate(chaintimestamp) : "-"}</TableData>
                 <TableData>{name}</TableData>
                 <TableData style={{ fontSize: "8px" }}>
                   {chaintimestamp && transaction ? (
