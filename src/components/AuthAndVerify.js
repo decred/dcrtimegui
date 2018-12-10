@@ -14,10 +14,13 @@ import {
   mergeFilesAndAuthResult,
   filterFilesByVerifiedStatus
 } from "../helpers/bytes";
+import Spinner from "./Spinner";
 
 const AuthAndVerifyTab = () => {
   const [authorizedFiles, setAuthorizedFiles] = useState([]);
   const [verifiedFiles, setVerifiedFiles] = useState([]);
+  const [loadingAuth, setLoadingAuth] = useState(false);
+  const [loadingVerify, setLoadingVerify] = useState(false);
   const [files, setFiles] = useState([]);
   const [error, setError] = useState(null);
   const [authSuccess, setAuthSuccess] = useState(false);
@@ -42,19 +45,25 @@ const AuthAndVerifyTab = () => {
   };
 
   const handleVerifyFiles = async files => {
+    setLoadingVerify(true);
     try {
       const res = await verifyFiles(files);
+      setLoadingVerify(false);
       return res;
     } catch (e) {
+      setLoadingVerify(false);
       setError(e);
     }
   };
 
   const handleTimestampFiles = async files => {
+    setLoadingAuth(true);
     try {
       const res = await timestampFiles(files, "files");
+      setLoadingAuth(false);
       return res;
     } catch (e) {
+      setLoadingAuth(false);
       setError(e);
     }
   };
@@ -73,7 +82,9 @@ const AuthAndVerifyTab = () => {
 
   return (
     <ContentWrapper>
-      {submited ? (
+      {loadingAuth || loadingVerify ? (
+        <Spinner />
+      ) : submited ? (
         <>
           {authSuccess && authorizedFiles.length > 0 && (
             <AuthenticationResult files={authorizedFiles} />
