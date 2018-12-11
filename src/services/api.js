@@ -1,7 +1,8 @@
 import "isomorphic-fetch";
 import { digestPayload } from "../helpers/bytes";
 
-const apiBase = "api";
+const apiBase = "https://time-testnet.decred.org:59152";
+
 const getUrl = (path, version = "v1") => `${apiBase}/${version}/${path}`;
 
 const getOptions = (json, method) => ({
@@ -24,7 +25,9 @@ const parseResponseBody = response => {
 };
 
 const POST = (path, json) =>
-  fetch(getUrl(path), getOptions(json, "POST")).then(parseResponseBody).catch(err => console.log(err));
+  fetch(getUrl(path), getOptions(json, "POST"))
+    .then(parseResponseBody)
+    .catch(err => console.log(err));
 
 export const timestampFiles = (files, id) =>
   POST("timestamp/", {
