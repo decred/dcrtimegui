@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Header } from "cobra";
+import { Header } from "cobra-ui";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Title, SubTitle, Main } from "./components/CommonComponents";
 

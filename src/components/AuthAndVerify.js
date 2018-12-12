@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Link } from "cobra";
+import { Button, Link } from "cobra-ui";
 import FileInput from "./FileInput";
 import { timestampFiles, verifyFiles } from "../services/api";
 import {

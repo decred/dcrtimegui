@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H1, Card, theme, TableData } from "cobra";
+import { H1, Card, theme, TableData } from "cobra-ui";
 import { flexColumnCenter } from "../styles";
 
 export const ContentWrapper = styled.div`
