@@ -1,5 +1,5 @@
 import React from "react";
-import { Message, Table, TableRow, TableHeader, Link } from "cobra";
+import { Message, Table, TableRow, TableHeader, Link } from "cobra-ui";
 import { CardWrapper, CardContent, ResultsTableData } from "./CommonComponents";
 import {
   SUCCESS,

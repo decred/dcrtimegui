@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Dropzone from "react-dropzone";
-import { List, ListItem } from "cobra";
+import { List, ListItem } from "cobra-ui";
 
 // processFiles adds the base64 payload into the file data
 const processFiles = files =>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Message } from "cobra";
+import { Message } from "cobra-ui";
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
