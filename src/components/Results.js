@@ -8,6 +8,8 @@ import {
   DISABLED
 } from "../constants";
 import { convertTsToStringDate } from "../helpers/dates";
+import { formatDigestToDownload } from "../helpers/format";
+import { DownloadFileLink } from "./DownloadFileLink";
 
 const getHumanReadableResult = result => {
   const mapCodeToMessage = {
@@ -73,6 +75,7 @@ export const VerificationResult = ({ files }) => (
             <TableHeader>Anchored Date</TableHeader>
             <TableHeader>File</TableHeader>
             <TableHeader>Transaction</TableHeader>
+            <TableHeader>Download</TableHeader>
             <TableHeader>Result</TableHeader>
           </TableRow>
           {files.map(
@@ -113,6 +116,14 @@ export const VerificationResult = ({ files }) => (
                   ) : (
                     "not anchored yet"
                   )}
+                </ResultsTableData>
+                <ResultsTableData>
+                  <DownloadFileLink
+                    data={formatDigestToDownload({name, transaction, date:convertTsToStringDate(chaintimestamp), result: files[i]})}
+                    filename={"digest.json"}
+                  >
+                    click here
+                  </DownloadFileLink>
                 </ResultsTableData>
                 <ResultsTableData>
                   {getHumanReadableResult(result)}
