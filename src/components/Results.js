@@ -119,7 +119,7 @@ export const VerificationResult = ({ files }) => (
                 </ResultsTableData>
                 <ResultsTableData>
                   <DownloadFileLink
-                    data={formatDigestToDownload({name, transaction, date:convertTsToStringDate(chaintimestamp),})}
+                    data={formatDigestToDownload({name, transaction, date:convertTsToStringDate(chaintimestamp), result: files[i]})}
                     filename={"digest.json"}
                   >
                     click here
