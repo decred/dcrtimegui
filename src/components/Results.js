@@ -23,45 +23,42 @@ const getHumanReadableResult = result => {
 
 export const AuthenticationResult = ({ files }) => (
   <>
-    <Message style={{ width: "80%" }} type="success" text="Files Uploaded!" />
-    <CardWrapper>
-      <CardContent>
-        <Table
-          style={{
-            tableLayout: "fixed",
-            width: "100%"
-          }}
-        >
-          <TableRow>
-            <TableHeader>File</TableHeader>
-            <TableHeader>Digest</TableHeader>
-            <TableHeader>Result</TableHeader>
+    <CardContent>
+      <Table
+        style={{
+          tableLayout: "fixed",
+          width: "100%"
+        }}
+      >
+        <TableRow>
+          <TableHeader>File</TableHeader>
+          <TableHeader>Digest</TableHeader>
+          <TableHeader>Result</TableHeader>
+        </TableRow>
+        {files.map((file, i) => (
+          <TableRow key={`file-result-${i}`}>
+            <ResultsTableData
+              onMouseEnter={el => {
+                el.target.setAttribute("title", file.name);
+              }}
+            >
+              {file.name}
+            </ResultsTableData>
+            <ResultsTableData
+              style={{ fontFamily: "monospace" }}
+              onMouseEnter={el => {
+                el.target.setAttribute("title", file.digest);
+              }}
+            >
+              {file.digest}
+            </ResultsTableData>
+            <ResultsTableData>
+              {getHumanReadableResult(file.result)}
+            </ResultsTableData>
           </TableRow>
-          {files.map((file, i) => (
-            <TableRow key={`file-result-${i}`}>
-              <ResultsTableData
-                onMouseEnter={el => {
-                  el.target.setAttribute("title", file.name);
-                }}
-              >
-                {file.name}
-              </ResultsTableData>
-              <ResultsTableData
-                style={{ fontFamily: "monospace" }}
-                onMouseEnter={el => {
-                  el.target.setAttribute("title", file.digest);
-                }}
-              >
-                {file.digest}
-              </ResultsTableData>
-              <ResultsTableData>
-                {getHumanReadableResult(file.result)}
-              </ResultsTableData>
-            </TableRow>
-          ))}
-        </Table>
-      </CardContent>
-    </CardWrapper>
+        ))}
+      </Table>
+    </CardContent>
   </>
 );
 
@@ -119,7 +116,12 @@ export const VerificationResult = ({ files }) => (
                 </ResultsTableData>
                 <ResultsTableData>
                   <DownloadFileLink
-                    data={formatDigestToDownload({name, transaction, date:convertTsToStringDate(chaintimestamp), result: files[i]})}
+                    data={formatDigestToDownload({
+                      name,
+                      transaction,
+                      date: convertTsToStringDate(chaintimestamp),
+                      result: files[i]
+                    })}
                     filename={"digest.json"}
                   >
                     click here

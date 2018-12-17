@@ -5,6 +5,7 @@ import { flexColumnCenter } from "../styles";
 export const ContentWrapper = styled.div`
   ${flexColumnCenter}
   padding: 20px 0;
+  width: 100%;
 `;
 
 export const Main = styled.div`
@@ -30,7 +31,6 @@ export const CardTitle = styled.span`
 export const CardWrapper = styled(Card)`
   ${flexColumnCenter}
   margin-top: 10px;
-  width: 80%;
 `;
 
 export const CardContent = styled.div`

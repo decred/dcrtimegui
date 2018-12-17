@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { Button, Link } from "cobra-ui";
 import FileInput from "./FileInput";
 import { timestampFiles, verifyFiles } from "../services/api";
-import {
-  CardTitle,
-  CardWrapper,
-  ContentWrapper,
-  CardContent
-} from "./CommonComponents";
+import { ContentWrapper } from "./CommonComponents";
 import { AuthenticationResult, VerificationResult } from "./Results";
 import {
   mergeFilesAndVerifyResult,
@@ -102,22 +97,16 @@ const AuthAndVerifyTab = () => {
         </>
       ) : (
         <>
-          <CardWrapper title={<CardTitle>Timestamp and Verify</CardTitle>}>
-            <CardContent>
-              <FileInput
-                key="auth-files-input"
-                files={files}
-                setFiles={setFiles}
-              />
-            </CardContent>
-          </CardWrapper>
-          <Button
-            onClick={handleSubmitFiles}
-            disabled={files.length === 0}
-            style={{ marginTop: "10px", width: "220px" }}
-          >
-            Submit Files
-          </Button>
+          <FileInput key="auth-files-input" files={files} setFiles={setFiles} />
+          {files.length > 0 ? (
+            <Button
+              onClick={handleSubmitFiles}
+              disabled={files.length === 0}
+              style={{ marginTop: "20px", width: "220px" }}
+            >
+              Submit Files
+            </Button>
+          ) : null}
         </>
       )}
     </ContentWrapper>
