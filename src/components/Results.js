@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Table, TableRow, TableHeader, Link, H3, theme } from "cobra-ui";
-import { CardContent, ResultsTableData } from "./CommonComponents";
+import { Table, TableRow, TableHeader, Link, theme } from "cobra-ui";
+import { ResultsTableData } from "./CommonComponents";
 import {
   SUCCESS,
   FILE_ALREADY_EXISTS,
