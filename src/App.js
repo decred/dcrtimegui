@@ -12,7 +12,7 @@ const AuthAndVerify = lazy(() => import("./components/AuthAndVerify"));
 
 const App = () => {
   return (
-    <div style={{ background: "#d6d6d63b", height: "100%" }}>
+    <div>
       <Header logo={<img alt="" src={"assets/lightlogo.svg"} />} />
       <ErrorBoundary>
         <Main>
