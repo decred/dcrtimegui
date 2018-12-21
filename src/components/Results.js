@@ -102,7 +102,8 @@ export const VerificationResult = ({ files }) => (
             >
               {chaintimestamp && transaction ? (
                 <Link
-                  style={{ fontFamily: "monospace" }}
+                  style={{ fontFamily: "monospace" }
+                  rel="nofollow noopener noreferrer"
                   target="_blank"
                   href={`https://testnet.dcrdata.org/tx/${transaction}`}
                 >
