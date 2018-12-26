@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Dropzone from "react-dropzone";
 import { List, ListItem } from "cobra-ui";
@@ -45,19 +45,28 @@ const FilesList = ({ files, onRemoveFile }) => (
 );
 
 const FileInput = ({ files, setFiles, multiple = true }) => {
+  const [processing, setProcessing] = useState(false);
   return (
     <FileInputWrapper>
       <Dropzone
         multiple={multiple}
         style={DropZoneStyle}
         acceptStyle={DropZoneAcceptStyle}
+        disabled={processing}
+        disableClick={processing}
         onDrop={(accFiles, _rejFiles) => {
+          setProcessing(true);
           processFiles(accFiles).then(processedFiles => {
+            setProcessing(false);
             setFiles([...files, ...processedFiles]);
           });
         }}
       >
-        <span>Drop your files here or click to select them</span>
+        <span>
+          {!processing
+            ? "Drop your files here or click to select them"
+            : "Processing your files..."}
+        </span>
       </Dropzone>
       <FilesList
         files={files}
@@ -88,7 +97,7 @@ const DropZoneAcceptStyle = {
 
 const DropZoneStyle = {
   border: "1px dashed gray",
-  maxWidth: "200px",
+  width: "200px",
   padding: "10px",
   height: "100px",
   display: "flex",
