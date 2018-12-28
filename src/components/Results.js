@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Table, TableRow, TableHeader, Link, theme } from "cobra-ui";
-import { ResultsTableData } from "./CommonComponents";
+import { Link, theme, List, ListItem } from "cobra-ui";
+import { ResultsData, ListItemHeader } from "./CommonComponents";
 import {
   SUCCESS,
   FILE_ALREADY_EXISTS,
@@ -25,54 +25,44 @@ const getHumanReadableResult = result => {
 export const AuthenticationResult = ({ files }) => (
   <ResultWrapper>
     <ResultLabel>Uploaded digests</ResultLabel>
-    <Table
-      style={{
-        tableLayout: "fixed",
-        width: "100%"
-      }}
-    >
-      <TableRow>
-        <TableHeader>File</TableHeader>
-        <TableHeader>Digest</TableHeader>
-        <TableHeader>Result</TableHeader>
-      </TableRow>
+    <List>
       {files.map((file, i) => (
-        <TableRow key={`file-result-${i}`}>
-          <ResultsTableData
-            onMouseEnter={el => {
-              el.target.setAttribute("title", file.name);
-            }}
-          >
-            {file.name}
-          </ResultsTableData>
-          <ResultsTableData
-            style={{ fontFamily: "monospace" }}
-            onMouseEnter={el => {
-              el.target.setAttribute("title", file.digest);
-            }}
-          >
-            {file.digest}
-          </ResultsTableData>
-          <ResultsTableData>
-            {getHumanReadableResult(file.result)}
-          </ResultsTableData>
-        </TableRow>
+        <ListItem key={`file-result-${i}`} style={{ flexDirection: "column" }}>
+          <div style={{ display: "flex" }}>
+            <ListItemHeader>File</ListItemHeader>
+            <ResultsData
+              onMouseEnter={el => {
+                el.target.setAttribute("title", file.name);
+              }}
+            >
+              {file.name}
+            </ResultsData>
+          </div>
+          <div style={{ display: "flex" }}>
+            <ListItemHeader>Digest</ListItemHeader>
+            <ResultsData
+              style={{ fontFamily: "monospace" }}
+              onMouseEnter={el => {
+                el.target.setAttribute("title", file.digest);
+              }}
+            >
+              {file.digest}
+            </ResultsData>
+          </div>
+          <div style={{ display: "flex" }}>
+            <ListItemHeader>Result</ListItemHeader>
+            <ResultsData>{getHumanReadableResult(file.result)}</ResultsData>
+          </div>
+        </ListItem>
       ))}
-    </Table>
+    </List>
   </ResultWrapper>
 );
 
 export const VerificationResult = ({ files }) => (
   <ResultWrapper>
     <ResultLabel>Verified digests</ResultLabel>
-    <Table>
-      <TableRow>
-        <TableHeader>Anchored Date</TableHeader>
-        <TableHeader>File</TableHeader>
-        <TableHeader>Transaction</TableHeader>
-        <TableHeader>Download</TableHeader>
-        <TableHeader>Result</TableHeader>
-      </TableRow>
+    <List>
       {files.map(
         (
           {
@@ -84,55 +74,68 @@ export const VerificationResult = ({ files }) => (
           },
           i
         ) => (
-          <TableRow key={`file-result-${i}`}>
-            <ResultsTableData>
-              {chaintimestamp ? convertTsToStringDate(chaintimestamp) : "-"}
-            </ResultsTableData>
-            <ResultsTableData
-              onMouseEnter={el => {
-                el.target.setAttribute("title", name);
-              }}
-            >
-              {name}
-            </ResultsTableData>
-            <ResultsTableData
-              onMouseEnter={el => {
-                el.target.setAttribute("title", transaction);
-              }}
-            >
-              {chaintimestamp && transaction ? (
-                <Link
-                  style={{ fontFamily: "monospace" }}
-                  rel="nofollow noopener noreferrer"
-                  target="_blank"
-                  href={`https://testnet.dcrdata.org/tx/${transaction}`}
-                >
-                  {transaction}
-                </Link>
-              ) : (
-                "not anchored yet"
-              )}
-            </ResultsTableData>
-            <ResultsTableData>
-              <DownloadFileLink
-                data={formatDigestToDownload({
-                  name,
-                  transaction,
-                  date: convertTsToStringDate(chaintimestamp),
-                  result: files[i]
-                })}
-                filename={"digest.json"}
+          <ListItem style={{ flexDirection: "column" }}>
+            <div style={{ display: "flex" }}>
+              <ListItemHeader>Anchored Date</ListItemHeader>
+              <ResultsData>
+                {chaintimestamp ? convertTsToStringDate(chaintimestamp) : "-"}
+              </ResultsData>
+            </div>
+            <div style={{ display: "flex" }}>
+              <ListItemHeader>File</ListItemHeader>
+              <ResultsData
+                onMouseEnter={el => {
+                  el.target.setAttribute("title", name);
+                }}
               >
-                click here
-              </DownloadFileLink>
-            </ResultsTableData>
-            <ResultsTableData>
-              {getHumanReadableResult(result)}
-            </ResultsTableData>
-          </TableRow>
+                {name}
+              </ResultsData>
+            </div>
+            <div style={{ display: "flex" }}>
+              <ListItemHeader>Transaction</ListItemHeader>
+              <ResultsData
+                onMouseEnter={el => {
+                  el.target.setAttribute("title", transaction);
+                }}
+              >
+                {chaintimestamp && transaction ? (
+                  <Link
+                    style={{ fontFamily: "monospace" }}
+                    rel="nofollow noopener noreferrer"
+                    target="_blank"
+                    href={`https://testnet.dcrdata.org/tx/${transaction}`}
+                  >
+                    {transaction}
+                  </Link>
+                ) : (
+                  "not anchored yet"
+                )}
+              </ResultsData>
+            </div>
+            <div style={{ display: "flex" }}>
+              <ListItemHeader>Download</ListItemHeader>
+              <ResultsData>
+                <DownloadFileLink
+                  data={formatDigestToDownload({
+                    name,
+                    transaction,
+                    date: convertTsToStringDate(chaintimestamp),
+                    result: files[i]
+                  })}
+                  filename={"digest.json"}
+                >
+                  click here
+                </DownloadFileLink>
+              </ResultsData>
+            </div>
+            <div style={{ display: "flex" }}>
+              <ListItemHeader>Result</ListItemHeader>
+              <ResultsData>{getHumanReadableResult(result)}</ResultsData>
+            </div>
+          </ListItem>
         )
       )}
-    </Table>
+    </List>
   </ResultWrapper>
 );
 
