@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { H1, Card, theme, TableData } from "cobra-ui";
+import { H1, Card, theme } from "cobra-ui";
 import { flexColumnCenter } from "../styles";
 
 export const ContentWrapper = styled.div`
@@ -38,9 +38,23 @@ export const CardContent = styled.div`
   width: 100%;
 `;
 
-export const ResultsTableData = styled(TableData)`
-  max-width: 130px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+export const ResultsData = styled.span`
+  padding: 14px 6px;
+  min-width: 110px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+`;
+
+export const ResultsTableData = styled.span`
+  max-width: 200px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+`;
+
+export const ListItemHeader = styled.span`
+  padding: 14px 6px;
+  text-align: left;
+  min-width: 110px;
+  font-weight: 600;
+  color: ${theme.primaryColor};
 `;
