@@ -1,5 +1,5 @@
 {
-  "name": "webapp",
+  "name": "dcrtimestamp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,8 +15,9 @@
     "styled-components": "^4.0.3"
   },
   "scripts": {
-    "start": "HTTPS=true react-scripts start",
+    "start": "REACT_APP_TESTNET=true HTTPS=true react-scripts start",
     "build": "react-scripts build",
+    "build-tesnet": "REACT_APP_TESTNET=true react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
