@@ -3,7 +3,7 @@ import { digestPayload } from "../helpers/bytes";
 
 const apiBase = process.env.REACT_APP_TESTNET
   ? "https://time-testnet.decred.org:59152"
-  : "https://time-testnet.decred.org:49152";
+  : "https://time.decred.org:49152";
 
 const getUrl = (path, version = "v1") => `${apiBase}/${version}/${path}`;
 
