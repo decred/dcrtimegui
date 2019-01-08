@@ -1,12 +1,28 @@
-# Authit 
+# Dcrtimestamp 
 
-#### Timpestamp files with blockchain.
+#### Timpestamp files with the Decred blockchain.
 
-Authit is a service that provides an easy way to timestamp your documents.
+Dcrtimestamp is a web application which provides an easy and free timestamping service.
 
-Your files are not sent to the server. 
-It uses [dcrtime](https://github.com/decred/dcrtime) servers to store the files signatures.
+**The files are not stored in the server**. It uses [dcrtime](https://github.com/decred/dcrtime) as backend to store and anchor the files signatures. 
+
 
 ### Development
 
-`yarn && yarn start`
+To start the development server:
+
+`yarn && yarn start` 
+
+### Production
+
+To generate the production bundle for mainnet:
+
+`yarn && yarn build`
+
+For testnet: 
+
+`yarn && yarn build-testnet`
+
+
+
+
