@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, theme, List, ListItem } from "cobra-ui";
+import { CopyToClipboard } from "./CopyToClipboard";
 import { ResultsData, ListItemHeader } from "./CommonComponents";
 import {
   SUCCESS,
@@ -40,13 +41,11 @@ export const AuthenticationResult = ({ files }) => (
           </div>
           <div style={{ display: "flex" }}>
             <ListItemHeader>Digest</ListItemHeader>
-            <ResultsData
-              style={{ fontFamily: "monospace" }}
-              onMouseEnter={el => {
-                el.target.setAttribute("title", file.digest);
-              }}
-            >
-              {file.digest}
+            <ResultsData style={{ fontFamily: "monospace" }}>
+              <>
+                <span>{file.digest}</span>
+                <CopyToClipboard text={file.digest} />
+              </>
             </ResultsData>
           </div>
           <div style={{ display: "flex" }}>
@@ -93,20 +92,19 @@ export const VerificationResult = ({ files }) => (
             </div>
             <div style={{ display: "flex" }}>
               <ListItemHeader>Transaction</ListItemHeader>
-              <ResultsData
-                onMouseEnter={el => {
-                  el.target.setAttribute("title", transaction);
-                }}
-              >
+              <ResultsData>
                 {chaintimestamp && transaction ? (
-                  <Link
-                    style={{ fontFamily: "monospace" }}
-                    rel="nofollow noopener noreferrer"
-                    target="_blank"
-                    href={`https://testnet.dcrdata.org/tx/${transaction}`}
-                  >
-                    {transaction}
-                  </Link>
+                  <>
+                    <Link
+                      style={{ fontFamily: "monospace" }}
+                      rel="nofollow noopener noreferrer"
+                      target="_blank"
+                      href={`https://testnet.dcrdata.org/tx/${transaction}`}
+                    >
+                      {transaction}
+                    </Link>
+                    <CopyToClipboard text={transaction} />
+                  </>
                 ) : (
                   "not anchored yet"
                 )}
