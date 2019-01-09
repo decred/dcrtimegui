@@ -45,15 +45,12 @@ export const ResultsData = styled.span`
   overflow-wrap: break-word;
 `;
 
-export const ResultsTableData = styled.span`
-  max-width: 200px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-`;
-
 export const ListItemHeader = styled.span`
   padding: 14px 6px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-width: 110px;
   font-weight: 600;
   color: ${theme.primaryColor};

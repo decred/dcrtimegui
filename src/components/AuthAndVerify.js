@@ -20,7 +20,7 @@ const AuthAndVerifyTab = () => {
   const [error, setError] = useState(null);
   const [authSuccess, setAuthSuccess] = useState(false);
   const [verifySuccess, setVerifySuccess] = useState(false);
-  const [submited, setSubmited] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmitFiles = async () => {
     const verifyRes = await handleVerifyFiles(files);
@@ -36,7 +36,7 @@ const AuthAndVerifyTab = () => {
 
     setVerifySuccess(verifyRes);
     setAuthSuccess(authRes);
-    setSubmited(true);
+    setSubmitted(true);
   };
 
   const handleVerifyFiles = async files => {
@@ -70,7 +70,7 @@ const AuthAndVerifyTab = () => {
     setFiles([]);
     setAuthSuccess(false);
     setVerifySuccess(false);
-    setSubmited(false);
+    setSubmitted(false);
   };
 
   if (error) throw error;
@@ -79,7 +79,7 @@ const AuthAndVerifyTab = () => {
     <ContentWrapper>
       {loadingAuth || loadingVerify ? (
         <Spinner />
-      ) : submited ? (
+      ) : submitted ? (
         <>
           {authSuccess && authorizedFiles.length > 0 && (
             <AuthenticationResult files={authorizedFiles} />
