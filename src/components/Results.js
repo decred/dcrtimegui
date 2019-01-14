@@ -156,7 +156,7 @@ export const VerificationResult = ({ files }) => (
                   })}
                   filename={"digest.json"}
                 >
-                  click here
+                  <Button small>Download</Button>
                 </DownloadFileLink>
               </ResultsData>
             </div>
