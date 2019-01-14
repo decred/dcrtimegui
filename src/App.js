@@ -45,6 +45,7 @@ const App = () => {
     setAuthSuccess(false);
     setVerifySuccess(false);
     setSubmitted(false);
+    setTxtFile(null);
   };
   return (
     <div>
