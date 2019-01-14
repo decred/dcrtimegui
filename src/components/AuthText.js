@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Input, Textarea, Button } from "cobra-ui";
+import React from "react";
+import { Textarea, Input, Button } from "cobra-ui";
 import { handleTimestampFiles } from "../helpers/common";
 import { processFiles } from "../helpers/files";
 import { ContentWrapper } from "./CommonComponents";
@@ -11,18 +11,14 @@ export const AuthText = ({
   setError,
   setAuthSuccess,
   setSubmitted,
-  setAuthorizedFiles
+  setAuthorizedFiles,
+  setFilename,
+  filename,
+  setText,
+  text,
+  createFile,
+  setTxtFile
 }) => {
-  const [filename, setFilename] = useState("");
-  const [text, setText] = useState("");
-
-  const createFile = () => {
-    const file = new File([text], `${filename}.txt`, {
-      type: "text/plain;charset=utf-8"
-    });
-    return file;
-  };
-
   const handleSubmitFiles = async () => {
     const file = createFile();
     const processedFiles = await processFiles([file]);
@@ -32,16 +28,20 @@ export const AuthText = ({
       setLoading,
       setError
     );
+
     const authorizedFiles = mergeFilesAndAuthResult(processedFiles, authRes);
 
     setAuthorizedFiles(authorizedFiles);
     setAuthSuccess(authRes);
+    setTxtFile(file);
+
     setSubmitted(true);
   };
 
   const handleFilenameChange = e => {
     setFilename(e.target.value);
   };
+
   const handleTextChange = e => {
     setText(e.target.value);
   };
@@ -50,6 +50,7 @@ export const AuthText = ({
 
   return (
     <ContentWrapper>
+      <h4>Timestamp a .txt file</h4>
       <div style={{ textAlign: "left", width: "100%" }}>
         <Input
           value={filename}

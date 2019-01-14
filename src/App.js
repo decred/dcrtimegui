@@ -22,12 +22,26 @@ const App = () => {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [text, setText] = useState("");
+  const [filename, setFilename] = useState("");
+  const [txtFile, setTxtFile] = useState(null);
+  const [rawFiles, setRawFiles] = useState([]);
+
+  const createFile = () => {
+    const file = new File([text], `${filename}.txt`, {
+      type: "text/plain;charset=utf-8"
+    });
+    return file;
+  };
 
   const handleUploadMoreFiles = e => {
     e.preventDefault();
     setAuthorizedFiles([]);
     setVerifiedFiles([]);
     setFiles([]);
+    setRawFiles([]);
+    setText("");
+    setFilename("");
     setAuthSuccess(false);
     setVerifySuccess(false);
     setSubmitted(false);
@@ -45,7 +59,11 @@ const App = () => {
             {submitted ? (
               <>
                 {authSuccess && authorizedFiles.length > 0 && (
-                  <AuthenticationResult files={authorizedFiles} />
+                  <AuthenticationResult
+                    rawFiles={rawFiles}
+                    txtFile={txtFile}
+                    files={authorizedFiles}
+                  />
                 )}
                 {verifySuccess && verifiedFiles.length > 0 && (
                   <VerificationResult files={verifiedFiles} />
@@ -75,11 +93,18 @@ const App = () => {
                       setLoading={setLoading}
                       error={error}
                       setError={setError}
+                      setRawFiles={setRawFiles}
+                      rawFiles={rawFiles}
                     />
-                    <h4>
+                    <h4 className="or">
                       <span>or</span>
                     </h4>
                     <AuthText
+                      setTxtFile={setTxtFile}
+                      text={text}
+                      setText={setText}
+                      setFilename={setFilename}
+                      createFile={createFile}
                       setLoading={setLoading}
                       error={error}
                       setError={setError}

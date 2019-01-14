@@ -20,7 +20,9 @@ const AuthAndVerifyTab = ({
   setFiles,
   setLoading,
   error,
-  setError
+  setError,
+  setRawFiles,
+  rawFiles
 }) => {
   const handleSubmitFiles = async () => {
     const verifyRes = await handleVerifyFiles(files);
@@ -55,7 +57,13 @@ const AuthAndVerifyTab = ({
 
   return (
     <ContentWrapper>
-      <FileInput key="auth-files-input" files={files} setFiles={setFiles} />
+      <FileInput
+        key="auth-files-input"
+        files={files}
+        rawFiles={rawFiles}
+        setRawFiles={setRawFiles}
+        setFiles={setFiles}
+      />
       {files.length > 0 ? (
         <Button
           onClick={handleSubmitFiles}

@@ -15,7 +15,7 @@ code {
     monospace;
 }
 
-h4 {
+.or {
   width: 100%;
   text-align: center;
   border-bottom: 1px solid #999;
@@ -23,7 +23,7 @@ h4 {
   margin: 10px 0 20px;
 }
 
-h4 span {
+.or span {
    background: #fdfdfd;
    padding: 0 10px;
 }

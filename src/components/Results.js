@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link, theme, List, ListItem } from "cobra-ui";
+import { Link, theme, List, ListItem, Button } from "cobra-ui";
 import { CopyToClipboard } from "./CopyToClipboard";
 import { ResultsData, ListItemHeader } from "./CommonComponents";
 import {
@@ -23,7 +23,26 @@ const getHumanReadableResult = result => {
   return mapCodeToMessage[result] || "Invalid result";
 };
 
-export const AuthenticationResult = ({ files }) => (
+const downloadFile = file => {
+  const url = URL.createObjectURL(file);
+
+  var tempLink = document.createElement("a");
+  tempLink.style.display = "none";
+  tempLink.href = url;
+  tempLink.setAttribute("download", file.name);
+
+  // Needed because safari thinks _blank anchor are pop ups. We only want to set _blank target if the browser does not support the HTML5 download attribute.
+  if (typeof tempLink.download === "undefined") {
+    tempLink.setAttribute("target", "_blank");
+  }
+
+  document.body.appendChild(tempLink);
+  tempLink.click();
+  document.body.removeChild(tempLink);
+  window.URL.revokeObjectURL(url);
+};
+
+export const AuthenticationResult = ({ files, rawFiles, txtFile }) => (
   <ResultWrapper>
     <ResultLabel>Uploaded digests</ResultLabel>
     <List>
@@ -46,6 +65,20 @@ export const AuthenticationResult = ({ files }) => (
                 <span>{file.digest}</span>
                 <CopyToClipboard text={file.digest} />
               </>
+            </ResultsData>
+          </div>
+          <div style={{ display: "flex" }}>
+            <ListItemHeader>Download</ListItemHeader>
+            <ResultsData>
+              <Button
+                onClick={
+                  txtFile
+                    ? () => downloadFile(txtFile)
+                    : () => downloadFile(rawFiles[i])
+                }
+              >
+                Download
+              </Button>
             </ResultsData>
           </div>
           <div style={{ display: "flex" }}>
