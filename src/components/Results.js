@@ -71,6 +71,7 @@ export const AuthenticationResult = ({ files, rawFiles, txtFile }) => (
             <ListItemHeader>Download</ListItemHeader>
             <ResultsData>
               <Button
+                small
                 onClick={
                   txtFile
                     ? () => downloadFile(txtFile)
