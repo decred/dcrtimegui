@@ -51,19 +51,27 @@ export const AuthText = ({
   return (
     <ContentWrapper>
       <h4>Timestamp a .txt file</h4>
-      <div style={{ textAlign: "left", width: "100%" }}>
+      <div
+        style={{
+          textAlign: "left",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+        }}
+      >
         <Input
           value={filename}
           onChange={handleFilenameChange}
           label="Filename"
-          width="100%"
+          width={500}
           style={{ marginBottom: "15px" }}
         />
         <Textarea
           onChange={handleTextChange}
           value={text}
+          width={500}
           label="Text"
-          width="100%"
         />
       </div>
       {filename !== "" && text !== "" && (
