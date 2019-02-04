@@ -12,6 +12,7 @@ import {
 import { convertTsToStringDate } from "../helpers/dates";
 import { formatDigestToDownload } from "../helpers/format";
 import { DownloadFileLink } from "./DownloadFileLink";
+import xssFilters from "xss-filters";
 
 const getHumanReadableResult = result => {
   const mapCodeToMessage = {
@@ -52,7 +53,7 @@ export const AuthenticationResult = ({ files, rawFiles, txtFile }) => (
             <ListItemHeader>File</ListItemHeader>
             <ResultsData
               onMouseEnter={el => {
-                el.target.setAttribute("title", file.name);
+                el.target.setAttribute("title", xssFilters.inHTMLData(file.name));
               }}
             >
               {file.name}
@@ -118,7 +119,7 @@ export const VerificationResult = ({ files }) => (
               <ListItemHeader>File</ListItemHeader>
               <ResultsData
                 onMouseEnter={el => {
-                  el.target.setAttribute("title", name);
+                  el.target.setAttribute("title", xssFilters.inHTMLData(name));
                 }}
               >
                 {name}
