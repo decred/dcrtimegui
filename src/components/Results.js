@@ -133,7 +133,7 @@ export const VerificationResult = ({ files }) => (
                       style={{ fontFamily: "monospace" }}
                       rel="nofollow noopener noreferrer"
                       target="_blank"
-                      href={`https://testnet.dcrdata.org/tx/${transaction}`}
+                      href={`https://explorer.dcrdata.org/tx/${transaction}`}
                     >
                       {transaction}
                     </Link>
