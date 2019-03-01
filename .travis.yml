@@ -1,8 +1,7 @@
 language: node_js
 node_js:
-  - 10.15.0
+  - 10.14.1
 cache: yarn
 install:
   - yarn
-  - yarn test
   - yarn build
