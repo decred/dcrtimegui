@@ -44,13 +44,7 @@ const FilesList = ({ files, onRemoveFile }) => (
   </List>
 );
 
-const FileInput = ({
-  files,
-  setFiles,
-  setRawFiles,
-  rawFiles,
-  multiple = true
-}) => {
+const FileInput = ({ files, setFiles, multiple = true }) => {
   const [processing, setProcessing] = useState(false);
   return (
     <FileInputWrapper>
@@ -62,7 +56,6 @@ const FileInput = ({
         disableClick={processing}
         onDrop={(accFiles, _rejFiles) => {
           setProcessing(true);
-          setRawFiles([...rawFiles, ...accFiles]);
           processFiles(accFiles).then(processedFiles => {
             setProcessing(false);
             setFiles([...files, ...processedFiles]);
