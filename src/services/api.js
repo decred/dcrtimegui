@@ -27,17 +27,26 @@ const parseResponseBody = response => {
   throw err;
 };
 
+const parseResponse = response =>
+  parseResponseBody(response).then(json => {
+    if (json.error) {
+      const err = new Error(json.error);
+      err.internalError = false;
+      err.errorID = json.error;
+      throw err;
+    }
+    return json;
+  });
+
 const POST = (path, json) =>
-  fetch(getUrl(path), getOptions(json, "POST"))
-    .then(parseResponseBody)
-    .catch(err => console.log(err));
+  fetch(getUrl(path), getOptions(json, "POST")).then(parseResponse);
 
 export const timestampFiles = (files, id) =>
   POST("timestamp/", {
-    digests: files.map(file => digestPayload(file.payload))
+    digests: files.map(file => file.digest)
   });
 
 export const verifyFiles = (files, id) =>
   POST("verify/", {
-    digests: files.map(file => digestPayload(file.payload))
+    digests: files.map(file => file.digest)
   });

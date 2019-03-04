@@ -15,7 +15,7 @@ export const CardContent = styled.div``;
 const Card = ({ title, children, ...props }) => (
   <CardWrapper {...props}>
     {title && typeof title === String ? <CardTitle>{title}</CardTitle> : null}
-    <CardContent>{children}</CardContent>
+    {children}
   </CardWrapper>
 );
 

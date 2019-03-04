@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+import { withRouter } from "react-router-dom";
 import Card from "./lib/Card";
 import Button from "./lib/Button";
 import FileInput from "./FileInput";
@@ -31,8 +32,8 @@ const SubmitCard = styled(Card)`
   position: fixed;
   bottom: -88px;
   left: 0;
-  width: calc(100% - 2em);
-  padding: 1em;
+  width: calc(100% - 1em);
+  padding: 0.5em;
   background: #f9fafa;
   box-shadow: 1px 2px 10px 1px #8997a5;
   display: flex;
@@ -50,8 +51,24 @@ const SubmitCard = styled(Card)`
   }
 `;
 
-const TimestampForm = ({}) => {
+const SubmitWrapper = styled.div`
+  width: 100%;
+  text-align: center;
+  @media (min-width: 768px) {
+    text-align: right;
+  }
+`;
+
+const TimestampForm = ({ history }) => {
   const [files, setFiles] = useState([]);
+  const handleSubmit = e => {
+    e.preventDefault();
+    const digests = files.map(file => file.digest);
+    const names = files.map(file => file.name);
+    history.push(
+      `results?digests=${digests.toString()}&names=${names.toString()}`
+    );
+  };
   return (
     <Card>
       <Form>
@@ -63,12 +80,20 @@ const TimestampForm = ({}) => {
           Decred blockchain.
         </Description>
         <FileInput files={files} setFiles={setFiles} />
-        <SubmitCard isOpen={files && files.length}>
+        {files && files.length ? (
+          <SubmitWrapper>
+            <Button onClick={handleSubmit} type="submit">
+              Timestamp files
+            </Button>
+          </SubmitWrapper>
+        ) : null}
+
+        {/* <SubmitCard isOpen={files && files.length}>
           <Button type="submit">Timestamp files</Button>
-        </SubmitCard>
+        </SubmitCard> */}
       </Form>
     </Card>
   );
 };
 
-export default TimestampForm;
+export default withRouter(TimestampForm);

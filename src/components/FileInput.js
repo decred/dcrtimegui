@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Dropzone from "react-dropzone";
 import { List, ListItem } from "cobra-ui";
+import { digestPayload } from "../helpers/bytes";
 
 // processFiles adds the base64 payload into the file data
 const processFiles = files =>
@@ -10,9 +11,11 @@ const processFiles = files =>
     files.forEach(file => {
       const reader = new FileReader();
       reader.onload = (f => event => {
+        const payload = event.target.result.split(",")[1];
         processedFiles.push({
           name: f.name,
-          payload: event.target.result.split(",")[1]
+          payload,
+          digest: digestPayload(payload)
         });
         if (processedFiles.length === files.length) resolve(processedFiles);
       })(file);
@@ -30,11 +33,21 @@ const FilesList = ({ files, onRemoveFile }) => (
         }}
         key={`file-item-${i}`}
       >
-        <span
-          style={{ textAlign: "left", color: "#8997a5", fontSize: "0.9em" }}
+        <div
+          style={{
+            textAlign: "left",
+            color: "#8997a5",
+            fontSize: "0.9em",
+            display: "flex",
+            flexDirection: "column"
+          }}
         >
-          {file.name}
-        </span>
+          <span>{file.name}</span>
+          <span style={{ fontSize: "0.6em" }}>
+            <b>Digest: </b>
+            {file.digest}
+          </span>
+        </div>
         <div>
           <FileItemRemove
             className="material-icons"
