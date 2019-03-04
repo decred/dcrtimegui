@@ -21,7 +21,7 @@ const processFiles = files =>
   });
 
 const FilesList = ({ files, onRemoveFile }) => (
-  <List style={{ width: "100%" }}>
+  <List style={{ width: "100%", marginTop: "14px" }}>
     {files.map((file, i) => (
       <ListItem
         style={{
@@ -30,7 +30,11 @@ const FilesList = ({ files, onRemoveFile }) => (
         }}
         key={`file-item-${i}`}
       >
-        <span style={{ textAlign: "left" }}>{file.name}</span>
+        <span
+          style={{ textAlign: "left", color: "#8997a5", fontSize: "0.9em" }}
+        >
+          {file.name}
+        </span>
         <div>
           <FileItemRemove
             className="material-icons"
@@ -62,7 +66,14 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
           });
         }}
       >
-        <span>
+        <span
+          style={{
+            width: "100%",
+            textAlign: "center",
+            color: "#3d5873",
+            fontSize: "0.9em"
+          }}
+        >
           {!processing
             ? "Drop your files here or click to select them"
             : "Processing your files..."}
