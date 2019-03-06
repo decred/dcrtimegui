@@ -41,12 +41,12 @@ const parseResponse = response =>
 const POST = (path, json) =>
   fetch(getUrl(path), getOptions(json, "POST")).then(parseResponse);
 
-export const timestampFiles = (files, id) =>
+export const timestampFiles = (digests, id) =>
   POST("timestamp/", {
-    digests: files.map(file => file.digest)
+    digests
   });
 
-export const verifyFiles = (files, id) =>
+export const verifyFiles = (digests, id) =>
   POST("verify/", {
-    digests: files.map(file => file.digest)
+    digests
   });

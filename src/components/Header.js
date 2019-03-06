@@ -8,9 +8,9 @@ const HeaderWrapper = styled.header`
   padding: 1em;
 `;
 
-const Header = ({}) => (
+const Header = ({ history }) => (
   <HeaderWrapper>
-    <Logo />
+    <Logo onClick={() => history.push("/")} />
   </HeaderWrapper>
 );
 

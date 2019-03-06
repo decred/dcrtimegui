@@ -5,9 +5,11 @@ import { timestampFiles, verifyFiles } from "../services/api";
 import {
   mergeFilesAndVerifyResult,
   mergeFilesAndAuthResult,
-  filterFilesByVerifiedStatus
+  filterFilesByVerifiedStatus,
+  getFilesDigests
 } from "../helpers/bytes";
 import LoadingResults from "../components/LoadingResults";
+import DisplayResults from "../components/DisplayResults";
 
 const Page = styled.main`
   width: 100%;
@@ -17,12 +19,14 @@ const Page = styled.main`
 `;
 
 const Results = ({ location }) => {
-  const [files, setFiles] = useState([]);
+  const [verifiedFiles, setVerifiedFiles] = useState([]);
+  const [timestampedFiles, setTimestampedFiles] = useState([]);
   const [verifyLoading, setLoadingVerify] = useState(false);
   const [verified, setVerified] = useState(false);
   const [timestampLoading, setLoadingTimestamp] = useState(false);
   const [timestamped, setTimestamped] = useState(false);
   const [chainVerified, setChainVerified] = useState(false);
+  const [done, setDone] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -44,17 +48,24 @@ const Results = ({ location }) => {
         mergeFilesAndVerifyResult(files, verifyRes)
       );
 
-      const authRes = await handleTimestampFiles(newFiles);
-      const authorizedFiles = mergeFilesAndAuthResult(newFiles, authRes);
+      setVerifiedFiles(verifiedFiles);
+
+      if (newFiles && newFiles.length) {
+        const tsRes = await handleTimestampFiles(newFiles);
+        const tsFiles = mergeFilesAndAuthResult(newFiles, tsRes);
+        setTimestampedFiles(tsFiles);
+      }
+      setDone(true);
     } catch (e) {
       setError(e);
     }
   };
 
   const handleVerifyFiles = async files => {
+    const digests = getFilesDigests(files);
     setLoadingVerify(true);
     try {
-      const res = await verifyFiles(files);
+      const res = await verifyFiles(digests);
       setLoadingVerify(false);
       setVerified(true);
       return res;
@@ -65,9 +76,10 @@ const Results = ({ location }) => {
   };
 
   const handleTimestampFiles = async files => {
+    const digests = getFilesDigests(files);
     setLoadingTimestamp(true);
     try {
-      const res = await timestampFiles(files, "files");
+      const res = await timestampFiles(digests, "files");
       setLoadingTimestamp(false);
       setTimestamped(true);
       return res;
@@ -81,12 +93,19 @@ const Results = ({ location }) => {
 
   return (
     <Page>
-      <LoadingResults
-        verifyLoading={verifyLoading}
-        verified={verified}
-        timestampLoading={timestampLoading}
-        timestamped={timestamped}
-      />
+      {!done ? (
+        <LoadingResults
+          verifyLoading={verifyLoading}
+          verified={verified}
+          timestampLoading={timestampLoading}
+          timestamped={timestamped}
+        />
+      ) : (
+        <DisplayResults
+          timestampedFiles={timestampedFiles}
+          verifiedFiles={verifiedFiles}
+        />
+      )}
     </Page>
   );
 };

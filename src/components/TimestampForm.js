@@ -88,9 +88,9 @@ const TimestampForm = ({ history }) => {
           </SubmitWrapper>
         ) : null}
 
-        {/* <SubmitCard isOpen={files && files.length}>
+        <SubmitCard isOpen={files && files.length}>
           <Button type="submit">Timestamp files</Button>
-        </SubmitCard> */}
+        </SubmitCard>
       </Form>
     </Card>
   );

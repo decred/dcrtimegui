@@ -33,7 +33,7 @@ export const digestPayload = payload =>
 export const mergeFilesAndVerifyResult = (files, res) =>
   files.map((f, i) => ({
     ...f,
-    digest: res && res.digests ? res.digests[i] : {}
+    ...(res.digests[i] || {})
   }));
 
 export const mergeFilesAndAuthResult = (files, res) =>
@@ -44,10 +44,12 @@ export const mergeFilesAndAuthResult = (files, res) =>
   }));
 
 const resultIsTwo = n => n === 2;
-const fileVerified = ({ digest: { result } }) => !resultIsTwo(result);
-const fileNotVerified = ({ digest: { result } }) => resultIsTwo(result);
+const fileVerified = ({ result }) => !resultIsTwo(result);
+const fileNotVerified = ({ result }) => resultIsTwo(result);
 
 export const filterFilesByVerifiedStatus = filesAndResult => ({
   newFiles: filesAndResult.filter(fileNotVerified),
   verifiedFiles: filesAndResult.filter(fileVerified)
 });
+
+export const getFilesDigests = files => files.map(f => f.digest);
