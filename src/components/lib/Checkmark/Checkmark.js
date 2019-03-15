@@ -6,6 +6,6 @@ const SVG = styled.img`
   height: 3em;
 `;
 
-const Checkmark = ({}) => <SVG alt="Checkmark" src={checkmarkSVG} />;
+const Checkmark = () => <SVG alt="Checkmark" src={checkmarkSVG} />;
 
 export default Checkmark;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import Card from "./lib/Card";
 import Button from "./lib/Button";
@@ -25,29 +25,6 @@ const Form = styled.form`
 
   @media (min-width: 768px) {
     text-align: left;
-  }
-`;
-
-const SubmitCard = styled(Card)`
-  position: fixed;
-  bottom: -88px;
-  left: 0;
-  width: calc(100% - 1em);
-  padding: 0.5em;
-  background: #f9fafa;
-  box-shadow: 1px 2px 10px 1px #8997a5;
-  display: flex;
-  justify-content: center;
-  transition: transform 300ms ease-in-out;
-
-  ${props =>
-    props.isOpen &&
-    css`
-      transform: translate(0, -88px);
-    `}
-
-  @media (min-width: 768px) {
-    justify-content: flex-end;
   }
 `;
 
@@ -87,10 +64,6 @@ const TimestampForm = ({ history }) => {
             </Button>
           </SubmitWrapper>
         ) : null}
-
-        <SubmitCard isOpen={files && files.length}>
-          <Button type="submit">Timestamp files</Button>
-        </SubmitCard>
       </Form>
     </Card>
   );

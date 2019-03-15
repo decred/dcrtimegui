@@ -1,5 +1,4 @@
 import "isomorphic-fetch";
-import { digestPayload } from "../helpers/bytes";
 
 const apiBase =
   process.env.REACT_APP_NETWORK === "testnet"

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Transaction from "./Transaction";
 
 const ChainInforWrapper = styled.div`
   padding: 1em;
@@ -29,7 +30,7 @@ const ChainInfo = ({ chaintimestamp, merklepath, merkleroot, transaction }) => {
       </Field>
       <Field>
         <b>Transaction: </b>
-        {transaction}
+        <Transaction txID={transaction} />
       </Field>
     </ChainInforWrapper>
   );

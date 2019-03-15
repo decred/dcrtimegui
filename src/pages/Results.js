@@ -25,7 +25,7 @@ const Results = ({ location }) => {
   const [verified, setVerified] = useState(false);
   const [timestampLoading, setLoadingTimestamp] = useState(false);
   const [timestamped, setTimestamped] = useState(false);
-  const [chainVerified, setChainVerified] = useState(false);
+  // const [chainVerified, setChainVerified] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState(null);
 

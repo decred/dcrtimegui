@@ -3,11 +3,13 @@ import styled from "styled-components";
 import Card from "./lib/Card";
 import Status from "./lib/Status";
 import ChainInfo from "./ChainInfo";
+import DownloadFileLink from "./DownloadFileLink";
 import { isFileAnchored } from "../helpers/bytes";
 
 const FileListWrapper = styled.ul`
   list-style: none;
   padding: 0;
+  padding-bottom: 40px;
 `;
 
 const FileListItemWrapper = styled.li`
@@ -31,6 +33,11 @@ const FileListItemHeader = styled.div`
   justify-content: space-between;
 `;
 
+const FileListItemFooter = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
 const Field = styled.span`
   font-size: 12px;
   line-height: 2em;
@@ -42,6 +49,7 @@ const Field = styled.span`
 const FileListItem = ({
   file: { name, digest, servertimestamp, ...fileProps }
 }) => {
+  const isAnchored = isFileAnchored(fileProps);
   return (
     <FileListItemWrapper>
       <FileListItemCard>
@@ -55,9 +63,21 @@ const FileListItem = ({
         <Field>
           <b>Digest: </b> {digest}
         </Field>
-        {isFileAnchored(fileProps) ? (
-          <ChainInfo {...fileProps.chaininformation} />
-        ) : null}
+        {isAnchored ? <ChainInfo {...fileProps.chaininformation} /> : null}
+        <FileListItemFooter>
+          {isAnchored ? (
+            <DownloadFileLink
+              data={JSON.stringify({
+                name,
+                digest,
+                merklePath: fileProps.chaininformation.merklepath
+              })}
+              filename={`${digest}.json`}
+            >
+              Download proof information
+            </DownloadFileLink>
+          ) : null}
+        </FileListItemFooter>
       </FileListItemCard>
     </FileListItemWrapper>
   );
