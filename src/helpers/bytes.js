@@ -53,3 +53,7 @@ export const filterFilesByVerifiedStatus = filesAndResult => ({
 });
 
 export const getFilesDigests = files => files.map(f => f.digest);
+
+export const isFileAnchored = file => {
+  return file.chaininformation && file.chaininformation.chaintimestamp;
+};

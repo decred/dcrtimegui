@@ -3,6 +3,10 @@ import styled from "styled-components";
 import Card from "./lib/Card";
 import Selector from "./lib/Selector";
 import FileList from "./FileList";
+import { isFileAnchored } from "../helpers/bytes";
+
+const getAnchoredFiles = files => files.filter(isFileAnchored);
+const getPendingFiles = files => files.filter(file => !isFileAnchored(file));
 
 const Title = styled.h1`
   color: #3d5873;
@@ -38,28 +42,42 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const VERIFIED_OPTION = 0;
-const UPLOADED_OPTION = 1;
+const ALL_OPTION = 1;
+const ANCHORED_OPTION = 2;
+const PENDING_OPTION = 3;
 
-const getOptions = (tsFiles, verifyFiles) => {
+const getOptions = files => {
   let options = [];
 
-  if (verifyFiles.length) {
+  const anchoredFiles = getAnchoredFiles(files);
+  const pendingFiles = getPendingFiles(files);
+
+  if (files.length) {
     options = options.concat([
       {
-        value: VERIFIED_OPTION,
-        label: "Verified Digests",
-        count: verifyFiles.length
+        value: ALL_OPTION,
+        label: "All Digests",
+        count: files.length
       }
     ]);
   }
 
-  if (tsFiles.length) {
+  if (anchoredFiles.length) {
     options = options.concat([
       {
-        value: UPLOADED_OPTION,
-        label: "Uploaded Digests",
-        count: tsFiles.length
+        value: ANCHORED_OPTION,
+        label: "Anchored",
+        count: anchoredFiles.length
+      }
+    ]);
+  }
+
+  if (pendingFiles.length) {
+    options = options.concat([
+      {
+        value: PENDING_OPTION,
+        label: "Pending",
+        count: pendingFiles.length
       }
     ]);
   }
@@ -67,25 +85,27 @@ const getOptions = (tsFiles, verifyFiles) => {
   return options;
 };
 
-const DisplayResults = ({ timestampedFiles, verifiedFiles }) => {
-  const [selectedOption, setOption] = useState(0);
+const DisplayResults = ({ files }) => {
+  const [selectedOption, setOption] = useState(1);
   const [options, setOptions] = useState([]);
   useEffect(() => {
-    const options = getOptions(timestampedFiles, verifiedFiles);
+    const options = getOptions(files);
     setOption(options[0].value);
     setOptions(options);
   }, []);
-  console.log(timestampedFiles, verifiedFiles);
   const getFilesToDisplay = () => {
     switch (selectedOption) {
-      case VERIFIED_OPTION:
-        return verifiedFiles;
-      case UPLOADED_OPTION:
-        return timestampedFiles;
+      case ALL_OPTION:
+        return files;
+      case ANCHORED_OPTION:
+        return getAnchoredFiles(files);
+      case PENDING_OPTION:
+        return getPendingFiles(files);
       default:
         break;
     }
   };
+  const filesdp = getFilesToDisplay(files);
   return (
     <Wrapper>
       <TitleCard>
@@ -102,7 +122,7 @@ const DisplayResults = ({ timestampedFiles, verifiedFiles }) => {
           onSelect={setOption}
         />
       </TitleCard>
-      <FileList files={getFilesToDisplay()} />
+      <FileList files={filesdp} />
     </Wrapper>
   );
 };

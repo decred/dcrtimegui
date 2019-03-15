@@ -103,7 +103,7 @@ const Results = ({ location }) => {
       ) : (
         <DisplayResults
           timestampedFiles={timestampedFiles}
-          verifiedFiles={verifiedFiles}
+          files={verifiedFiles.concat(timestampedFiles)}
         />
       )}
     </Page>
