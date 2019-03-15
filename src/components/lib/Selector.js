@@ -8,6 +8,7 @@ const SelectorItemWrapper = styled.div`
   font-size: 13px;
   margin-right: 10px;
   align-items: center;
+  border-bottom: 2px solid #fff;
   cursor: pointer;
   ${props =>
     props.isSelected
