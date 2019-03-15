@@ -111,10 +111,12 @@ const DisplayResults = ({ files }) => {
       <TitleCard>
         <Title>Results</Title>
         <Description>
-          <b>Verified digests:</b> digest was in the server and may be anchored
-          already. <br />
-          <b>Uploaded digests:</b> digest was just added to the server and
-          should be anchored within the next hour.
+          The files sent to dcrtime can be either: <br />
+          <b>Anchored:</b> the digest of the file and other files digests sent
+          in the same hour range were compiled into a merkle root which is
+          already stored in the chain. <br />
+          <b>Pending:</b> the digest of the file is stored in the dcrtime server
+          and it should be anchored within the next hour.
         </Description>
         <Selector
           options={options}
