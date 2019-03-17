@@ -128,7 +128,9 @@ const DisplayResults = ({ files }) => {
           in the same hour range were compiled into a merkle root which is
           already stored in the chain. <br />
           <b>Pending:</b> the digest of the file is stored in the dcrtime server
-          and it should be anchored within the next hour.
+          and it should be anchored within the next hour. <br />
+          <b>Not Anchored:</b> the digest of the file is not stored in the
+          dcrtime server.
         </Description>
         <Selector
           options={options}
