@@ -4,7 +4,10 @@ import Card from "./lib/Card";
 import Status from "./lib/Status";
 import ChainInfo from "./ChainInfo";
 import DownloadFileLink from "./DownloadFileLink";
-import { isFileDigestAnchored } from "../helpers/dcrtime";
+import {
+  isFileDigestAnchored,
+  isFileDigestAnchorPending
+} from "../helpers/dcrtime";
 
 const FileListWrapper = styled.ul`
   list-style: none;
@@ -26,6 +29,8 @@ const FileListItemCard = styled(Card)`
 const FileTitle = styled.span`
   font-size: 18px;
   color: #3d5873;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const FileListItemHeader = styled.div`
@@ -46,19 +51,27 @@ const Field = styled.span`
   text-overflow: ellipsis;
 `;
 
+const getFileStatusAndLabel = file => {
+  if (isFileDigestAnchored(file)) {
+    return { status: "active", label: "Anchored" };
+  }
+  if (isFileDigestAnchorPending(file)) {
+    return { status: "pending", label: "Pending" };
+  }
+  return { status: "finished", label: "Not Anchored" };
+};
+
 const FileListItem = ({
   file: { name, digest, servertimestamp, ...fileProps }
 }) => {
   const isAnchored = isFileDigestAnchored(fileProps);
+  const { status, label } = getFileStatusAndLabel(fileProps);
   return (
     <FileListItemWrapper>
       <FileListItemCard>
         <FileListItemHeader>
           <FileTitle>{name}</FileTitle>
-          <Status
-            type={isAnchored ? "active" : "pending"}
-            label={isAnchored ? "Anchored" : ""}
-          />
+          <Status type={status} label={label} />
         </FileListItemHeader>
         <Field>
           <b>Digest: </b> {digest}

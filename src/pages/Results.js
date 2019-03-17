@@ -34,9 +34,11 @@ const Results = ({ location }) => {
 
   useEffect(() => {
     // get query string parameters
-    const { digests: strDigests, names: strNames, strTimestamp } = qs.parse(
-      location.search
-    );
+    const {
+      digests: strDigests,
+      names: strNames,
+      timestamp: strTimestamp
+    } = qs.parse(location.search);
     // parse digests and names from query parameters
     const digests = strDigests.split(",");
     const names = strNames ? strNames.split(",") : [];
