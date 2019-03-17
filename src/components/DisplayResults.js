@@ -3,10 +3,11 @@ import styled from "styled-components";
 import Card from "./lib/Card";
 import Selector from "./lib/Selector";
 import FileList from "./FileList";
-import { isFileAnchored } from "../helpers/bytes";
-
-const getAnchoredFiles = files => files.filter(isFileAnchored);
-const getPendingFiles = files => files.filter(file => !isFileAnchored(file));
+import {
+  getAnchoredFiles,
+  getPendingFiles,
+  getNotAnchoredFiles
+} from "../helpers/dcrtime";
 
 const Title = styled.h1`
   color: #3d5873;
@@ -42,44 +43,43 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const ALL_OPTION = 1;
-const ANCHORED_OPTION = 2;
-const PENDING_OPTION = 3;
+const ANCHORED_OPTION = 1;
+const PENDING_OPTION = 2;
+const NOT_ANCHORED_OPTION = 3;
 
 const getOptions = files => {
   let options = [];
 
+  const addOption = option => {
+    options = options.concat([option]);
+  };
+
   const anchoredFiles = getAnchoredFiles(files);
   const pendingFiles = getPendingFiles(files);
-
-  if (files.length) {
-    options = options.concat([
-      {
-        value: ALL_OPTION,
-        label: "All Digests",
-        count: files.length
-      }
-    ]);
-  }
+  const notAnchoredFiles = getNotAnchoredFiles(files);
 
   if (anchoredFiles.length) {
-    options = options.concat([
-      {
-        value: ANCHORED_OPTION,
-        label: "Anchored",
-        count: anchoredFiles.length
-      }
-    ]);
+    addOption({
+      value: ANCHORED_OPTION,
+      label: "Anchored",
+      count: anchoredFiles.length
+    });
   }
 
   if (pendingFiles.length) {
-    options = options.concat([
-      {
-        value: PENDING_OPTION,
-        label: "Pending",
-        count: pendingFiles.length
-      }
-    ]);
+    addOption({
+      value: PENDING_OPTION,
+      label: "Pending",
+      count: pendingFiles.length
+    });
+  }
+
+  if (notAnchoredFiles.length) {
+    addOption({
+      value: NOT_ANCHORED_OPTION,
+      label: "Not Anchored",
+      count: notAnchoredFiles.length
+    });
   }
 
   return options;
@@ -95,12 +95,12 @@ const DisplayResults = ({ files }) => {
   }, []);
   const getFilesToDisplay = () => {
     switch (selectedOption) {
-      case ALL_OPTION:
-        return files;
       case ANCHORED_OPTION:
         return getAnchoredFiles(files);
       case PENDING_OPTION:
         return getPendingFiles(files);
+      case NOT_ANCHORED_OPTION:
+        return getNotAnchoredFiles(files);
       default:
         break;
     }

@@ -4,7 +4,7 @@ import Card from "./lib/Card";
 import Status from "./lib/Status";
 import ChainInfo from "./ChainInfo";
 import DownloadFileLink from "./DownloadFileLink";
-import { isFileAnchored } from "../helpers/bytes";
+import { isFileDigestAnchored } from "../helpers/dcrtime";
 
 const FileListWrapper = styled.ul`
   list-style: none;
@@ -49,15 +49,15 @@ const Field = styled.span`
 const FileListItem = ({
   file: { name, digest, servertimestamp, ...fileProps }
 }) => {
-  const isAnchored = isFileAnchored(fileProps);
+  const isAnchored = isFileDigestAnchored(fileProps);
   return (
     <FileListItemWrapper>
       <FileListItemCard>
         <FileListItemHeader>
           <FileTitle>{name}</FileTitle>
           <Status
-            type={isFileAnchored(fileProps) ? "active" : "pending"}
-            label={isFileAnchored(fileProps) ? "Anchored" : ""}
+            type={isAnchored ? "active" : "pending"}
+            label={isAnchored ? "Anchored" : ""}
           />
         </FileListItemHeader>
         <Field>

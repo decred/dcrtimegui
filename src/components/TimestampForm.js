@@ -43,7 +43,7 @@ const TimestampForm = ({ history }) => {
     const digests = files.map(file => file.digest);
     const names = files.map(file => file.name);
     history.push(
-      `results?digests=${digests.toString()}&names=${names.toString()}`
+      `results?digests=${digests.toString()}&names=${names.toString()}&timestamp=true`
     );
   };
   return (

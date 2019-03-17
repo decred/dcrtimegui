@@ -5,12 +5,11 @@ import { timestampFiles, verifyFiles } from "../services/api";
 import {
   mergeFilesAndVerifyResult,
   mergeFilesAndAuthResult,
-  filterFilesByVerifiedStatus,
+  getNotAnchoredFiles,
   getFilesDigests
-} from "../helpers/bytes";
+} from "../helpers/dcrtime";
 import LoadingResults from "../components/LoadingResults";
 import DisplayResults from "../components/DisplayResults";
-
 const Page = styled.main`
   width: 100%;
   display: flex;
@@ -18,42 +17,64 @@ const Page = styled.main`
   padding-top: 40px;
 `;
 
+const updateFiles = (files, newFiles) =>
+  files.map(file => {
+    const newFile = newFiles.filter(nf => nf.digest === file.digest)[0];
+    return newFile || file;
+  });
+
 const Results = ({ location }) => {
-  const [verifiedFiles, setVerifiedFiles] = useState([]);
-  const [timestampedFiles, setTimestampedFiles] = useState([]);
+  const [files, setFiles] = useState([]);
   const [verifyLoading, setLoadingVerify] = useState(false);
   const [verified, setVerified] = useState(false);
   const [timestampLoading, setLoadingTimestamp] = useState(false);
   const [timestamped, setTimestamped] = useState(false);
-  // const [chainVerified, setChainVerified] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const { digests: strDigests, names: strNames } = qs.parse(location.search);
+    // get query string parameters
+    const { digests: strDigests, names: strNames, strTimestamp } = qs.parse(
+      location.search
+    );
+    // parse digests and names from query parameters
     const digests = strDigests.split(",");
-    const names = strNames.split(",");
+    const names = strNames ? strNames.split(",") : [];
+    const shouldTimestamp = strTimestamp === "true";
+
+    // file names are set from the query param if existent otherwise the
+    // digest is used as the name
     const files = digests.map((d, i) => ({
-      name: names[i],
+      name: names[i] || d,
       digest: d
     }));
-    handleSubmitFiles(files);
+
+    // start the files processing
+    handleProcessFiles(files, shouldTimestamp);
   }, []);
 
-  const handleSubmitFiles = async files => {
+  const handleProcessFiles = async (files, shouldTimestamp) => {
     try {
+      // verify digests against dcrtime
       const verifyRes = await handleVerifyFiles(files);
 
-      const { newFiles, verifiedFiles } = filterFilesByVerifiedStatus(
-        mergeFilesAndVerifyResult(files, verifyRes)
-      );
+      const verifiedFiles = mergeFilesAndVerifyResult(files, verifyRes);
+      setFiles(verifiedFiles);
 
-      setVerifiedFiles(verifiedFiles);
+      // differentiate between digests already sent to the server and the
+      // ones which were not sent yet
+      const notTimestampedFiles = getNotAnchoredFiles(verifiedFiles);
 
-      if (newFiles && newFiles.length) {
-        const tsRes = await handleTimestampFiles(newFiles);
-        const tsFiles = mergeFilesAndAuthResult(newFiles, tsRes);
-        setTimestampedFiles(tsFiles);
+      // apply the timestamp to the digests which were not found in the server
+      // if 'shouldTimestamp' is true
+      if (
+        shouldTimestamp &&
+        notTimestampedFiles &&
+        notTimestampedFiles.length
+      ) {
+        const tsRes = await handleTimestampFiles(notTimestampedFiles);
+        const tsFiles = mergeFilesAndAuthResult(notTimestampedFiles, tsRes);
+        setFiles(files => updateFiles(files, tsFiles));
       }
       setDone(true);
     } catch (e) {
@@ -101,10 +122,7 @@ const Results = ({ location }) => {
           timestamped={timestamped}
         />
       ) : (
-        <DisplayResults
-          timestampedFiles={timestampedFiles}
-          files={verifiedFiles.concat(timestampedFiles)}
-        />
+        <DisplayResults files={files} />
       )}
     </Page>
   );
