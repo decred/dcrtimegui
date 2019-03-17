@@ -3,7 +3,7 @@ html, body {
   padding: 0;
   height: 100%;
   overflow: auto;
-  background: #d6d6d63b;
+  background: #F3F5F6;
 }
 
 #root {
@@ -13,19 +13,6 @@ html, body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.or {
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid #999;
-  line-height: 0.1em;
-  margin: 10px 0 20px;
-}
-
-.or span {
-   background: #fdfdfd;
-   padding: 0 10px;
 }
 
 .lds-ripple {

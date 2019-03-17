@@ -1,5 +1,4 @@
 import CryptoJS from "crypto-js";
-import { INVALID, EMPTY_DIGEST } from "../constants";
 
 // Copied from https://stackoverflow.com/a/21797381
 export const base64ToArrayBuffer = base64 => {
@@ -29,25 +28,3 @@ export const digestPayload = payload =>
   CryptoJS.SHA256(
     arrayBufferToWordArray(base64ToArrayBuffer(payload))
   ).toString(CryptoJS.enc.Hex);
-
-export const mergeFilesAndVerifyResult = (files, res) =>
-  files.map((f, i) => ({
-    ...f,
-    digest: res && res.digests ? res.digests[i] : {}
-  }));
-
-export const mergeFilesAndAuthResult = (files, res) =>
-  files.map((f, i) => ({
-    ...f,
-    digest: res && res.digests ? res.digests[i] : EMPTY_DIGEST,
-    result: res && res.results ? res.results[i] : INVALID
-  }));
-
-const resultIsTwo = n => n === 2;
-const fileVerified = ({ digest: { result } }) => !resultIsTwo(result);
-const fileNotVerified = ({ digest: { result } }) => resultIsTwo(result);
-
-export const filterFilesByVerifiedStatus = filesAndResult => ({
-  newFiles: filesAndResult.filter(fileNotVerified),
-  verifiedFiles: filesAndResult.filter(fileVerified)
-});

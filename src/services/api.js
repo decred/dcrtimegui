@@ -1,5 +1,4 @@
 import "isomorphic-fetch";
-import { digestPayload } from "../helpers/bytes";
 
 const apiBase =
   process.env.REACT_APP_NETWORK === "testnet"
@@ -27,17 +26,26 @@ const parseResponseBody = response => {
   throw err;
 };
 
-const POST = (path, json) =>
-  fetch(getUrl(path), getOptions(json, "POST"))
-    .then(parseResponseBody)
-    .catch(err => console.log(err));
-
-export const timestampFiles = (files, id) =>
-  POST("timestamp/", {
-    digests: files.map(file => digestPayload(file.payload))
+const parseResponse = response =>
+  parseResponseBody(response).then(json => {
+    if (json.error) {
+      const err = new Error(json.error);
+      err.internalError = false;
+      err.errorID = json.error;
+      throw err;
+    }
+    return json;
   });
 
-export const verifyFiles = (files, id) =>
+const POST = (path, json) =>
+  fetch(getUrl(path), getOptions(json, "POST")).then(parseResponse);
+
+export const timestampFiles = (digests, id) =>
+  POST("timestamp/", {
+    digests
+  });
+
+export const verifyFiles = (digests, id) =>
   POST("verify/", {
-    digests: files.map(file => digestPayload(file.payload))
+    digests
   });
