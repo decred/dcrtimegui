@@ -40,8 +40,8 @@ const getIcon = type => {
 
 const StatusWrapper = styled.div`
   font-size: 12px;
-  padding: 0 0.4em;
-  height: 20px;
+  padding: 0em 0.4em;
+  min-height: 20px;
   display: flex;
   align-items: center;
   border: 1px solid ${props => getColor(props.type)};
