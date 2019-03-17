@@ -83,6 +83,8 @@ const FileListItem = ({
               data={JSON.stringify({
                 name,
                 digest,
+                transaction: fileProps.chaininformation.transaction,
+                merkleRoot: fileProps.chaininformation.merkleroot,
                 merklePath: fileProps.chaininformation.merklepath
               })}
               filename={`${digest}.json`}

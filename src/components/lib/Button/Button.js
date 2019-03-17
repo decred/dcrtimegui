@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import PropTypes from "prop-types";
 
 const Button = styled.button`
   border-radius: 5px;

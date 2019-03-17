@@ -56,8 +56,7 @@ const Selector = ({ options, renderItem, onSelect, value }) => {
 
 SelectorItem.propTypes = {
   item: PropTypes.object.isRequired,
-  isSelected: PropTypes.bool.isRequired,
-  onSelect: PropTypes.func.isRequired
+  isSelected: PropTypes.bool.isRequired
 };
 
 Selector.propTypes = {

@@ -43,6 +43,17 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
+const Link = styled.a`
+  font-size: 10px;
+  line-height: 2em;
+  text-decoration: none;
+  color: #2970ff;
+
+  &:visited {
+    color: #2970ff;
+  }
+`;
+
 const ANCHORED_OPTION = 1;
 const PENDING_OPTION = 2;
 const NOT_ANCHORED_OPTION = 3;
@@ -109,6 +120,7 @@ const DisplayResults = ({ files }) => {
   return (
     <Wrapper>
       <TitleCard>
+        <Link href="/">← Timestamp more files</Link>
         <Title>Results</Title>
         <Description>
           The files sent to dcrtime can be either: <br />
