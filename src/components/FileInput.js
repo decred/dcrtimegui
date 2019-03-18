@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Dropzone from "react-dropzone";
-import { List, ListItem } from "cobra-ui";
+import { List, ListItem } from "./lib/List";
 import { digestPayload } from "../helpers/bytes";
 
 // processFiles adds the base64 payload into the file data
