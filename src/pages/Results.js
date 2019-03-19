@@ -10,11 +10,12 @@ import {
 } from "../helpers/dcrtime";
 import LoadingResults from "../components/LoadingResults";
 import DisplayResults from "../components/DisplayResults";
+
 const Page = styled.main`
-  width: 100%;
+  width: calc(100% - 20px);
   display: flex;
   justify-content: center;
-  padding-top: 40px;
+  padding: 10px;
 `;
 
 const updateFiles = (files, newFiles) =>

@@ -1,4 +1,10 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  src: local("Source Sans Pro"), url(./fonts/source-sans-pro/source-sans-pro-v9-latin-regular.woff) format("woff")
+}
+
 html, body {
+  font-family: "Source Sans Pro", sans-serif;
   margin: 0;
   padding: 0;
   height: 100%;

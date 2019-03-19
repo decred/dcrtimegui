@@ -39,14 +39,14 @@ const getIcon = type => {
 };
 
 const StatusWrapper = styled.div`
-  font-size: 12px;
+  font-size: 0.75em;
   padding: 0em 0.4em;
-  min-height: 20px;
+  max-height: 28px;
   display: flex;
   align-items: center;
   border: 1px solid ${props => getColor(props.type)};
   border-radius: 2px;
-  max-width: 200px;
+  max-width: 220px;
 `;
 
 const Icon = styled.img`
