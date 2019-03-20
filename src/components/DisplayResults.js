@@ -33,7 +33,7 @@ const Description = styled.p`
   color: #8997a5;
   font-size: 0.75em;
   max-width: 600px;
-  text-align: left;
+  text-align: justify;
 `;
 
 const Wrapper = styled.div`

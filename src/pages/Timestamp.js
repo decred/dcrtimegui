@@ -3,10 +3,10 @@ import styled from "styled-components";
 import TimestampForm from "../components/TimestampForm";
 
 const Page = styled.main`
-  width: 100%;
+  width: calc(100% - 20px);
   display: flex;
   justify-content: center;
-  padding-top: 40px;
+  padding: 10px;
   padding-bottom: 40px;
 `;
 
