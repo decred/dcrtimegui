@@ -1,15 +1,14 @@
-# Dcrtimestamp 
+# Dcrtimegui
 
-**Dcrtimestamp is a web application which provides an easy and free timestamping service using dcrtime as the backend.**
+**Dcrtimegui is a web application which provides an easy and free timestamping service using dcrtime as the backend.**
 
-The timestamp service allows you to create a Proof-of-Existence of a given 
-file. A digital signature (digest) of each file is calculated and sent to the 
-Dcrtime server which hourly will calculate the merkle root for all digests 
-collected in the previous 60 minutes and store its value in the blockchain.
+A hash of each submitted file is calculated and sent to a dcrtime server, which aggregates these hashes, organizes them into a merkle tree, hashes that tree down to a merkle root, and anchors that merkle root in the Decred blockchain once an hour.
+
+Technical detail: This service, dcrtime and Decred use the sha256 hash function.
 
 **The files are not stored in the server**. It uses 
 [dcrtime](https://github.com/decred/dcrtime) as backend to store and anchor the
-files signatures.
+files hashes.
 
 
 ### Development
@@ -43,8 +42,8 @@ used as the name instead.
 
 #### Usage
 
-The following URL will verify the digest of two files (file1.json and file2.txt),
-the digests which can't be found in the server will be uploaded for anchoring in
+The following URL will verify the hashes of two files (file1.json and file2.txt),
+the hashes which can't be found in the server will be uploaded for anchoring in
 dcrtime.
 
 ```
