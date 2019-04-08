@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import qs from "query-string";
-import { timestampFiles, verifyFiles } from "../services/api";
 import {
-  mergeFilesAndVerifyResult,
-  mergeFilesAndAuthResult,
+  mergeFilesAndResult,
   getNotAnchoredFiles,
-  getFilesDigests
+  getFilesDigests,
+  timestamp,
+  verify
 } from "../helpers/dcrtime";
 import LoadingResults from "../components/LoadingResults";
 import DisplayResults from "../components/DisplayResults";
@@ -60,8 +60,7 @@ const Results = ({ location }) => {
     try {
       // verify digests against dcrtime
       const verifyRes = await handleVerifyFiles(files);
-
-      const verifiedFiles = mergeFilesAndVerifyResult(files, verifyRes);
+      const verifiedFiles = mergeFilesAndResult(files, verifyRes);
       setFiles(verifiedFiles);
 
       // differentiate between digests already sent to the server and the
@@ -76,7 +75,7 @@ const Results = ({ location }) => {
         notTimestampedFiles.length
       ) {
         const tsRes = await handleTimestampFiles(notTimestampedFiles);
-        const tsFiles = mergeFilesAndAuthResult(notTimestampedFiles, tsRes);
+        const tsFiles = mergeFilesAndResult(notTimestampedFiles, tsRes);
         setFiles(files => updateFiles(files, tsFiles));
       }
       setDone(true);
@@ -89,7 +88,7 @@ const Results = ({ location }) => {
     const digests = getFilesDigests(files);
     setLoadingVerify(true);
     try {
-      const res = await verifyFiles(digests);
+      const res = await verify(digests);
       setLoadingVerify(false);
       setVerified(true);
       return res;
@@ -103,7 +102,7 @@ const Results = ({ location }) => {
     const digests = getFilesDigests(files);
     setLoadingTimestamp(true);
     try {
-      const res = await timestampFiles(digests, "files");
+      const res = await timestamp(digests, "files");
       setLoadingTimestamp(false);
       setTimestamped(true);
       return res;

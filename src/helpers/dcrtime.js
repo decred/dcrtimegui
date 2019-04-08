@@ -1,26 +1,21 @@
-import { INVALID, EMPTY_DIGEST } from "../constants";
+import dcrtime from "dcrtimejs";
 
-// const resultIsTwo = n => n === 2;
-// const fileVerified = ({ result }) => !resultIsTwo(result);
-// const fileNotVerified = ({ result }) => resultIsTwo(result)
+dcrtime.setNetwork(process.env.REACT_APP_NETWORK);
 
-// export const filterFilesByVerifiedStatus = filesAndResult => ({
-//   notTimestampedFiles: filesAndResult.filter(fileNotVerified),
-//   timestampedFiles: filesAndResult.filter(fileVerified)
-// });
+export const digestPayload = dcrtime.getSHA256fromBase64;
 
-export const mergeFilesAndVerifyResult = (files, res) =>
-  files.map((f, i) => ({
-    ...f,
-    ...(res.digests[i] || {})
-  }));
+export const timestamp = dcrtime.timestamp;
 
-export const mergeFilesAndAuthResult = (files, res) =>
-  files.map((f, i) => ({
-    ...f,
-    digest: res && res.digests ? res.digests[i] : EMPTY_DIGEST,
-    result: res && res.results ? res.results[i] : INVALID
-  }));
+export const verify = dcrtime.verify;
+
+export const mergeFilesAndResult = (files, res) =>
+  files.map(f => {
+    const result = res.digests.find(d => f.digest === d.digest);
+    return {
+      ...f,
+      ...result
+    }
+  });
 
 export const getFilesDigests = files => files.map(f => f.digest);
 
@@ -39,5 +34,4 @@ export const getAnchoredFiles = files => files.filter(isFileDigestAnchored);
 
 export const getPendingFiles = files => files.filter(isFileDigestAnchorPending);
 
-export const getNotAnchoredFiles = files =>
-  files.filter(isFileDigestNotAnchored);
+export const getNotAnchoredFiles = files => files.filter(isFileDigestNotAnchored);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Dropzone from "react-dropzone";
 import { List, ListItem } from "./lib/List";
-import { digestPayload } from "../helpers/bytes";
+import { digestPayload } from "../helpers/dcrtime";
 
 // processFiles adds the base64 payload into the file data
 const processFiles = files =>
@@ -50,10 +50,9 @@ const FilesList = ({ files, onRemoveFile }) => (
         </div>
         <div>
           <FileItemRemove
-            className="material-icons"
             onClick={() => onRemoveFile(i)}
           >
-            close
+            &times;
           </FileItemRemove>
         </div>
       </ListItem>
@@ -108,7 +107,7 @@ const FileInputWrapper = styled.div`
 `;
 
 const FileItemRemove = styled.i`
-  font-size: 11px;
+  font-size: 16px;
   color: red;
   cursor: pointer;
   margin-left: 5px;
