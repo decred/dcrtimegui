@@ -14,7 +14,7 @@ export const mergeFilesAndResult = (files, res) =>
     return {
       ...f,
       ...result
-    }
+    };
   });
 
 export const getFilesDigests = files => files.map(f => f.digest);
@@ -34,4 +34,5 @@ export const getAnchoredFiles = files => files.filter(isFileDigestAnchored);
 
 export const getPendingFiles = files => files.filter(isFileDigestAnchorPending);
 
-export const getNotAnchoredFiles = files => files.filter(isFileDigestNotAnchored);
+export const getNotAnchoredFiles = files =>
+  files.filter(isFileDigestNotAnchored);

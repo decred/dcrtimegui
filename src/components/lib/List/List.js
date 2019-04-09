@@ -15,27 +15,27 @@ const List = styled.ul`
     display: flex;
     justify-content: flex-start;
     ${props =>
-    props.orientation === "horizontal" &&
+      props.orientation === "horizontal" &&
       css`
         border: none;
       `}
     ${props =>
-    props.center &&
+      props.center &&
       css`
         justify-content: center;
       `}
     ${props =>
-    props.spaceAround &&
+      props.spaceAround &&
       css`
         justify-content: space-around;
       `}
     ${props =>
-    props.spaceBetween &&
+      props.spaceBetween &&
       css`
         justify-content: space-between;
       `}
     ${props =>
-    props.end &&
+      props.end &&
       css`
         justify-content: flex-end;
       `}

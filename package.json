@@ -24,10 +24,23 @@
     "build": "react-scripts build",
     "build-testnet": "REACT_APP_NETWORK=testnet react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/eslint src"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write",
+      "yarn lint --fix",
+      "git add"
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -36,6 +49,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "prettier": "1.15.2"
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4"
   }
 }
