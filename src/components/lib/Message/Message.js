@@ -19,7 +19,7 @@ const generalStyle = {
   padding: "20px",
   margin: "20px",
   borderRadius: "5px"
-}
+};
 
 const MessageInnerWrapper = styled.div`
   display: flex;
@@ -43,7 +43,11 @@ const Message = ({ type, text, hasShadow, ...props }) => {
     error: (
       <Card
         hasShadow={hasShadow}
-        style={{ backgroundColor: "lightcoral", color: "firebrick", ...generalStyle }}
+        style={{
+          backgroundColor: "lightcoral",
+          color: "firebrick",
+          ...generalStyle
+        }}
         {...props}
       >
         <MessageInnerWrapper>
@@ -55,7 +59,11 @@ const Message = ({ type, text, hasShadow, ...props }) => {
     success: (
       <Card
         hasShadow={hasShadow}
-        style={{ backgroundColor: "lightgreen", color: "seagreen", ...generalStyle }}
+        style={{
+          backgroundColor: "lightgreen",
+          color: "seagreen",
+          ...generalStyle
+        }}
         {...props}
       >
         <MessageInnerWrapper>
@@ -67,7 +75,11 @@ const Message = ({ type, text, hasShadow, ...props }) => {
     default: (
       <Card
         hasShadow={hasShadow}
-        style={{ backgroundColor: "lightblue", color: "royalblue", ...generalStyle }}
+        style={{
+          backgroundColor: "lightblue",
+          color: "royalblue",
+          ...generalStyle
+        }}
         {...props}
       >
         <MessageInnerWrapper>
@@ -81,7 +93,7 @@ const Message = ({ type, text, hasShadow, ...props }) => {
 };
 
 Message.propTypes = {
-  type: PropTypes.oneOf([ "warning", "error", "success", "default" ]),
+  type: PropTypes.oneOf(["warning", "error", "success", "default"]),
   width: PropTypes.number,
   text: PropTypes.string,
   hasShadow: PropTypes.bool

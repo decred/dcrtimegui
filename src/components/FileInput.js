@@ -49,9 +49,7 @@ const FilesList = ({ files, onRemoveFile }) => (
           </span>
         </div>
         <div>
-          <FileItemRemove
-            onClick={() => onRemoveFile(i)}
-          >
+          <FileItemRemove onClick={() => onRemoveFile(i)}>
             &times;
           </FileItemRemove>
         </div>
