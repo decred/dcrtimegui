@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import Card from "./lib/Card";
 import Button from "./lib/Button";
+import Expandable from "./lib/Expandable";
 import FileInput from "./FileInput";
 
 const Title = styled.h1`
@@ -37,8 +38,15 @@ const SubmitWrapper = styled.div`
   }
 `;
 
+const TechnicalDetailsButton = styled.span`
+  cursor: pointer;
+  font-size: 0.75em;
+  color: #2970ff;
+`;
+
 const TimestampForm = ({ history }) => {
   const [files, setFiles] = useState([]);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const handleSubmit = e => {
     e.preventDefault();
     const digests = files.map(file => file.digest);
@@ -47,20 +55,46 @@ const TimestampForm = ({ history }) => {
       `results?digests=${digests.toString()}&names=${names.toString()}&timestamp=true`
     );
   };
+  const handleExpandDetails = () => {
+    setDetailsOpen(!detailsOpen);
+  };
   return (
     <Card>
       <Form>
         <Title>Timestamp</Title>
         <Description>
-          The timestamp service allows you to create a Proof-of-Existence of a
-          given file. A digital signature (digest) of each file is calculated
-          and sent to the Dcrtime server which hourly will calculate the merkle
-          root for all digests collected in the previous 60 minutes and store
-          its value in the blockchain. <br /> The files you submit below will be
-          verified against Dcrtime to find out if their digests are already in
-          there or not. If the digest is not in Dcrtime, it will be uploaded and
-          should be anchored within the next hour.
+          This free service uses the Decred blockchain to time-anchor arbitrary
+          files, which demonstrates a particular file existed at or before the
+          time it was anchored. A hash of each submitted file is calculated and
+          sent to a dcrtime server, which aggregates these hashes, organizes
+          them into a merkle tree, hashes that tree down to a merkle root, and
+          anchors that merkle root in the Decred blockchain once an hour.
         </Description>
+        <Expandable
+          style={{ maxWidth: "600px" }}
+          expanded={detailsOpen}
+          triggerComponent={
+            <TechnicalDetailsButton onClick={handleExpandDetails}>
+              {detailsOpen ? "Hide" : "Show"} Technical Details{" "}
+            </TechnicalDetailsButton>
+          }
+        >
+          <Description style={{ padding: "1em" }}>
+            This service, dcrtime and Decred use the sha256 hash function.
+            Submitted files have their hashes checked against
+            previously-submitted files, and if the file hash has already been
+            submitted, you will see information about that file. The state of
+            each anchored file can be either “Pending”, indicating the file hash
+            has been submitted to dcrtime and is waiting to be anchored, or
+            “Anchored”, indicating the file hash has been anchored in the Decred
+            blockchain, or "Not anchored", indicating the file hash has not been
+            submitted to dcrtime yet. Anchored hashes have a corresponding
+            inclusion proof, which is a merkle path from the file hash to the
+            anchored merkle root, and this proof can be downloaded and
+            independently verified using a copy of the Decred blockchain or a
+            blockchain explorer.
+          </Description>
+        </Expandable>
         <FileInput files={files} setFiles={setFiles} />
         {files && files.length ? (
           <SubmitWrapper>
