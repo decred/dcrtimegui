@@ -103,7 +103,7 @@ const DisplayResults = ({ files }) => {
     const options = getOptions(files);
     setOption(options[0].value);
     setOptions(options);
-  }, []);
+  }, [files]);
   const getFilesToDisplay = () => {
     switch (selectedOption) {
       case ANCHORED_OPTION:
