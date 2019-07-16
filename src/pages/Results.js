@@ -34,6 +34,34 @@ const Results = ({ location }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    async function handleProcessFiles(files, shouldTimestamp) {
+      try {
+        // verify digests against dcrtime
+        const verifyRes = await handleVerifyFiles(files);
+        const verifiedFiles = mergeFilesAndResult(files, verifyRes);
+        setFiles(verifiedFiles);
+
+        // differentiate between digests already sent to the server and the
+        // ones which were not sent yet
+        const notTimestampedFiles = getNotAnchoredFiles(verifiedFiles);
+
+        // apply the timestamp to the digests which were not found in the server
+        // if 'shouldTimestamp' is true
+        if (
+          shouldTimestamp &&
+          notTimestampedFiles &&
+          notTimestampedFiles.length
+        ) {
+          const tsRes = await handleTimestampFiles(notTimestampedFiles);
+          const tsFiles = mergeFilesAndResult(notTimestampedFiles, tsRes);
+          setFiles(files => updateFiles(files, tsFiles));
+        }
+        setDone(true);
+      } catch (e) {
+        setError(e);
+      }
+    }
+
     // get query string parameters
     const {
       digests: strDigests,
@@ -54,35 +82,7 @@ const Results = ({ location }) => {
 
     // start the files processing
     handleProcessFiles(files, shouldTimestamp);
-  }, []);
-
-  const handleProcessFiles = async (files, shouldTimestamp) => {
-    try {
-      // verify digests against dcrtime
-      const verifyRes = await handleVerifyFiles(files);
-      const verifiedFiles = mergeFilesAndResult(files, verifyRes);
-      setFiles(verifiedFiles);
-
-      // differentiate between digests already sent to the server and the
-      // ones which were not sent yet
-      const notTimestampedFiles = getNotAnchoredFiles(verifiedFiles);
-
-      // apply the timestamp to the digests which were not found in the server
-      // if 'shouldTimestamp' is true
-      if (
-        shouldTimestamp &&
-        notTimestampedFiles &&
-        notTimestampedFiles.length
-      ) {
-        const tsRes = await handleTimestampFiles(notTimestampedFiles);
-        const tsFiles = mergeFilesAndResult(notTimestampedFiles, tsRes);
-        setFiles(files => updateFiles(files, tsFiles));
-      }
-      setDone(true);
-    } catch (e) {
-      setError(e);
-    }
-  };
+  }, [location.search]);
 
   const handleVerifyFiles = async files => {
     const digests = getFilesDigests(files);
