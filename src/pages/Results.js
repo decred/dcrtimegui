@@ -54,7 +54,7 @@ const Results = ({ location }) => {
 
     // start the files processing
     handleProcessFiles(files, shouldTimestamp);
-  }, []);
+  }, [handleProcessFiles, location.search]);
 
   const handleProcessFiles = async (files, shouldTimestamp) => {
     try {
