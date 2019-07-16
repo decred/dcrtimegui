@@ -76,18 +76,29 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
           });
         }}
       >
-        <span
-          style={{
-            width: "100%",
-            textAlign: "center",
-            color: "#3d5873",
-            fontSize: "0.9em"
-          }}
-        >
-          {!processing
-            ? "Drop your files here or click to select them"
-            : "Processing your files..."}
-        </span>
+        {({ getRootProps, getInputProps, isDragActive }) => (
+          <div
+            {...getRootProps({
+              className: `dropzone ${isDragActive ? "dropzone-active" : ""} ${
+                isDragActive ? "dropzone-accepted" : ""
+              } `
+            })}
+          >
+            <input {...getInputProps()} />
+            <span
+              style={{
+                width: "100%",
+                textAlign: "center",
+                color: "#3d5873",
+                fontSize: "0.9em"
+              }}
+            >
+              {!processing
+                ? "Drop your files here or click to select them"
+                : "Processing your files..."}
+            </span>
+          </div>
+        )}
       </Dropzone>
       <FilesList
         files={files}
