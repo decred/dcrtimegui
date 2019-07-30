@@ -2,10 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterWrapper = styled.div`
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: -webkit-fill-available;
+  width: calc(100% - 256px);
   padding: 22px 128px;
   background: #091440;
 `;
