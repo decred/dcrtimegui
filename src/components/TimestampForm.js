@@ -58,8 +58,9 @@ const TimestampForm = ({ history }) => {
   const handleExpandDetails = () => {
     setDetailsOpen(!detailsOpen);
   };
+  const cardHeight = files && files.length ? "auto" : "400px";
   return (
-    <Card>
+    <Card style={{ height: cardHeight }}>
       <Form>
         <Title>Timestamp</Title>
         <Description>

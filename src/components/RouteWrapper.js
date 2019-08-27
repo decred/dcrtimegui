@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Route } from "react-router-dom";
 import ErrorsBoundary from "./ErrorBoundary";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const RouteWrapper = ({ component: Component, ...props }) => {
   return (
@@ -19,6 +20,7 @@ const RouteWrapper = ({ component: Component, ...props }) => {
           <ErrorsBoundary>
             <Component {...props} />
           </ErrorsBoundary>
+          <Footer />
         </Suspense>
       )}
     />
