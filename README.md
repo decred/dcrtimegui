@@ -1,4 +1,10 @@
-# Dcrtimegui
+dcrtimegui
+==========
+
+[![Build Status](https://github.com/decred/dcrtimegui/workflows/Build%20and%20Test/badge.svg)](https://github.com/decred/dcrtimegui/actions)
+[![ISC License](https://img.shields.io/badge/license-ISC-blue.svg)](http://copyfree.org)
+
+## Overview
 
 **Dcrtimegui is a web application which provides an easy and free timestamping service using dcrtime as the backend.**
 
