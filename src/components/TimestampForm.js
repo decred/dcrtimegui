@@ -44,6 +44,11 @@ const TechnicalDetailsButton = styled.span`
   color: #2970ff;
 `;
 
+const CardWrapper = styled(Card)`
+  min-height: 400px;
+  display: inline-table;
+`;
+
 const TimestampForm = ({ history }) => {
   const [files, setFiles] = useState([]);
   const [detailsOpen, setDetailsOpen] = useState(false);
@@ -58,9 +63,8 @@ const TimestampForm = ({ history }) => {
   const handleExpandDetails = () => {
     setDetailsOpen(!detailsOpen);
   };
-  const cardHeight = files && files.length ? "auto" : "400px";
   return (
-    <Card style={{ height: cardHeight }}>
+    <CardWrapper>
       <Form>
         <Title>Timestamp</Title>
         <Description>
@@ -105,7 +109,7 @@ const TimestampForm = ({ history }) => {
           </SubmitWrapper>
         ) : null}
       </Form>
-    </Card>
+    </CardWrapper>
   );
 };
 
