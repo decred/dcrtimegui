@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import qs from "query-string";
 import {
   mergeFilesAndResult,
@@ -10,13 +9,7 @@ import {
 } from "../helpers/dcrtime";
 import LoadingResults from "../components/LoadingResults";
 import DisplayResults from "../components/DisplayResults";
-
-const Page = styled.main`
-  width: calc(100% - 20px);
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-`;
+import Page from "./Page";
 
 const updateFiles = (files, newFiles) =>
   files.map(file => {

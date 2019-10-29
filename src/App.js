@@ -1,11 +1,15 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
+import { defaultLightTheme, useTheme } from "pi-ui";
 import Routes from "./Routes";
 
 const App = () => {
+  useTheme(defaultLightTheme);
   return (
     <Router>
-      <Routes />
+      <Suspense fallback={<div />}>
+        <Routes />
+      </Suspense>
     </Router>
   );
 };
