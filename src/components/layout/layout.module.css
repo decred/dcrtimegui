@@ -34,7 +34,6 @@
 
 .searchInput:hover {
     border-color: rgba(41, 112, 255, 0.5);
-    background-clip: padding-box;
 }
 
 .searchInput:focus {
