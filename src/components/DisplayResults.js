@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import Card from "./lib/Card";
-import Selector from "./lib/Selector";
+import { Card } from "pi-ui";
 import FileList from "./FileList";
-import {
-  getAnchoredFiles,
-  getPendingFiles,
-  getNotAnchoredFiles
-} from "../helpers/dcrtime";
 
 const Title = styled.h1`
   color: #3d5873;
@@ -54,93 +48,24 @@ const Link = styled.a`
   }
 `;
 
-const ANCHORED_OPTION = 1;
-const PENDING_OPTION = 2;
-const NOT_ANCHORED_OPTION = 3;
-
-const getOptions = files => {
-  let options = [];
-
-  const addOption = option => {
-    options = options.concat([option]);
-  };
-
-  const anchoredFiles = getAnchoredFiles(files);
-  const pendingFiles = getPendingFiles(files);
-  const notAnchoredFiles = getNotAnchoredFiles(files);
-
-  if (anchoredFiles.length) {
-    addOption({
-      value: ANCHORED_OPTION,
-      label: "Anchored",
-      count: anchoredFiles.length
-    });
-  }
-
-  if (pendingFiles.length) {
-    addOption({
-      value: PENDING_OPTION,
-      label: "Pending",
-      count: pendingFiles.length
-    });
-  }
-
-  if (notAnchoredFiles.length) {
-    addOption({
-      value: NOT_ANCHORED_OPTION,
-      label: "Not Anchored",
-      count: notAnchoredFiles.length
-    });
-  }
-
-  return options;
-};
-
-const DisplayResults = ({ files }) => {
-  const [selectedOption, setOption] = useState(1);
-  const [options, setOptions] = useState([]);
-  useEffect(() => {
-    const options = getOptions(files);
-    setOption(options[0].value);
-    setOptions(options);
-  }, [files]);
-  const getFilesToDisplay = () => {
-    switch (selectedOption) {
-      case ANCHORED_OPTION:
-        return getAnchoredFiles(files);
-      case PENDING_OPTION:
-        return getPendingFiles(files);
-      case NOT_ANCHORED_OPTION:
-        return getNotAnchoredFiles(files);
-      default:
-        break;
-    }
-  };
-  const filesdp = getFilesToDisplay(files);
-  return (
-    <Wrapper>
-      <TitleCard>
-        <Link href="/">← Timestamp more files</Link>
-        <Title>Results</Title>
-        <Description>
-          The files sent to dcrtime can be either: <br />
-          <b>Anchored:</b> the digest of the file and other files digests sent
-          in the same hour range were compiled into a merkle root which is
-          already stored in the chain. <br />
-          <b>Pending:</b> the digest of the file is stored in the dcrtime server
-          and it should be anchored within the next hour. <br />
-          <b>Not Anchored:</b> the digest of the file is not stored in the
-          dcrtime server.
-        </Description>
-        <Selector
-          options={options}
-          value={selectedOption}
-          onSelect={setOption}
-        />
-      </TitleCard>
-      <FileList files={filesdp} />
-    </Wrapper>
-  );
-};
+const DisplayResults = ({ files }) => (
+  <Wrapper>
+    <TitleCard>
+      <Link href="/">← Timestamp more files</Link>
+      <Title>Results</Title>
+      <Description>
+        The files sent to dcrtime can be either: <br />
+        <b>Anchored:</b> the digest of the file and other files digests sent in
+        the same hour range were compiled into a merkle root which is already
+        stored in the chain. <br />
+        <b>Pending:</b> the digest of the file is stored in the dcrtime server
+        and it should be anchored within the next hour. <br />
+        <b>Not Anchored:</b> the digest of the file is not stored in the dcrtime
+        server.
+      </Description>
+    </TitleCard>
+    <FileList files={files} />
+  </Wrapper>
+);
 
 export default DisplayResults;

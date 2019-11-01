@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Card from "./lib/Card";
-import Status from "./lib/Status";
+import { Card, StatusTag } from "pi-ui";
 import ChainInfo from "./ChainInfo";
 import DownloadFileLink from "./DownloadFileLink";
 import {
@@ -53,25 +52,25 @@ const Field = styled.span`
 
 const getFileStatusAndLabel = file => {
   if (isFileDigestAnchored(file)) {
-    return { status: "active", label: "Anchored" };
+    return { label: "Anchored", type: "greenCheck" };
   }
   if (isFileDigestAnchorPending(file)) {
-    return { status: "pending", label: "Pending" };
+    return { label: "Pending", type: "bluePending" };
   }
-  return { status: "finished", label: "Not Anchored" };
+  return { label: "Not Anchored", type: "orangeNegativeCircled" };
 };
 
 const FileListItem = ({
   file: { name, digest, servertimestamp, ...fileProps }
 }) => {
   const isAnchored = isFileDigestAnchored(fileProps);
-  const { status, label } = getFileStatusAndLabel(fileProps);
+  const { label, type } = getFileStatusAndLabel(fileProps);
   return (
     <FileListItemWrapper>
       <FileListItemCard>
         <FileListItemHeader>
           <FileTitle>{name}</FileTitle>
-          <Status type={status} label={label} />
+          <StatusTag type={type} text={label} />
         </FileListItemHeader>
         <Field>
           <b>Digest: </b> {digest}
