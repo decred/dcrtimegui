@@ -1,0 +1,17 @@
+/* Modals styles */
+
+.container {
+    display: flex;
+    width: 700px;
+}
+
+.iconRow {
+    padding-right: 20px;
+}
+
+.infoText {
+    color: #48566E;
+    padding-top: 20px;
+    padding-right: 80px;
+    text-align: left;
+}

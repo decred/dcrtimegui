@@ -1,5 +1,13 @@
 /* Header styles */
 
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
 .header {
     color: #F9FAFA;
     border: 0 !important;
@@ -14,13 +22,6 @@
     padding-right: 40px;
 }
 
-.headerContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
 
 .searchBox {
     width: 540px;
@@ -47,12 +48,12 @@
 }
 
 .pageMain {
-    max-width: 100%;
+    max-width: 540px;
     grid-row: auto !important;
-    grid-column: 4 / 12 !important;
+    grid-column: 5 / 14 !important;
     margin-top: 6rem !important;
     margin-bottom: 8rem !important;
-    margin-left: 0 !important;
+    margin-left: 50px !important;
     padding: 0 0 0 0 !important;
 }
 

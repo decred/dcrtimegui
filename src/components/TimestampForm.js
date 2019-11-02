@@ -5,16 +5,10 @@ import { Card, Button } from "pi-ui";
 import Expandable from "./Expandable";
 import FileInput from "./FileInput";
 
-const Title = styled.h1`
-  color: #3d5873;
-  font-size: 2.25em;
-`;
-
 const Description = styled.p`
   color: #8997a5;
   font-size: 0.75em;
   text-align: justify;
-  padding-top: 2em;
 `;
 
 const Form = styled.form`
@@ -60,7 +54,6 @@ const TimestampForm = ({ history }) => {
   return (
     <Card>
       <Form>
-        <Title>Timestamp</Title>
         <Description>
           This free service uses the Decred blockchain to time-anchor arbitrary
           files, which demonstrates a particular file existed at or before the
