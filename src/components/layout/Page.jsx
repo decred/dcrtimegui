@@ -2,7 +2,7 @@ import React from "react";
 import Header from "src/components/layout/Header";
 import Footer from "src/components/layout/Footer";
 import ErrorsBoundary from "src/components/ErrorBoundary";
-import styles from "./pages.module.css";
+import styles from "./layout.module.css";
 import { Container, Main } from "pi-ui";
 
 const Page = ({ children }) => {

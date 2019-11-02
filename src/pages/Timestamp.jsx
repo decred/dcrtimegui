@@ -1,6 +1,6 @@
 import React from "react";
 import TimestampForm from "../components/TimestampForm";
-import Page from "./Page";
+import Page from "../components/layout/Page";
 
 const Timestamp = () => {
   return (

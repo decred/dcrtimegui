@@ -9,7 +9,7 @@ import {
 } from "../helpers/dcrtime";
 import LoadingResults from "../components/LoadingResults";
 import DisplayResults from "../components/DisplayResults";
-import Page from "./Page";
+import Page from "../components/layout/Page";
 
 const updateFiles = (files, newFiles) =>
   files.map(file => {
