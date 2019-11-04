@@ -1,6 +1,5 @@
 import React, { lazy } from "react";
-import { Switch } from "react-router-dom";
-import Route from "./components/RouteWrapper";
+import { Switch, Route } from "react-router-dom";
 
 const Timestamp = lazy(() => import("./pages/Timestamp"));
 const Results = lazy(() => import("./pages/Results"));

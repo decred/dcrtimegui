@@ -14,8 +14,8 @@ const Title = styled.h1`
 const Description = styled.p`
   color: #8997a5;
   font-size: 0.75em;
-  max-width: 600px;
   text-align: justify;
+  padding-top: 2em;
 `;
 
 const Form = styled.form`
@@ -23,7 +23,6 @@ const Form = styled.form`
   line-height: 1.5em;
   padding: 2em;
   text-align: center;
-  max-width: 780px;
 
   @media (min-width: 768px) {
     text-align: left;
@@ -42,6 +41,7 @@ const TechnicalDetailsButton = styled.span`
   cursor: pointer;
   font-size: 0.75em;
   color: #2970ff;
+  padding-top: 1em;
 `;
 
 const CardWrapper = styled(Card)`
