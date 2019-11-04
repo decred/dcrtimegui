@@ -4,7 +4,7 @@ import styles from "./layout.module.css";
 const Footer = () => (
   <div className={styles.footer}>
     <div className={styles.textWrapper}>
-      <span>Decred developers | 2016 - 2019</span>
+      <span>Decred developers | 2016 - {new Date().getFullYear()}</span>
       <span>
         The source code is available at{" "}
         <a
