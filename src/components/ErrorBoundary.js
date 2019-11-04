@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Message from "./lib/Message/Message";
+import { Message } from "pi-ui";
 
 export default class ErrorBoundary extends Component {
   constructor(props) {

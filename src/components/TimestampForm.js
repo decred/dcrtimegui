@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
-import Card from "./lib/Card";
-import Button from "./lib/Button";
-import Expandable from "./lib/Expandable";
+import { Card, Button } from "pi-ui";
+import Expandable from "./Expandable";
 import FileInput from "./FileInput";
 
 const Title = styled.h1`
@@ -44,11 +43,6 @@ const TechnicalDetailsButton = styled.span`
   padding-top: 1em;
 `;
 
-const CardWrapper = styled(Card)`
-  min-height: 400px;
-  display: inline-table;
-`;
-
 const TimestampForm = ({ history }) => {
   const [files, setFiles] = useState([]);
   const [detailsOpen, setDetailsOpen] = useState(false);
@@ -64,7 +58,7 @@ const TimestampForm = ({ history }) => {
     setDetailsOpen(!detailsOpen);
   };
   return (
-    <CardWrapper>
+    <Card>
       <Form>
         <Title>Timestamp</Title>
         <Description>
@@ -109,7 +103,7 @@ const TimestampForm = ({ history }) => {
           </SubmitWrapper>
         ) : null}
       </Form>
-    </CardWrapper>
+    </Card>
   );
 };
 

@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Card from "./lib/Card";
-import Spinner from "./lib/Spinner";
-import Checkmark from "./lib/Checkmark";
+import { Card, Spinner } from "pi-ui";
+import Icon from "src/assets/anchored_icon.svg";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -22,10 +21,14 @@ const LoadingItemWrapper = styled(Card)`
   margin-top: 20px;
 `;
 
+const Checkmark = () => (
+  <img src={Icon} height="40" width="40" alt="checkmark" />
+);
+
 const LoadingItem = ({ message, loading }) => (
   <LoadingItemWrapper>
     <span>{message}</span>
-    {loading ? <Spinner /> : <Checkmark />}
+    {loading ? <Spinner invert /> : <Checkmark />}
   </LoadingItemWrapper>
 );
 
