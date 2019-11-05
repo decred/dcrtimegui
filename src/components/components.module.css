@@ -16,6 +16,24 @@
     text-align: left;
 }
 
+.loadingResultsWrapper {
+    width: 100%;
+    display: flex;
+    max-width: 780px;
+    flex-direction: column;
+}
+
+.loadingItemCard {
+    font-size: 18px;
+    padding: 2em;
+    display: flex;
+    width: calc(100% - 4em);
+    color: #3d5873;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .exapandableContent {
     background: #f6f8f8;
     display: flex;
@@ -61,6 +79,27 @@
     font-size: 0.75em;
     color: #2970ff;
     padding-top: 1em;
+}
+
+.fileInputWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.fileItemRemove {
+    font-size: 16px;
+    color: red;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.dzMessageWrapper {
+    width: 100%;
+    text-align: center;
+    color: #3d5873;
+    font-size: 0.9em;
 }
 
 @media (min-width: 768px) {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import Dropzone from "react-dropzone";
 import { List, ListItem } from "./lib/List";
 import { digestPayload } from "../helpers/dcrtime";
+import styles from "./components.module.css";
 
 // processFiles adds the base64 payload into the file data
 const processFiles = files =>
@@ -49,9 +49,9 @@ const FilesList = ({ files, onRemoveFile }) => (
           </span>
         </div>
         <div>
-          <FileItemRemove onClick={() => onRemoveFile(i)}>
+          <i className={styles.fileItemRemove} onClick={() => onRemoveFile(i)}>
             &times;
-          </FileItemRemove>
+          </i>
         </div>
       </ListItem>
     ))}
@@ -61,7 +61,7 @@ const FilesList = ({ files, onRemoveFile }) => (
 const FileInput = ({ files, setFiles, multiple = true }) => {
   const [processing, setProcessing] = useState(false);
   return (
-    <FileInputWrapper>
+    <div className={styles.fileInputWrapper}>
       <Dropzone
         multiple={multiple}
         style={DropZoneStyle}
@@ -85,14 +85,7 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
             })}
           >
             <input {...getInputProps()} />
-            <span
-              style={{
-                width: "100%",
-                textAlign: "center",
-                color: "#3d5873",
-                fontSize: "0.9em"
-              }}
-            >
+            <span className={styles.dzMessageWrapper}>
               {!processing
                 ? "Drop your files here or click to select them"
                 : "Processing your files..."}
@@ -104,23 +97,9 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
         files={files}
         onRemoveFile={idx => setFiles(files.filter((_f, i) => i !== idx))}
       />
-    </FileInputWrapper>
+    </div>
   );
 };
-
-const FileInputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-`;
-
-const FileItemRemove = styled.i`
-  font-size: 16px;
-  color: red;
-  cursor: pointer;
-  margin-left: 5px;
-`;
 
 const DropZoneAcceptStyle = {
   border: "1px solid green",

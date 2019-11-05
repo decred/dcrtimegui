@@ -1,47 +1,28 @@
 import React from "react";
-import styled from "styled-components";
 import { Card, Spinner } from "pi-ui";
 import Icon from "src/assets/anchored_icon.svg";
 
-const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  max-width: 780px;
-  flex-direction: column;
-`;
-
-const LoadingItemWrapper = styled(Card)`
-  font-size: 18px;
-  padding: 2em;
-  display: flex;
-  width: calc(100% - 4em);
-  color: #3d5873;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-`;
+import styles from "./components.module.css";
 
 const Checkmark = () => (
   <img src={Icon} height="40" width="40" alt="checkmark" />
 );
 
 const LoadingItem = ({ message, loading }) => (
-  <LoadingItemWrapper>
+  <Card className={styles.loadingItemCard}>
     <span>{message}</span>
     {loading ? <Spinner invert /> : <Checkmark />}
-  </LoadingItemWrapper>
+  </Card>
 );
 
 const LoadingResults = ({
   verifyLoading,
   verified,
   timestampLoading,
-  timestamped,
-  loadingChainVerify,
-  chainVerified
+  timestamped
 }) => {
   return (
-    <Wrapper>
+    <div className={styles.loadingResultsWrapper}>
       {verifyLoading || verified ? (
         <LoadingItem
           message={verified ? "Digests verified" : "Verifying digests"}
@@ -56,7 +37,7 @@ const LoadingResults = ({
           loading={timestampLoading}
         />
       ) : null}
-    </Wrapper>
+    </div>
   );
 };
 
