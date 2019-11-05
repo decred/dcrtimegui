@@ -1,41 +1,10 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { withRouter } from "react-router-dom";
-import { Card, Button } from "pi-ui";
+import { Card, Button, classNames } from "pi-ui";
 import Expandable from "./Expandable";
 import FileInput from "./FileInput";
 
-const Description = styled.p`
-  color: #8997a5;
-  font-size: 0.75em;
-  text-align: justify;
-`;
-
-const Form = styled.form`
-  font-size: 18px;
-  line-height: 1.5em;
-  padding: 2em;
-  text-align: center;
-
-  @media (min-width: 768px) {
-    text-align: left;
-  }
-`;
-
-const SubmitWrapper = styled.div`
-  width: 100%;
-  text-align: center;
-  @media (min-width: 768px) {
-    text-align: right;
-  }
-`;
-
-const TechnicalDetailsButton = styled.span`
-  cursor: pointer;
-  font-size: 0.75em;
-  color: #2970ff;
-  padding-top: 1em;
-`;
+import styles from "./components.module.css";
 
 const TimestampForm = ({ history }) => {
   const [files, setFiles] = useState([]);
@@ -53,25 +22,28 @@ const TimestampForm = ({ history }) => {
   };
   return (
     <Card>
-      <Form>
-        <Description>
+      <form className={styles.tmpForm}>
+        <p className={styles.description}>
           This free service uses the Decred blockchain to time-anchor arbitrary
           files, which demonstrates a particular file existed at or before the
           time it was anchored. A hash of each submitted file is calculated and
           sent to a dcrtime server, which aggregates these hashes, organizes
           them into a merkle tree, hashes that tree down to a merkle root, and
           anchors that merkle root in the Decred blockchain once an hour.
-        </Description>
+        </p>
         <Expandable
           style={{ maxWidth: "600px" }}
           expanded={detailsOpen}
           triggerComponent={
-            <TechnicalDetailsButton onClick={handleExpandDetails}>
+            <span
+              className={styles.technicalDetailsButton}
+              onClick={handleExpandDetails}
+            >
               {detailsOpen ? "Hide" : "Show"} Technical Details{" "}
-            </TechnicalDetailsButton>
+            </span>
           }
         >
-          <Description style={{ padding: "1em" }}>
+          <p style={classNames(styles.description, styles.padded)}>
             This service, dcrtime and Decred use the sha256 hash function.
             Submitted files have their hashes checked against
             previously-submitted files, and if the file hash has already been
@@ -85,17 +57,17 @@ const TimestampForm = ({ history }) => {
             anchored merkle root, and this proof can be downloaded and
             independently verified using a copy of the Decred blockchain or a
             blockchain explorer.
-          </Description>
+          </p>
         </Expandable>
         <FileInput files={files} setFiles={setFiles} />
         {files && files.length ? (
-          <SubmitWrapper>
+          <div class={styles.submitWrapper}>
             <Button onClick={handleSubmit} type="submit">
               Timestamp files
             </Button>
-          </SubmitWrapper>
+          </div>
         ) : null}
-      </Form>
+      </form>
     </Card>
   );
 };

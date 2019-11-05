@@ -15,3 +15,41 @@
     padding-right: 80px;
     text-align: left;
 }
+
+.description {
+    color: #8997a5;
+    font-size: 0.75em;
+    text-align: justify;
+}
+
+.description.padded {
+    padding: 1em;
+}
+
+.tmpForm {
+    font-size: 18px;
+    line-height: 1.5em;
+    padding: 2em;
+    text-align: center;
+}
+
+.submitWrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.technicalDetailsButton {
+    cursor: pointer;
+    font-size: 0.75em;
+    color: #2970ff;
+    padding-top: 1em;
+}
+
+@media (min-width: 768px) {
+    .tmpForm {
+        text-align: left;
+    }
+    .submitWrapper {
+        text-align: right;
+    }
+}
