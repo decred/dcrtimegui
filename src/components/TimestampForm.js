@@ -32,7 +32,7 @@ const TimestampForm = ({ history }) => {
           anchors that merkle root in the Decred blockchain once an hour.
         </p>
         <Expandable
-          style={{ maxWidth: "600px" }}
+          className={styles.tmpFormExpandable}
           expanded={detailsOpen}
           triggerComponent={
             <span
@@ -43,7 +43,7 @@ const TimestampForm = ({ history }) => {
             </span>
           }
         >
-          <p style={classNames(styles.description, styles.padded)}>
+          <p className={classNames(styles.description, styles.padded)}>
             This service, dcrtime and Decred use the sha256 hash function.
             Submitted files have their hashes checked against
             previously-submitted files, and if the file hash has already been

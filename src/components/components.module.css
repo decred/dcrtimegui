@@ -16,6 +16,20 @@
     text-align: left;
 }
 
+.exapandableContent {
+    background: #f6f8f8;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    transition: max-height 0.15s ease-out;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.ecExpanded {
+    max-height: 600px;
+}
+
 .description {
     color: #8997a5;
     font-size: 0.75em;
@@ -24,6 +38,10 @@
 
 .description.padded {
     padding: 1em;
+}
+
+.tmpFormExpandable {
+    max-width: 600px;
 }
 
 .tmpForm {
