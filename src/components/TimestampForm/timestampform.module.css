@@ -1,0 +1,146 @@
+/* TimestampForm styles */
+
+.card {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 16px #48566E36;
+    opacity: 1;
+    width: 100%;
+    position: relative;
+    margin-top: 50px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.tabs {
+    display: flex;
+    z-index: 999;
+    width: 240px;
+    position: absolute;
+    margin-left: 30px;
+    opacity: 1;
+}
+
+.tabFiles {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #E7EAED;
+    border-radius: 5px 0px 0px 5px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.tabHash {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #E7EAED;
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.tabBackgroundWhite {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+}
+
+.tabBackgroundGrey {
+    background: #F7F8F9 0% 0% no-repeat padding-box;
+}
+
+/* FileInput styles */
+
+.dropzoneWrapper {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2em;
+}
+
+.dropzoneFile {
+    border: 1px dashed #8997A5;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+}
+
+.dropzoneText {
+    width: 100%;
+    text-align: center;
+    color: #091440;
+    font-size: 13px;
+}
+
+.dropzoneAcceptStyle {
+    border: 1px solid #2970FF;
+    background: #2970FF;
+}
+
+.submitButtonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.submitButton {
+    font-size: 13px;
+    width: 125px;
+    height: 44px;
+    box-shadow: 0px 5px 13px #3D587333;;
+}
+
+.fileListWrapper {
+    margin-top: 20px;
+}
+
+.fileInList {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 50px;
+    width: 100%;
+}
+
+.textFileName {
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 13px;
+    color: #48566E;
+    width: 100%;
+}
+
+.deleteIcon {
+    cursor: pointer;
+}
+
+/* HashInput styles */
+
+.hashInputWrapper {
+    margin-top: 57px;
+    margin-bottom: 40px;
+}
+
+.hashInput {
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+
+.addButtonText {
+    color: #2970FF;
+    font-size: 13px;
+}
+
+.hashIcon {
+    padding-right: 5px;
+}

@@ -3,7 +3,7 @@ import qs from "query-string";
 import {
   mergeFilesAndResult,
   getNotAnchoredFiles,
-  getFilesDigests,
+  getDigests,
   timestamp,
   verify
 } from "../helpers/dcrtime";
@@ -26,13 +26,16 @@ const Results = ({ location }) => {
   const [timestampLoading, setLoadingTimestamp] = useState(false);
   const [timestamped, setTimestamped] = useState(false);
   const [done, setDone] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function handleProcessFiles(files, shouldTimestamp) {
       try {
         // verify digests against dcrtime
-        const verifyRes = await handleVerifyFiles(files);
+        const verifyRes = await handleVerifyData(files);
+        if (verifyRes.error) {
+          throw new Error("Invalid array of digests");
+        }
         const verifiedFiles = mergeFilesAndResult(files, verifyRes);
         setFiles(verifiedFiles);
 
@@ -47,7 +50,7 @@ const Results = ({ location }) => {
           notTimestampedFiles &&
           notTimestampedFiles.length
         ) {
-          const tsRes = await handleTimestampFiles(notTimestampedFiles);
+          const tsRes = await handleTimestampData(notTimestampedFiles);
           const tsFiles = mergeFilesAndResult(notTimestampedFiles, tsRes);
           setFiles(files => updateFiles(files, tsFiles));
         }
@@ -79,8 +82,8 @@ const Results = ({ location }) => {
     handleProcessFiles(files, shouldTimestamp);
   }, [location.search]);
 
-  const handleVerifyFiles = async files => {
-    const digests = getFilesDigests(files);
+  const handleVerifyData = async data => {
+    const digests = getDigests(data);
     setLoadingVerify(true);
     try {
       const res = await verify(digests);
@@ -93,11 +96,11 @@ const Results = ({ location }) => {
     }
   };
 
-  const handleTimestampFiles = async files => {
-    const digests = getFilesDigests(files);
+  const handleTimestampData = async data => {
+    const digests = getDigests(data);
     setLoadingTimestamp(true);
     try {
-      const res = await timestamp(digests, "files");
+      const res = await timestamp(digests, "data");
       setLoadingTimestamp(false);
       setTimestamped(true);
       return res;
