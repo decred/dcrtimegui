@@ -1,13 +1,12 @@
 import React from "react";
-import { Modal, H1, StatusTag, P } from "pi-ui";
-import Icon from "src/assets/info30px.svg";
+import { Modal, H1, StatusTag, P, Icon } from "pi-ui";
 import styles from "./components.module.css";
 
 const ModalResultsInfo = ({ show, onClose }) => (
   <Modal show={show} contentStyle={{ padding: "1rem" }} onClose={onClose}>
     <div className={styles.container}>
       <div className={styles.iconRow}>
-        <img src={Icon} alt="info" />
+        <Icon type="info" size="xlg" />
       </div>
       <div>
         <H1>Files sent to dcrtime can be either</H1>
