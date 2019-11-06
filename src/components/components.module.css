@@ -17,3 +17,25 @@
 }
 
 
+/* TextInput styles */
+.textInput {
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    width: 100%;
+    border-bottom: 0.1rem solid var(--color-gray-lighter);
+    font-size: 13px;
+    padding-left: 10px;
+    transition: all 0.25s;
+    line-height: var(--spacing-2);
+}
+
+.textInput::placeholder {
+    color: #C4CBD2;
+    font-size: 13px;
+}
+  
+.textinputWrapper {
+    width: 100%;
+    position: relative;
+}   

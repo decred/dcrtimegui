@@ -48,14 +48,14 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
   const [processing, setProcessing] = useState(false);
   return (
     <>
-      <FilesList
-        files={files}
-        onRemoveFile={idx => setFiles(files.filter((_f, i) => i !== idx))}
-      />
+      <div style={files.length > 0 ? { paddingTop: "2em" } : {}}>
+        <FilesList
+          files={files}
+          onRemoveFile={idx => setFiles(files.filter((_f, i) => i !== idx))}
+        />
+      </div>
       <div
-        style={
-          files.length === 0 ? { paddingTop: "2em" } : { paddingTop: "1em" }
-        }
+        style={!files.length ? { paddingTop: "3em" } : { paddingTop: "1em" }}
         className={styles.dropzoneWrapper}
       >
         <Dropzone

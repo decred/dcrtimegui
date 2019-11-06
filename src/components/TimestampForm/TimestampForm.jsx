@@ -7,9 +7,10 @@ import styles from "./timestampform.module.css";
 
 const TimestampForm = ({ history }) => {
   const [files, setFiles] = useState([]);
+  const [hashes, setHashes] = useState([]);
   const [activeTab, setActiveTab] = useState(HashTab);
   const hasFiles = files && files.length;
-
+  const hasHashes = hashes && hashes.length > 1;
   const handleSubmit = e => {
     e.preventDefault();
     const digests = files.map(file => file.digest);
@@ -23,20 +24,17 @@ const TimestampForm = ({ history }) => {
     <>
       <Tabs active={activeTab} set={setActiveTab} />
       <Card className={styles.card}>
-        <form
-          className={styles.formWrapper}
-          style={hasFiles ? { paddingTop: "30px" } : { paddingTop: "5px" }}
-        >
+        <form className={styles.formWrapper}>
           {activeTab === FileTab ? (
             <FileInput files={files} setFiles={setFiles} />
           ) : (
-            <HashInput />
+            <HashInput hashes={hashes} setHashes={setHashes} />
           )}
         </form>
       </Card>
       <div className={styles.submitButtonWrapper}>
         <Button
-          kind={hasFiles ? "primary" : "disabled"}
+          kind={hasFiles || hasHashes ? "primary" : "disabled"}
           className={styles.submitButton}
           onSubmit={handleSubmit}
           type="submit"
