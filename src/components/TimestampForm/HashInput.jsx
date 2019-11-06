@@ -39,12 +39,10 @@ const HashInputWrapper = ({ hashes, setHashes }) => {
           onRemove={onRemoveHash}
         />
       ))}
-      <div className={styles.addbuttonWrapper}>
-        <Button type="button" icon size="sm" onClick={onAddHash}>
-          +
-        </Button>
-        <Text className={styles.addButtonText}>Add another</Text>
-      </div>
+      <Button type="button" icon size="sm" onClick={onAddHash}>
+        +
+      </Button>
+      <Text className={styles.addButtonText}>Add another</Text>
     </div>
   );
 };

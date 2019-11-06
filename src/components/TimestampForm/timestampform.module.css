@@ -125,7 +125,7 @@
 /* HashInput styles */
 
 .hashInputWrapper {
-    margin-top: 40px;
+    margin-top: 57px;
     margin-bottom: 40px;
 }
 
@@ -135,9 +135,6 @@
     padding-bottom: 20px;
 }
 
-.addbuttonWrapper {
-    margin-top: 10px;
-}
 
 .addButtonText {
     color: #2970FF;
