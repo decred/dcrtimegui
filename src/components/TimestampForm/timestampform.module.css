@@ -9,6 +9,13 @@
     margin-top: 50px;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
 .tabs {
     display: flex;
     z-index: 999;
@@ -51,13 +58,6 @@
     background: #F7F8F9 0% 0% no-repeat padding-box;
 }
 
-.formWrapper {
-    display: flex;
-    flex-direction: column;
-    margin-right: 30px;
-    margin-left: 30px;
-}
-
 /* FileInput styles */
 
 .dropzoneWrapper {
@@ -78,6 +78,11 @@
     text-align: center;
     color: #091440;
     font-size: 13px;
+}
+
+.dropzoneAcceptStyle {
+    border: 1px solid #2970FF;
+    background: #2970FF;
 }
 
 .submitButtonWrapper {
@@ -113,19 +118,8 @@
     width: 100%;
 }
 
-.deleteIconWrapper {
-    /* display: flex; */
-    /* justify-content: flex-end; */
-    justify-self: flex-end;
-
-    /* width: 100%; */
-}
-
 .deleteIcon {
     cursor: pointer;
-    justify-self: flex-end;
-    /* justify-content: flex-end; */
-    /* align-self: flex-end; */
 }
 
 /* HashInput styles */
@@ -139,8 +133,6 @@
     display: flex;
     align-items: center;
     padding-bottom: 20px;
-    /* height: 50px; */
-    /* width: 100%; */
 }
 
 .addbuttonWrapper {
@@ -150,4 +142,8 @@
 .addButtonText {
     color: #2970FF;
     font-size: 13px;
+}
+
+.hashIcon {
+    padding-right: 5px;
 }

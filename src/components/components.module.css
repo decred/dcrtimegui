@@ -18,6 +18,7 @@
 
 
 /* TextInput styles */
+
 .textInput {
     background-color: transparent;
     outline: 0;
@@ -35,7 +36,7 @@
     font-size: 13px;
 }
   
-.textinputWrapper {
+.textInputWrapper {
     width: 100%;
     position: relative;
 }   

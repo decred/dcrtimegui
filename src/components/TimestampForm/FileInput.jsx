@@ -27,20 +27,17 @@ const processFiles = files =>
 
 const FilesList = ({ files, onRemoveFile }) =>
   files.map((file, i) => (
-    <div className={styles.fileInList}>
+    <div key={`file-${i}`} className={styles.fileInList}>
       <img src={FileIcon} alt="fileicon" />
-      <Text className={styles.textFileName} truncate>
+      <Text id={`file-${i}`} className={styles.textFileName} truncate>
         {file.name}
       </Text>
-      {/* <div className={styles.deleteIconWrapper}> */}
-
       <img
         className={styles.deleteIcon}
         src={DeleteIcon}
         onClick={() => onRemoveFile(i)}
         alt="deleteicon"
       />
-      {/* </div> */}
     </div>
   ));
 
@@ -61,7 +58,7 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
         <Dropzone
           multiple={multiple}
           style={styles.dropzoneFile}
-          acceptStyle={DropZoneAcceptStyle}
+          acceptStyle={styles.dropzoneAcceptStyle}
           disabled={processing}
           disableClick={processing}
           onDrop={(accFiles, _rejFiles) => {
@@ -92,11 +89,6 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
       </div>
     </>
   );
-};
-
-const DropZoneAcceptStyle = {
-  border: "1px solid green",
-  background: "lightgreen"
 };
 
 export default FileInput;
