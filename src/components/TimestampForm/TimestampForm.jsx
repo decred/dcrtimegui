@@ -10,10 +10,13 @@ const TimestampForm = ({ history }) => {
   const [hashes, setHashes] = useState([]);
   const [activeTab, setActiveTab] = useState(FileTab);
   const hasFiles = files && files.length;
-  const hasHashes = hashes && hashes.length > 1;
+  const hasHashes = hashes && hashes.length > 0 && hashes[0].digest !== "";
 
   const handleSubmit = () => {
-    const digests = files.map(file => file.digest);
+    const hs = hashes.filter(h => h.digest !== "");
+    const digests = files
+      .map(file => file.digest)
+      .concat(hs.map(hash => hash.digest));
     const names = files.map(file => file.name);
     history.push(
       `results?digests=${digests.toString()}&names=${names.toString()}&timestamp=true`

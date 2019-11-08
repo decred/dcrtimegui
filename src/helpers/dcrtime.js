@@ -17,7 +17,7 @@ export const mergeFilesAndResult = (files, res) =>
     };
   });
 
-export const getFilesDigests = files => files.map(f => f.digest);
+export const getDigests = data => data.map(d => d.digest);
 
 export const isFileDigestAnchored = file => {
   return file.chaininformation && file.chaininformation.chaintimestamp;

@@ -8,21 +8,22 @@ import DeleteIcon from "src/assets/delete_icon.svg";
 const HashInputWrapper = ({ hashes, setHashes }) => {
   // Initialize first hash input
   if (!hashes.length) {
-    setHashes([{ id: 0, hash: "" }]);
+    setHashes([{ id: 0, digest: "" }]);
   }
 
   const onAddHash = () => {
     const lastID = hashes[hashes.length - 1].id + 1;
-    return setHashes([...hashes, { id: lastID, hash: "" }]);
+    return setHashes([...hashes, { id: lastID, digest: "" }]);
   };
 
-  const onRemoveHash = id => setHashes(hashes.filter(hash => hash.id !== id));
+  const onRemoveHash = id => () =>
+    setHashes(hashes.filter(hash => hash.id !== id));
 
   const onChangeHash = id => e =>
     setHashes(
       hashes.map(h => {
         if (h.id === id) {
-          h.hash = e.target.value;
+          h.digest = e.target.value;
         }
         return h;
       })
@@ -34,7 +35,7 @@ const HashInputWrapper = ({ hashes, setHashes }) => {
         <HashInput
           id={hash.id}
           key={`hash-${i}`}
-          value={hash.hash}
+          value={hash.digest}
           onChange={onChangeHash}
           onRemove={onRemoveHash}
         />
@@ -60,7 +61,7 @@ const HashInput = ({ id, value, onChange, onRemove }) => (
       alt="icon"
       src={DeleteIcon}
       className={styles.deleteIcon}
-      onClick={() => onRemove(id)}
+      onClick={onRemove(id)}
     />
   </div>
 );
