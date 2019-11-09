@@ -1,0 +1,15 @@
+/* Title styles */
+
+.title {
+    display: flex;
+    height: 34px;
+    font-size: 27px;
+    color: #48566E;
+    margin-bottom: 3rem !important;
+    margin-left: 30px !important;
+}
+
+.iconButton {
+    border: none;
+    margin-top: 4px;
+}

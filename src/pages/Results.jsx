@@ -8,8 +8,10 @@ import {
   verify
 } from "../helpers/dcrtime";
 import LoadingResults from "../components/LoadingResults";
-import DisplayResults from "../components/DisplayResults";
+import FileList from "../components/FileList";
+import ModalResultsInfo from "../components/ModalResultsInfo";
 import Page from "../components/layout/Page";
+import Title from "./Title";
 
 const updateFiles = (files, newFiles) =>
   files.map(file => {
@@ -109,6 +111,7 @@ const Results = ({ location }) => {
 
   return (
     <Page>
+      <Title title="Results" modal={ModalResultsInfo} />
       {!done ? (
         <LoadingResults
           verifyLoading={verifyLoading}
@@ -117,7 +120,7 @@ const Results = ({ location }) => {
           timestamped={timestamped}
         />
       ) : (
-        <DisplayResults files={files} />
+        <FileList files={files} />
       )}
     </Page>
   );
