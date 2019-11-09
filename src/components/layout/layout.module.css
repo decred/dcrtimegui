@@ -15,7 +15,7 @@
 }
 
 .spacerLeft {
-    padding-left: 20px; 
+    padding-left: 0; 
 }
 
 .spacerRight {
@@ -24,8 +24,7 @@
 
 
 .searchBox {
-    width: 540px;
-    margin-top: 10px;
+    display: none;
 }
 
 .searchInput {
@@ -48,14 +47,34 @@
 }
 
 .pageMain {
-    max-width: 540px;
-    grid-row: auto !important;
-    grid-column: 5 / 14 !important;
-    margin-top: 6rem !important;
-    margin-bottom: 8rem !important;
-    margin-left: 50px !important;
-    padding: 0 0 0 0 !important;
+    grid-row: auto;
+    margin: 3rem 2rem;
 }
+
+.header {
+    grid-row: auto;
+}
+
+@media screen and (min-width: 560px){
+    .pageMain {
+        max-width: 540px;
+        grid-column: 5 / 14;
+        margin-top: 6rem;
+        margin-bottom: 8rem;
+        margin-left: 50px;
+        padding: 0 0 0 0;
+    }
+
+    .searchBox {
+        width: 540px;
+        margin-top: 10px;
+    }
+
+    .spacerLeft {
+        padding-left: 2rem; 
+    }
+}
+
 
 /* Footer styles */
 

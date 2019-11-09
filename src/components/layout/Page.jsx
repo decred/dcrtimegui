@@ -8,7 +8,7 @@ const Page = ({ children }) => {
   return (
     <>
       <Container className={styles.container} singleContent>
-        <Header />
+        <Header className={styles.header} />
         <Main fill className={styles.pageMain}>
           {children}
         </Main>
