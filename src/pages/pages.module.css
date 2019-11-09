@@ -5,11 +5,17 @@
     height: 34px;
     font-size: 27px;
     color: #48566E;
-    margin-bottom: 3rem !important;
-    margin-left: 3rem !important;
+    margin-bottom: 2rem;
 }
 
 .iconButton {
     border: none;
     margin-top: 4px;
+}
+
+@media screen and (min-width: 560px){
+    .title {
+        margin-left: 3rem;
+        margin-bottom: 3rem;
+    }
 }
