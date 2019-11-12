@@ -80,4 +80,5 @@ const Tabs = ({ active, set }) => {
     </div>
   );
 };
+
 export default withRouter(TimestampForm);
