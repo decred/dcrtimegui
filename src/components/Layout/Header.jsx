@@ -13,15 +13,15 @@ const Header = ({ history }) => {
       </NavLink>
       <div className={styles.headerContainer}>
         <BoxTextInput
-          className={styles.searchBox}
-          inputClassName={styles.searchInput}
-          searchInput={true}
-          rounded={true}
-          placeholder="Search for digest"
           name="search"
           value={query}
+          placeholder="Search for digest"
+          searchInput={true}
+          rounded={true}
+          inputClassName={styles.searchInput}
+          className={styles.searchBox}
           onChange={e => setQuery(e.target.value)}
-          onSubmit={() => history.push(`results?digests=${query}`)}
+          onSubmit={() => history.push(`results#digests=${query}`)}
         />
       </div>
     </HeaderUI>

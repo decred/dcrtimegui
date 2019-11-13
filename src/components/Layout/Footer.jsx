@@ -8,8 +8,8 @@ const Footer = () => (
       <span>
         The source code is available at{" "}
         <a
-          className={styles.ghLink}
           href="https://github.com/decred/dcrtimegui"
+          className={styles.ghLink}
         >
           GitHub
         </a>

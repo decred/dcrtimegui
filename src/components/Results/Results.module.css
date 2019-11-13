@@ -1,0 +1,89 @@
+.spinner {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}   
+
+.card {
+    background: var(--color-white) 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 16px var(--color-shadow-light);
+    opacity: 1;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.resultCardHeader {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.headerName {
+    font-size: 18px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+.digestWrapper {
+    display: flex;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--color-blue-lighter);
+}
+
+.copyIcon {
+    cursor: pointer;
+}
+
+.copyIconTooltip {
+    font-size: 13px;
+    color: var(--color-white);
+}
+
+.copyIconTooltip > div {
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: var(--color-shadow-light);
+    box-shadow: 0 0 0 0;
+}
+
+.digestText {
+    font-size: 18px;
+    padding-right: 10px;
+}
+.fileIcon {
+    padding-right: 5px;
+}
+
+.downloadIcon {
+    cursor: pointer;
+    padding-right: 5px;
+}
+
+.downloadWrapper {
+    display: flex;
+    cursor: pointer;
+}
+
+.paddingBottom20 {
+    padding-bottom: 20px;
+}
+
+.fontSize13 {
+    font-size: 13px;
+}
+
+.fontSize16 {
+    font-size: 16px;
+}
+
+.fontSize18 {
+    font-size: 18px;
+}
