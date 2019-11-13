@@ -1,23 +1,16 @@
-/* Modals styles */
-
-.container {
+.hashInputLine {
     display: flex;
-    width: 700px;
+    align-items: center;
+    padding-bottom: 20px;
 }
 
-.iconRow {
-    padding-right: 20px;
+.hashIcon {
+    padding-right: 5px;
 }
 
-.infoText {
-    color: #48566E;
-    padding-top: 20px;
-    padding-right: 80px;
-    text-align: left;
+.deleteIcon {
+    cursor: pointer;
 }
-
-
-/* TextInput styles */
 
 .textInput {
     background-color: transparent;

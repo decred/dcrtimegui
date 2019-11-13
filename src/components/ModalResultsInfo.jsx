@@ -1,16 +1,15 @@
 import React from "react";
 import { Modal, H1, StatusTag, P, Icon } from "pi-ui";
-import styles from "./components.module.css";
 
 const ModalResultsInfo = ({ show, onClose }) => (
   <Modal show={show} contentStyle={{ padding: "1rem" }} onClose={onClose}>
-    <div className={styles.container}>
-      <div className={styles.iconRow}>
+    <div className="modalContainer">
+      <div className="modalIconRow">
         <Icon type="info" size="xlg" />
       </div>
       <div>
         <H1>Files sent to dcrtime can be either</H1>
-        <div className={styles.infoText}>
+        <div className="modalInfoText">
           <StatusTag text="Anchored" type="greenCheck" />
           <P style={{ marginTop: "5px" }}>
             The digest of the file and other files digests sent in the same hour

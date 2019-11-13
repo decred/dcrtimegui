@@ -1,11 +1,9 @@
 import React from "react";
 import { Button, Text } from "pi-ui";
-import styles from "./timestampform.module.css";
-import TextInput from "src/components/TextInput";
-import HashIcon from "src/assets/hash_icon.svg";
-import DeleteIcon from "src/assets/delete_icon.svg";
+import HashInputLine from "./HashInputLine";
+import styles from "./HashInput.module.css";
 
-const HashInputWrapper = ({ hashes, setHashes }) => {
+const HashInput = ({ hashes, setHashes }) => {
   // Initialize first hash input
   if (!hashes.length) {
     setHashes([{ id: 0, digest: "" }]);
@@ -32,12 +30,10 @@ const HashInputWrapper = ({ hashes, setHashes }) => {
   return (
     <div className={styles.hashInputWrapper}>
       {hashes.map((hash, i) => (
-        <HashInput
-          id={hash.id}
-          key={`hash-${i}`}
+        <HashInputLine
           value={hash.digest}
-          onChange={onChangeHash}
-          onRemove={onRemoveHash}
+          onChange={onChangeHash(hash.id)}
+          onRemove={onRemoveHash(hash.id)}
         />
       ))}
       <Button type="button" icon size="sm" onClick={onAddHash}>
@@ -48,22 +44,4 @@ const HashInputWrapper = ({ hashes, setHashes }) => {
   );
 };
 
-const HashInput = ({ id, value, onChange, onRemove }) => (
-  <div className={styles.hashInput}>
-    <img alt="hash" src={HashIcon} className={styles.hashIcon} />
-    <TextInput
-      id={`hash-${id}`}
-      value={value}
-      placeholder="8c6c497073f395ca8ecd9ba6644e371c"
-      onChange={onChange(id)}
-    />
-    <img
-      alt="icon"
-      src={DeleteIcon}
-      className={styles.deleteIcon}
-      onClick={onRemove(id)}
-    />
-  </div>
-);
-
-export default HashInputWrapper;
+export default HashInput;

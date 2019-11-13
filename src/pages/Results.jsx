@@ -10,8 +10,8 @@ import {
 import LoadingResults from "../components/LoadingResults";
 import FileList from "../components/FileList";
 import ModalResultsInfo from "../components/ModalResultsInfo";
-import Page from "../components/layout/Page";
-import Title from "./Title";
+import Page from "src/components/Layout/Page";
+import Title from "src/components/Title";
 
 const updateFiles = (files, newFiles) =>
   files.map(file => {

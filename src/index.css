@@ -60,6 +60,8 @@ code {
   }
 }
 
+/* Dropzone styles */
+
 .dropzone {
   flex: 1;
   display: flex;
@@ -88,4 +90,22 @@ code {
 
 .dropzone:focus {
   border-color: #2196f3;
+}
+
+/* Modals styles */
+
+.modalContainer {
+  display: flex;
+  width: 700px;
+}
+
+.modalIconRow {
+  padding-right: 20px;
+}
+
+.modalInfoText {
+  color: #48566E;
+  padding-top: 20px;
+  padding-right: 80px;
+  text-align: left;
 }

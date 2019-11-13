@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import { Card, Button, classNames } from "pi-ui";
-import FileInput from "./FileInput";
-import HashInput from "./HashInput";
-import styles from "./timestampform.module.css";
+import { Card, Button } from "pi-ui";
+import FileInput from "src/components/FileInput";
+import HashInput from "src/components/HashInput";
+import Tabs from "src/components/Tabs";
+import { FileTab, HashTab } from "src/constants";
+import styles from "./TimestampForm.module.css";
 
 const TimestampForm = ({ history }) => {
   const [files, setFiles] = useState([]);
@@ -30,9 +32,9 @@ const TimestampForm = ({ history }) => {
         <div className={styles.content}>
           {activeTab === FileTab ? (
             <FileInput files={files} setFiles={setFiles} />
-          ) : (
+          ) : activeTab === HashTab ? (
             <HashInput hashes={hashes} setHashes={setHashes} />
-          )}
+          ) : null}
         </div>
       </Card>
       <div className={styles.submitButtonWrapper}>
@@ -46,38 +48,6 @@ const TimestampForm = ({ history }) => {
         </Button>
       </div>
     </>
-  );
-};
-
-const FileTab = 0;
-const HashTab = 1;
-
-const Tabs = ({ active, set }) => {
-  return (
-    <div className={styles.tabs}>
-      <div
-        className={classNames(
-          styles.tabFiles,
-          active === FileTab
-            ? styles.tabBackgroundWhite
-            : styles.tabBackgroundGrey
-        )}
-        onClick={() => set(FileTab)}
-      >
-        Upload file
-      </div>
-      <div
-        className={classNames(
-          styles.tabHash,
-          active === HashTab
-            ? styles.tabBackgroundWhite
-            : styles.tabBackgroundGrey
-        )}
-        onClick={() => set(HashTab)}
-      >
-        Input hash
-      </div>
-    </div>
   );
 };
 

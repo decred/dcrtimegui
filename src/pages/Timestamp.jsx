@@ -1,8 +1,8 @@
 import React from "react";
 import TimestampForm from "src/components/TimestampForm";
 import ModalNewDigestInfo from "src/components/ModalNewDigestInfo";
-import Page from "src/components/layout/Page";
-import Title from "./Title";
+import Page from "src/components/Layout/Page";
+import Title from "src/components/Title";
 
 const Timestamp = () => (
   <Page>

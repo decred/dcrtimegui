@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { H1, Button, Icon } from "pi-ui";
-import styles from "./pages.module.css";
+import styles from "./Title.module.css";
 
 const Title = ({ title, modal }) => {
   const Modal = modal;

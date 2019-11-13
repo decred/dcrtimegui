@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "src/components/layout/Header";
-import Footer from "src/components/layout/Footer";
-import styles from "./layout.module.css";
+import Header from "./Header";
+import Footer from "./Footer";
+import styles from "./Layout.module.css";
 import { Container, Main } from "pi-ui";
 
 const Page = ({ children }) => {

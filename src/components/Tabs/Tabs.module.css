@@ -1,0 +1,41 @@
+.tabs {
+    display: flex;
+    z-index: 999;
+    width: 240px;
+    position: absolute;
+    margin-left: 30px;
+    opacity: 1;
+}
+
+.tabFiles {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #E7EAED;
+    border-radius: 5px 0px 0px 5px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.tabHash {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #E7EAED;
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 0;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.tabBackgroundWhite {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+}
+
+.tabBackgroundGrey {
+    background: #F7F8F9 0% 0% no-repeat padding-box;
+}
