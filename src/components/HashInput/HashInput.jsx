@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Text } from "pi-ui";
+import { Text } from "pi-ui";
 import HashInputLine from "./HashInputLine";
 import styles from "./HashInput.module.css";
 
@@ -36,10 +36,12 @@ const HashInput = ({ hashes, setHashes }) => {
           onRemove={onRemoveHash(hash.id)}
         />
       ))}
-      <Button type="button" icon size="sm" onClick={onAddHash}>
-        +
-      </Button>
-      <Text className={styles.addButtonText}>Add another</Text>
+      <span className={styles.addButtonWrapper} onClick={onAddHash}>
+        <button className={styles.addButton} type="button">
+          +
+        </button>
+        <Text className={styles.addButtonText}>Add another</Text>
+      </span>
     </div>
   );
 };

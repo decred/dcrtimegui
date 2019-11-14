@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Header as HeaderUI, BoxTextInput } from "pi-ui";
 import { NavLink, withRouter } from "react-router-dom";
 import Logo from "src/assets/logo.svg";
-import styles from "./Layout.module.css";
+import styles from "./Header.module.css";
 
 const Header = ({ history }) => {
   const [query, setQuery] = useState("");

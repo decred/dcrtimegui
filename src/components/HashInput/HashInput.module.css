@@ -3,7 +3,23 @@
     margin-bottom: 40px;
 }
 
+.addButtonWrapper {
+    cursor: pointer;
+}
+
+.addButton {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    margin-right: 7px;
+    margin-left: 3px;
+    border-radius: 5px;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    outline: none;
+}
+
 .addButtonText {
-    color: #2970FF;
+    color: var(--color-primary);
     font-size: 13px;
 }

@@ -1,0 +1,40 @@
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  color: #F9FAFA;
+  border: 0 !important;
+  height: 70px;
+}
+
+.spacerLeft {
+  padding-left: 20px; 
+}
+
+.spacerRight {
+  padding-right: 40px;
+}
+
+
+.searchBox {
+  width: 540px;
+  margin-top: 10px;
+}
+
+.searchInput {
+  border: 1px solid;
+  border-color: #A9B4BF;
+}
+
+.searchInput:hover {
+  border-color: rgba(41, 112, 255, 0.5);
+}
+
+.searchInput:focus {
+  border-color: #2970FF;
+}

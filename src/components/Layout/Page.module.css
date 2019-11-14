@@ -1,0 +1,13 @@
+.container {
+  background-color: #F3F5F6;
+}
+
+.pageMain {
+  max-width: 540px;
+  grid-row: auto !important;
+  grid-column: 5 / 14 !important;
+  margin-top: 6rem !important;
+  margin-bottom: 8rem !important;
+  margin-left: 50px !important;
+  padding: 0 0 0 0 !important;
+}
