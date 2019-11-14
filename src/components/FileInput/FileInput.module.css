@@ -5,7 +5,7 @@
 }
 
 .dropzoneFile {
-    border: 1px dashed #8997A5;
+    border: 1px dashed var(--color-gray);
     border-radius: 5px;
     display: flex;
     cursor: pointer;
@@ -14,11 +14,11 @@
 .dropzoneText {
     width: 100%;
     text-align: center;
-    color: #091440;
+    color: var(--color-primary-dark);
     font-size: 13px;
 }
 
 .dropzoneAcceptStyle {
-    border: 1px solid #2970FF;
-    background: #2970FF;
+    border: 1px solid var(--color-primary);
+    background: var(--color-primary);
 }

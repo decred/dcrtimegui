@@ -10,7 +10,7 @@
 .tabFiles {
     width: 120px;
     height: 40px;
-    border: 1px solid #E7EAED;
+    border: 1px solid var(--color-gray-lighter);
     border-radius: 5px 0px 0px 5px;
     text-align: center;
     font-size: 13px;
@@ -22,7 +22,7 @@
 .tabHash {
     width: 120px;
     height: 40px;
-    border: 1px solid #E7EAED;
+    border: 1px solid var(--color-gray-lighter);
     border-left: none;
     border-radius: 0px 5px 5px 0px;
     text-align: center;
@@ -33,9 +33,9 @@
 }
 
 .tabBackgroundWhite {
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: var(--color-white) 0% 0% no-repeat padding-box;
 }
 
 .tabBackgroundGrey {
-    background: #F7F8F9 0% 0% no-repeat padding-box;
+    background: var(--color-gray-lightest2) 0% 0% no-repeat padding-box;
 }

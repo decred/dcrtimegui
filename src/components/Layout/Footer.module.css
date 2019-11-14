@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
   padding: 22px 128px;
-  background: #091440;
+  background: var(--color-primary-dark);
   bottom: 0;
   position: fixed;
 }
@@ -14,10 +14,10 @@
   height: 36px;
   min-width: 210px;
   font-size: 13px;
-  color: #8997a5;
+  color: var(--color-gray);
 }
 
 .ghLink {
-  color: #2970ff;
+  color: var(--color-primary);
   text-decoration: none;
 }

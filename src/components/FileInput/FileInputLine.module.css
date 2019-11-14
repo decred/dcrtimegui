@@ -10,7 +10,7 @@
     margin-top: 5px;
     margin-left: 5px;
     font-size: 13px;
-    color: #48566E;
+    color: var(--color-gray-dark);
     width: 100%;
 }
 

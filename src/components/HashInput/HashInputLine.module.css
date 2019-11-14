@@ -25,7 +25,7 @@
 }
 
 .textInput::placeholder {
-    color: #C4CBD2;
+    color: var(--color-gray-light);
     font-size: 13px;
 }
   

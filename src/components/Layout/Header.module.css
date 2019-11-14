@@ -7,7 +7,7 @@
 }
 
 .header {
-  color: #F9FAFA;
+  color: var(--color-gray-lightest2);
   border: 0 !important;
   height: 70px;
 }
@@ -28,7 +28,7 @@
 
 .searchInput {
   border: 1px solid;
-  border-color: #A9B4BF;
+  border-color: var(--color-gray-light);
 }
 
 .searchInput:hover {
@@ -36,5 +36,5 @@
 }
 
 .searchInput:focus {
-  border-color: #2970FF;
+  border-color: var(--color-primary);
 }
