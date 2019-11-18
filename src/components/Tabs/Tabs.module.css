@@ -1,3 +1,7 @@
+.tabsWrapper {
+    position: relative;
+}
+
 .tabs {
     display: flex;
     z-index: 999;

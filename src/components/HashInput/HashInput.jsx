@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "pi-ui";
-import HashInputLine from "./HashInputLine";
+import HashIcon from "src/assets/hash_icon.svg";
+import DeleteIcon from "src/assets/delete_icon.svg";
 import styles from "./HashInput.module.css";
 
 const HashInput = ({ hashes, setHashes }) => {
@@ -30,11 +31,24 @@ const HashInput = ({ hashes, setHashes }) => {
   return (
     <div className={styles.hashInputWrapper}>
       {hashes.map((hash, i) => (
-        <HashInputLine
-          value={hash.digest}
-          onChange={onChangeHash(hash.id)}
-          onRemove={onRemoveHash(hash.id)}
-        />
+        <div key={`h-${i}`} className={styles.hashInputLine}>
+          <img alt="hash" src={HashIcon} className={styles.hashIcon} />
+          <div className={styles.textInputWrapper}>
+            <input
+              type="text"
+              value={hash.digest}
+              placeholder="8c6c497073f395ca8ecd9ba6644e371c"
+              className={styles.textInput}
+              onChange={onChangeHash(hash.id)}
+            />
+          </div>
+          <img
+            alt="icon"
+            src={DeleteIcon}
+            className={styles.deleteIcon}
+            onClick={onRemoveHash(hash.id)}
+          />
+        </div>
       ))}
       <span className={styles.addButtonWrapper} onClick={onAddHash}>
         <button className={styles.addButton} type="button">

@@ -1,9 +1,10 @@
 .footer {
   width: 100%;
-  padding: 22px 128px;
+  padding: 2rem;
   background: var(--color-primary-dark);
   bottom: 0;
   position: fixed;
+  overflow:hidden;
 }
 
 .textWrapper {
