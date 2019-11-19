@@ -25,7 +25,7 @@ const Title = ({ title, modal }) => {
 
 Title.propTypes = {
   title: PropTypes.string,
-  modal: PropTypes.element
+  modal: PropTypes.func
 };
 
 export default Title;
