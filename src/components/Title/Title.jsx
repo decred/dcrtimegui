@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { H1, Button, Icon } from "pi-ui";
 import styles from "./Title.module.css";
 
@@ -20,6 +21,11 @@ const Title = ({ title, modal }) => {
       <Modal show={show} onClose={() => setShow(false)} />
     </div>
   );
+};
+
+Title.propTypes = {
+  title: PropTypes.string,
+  modal: PropTypes.element
 };
 
 export default Title;

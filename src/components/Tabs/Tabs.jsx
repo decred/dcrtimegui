@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { classNames } from "pi-ui";
 import { FileTab, HashTab } from "src/constants";
 import styles from "./Tabs.module.css";
@@ -32,6 +33,11 @@ const Tabs = ({ active, set }) => {
       </div>
     </div>
   );
+};
+
+Tabs.propTypes = {
+  active: PropTypes.oneOf([FileTab, HashTab]),
+  set: PropTypes.func
 };
 
 export default Tabs;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Modal, H1, Icon } from "pi-ui";
 
 const ModalNewDigestInfo = ({ show, onClose }) => (
@@ -25,5 +26,10 @@ const ModalNewDigestInfo = ({ show, onClose }) => (
     </div>
   </Modal>
 );
+
+ModalNewDigestInfo.propTypes = {
+  show: PropTypes.bool,
+  onClose: PropTypes.func
+};
 
 export default ModalNewDigestInfo;

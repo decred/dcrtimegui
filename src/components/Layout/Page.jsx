@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Header from "./Header";
 import Footer from "./Footer";
 import styles from "./Page.module.css";
@@ -16,6 +17,10 @@ const Page = ({ children }) => {
       <Footer />
     </>
   );
+};
+
+Page.propTypes = {
+  children: PropTypes.element
 };
 
 export default Page;

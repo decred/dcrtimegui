@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import Dropzone from "react-dropzone";
 import { Text } from "pi-ui";
 import FileIcon from "src/assets/file_icon.svg";
@@ -6,7 +7,7 @@ import DeleteIcon from "src/assets/delete_icon.svg";
 import { processFiles } from "./helpers";
 import styles from "./FileInput.module.css";
 
-const FileInput = ({ files, setFiles, multiple = true }) => {
+const FileInput = ({ files, setFiles }) => {
   const [processing, setProcessing] = useState(false);
 
   const onRemoveFile = idx => () =>
@@ -35,7 +36,7 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
         className={styles.dropzoneWrapper}
       >
         <Dropzone
-          multiple={multiple}
+          multiple
           disabled={processing}
           disableClick={processing}
           onDrop={(accFiles, _rejFiles) => {
@@ -66,6 +67,11 @@ const FileInput = ({ files, setFiles, multiple = true }) => {
       </div>
     </>
   );
+};
+
+FileInput.propTypes = {
+  files: PropTypes.array,
+  setFiles: PropTypes.func
 };
 
 export default FileInput;

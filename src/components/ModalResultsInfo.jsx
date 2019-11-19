@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Modal, H1, StatusTag, P, Icon } from "pi-ui";
 
 const ModalResultsInfo = ({ show, onClose }) => (
@@ -30,5 +31,10 @@ const ModalResultsInfo = ({ show, onClose }) => (
     </div>
   </Modal>
 );
+
+ModalResultsInfo.propTypes = {
+  show: PropTypes.bool,
+  onClose: PropTypes.func
+};
 
 export default ModalResultsInfo;

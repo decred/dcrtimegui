@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Text } from "pi-ui";
 import HashIcon from "src/assets/hash_icon.svg";
 import DeleteIcon from "src/assets/delete_icon.svg";
@@ -58,6 +59,11 @@ const HashInput = ({ hashes, setHashes }) => {
       </span>
     </div>
   );
+};
+
+HashInput.propTypes = {
+  hashes: PropTypes.array,
+  setHashes: PropTypes.func
 };
 
 export default HashInput;
