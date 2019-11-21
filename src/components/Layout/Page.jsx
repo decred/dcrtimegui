@@ -13,8 +13,8 @@ const Page = ({ children }) => {
         <Main className={styles.pageMain}>
           <div className={styles.contentMain}>{children}</div>
         </Main>
+        <Footer />
       </Container>
-      <Footer />
     </>
   );
 };

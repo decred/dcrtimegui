@@ -12,8 +12,8 @@ const HashInput = ({ hashes, setHashes }) => {
   }
 
   const onAddHash = () => {
-    const lastID = hashes[hashes.length - 1].id + 1;
-    return setHashes([...hashes, { id: lastID, digest: "" }]);
+    const newId = hashes[hashes.length - 1].id + 1;
+    return setHashes([...hashes, { id: newId, digest: "" }]);
   };
 
   const onRemoveHash = id => () =>
