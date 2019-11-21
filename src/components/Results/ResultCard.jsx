@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Card, Text, StatusTag, Tooltip } from "pi-ui";
 import CopyIcon from "src/assets/copy_icon.svg";
 import FileIcon from "src/assets/file_icon.svg";
@@ -119,6 +120,10 @@ const ResultCard = ({ digest }) => {
       </div>
     </Card>
   );
+};
+
+ResultCard.propTypes = {
+  digest: PropTypes.object
 };
 
 export default ResultCard;
