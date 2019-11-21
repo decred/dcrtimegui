@@ -1,38 +1,33 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Card, Text, StatusTag, Tooltip } from "pi-ui";
+import { Card, Text, Tooltip } from "pi-ui";
 import CopyIcon from "src/assets/copy_icon.svg";
 import FileIcon from "src/assets/file_icon.svg";
 import DownloadIcon from "src/assets/download_icon.svg";
-import { isDigestAnchored, isDigestAnchorPending } from "src/helpers/dcrtime";
 import styles from "./Results.module.css";
 
-const ResultCard = ({ digest }) => {
+const ResultCard = ({
+  name,
+  digest,
+  chaininfo,
+  isDigestAnchored,
+  children
+}) => {
   const [copied, setCopied] = useState(false);
 
-  const dataForDownload = JSON.stringify({
-    name: digest.name,
-    digest: digest.digest,
-    transaction: digest.chaininformation.transaction,
-    merkleRoot: digest.chaininformation.merkleroot,
-    merklePath: digest.chaininformation.merklepath
-  });
-
   const copyDigestToClipboard = () => {
-    navigator.clipboard.writeText(digest.digest);
+    navigator.clipboard.writeText(digest);
     setCopied(true);
     setTimeout(() => setCopied(false), 1000);
   };
 
-  const renderStatusTag = () => {
-    if (isDigestAnchored(digest)) {
-      return <StatusTag text="Anchored" type="greenCheck" />;
-    }
-    if (isDigestAnchorPending(digest)) {
-      return <StatusTag text="Pending" type="bluePending" />;
-    }
-    return <StatusTag text="Not Anchored" type="orangeNegativeCircled" />;
-  };
+  const dataForDownload = JSON.stringify({
+    name: name,
+    digest: digest,
+    transaction: chaininfo.transaction,
+    merkleRoot: chaininfo.merkleroot,
+    merklePath: chaininfo.merklepath
+  });
 
   return (
     <Card className={styles.card}>
@@ -40,22 +35,19 @@ const ResultCard = ({ digest }) => {
         {/* Name */}
         <div className={styles.resultCardHeader}>
           <img alt="file" src={FileIcon} className={styles.fileIcon} />
-          <Text id={`n-${digest.name}`} truncate className={styles.headerName}>
-            {digest.name}
+          <Text id={`n-${name}`} truncate className={styles.headerName}>
+            {name}
           </Text>
-          {renderStatusTag()}
+          {/* Status Tag */}
+          {children}
         </div>
 
         {/* Digest */}
         <div className={styles.paddingBottom20}>
           <Text className={styles.fontSize13}>Digest</Text>
           <div className={styles.digestWrapper}>
-            <Text
-              id={`d-${digest.digest}`}
-              truncate
-              className={styles.digestText}
-            >
-              {digest.digest}
+            <Text id={`d-${digest}`} truncate className={styles.digestText}>
+              {digest}
             </Text>
             <Tooltip
               content={copied ? "Copied!" : "Copy"}
@@ -72,26 +64,26 @@ const ResultCard = ({ digest }) => {
           </div>
         </div>
 
-        {isDigestAnchored(digest) ? (
+        {isDigestAnchored ? (
           <>
             {/* Chain Info */}
             <div className={styles.paddingBottom20}>
               <p className={styles.fontSize13}>
                 Timestamp:
                 <Text color="gray" className={styles.fontSize13}>
-                  {" " + digest.chaininformation.chaintimestamp}
+                  {" " + chaininfo.chaintimestamp}
                 </Text>
               </p>
               <p className={styles.fontSize13}>
                 Merkle root:
                 <Text color="gray" className={styles.fontSize13}>
-                  {" " + digest.chaininformation.merkleroot}
+                  {" " + chaininfo.merkleroot}
                 </Text>
               </p>
               <p className={styles.fontSize13}>
                 Transaction:
                 <Text color="gray" className={styles.fontSize13}>
-                  {" " + digest.chaininformation.transaction}
+                  {" " + chaininfo.transaction}
                 </Text>
               </p>
             </div>
@@ -102,7 +94,7 @@ const ResultCard = ({ digest }) => {
                 href={`data:text/plain;charset=utf-8, ${encodeURIComponent(
                   dataForDownload
                 )}`}
-                download={`${digest.name}.json`}
+                download={`${name}.json`}
                 className={styles.downloadWrapper}
               >
                 <img
@@ -123,7 +115,11 @@ const ResultCard = ({ digest }) => {
 };
 
 ResultCard.propTypes = {
-  digest: PropTypes.object
+  name: PropTypes.string,
+  digest: PropTypes.string,
+  chaininfo: PropTypes.object,
+  isDigestAnchored: PropTypes.bool,
+  children: PropTypes.node
 };
 
 export default ResultCard;

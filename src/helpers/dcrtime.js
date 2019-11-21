@@ -20,7 +20,7 @@ export const mergeDigestsAndResult = (digests, res) =>
 export const getDigests = data => data.map(d => d.digest);
 
 export const isDigestAnchored = digest =>
-  digest.chaininformation && digest.chaininformation.chaintimestamp;
+  !!(digest.chaininformation && digest.chaininformation.chaintimestamp);
 
 export const isDigestFound = digest => digest.result === 0;
 
