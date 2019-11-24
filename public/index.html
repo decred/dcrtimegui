@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?v=4">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#000000">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?v=4">
+    <link rel="stylesheet" href="%PUBLIC_URL%/styles.css">
+
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -23,7 +25,21 @@
   </head>
   <body>
     <noscript>
-      You need to enable JavaScript to run this app.
+      <div class="header">
+        <img class="logo" src="/assets/logo.svg" alt="logo">
+        <span class="nojsMessage">Javascript disabled</span>
+      </div>
+      <div class="body">
+        <p class="title">
+          Create Timestamp
+        </p>
+        <div class="card">
+          <form action="https://time-testnet.decred.org:59152/v1/timestamp" method="post">        
+            <input class="digestInput" type="text" name="digests" placeholder="32-byte hash" />
+            <input class="submitButton" type="submit" value="Submit"> 
+          </form>
+        </div>
+      </div>
     </noscript>
     <div id="root"></div>
     <!--
