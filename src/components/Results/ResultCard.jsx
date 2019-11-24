@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Card, Text, Tooltip } from "pi-ui";
 import CopyIcon from "src/assets/copy_icon.svg";
 import FileIcon from "src/assets/file_icon.svg";
+import HashIcon from "src/assets/hash_icon.svg";
 import DownloadIcon from "src/assets/download_icon.svg";
 import styles from "./Results.module.css";
 
@@ -14,6 +15,7 @@ const ResultCard = ({
   children
 }) => {
   const [copied, setCopied] = useState(false);
+  const hasFileName = name !== digest;
 
   const copyDigestToClipboard = () => {
     navigator.clipboard.writeText(digest);
@@ -34,7 +36,11 @@ const ResultCard = ({
       <div className={styles.content}>
         {/* Name */}
         <div className={styles.resultCardHeader}>
-          <img alt="file" src={FileIcon} className={styles.fileIcon} />
+          <img
+            alt="file"
+            src={hasFileName ? FileIcon : HashIcon}
+            className={styles.fileIcon}
+          />
           <Text id={`n-${name}`} truncate className={styles.headerName}>
             {name}
           </Text>
