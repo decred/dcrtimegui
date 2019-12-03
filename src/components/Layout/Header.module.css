@@ -1,8 +1,7 @@
 .headerContainer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw; 
+  justify-content: center;
+  width: 100vw;
 }
 
 .header {
@@ -11,18 +10,10 @@
   height: 70px;
 }
 
-.spacerLeft {
-  padding-left: 100px; 
-}
-
-.spacerRight {
-  padding-right: 140px;
-}
-
-
 .searchBox {
   width: 540px;
   margin-top: 10px;
+  margin-right: 70px;
 }
 
 .searchInput {
@@ -38,17 +29,12 @@
   border-color: var(--color-primary);
 }
 
-@media screen and (max-width: 1100px){
-
-  .spacerLeft {
-    padding-left: 50px;
-  }
+@media screen and (max-width: 768px){
 
   .searchBox {
+    width: 100%;
     padding-left: 50px;
+    margin-right: 0;
   }
 
-  .spacerRight {
-    padding-right: 0;
-  }
 }

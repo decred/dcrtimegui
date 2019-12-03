@@ -2,9 +2,9 @@
   height: 80px;
   width: 100vw;  
   padding: 2rem;
+  margin-top: 40px;
   background: var(--color-primary-dark);
-  bottom: 0;
-  position: fixed;
+  flex-shrink: 0;
 }
 
 .textWrapper {
