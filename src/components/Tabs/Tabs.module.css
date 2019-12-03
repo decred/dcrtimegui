@@ -41,5 +41,6 @@
 }
 
 .tabBackgroundGrey {
-    background: var(--color-gray-lightest2) 0% 0% no-repeat padding-box;
+    background: var(--color-gray-lightest) 0% 0% no-repeat padding-box;
+    color: var(--color-gray);
 }

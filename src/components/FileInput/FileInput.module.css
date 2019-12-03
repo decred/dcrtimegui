@@ -28,3 +28,27 @@
 .deleteIcon {
     cursor: pointer;
 }
+
+.dropzone {
+    height: 80px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-width: 1.5px;
+    border-radius: 2px;
+    border-color: var(--color-gray-light);
+    border-style: dashed;
+    outline: none;
+    cursor: pointer;
+    transition: border .24s ease-in-out;
+  }
+  
+  .dropzoneActive {
+    border-color: var(--color-primary);
+  }
+  
+  .dropzone:focus {
+    border-color: var(--color-primary);
+  }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Dropzone from "react-dropzone";
-import { Text } from "pi-ui";
+import { Text, classNames } from "pi-ui";
 import FileIcon from "src/assets/file_icon.svg";
 import DeleteIcon from "src/assets/delete_icon.svg";
 import { processFiles } from "./helpers";
@@ -50,9 +50,10 @@ const FileInput = ({ files, setFiles }) => {
           {({ getRootProps, getInputProps, isDragActive }) => (
             <div
               {...getRootProps({
-                className: `dropzone ${isDragActive ? "dropzone-active" : ""} ${
-                  isDragActive ? "dropzone-accepted" : ""
-                } `
+                className: classNames(
+                  styles.dropzone,
+                  isDragActive && styles.dropzoneActive
+                )
               })}
             >
               <input {...getInputProps()} />

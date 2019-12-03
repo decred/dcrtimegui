@@ -10,9 +10,7 @@ const Page = ({ children }) => {
     <>
       <Container className={styles.container} singleContent>
         <Header />
-        <Main className={styles.pageMain}>
-          <div className={styles.contentMain}>{children}</div>
-        </Main>
+        <Main className={styles.pageMain}>{children}</Main>
         <Footer />
       </Container>
     </>
