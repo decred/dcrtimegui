@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Modal as ModalPi, H1, Icon } from "pi-ui";
 import styles from "./Modal.module.css";
 
@@ -15,5 +16,12 @@ const Modal = ({ title, content, show, onClose }) => (
     </div>
   </ModalPi>
 );
+
+Modal.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.node,
+  show: PropTypes.bool,
+  onClose: PropTypes.func
+};
 
 export default Modal;
