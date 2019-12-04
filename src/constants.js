@@ -9,3 +9,7 @@ export const DCRDATA_URL =
   process.env.REACT_APP_NETWORK === "testnet"
     ? "https://testnet.dcrdata.org"
     : "https://explorer.dcrdata.org";
+
+// Tabs
+export const FileTab = 0;
+export const HashTab = 1;

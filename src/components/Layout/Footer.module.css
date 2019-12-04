@@ -1,0 +1,24 @@
+.footer {
+  height: 80px;
+  width: 100vw;  
+  padding: 2rem;
+  margin-top: 40px;
+  background: var(--color-primary-dark);
+  flex-shrink: 0;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 36px;
+  min-width: 210px;
+  font-size: 13px;
+  color: var(--color-gray);
+}
+
+.ghLink {
+  color: var(--color-primary);
+  text-decoration: none;
+}

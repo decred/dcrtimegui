@@ -1,16 +1,14 @@
-/* Modals styles */
-
-.container {
+.modalContainer {
     display: flex;
     width: 700px;
-}
-
-.iconRow {
+  }
+  
+.modalIconRow {
     padding-right: 20px;
 }
 
-.infoText {
-    color: #48566E;
+.modalContent {
+    color: var(--color-gray-dark);
     padding-top: 20px;
     padding-right: 80px;
     text-align: left;
