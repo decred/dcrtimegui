@@ -11,8 +11,8 @@ const ResultCard = ({
   name,
   digest,
   chaininfo,
-  isDigestAnchored,
-  children
+  statusTag,
+  isDigestAnchored
 }) => {
   const [copied, setCopied] = useState(false);
   const hasFileName = name !== digest;
@@ -44,8 +44,7 @@ const ResultCard = ({
           <Text id={`n-${name}`} truncate className={styles.headerName}>
             {name}
           </Text>
-          {/* Status Tag */}
-          {children}
+          {statusTag}
         </div>
 
         {/* Digest */}
@@ -124,8 +123,8 @@ ResultCard.propTypes = {
   name: PropTypes.string,
   digest: PropTypes.string,
   chaininfo: PropTypes.object,
-  isDigestAnchored: PropTypes.bool,
-  children: PropTypes.node
+  statusTag: PropTypes.node,
+  isDigestAnchored: PropTypes.bool
 };
 
 export default ResultCard;

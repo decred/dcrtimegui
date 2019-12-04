@@ -32,10 +32,9 @@ const Results = ({ location }) => {
         name={d.name}
         digest={d.digest}
         chaininfo={d.chaininformation}
+        statusTag={getStatusTag(d)}
         isDigestAnchored={isDigestAnchored(d)}
-      >
-        {getStatusTag(d)}
-      </ResultCard>
+      />
     ))
   );
 };
