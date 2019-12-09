@@ -8,6 +8,22 @@ export const timestamp = dcrtime.timestamp;
 
 export const verify = dcrtime.verify;
 
+// Handlers for API calls
+export const handleVerify = async data => {
+  const digests = getDigests(data);
+  const res = await verify(digests);
+  if (res.error) throw res.error;
+  return res;
+};
+
+export const handleTimestamp = async data => {
+  const digests = getDigests(data);
+  const res = await timestamp(digests, "data");
+  if (res.error) throw res.error;
+  return res;
+};
+
+// Helper functions
 export const mergeDigestsAndResult = (digests, res) =>
   digests.map(ds => {
     const result = res.digests.find(d => ds.digest === d.digest);

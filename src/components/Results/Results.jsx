@@ -1,7 +1,7 @@
 import React from "react";
 import { Spinner, StatusTag } from "pi-ui";
 import { withRouter } from "react-router-dom";
-import ResultCard from "./ResultCard";
+import ResultCard from "src/components/ResultCard";
 import { isDigestAnchored, isDigestAnchorPending } from "src/helpers/dcrtime";
 import useProcessDigests from "./hooks";
 import styles from "./Results.module.css";
@@ -31,7 +31,7 @@ const Results = ({ location }) => {
         key={`d-${d.digest}`}
         name={d.name}
         digest={d.digest}
-        chaininfo={d.chaininformation}
+        chainInfo={d.chaininformation}
         statusTag={getStatusTag(d)}
         isDigestAnchored={isDigestAnchored(d)}
       />
