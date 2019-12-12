@@ -8,31 +8,46 @@ export const timestamp = dcrtime.timestamp;
 
 export const verify = dcrtime.verify;
 
-export const mergeFilesAndResult = (files, res) =>
-  files.map(f => {
-    const result = res.digests.find(d => f.digest === d.digest);
+// Handlers for API calls
+export const handleVerify = async data => {
+  const digests = getDigests(data);
+  const res = await verify(digests);
+  if (res.error) throw res.error;
+  return res;
+};
+
+export const handleTimestamp = async data => {
+  const digests = getDigests(data);
+  const res = await timestamp(digests, "data");
+  if (res.error) throw res.error;
+  return res;
+};
+
+// Helper functions
+export const mergeDigestsAndResult = (digests, res) =>
+  digests.map(ds => {
+    const result = res.digests.find(d => ds.digest === d.digest);
     return {
-      ...f,
+      ...ds,
       ...result
     };
   });
 
 export const getDigests = data => data.map(d => d.digest);
 
-export const isFileDigestAnchored = file => {
-  return file.chaininformation && file.chaininformation.chaintimestamp;
-};
+export const isDigestAnchored = digest =>
+  !!(digest.chaininformation && digest.chaininformation.chaintimestamp);
 
-export const isFileDigestFound = file => file.result === 0;
+export const isDigestFound = digest => digest.result === 0;
 
-export const isFileDigestAnchorPending = file =>
-  isFileDigestFound(file) && !isFileDigestAnchored(file);
+export const isDigestAnchorPending = digest =>
+  isDigestFound(digest) && !isDigestAnchored(digest);
 
-export const isFileDigestNotAnchored = file => !isFileDigestFound(file);
+export const isDigestNotAnchored = digest => !isDigestFound(digest);
 
-export const getAnchoredFiles = files => files.filter(isFileDigestAnchored);
+export const getAnchoredDigests = digests => digests.filter(isDigestAnchored);
 
-export const getPendingFiles = files => files.filter(isFileDigestAnchorPending);
+export const getPendingDigests = digests =>
+  digests.filter(isDigestAnchorPending);
 
-export const getNotAnchoredFiles = files =>
-  files.filter(isFileDigestNotAnchored);
+export const getNotAnchoredDigests = data => data.filter(isDigestNotAnchored);

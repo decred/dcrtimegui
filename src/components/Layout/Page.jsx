@@ -4,13 +4,18 @@ import Header from "./Header";
 import Footer from "./Footer";
 import styles from "./Page.module.css";
 import { Container, Main } from "pi-ui";
+import ErrorBoundary from "src/components/ErrorBoundary";
 
 const Page = ({ children }) => {
   return (
     <>
-      <Container className={styles.container} singleContent>
+      <Container singleContent className={styles.container}>
         <Header />
-        <Main className={styles.pageMain}>{children}</Main>
+        <Main className={styles.pageMain}>
+          <ErrorBoundary>
+            {children}
+          </ErrorBoundary>
+        </Main>
         <Footer />
       </Container>
     </>
