@@ -10,12 +10,6 @@
   width: 100vw;
 }
 
-.header {
-  color: var(--color-gray-lightest2);
-  border: 0 !important;
-  height: 70px;
-}
-
 .searchBox {
   width: 540px;
   margin-top: 10px;
