@@ -7,13 +7,15 @@
 
 .pageMain {
   flex-grow: 1;
-  width: 540px;
+  width: 100vw;
+  max-width: 540px;
   align-self: center;
   margin: 45px 0 0 20px;
 }
 
 @media screen and (max-width: 640px){
   .pageMain {
-    width: 80vw;
+    margin: 45px 0 0 0;
+    padding: 0 40px 0 40px;
   }
 }
