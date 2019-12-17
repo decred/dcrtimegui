@@ -1,14 +1,14 @@
 /* Title styles */
 
 .title {
-    display: flex;
-    height: 34px;
-    font-size: 27px;
-    margin-bottom: 3rem !important;
-    margin-left: 30px !important;
+  display: flex;
+  height: 34px;
+  font-size: 27px;
+  margin-bottom: 3rem !important;
+  margin-left: 30px !important;
 }
 
 .iconButton {
-    border: none;
-    margin-top: 4px;
+  border: none;
+  margin-top: 4px;
 }

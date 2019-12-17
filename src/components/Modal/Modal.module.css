@@ -1,15 +1,15 @@
 .modalContainer {
-    display: flex;
-    width: 700px;
-  }
+  display: flex;
+  width: 700px;
+}
   
 .modalIconRow {
-    padding-right: 20px;
+  padding-right: 20px;
 }
 
 .modalContent {
-    color: var(--color-gray-dark);
-    padding-top: 20px;
-    padding-right: 80px;
-    text-align: left;
+  color: var(--color-gray-dark);
+  padding-top: 20px;
+  padding-right: 80px;
+  text-align: left;
 }

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.7",
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "crypto-js": "^3.1.9-1",
     "dcrtimejs": "^0.0.5",
     "http-proxy-middleware": "^0.19.0",
@@ -14,11 +14,11 @@
     "pi-ui": "https://github.com/decred/pi-ui",
     "primer-tooltips": "^2.0.0",
     "query-string": "^6.9.0",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-dropzone": "^10.1.10",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-dropzone": "^10.2.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.2.0",
+    "react-scripts": "^3.3.0",
     "styled-components": "^4.4.1"
   },
   "scripts": {
@@ -27,7 +27,9 @@
     "build-testnet": "REACT_APP_NETWORK=testnet react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint src"
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:css": "stylelint --fix 'src/**/*.css'",
+    "lint:js": "eslint --fix --ext=.js,.jsx src"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,17 +54,20 @@
   ],
   "devDependencies": {
     "babel-eslint": "10.0.3",
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-config-react-app": "^5.0.2",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-react-app": "^5.1.0",
     "eslint-plugin-flowtype": "3.x",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "husky": "^3.0.9",
-    "lint-staged": "^9.4.2",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.19.1",
-    "typescript": "^3.7.2"
+    "stylelint": "^12.0.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "typescript": "^3.7.3"
   }
 }
