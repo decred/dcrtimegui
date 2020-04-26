@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Spinner, StatusTag } from "pi-ui";
 import { withRouter } from "react-router-dom";
 import ResultCard from "src/components/ResultCard";
@@ -11,15 +11,19 @@ const Results = ({ location }) => {
 
   if (error) throw error;
 
-  const getStatusTag = digest => {
+  const getStatusTag = useCallback(digest => {
+    function renderStatusTag(text, type) {
+      return <StatusTag text={text} type={type} className={styles.resultTag} />;
+    }
+
     if (isDigestAnchored(digest)) {
-      return <StatusTag text="Anchored" type="greenCheck" />;
+      return renderStatusTag("Anchored", "greenCheck");
     }
     if (isDigestAnchorPending(digest)) {
-      return <StatusTag text="Pending" type="bluePending" />;
+      return renderStatusTag("Pending", "bluePending");
     }
-    return <StatusTag text="Not Anchored" type="orangeNegativeCircled" />;
-  };
+    return renderStatusTag("Not Anchored", "orangeNegativeCircled");
+  }, []);
 
   return loading && !error ? (
     <div className={styles.spinner}>
