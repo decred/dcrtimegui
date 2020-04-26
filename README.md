@@ -10,20 +10,29 @@ dcrtimegui
 
 A hash of each submitted file is calculated and sent to a dcrtime server, which aggregates these hashes, organizes them into a merkle tree, hashes that tree down to a merkle root, and anchors that merkle root in the Decred blockchain once an hour.
 
-Technical detail: This service, dcrtime and Decred use the sha256 hash function.
+## Technical details
 
-**The files are not stored in the server**. It uses 
+- This service, dcrtime and Decred use the sha256 hash function.
+- **The files are not stored in the server**. It uses 
 [dcrtime](https://github.com/decred/dcrtime) as backend to store and anchor the
 files hashes.
+- This app uses the [dcrtimejs](https://github.com/tiagoalvesdulce/dcrtimejs) to communicate with the dcrtime APIs.
 
 
-### Development
+## Running APIs
+
+| Network | Base URL                              |
+| ------- | ------------------------------------- |
+| Testnet | https://time-testnet.decred.org:59152 |
+| Mainnet | https://time-testnet.decred.org:59152 |
+
+## Development
 
 To start the development server:
 
 `yarn && yarn start` 
 
-### Production
+## Production
 
 To generate the production bundle for mainnet:
 
@@ -33,7 +42,8 @@ For testnet:
 
 `yarn && yarn build-testnet`
 
-### Verify and timestamp SHA256 hashes using URL parameters
+
+## Verify and timestamp SHA256 hashes using URL parameters
 
 Its possible to use the results route to verify and timestamp SHA256 digests 
 directly. There are tree parameters to be set:
