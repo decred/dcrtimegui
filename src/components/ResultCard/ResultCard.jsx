@@ -14,23 +14,23 @@ const ResultCard = ({
   statusTag,
   isDigestAnchored
 }) => {
-  const dataForDownload = JSON.stringify({
-    name: name,
-    digest: digest,
-    transaction: chainInfo.transaction,
-    merkleRoot: chainInfo.merkleroot,
-    merklePath: chainInfo.merklepath
-  });
-
+  const hasFileName = name !== digest;
   return (
     <Card className={styles.card}>
       <div className={styles.content}>
-        <Name name={name} statusTag={statusTag} hasFileName={name !== digest} />
+        <Name name={name} statusTag={statusTag} hasFileName={hasFileName} />
         <Digest digest={digest} />
         {isDigestAnchored ? (
           <>
             <ChainInfo chainInfo={chainInfo} />
-            <DownloadProof data={dataForDownload} name={name} />
+            <DownloadProof
+              data={{
+                name: name,
+                digest: digest,
+                ...chainInfo
+              }}
+              name={name}
+            />
           </>
         ) : null}
       </div>
