@@ -1,6 +1,6 @@
 import dcrtime from "dcrtimejs";
 
-dcrtime.setNetwork("testnet");
+dcrtime.setNetwork(process.env.REACT_APP_NETWORK);
 
 export const digestPayload = dcrtime.getSHA256fromBase64;
 
