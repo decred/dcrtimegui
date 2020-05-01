@@ -6,11 +6,6 @@
     <meta name="theme-color" content="#000000">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?v=4">
     <link rel="stylesheet" href="%PUBLIC_URL%/styles.css">
-
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -30,27 +25,30 @@
         <span class="nojsMessage">Javascript disabled</span>
       </div>
       <div class="body">
-        <p class="title">
-          Create Timestamp
-        </p>
+        <div class="titleContainer">
+          <p class="title">
+            Create new digest
+          </p>          
+        </div>
         <div class="card">
-          <form action="https://time-testnet.decred.org:59152/v1/timestamp" method="post">        
-            <input class="digestInput" type="text" name="digests" placeholder="32-byte hash" />
+          <form action="https://time.decred.org:49152/v2/timestamp" method="post">        
+            <input class="digestInput" type="text" name="digest" placeholder="32-byte hash" />
+            <input class="submitButton" type="submit" value="Submit"> 
+          </form>
+        </div>
+        <div class="titleContainer">
+          <p class="title">
+            Verify digest
+          </p>          
+        </div>
+        <div class="card">
+          <form action="https://time.decred.org:49152/v2/verify" method="post">        
+            <input class="digestInput" type="text" name="digest" placeholder="32-byte hash" />
             <input class="submitButton" type="submit" value="Submit"> 
           </form>
         </div>
       </div>
     </noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
