@@ -27,7 +27,6 @@
     "build-testnet": "REACT_APP_NETWORK=testnet react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npm-run-all --parallel lint:*",
     "lint:css": "stylelint --fix 'src/**/*.css'",
     "lint:js": "eslint --fix --ext=.js,.jsx src"
   },
@@ -42,7 +41,8 @@
   "lint-staged": {
     "src/**/*.{js,jsx}": [
       "prettier --write",
-      "yarn lint --fix",
+      "yarn lint:css",
+      "yarn lint:js",
       "git add"
     ]
   },
