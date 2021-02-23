@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 13.x]
+        node-version: [14.x, 15.x]
 
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Use nodejs ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -17,8 +17,10 @@ jobs:
 
     - name: yarn
       run: yarn --network-concurrency 1
-    - name: lint
-      run: yarn lint
+    - name: lint:css
+      run: yarn lint:css
+    - name: lint:js
+      run: yarn lint:js
     - name: test
       run: yarn test
       env:
