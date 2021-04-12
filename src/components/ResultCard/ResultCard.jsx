@@ -25,7 +25,6 @@ const ResultCard = ({
             <ChainInfo chainInfo={chainInfo} />
             <DownloadProof
               data={{
-                name: name,
                 digest: digest,
                 ...chainInfo
               }}
