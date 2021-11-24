@@ -1,5 +1,5 @@
 # Build image
-FROM node:14.13
+FROM node:16
 
 LABEL description="dcrtimegui build"
 LABEL version="1.0"
