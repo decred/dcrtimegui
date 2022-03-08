@@ -62,5 +62,8 @@
     "stylelint": "^13.10.0",
     "stylelint-config-recommended": "^3.0.0",
     "typescript": "^3.9.9"
+  },
+  "resolutions": {
+    "shell-quote": "1.7.2"
   }
 }

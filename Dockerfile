@@ -10,7 +10,7 @@ WORKDIR /root
 
 COPY ./ /root/
 
-RUN yarn --network-concurrency 1
+RUN yarn install --network-concurrency 1
 RUN INLINE_RUNTIME_CHUNK=false yarn build
 
 # Serve image (stable nginx version)
