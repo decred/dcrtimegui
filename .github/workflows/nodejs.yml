@@ -16,7 +16,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: yarn install
-      run: yarn --network-concurrency 1
+      run: yarn cache clean && yarn --network-concurrency 1
     - name: lint:css
       run: yarn lint:css
     - name: lint:js
