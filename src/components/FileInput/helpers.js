@@ -1,5 +1,4 @@
 import { digestPayload } from "src/helpers/dcrtime";
-import { setDigestName } from "src/helpers/localstorage";
 
 // processFiles adds the base64 payload into the file data
 export const processFiles = files =>
@@ -10,7 +9,6 @@ export const processFiles = files =>
       reader.onload = (f => event => {
         const payload = event.target.result.split(",")[1];
         const digest = digestPayload(payload);
-        setDigestName(digest, f.name);
         processedFiles.push({
           name: f.name,
           payload,
