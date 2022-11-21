@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Message } from "pi-ui";
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -18,7 +17,7 @@ export default class ErrorBoundary extends Component {
   render() {
     const { error } = this.state;
     return error ? (
-      <Message kind="error">{error.toString()}</Message>
+      <div kind="error">{error.toString()}</div>
     ) : (
       this.props.children
     );

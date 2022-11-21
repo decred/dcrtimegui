@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Text } from "pi-ui";
 import HashIcon from "src/assets/hash_icon.svg";
 import DeleteIcon from "src/assets/delete_icon.svg";
 import styles from "./HashInput.module.css";
@@ -55,7 +54,7 @@ const HashInput = ({ hashes, setHashes }) => {
         <button className={styles.addButton} type="button">
           +
         </button>
-        <Text className={styles.addButtonText}>Add another</Text>
+        <span className={styles.addButtonText}>Add another</span>
       </span>
     </div>
   );

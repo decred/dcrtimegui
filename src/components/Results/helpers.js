@@ -13,6 +13,7 @@ export const processQueryData = locationHash => {
     names: strNames,
     timestamp: strTimestamp
   } = qs.parse(locationHash);
+  console.log(locationHash);
 
   const hashes = strHashes.split(",");
   const names = strNames ? strNames.split(",") : [];

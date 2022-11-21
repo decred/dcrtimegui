@@ -2,6 +2,8 @@ import dcrtime from "dcrtimejs";
 
 dcrtime.setNetwork(process.env.REACT_APP_NETWORK);
 
+// dcrtime.setNetwork("https://127.0.0.1:59152");
+
 export const digestPayload = dcrtime.getSHA256fromBase64;
 
 export const timestamp = dcrtime.timestamp;

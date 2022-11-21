@@ -1,31 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { H1, Button, Icon } from "pi-ui";
 import styles from "./Title.module.css";
 
-const Title = ({ title, modal }) => {
-  const Modal = modal;
-  const [show, setShow] = useState(false);
+const Title = ({ title }) => {
   return (
     <div className={styles.title}>
-      <H1>{title}</H1>
-      <Button
-        className={styles.iconButton}
-        onClick={() => setShow(true)}
-        kind="secondary"
-        size="sm"
-        icon
-      >
-        <Icon type="info" size="lg" />
-      </Button>
-      <Modal show={show} onClose={() => setShow(false)} />
+      <h1>{title}</h1>
     </div>
   );
 };
 
 Title.propTypes = {
-  title: PropTypes.string,
-  modal: PropTypes.func
+  title: PropTypes.string
 };
 
 export default Title;

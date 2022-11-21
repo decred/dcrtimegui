@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import { Spinner, StatusTag } from "pi-ui";
 import { withRouter } from "react-router-dom";
 import ResultCard from "src/components/ResultCard";
 import { isDigestAnchored, isDigestAnchorPending } from "src/helpers/dcrtime";
@@ -13,7 +12,7 @@ const Results = ({ location }) => {
 
   const getStatusTag = useCallback(digest => {
     const renderStatusTag = (text, type) => (
-      <StatusTag text={text} type={type} className={styles.resultTag} />
+      <span text={text} type={type} className={styles.resultTag} />
     );
 
     if (isDigestAnchored(digest)) {
@@ -27,7 +26,7 @@ const Results = ({ location }) => {
 
   return loading && !error ? (
     <div className={styles.spinner}>
-      <Spinner invert />
+      Loading
     </div>
   ) : (
     digests.map(d => (

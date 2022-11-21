@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Text, Tooltip } from "pi-ui";
 import CopyIcon from "src/assets/copy_icon.svg";
 import styles from "./ResultCard.module.css";
 
@@ -15,23 +14,17 @@ const Digest = ({ digest }) => {
 
   return (
     <div className={styles.paddingBottom20}>
-      <Text className={styles.fontSize13}>Digest</Text>
+      <span className={styles.fontSize13}>Digest</span>
       <div className={styles.digestWrapper}>
-        <Text id={`d-${digest}`} truncate className={styles.digestText}>
+        <span id={`d-${digest}`} truncate className={styles.digestText}>
           {digest}
-        </Text>
-        <Tooltip
-          content={copied ? "Copied!" : "Copy"}
-          placement="right"
-          className={styles.copyIconTooltip}
-        >
+        </span>
           <img
             alt="copy"
             src={CopyIcon}
             className={styles.copyIcon}
             onClick={copyDigestToClipboard}
           />
-        </Tooltip>
       </div>
     </div>
   );

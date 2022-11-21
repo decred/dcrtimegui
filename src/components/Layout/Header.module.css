@@ -22,19 +22,18 @@
 }
 
 .searchInput:hover {
-  border-color: rgba(41, 112, 255, 0.5);
+  border-color: rgb(41 112 255 / 50%);
 }
 
 .searchInput:focus {
   border-color: var(--color-primary);
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
 
   .searchBox {
     width: 100%;
     padding-left: 50px;
     margin-right: 0;
   }
-
 }

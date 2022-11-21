@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Text } from "pi-ui";
 import DownloadIcon from "src/assets/download_icon.svg";
 import fileDownload from "js-file-download";
 import styles from "./ResultCard.module.css";
@@ -17,9 +16,9 @@ const DownloadProof = ({ data }) => {
           src={DownloadIcon}
           className={styles.downloadIcon}
         />
-        <Text color="primary" className={styles.fontSize13}>
+        <span color="primary" className={styles.fontSize13}>
           Download Proof (json)
-        </Text>
+        </span>
       </span>
     </div>
   );

@@ -43,8 +43,9 @@ const useProcessDigests = hash => {
       }
     }
 
+    console.log(hash);
     const { data, shouldTimestamp } = processQueryData(hash);
-
+    console.log(data);
     handleProcessDigests(data, shouldTimestamp);
   }, [hash]);
 

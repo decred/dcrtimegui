@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Card } from "pi-ui";
 import Name from "./Name";
 import Digest from "./Digest";
 import ChainInfo from "./ChainInfo";
@@ -16,7 +15,7 @@ const ResultCard = ({
 }) => {
   const hasFileName = name !== digest;
   return (
-    <Card className={styles.card}>
+    <div className={styles.card}>
       <div className={styles.content}>
         <Name name={name} statusTag={statusTag} hasFileName={hasFileName} />
         <Digest digest={digest} />
@@ -33,7 +32,7 @@ const ResultCard = ({
           </>
         ) : null}
       </div>
-    </Card>
+    </div>
   );
 };
 

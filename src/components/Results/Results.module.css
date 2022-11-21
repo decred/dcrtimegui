@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   margin-top: 80px;
-}   
+}
 
 .resultTag > span {
   text-overflow: unset;

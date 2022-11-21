@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
-import { Card, Button } from "pi-ui";
 import FileInput from "src/components/FileInput";
 import HashInput from "src/components/HashInput";
 import Tabs from "src/components/Tabs";
@@ -28,7 +27,7 @@ const TimestampForm = ({ history }) => {
   return (
     <>
       <Tabs active={activeTab} set={setActiveTab} />
-      <Card className={styles.card}>
+      <div className={styles.card}>
         <div className={styles.content}>
           {activeTab === FileTab ? (
             <FileInput files={files} setFiles={setFiles} />
@@ -36,16 +35,16 @@ const TimestampForm = ({ history }) => {
             <HashInput hashes={hashes} setHashes={setHashes} />
           ) : null}
         </div>
-      </Card>
+      </div>
       <div className={styles.submitButtonWrapper}>
-        <Button
+        <button
           type="button"
           kind={hasFiles || hasHashes ? "primary" : "disabled"}
           className={styles.submitButton}
           onClick={handleSubmit}
         >
           Submit
-        </Button>
+        </button>
       </div>
     </>
   );

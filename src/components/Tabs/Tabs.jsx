@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { classNames } from "pi-ui";
+import { cls } from "../../utils";
 import { FileTab, HashTab } from "src/constants";
 import styles from "./Tabs.module.css";
 
@@ -9,7 +9,7 @@ const Tabs = ({ active, set }) => {
     <div className={styles.tabsWrapper}>
       <div className={styles.tabs}>
         <div
-          className={classNames(
+          className={cls(
             styles.tabFiles,
             active === FileTab
               ? styles.tabBackgroundWhite
@@ -20,7 +20,7 @@ const Tabs = ({ active, set }) => {
           Upload file
         </div>
         <div
-          className={classNames(
+          className={cls(
             styles.tabHash,
             active === HashTab
               ? styles.tabBackgroundWhite

@@ -42,13 +42,13 @@
   border-style: dashed;
   outline: none;
   cursor: pointer;
-  transition: border .24s ease-in-out;
+  transition: border 0.24s ease-in-out;
 }
-  
+
 .dropzoneActive {
   border-color: var(--color-primary);
 }
-  
+
 .dropzone:focus {
   border-color: var(--color-primary);
 }
