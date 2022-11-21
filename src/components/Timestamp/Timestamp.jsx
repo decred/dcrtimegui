@@ -8,7 +8,7 @@ const TimestampForm = ({ history }) => {
 
   const handleSubmit = () => {
     const digests = files
-      .map(file => file.digest)
+      .map(file => file.digest);
     const names = files.map(file => file.name);
     history.push(
       `results#hashes=${digests.toString()}&names=${names.toString()}&timestamp=true`

@@ -17,7 +17,7 @@ export default class ErrorBoundary extends Component {
   render() {
     const { error } = this.state;
     return error ? (
-      <div kind="error">{error.toString()}</div>
+      <div>{error.toString()}</div>
     ) : (
       this.props.children
     );

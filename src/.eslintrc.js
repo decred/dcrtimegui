@@ -15,6 +15,11 @@ module.exports = {
     }
   },
   extends: ["eslint:recommended", "react-app", "prettier"],
+  rules: {
+    quotes: 2,
+    semi: 2,
+    "comma-dangle": 2
+  },
   globals: {
     Uint8Array: true
   }
