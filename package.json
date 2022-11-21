@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "crypto-js": "^3.3.0",
+    "crypto-js": "^4.1.1",
     "dcrtimejs": "https://github.com/tiagoalvesdulce/dcrtimejs",
     "js-file-download": "^0.4.12",
     "query-string": "^6.14.0",

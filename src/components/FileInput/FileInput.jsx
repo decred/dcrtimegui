@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Dropzone from "react-dropzone";
 import { cls } from "../../utils";
-import FileIcon from "src/assets/file_icon.svg";
-import DeleteIcon from "src/assets/delete_icon.svg";
 import { processFiles } from "./helpers";
 import styles from "./FileInput.module.css";
 
@@ -18,13 +16,11 @@ const FileInput = ({ files, setFiles }) => {
       <div style={files.length > 0 ? { paddingTop: "2em" } : {}}>
         {files.map((file, i) => (
           <div key={`f-${i}`} className={styles.fileInputLine}>
-            <img src={FileIcon} alt="fileicon" />
             <span id={`t-${i}`} className={styles.textFileName} truncate>
               {file.name}
             </span>
             <img
               className={styles.deleteIcon}
-              src={DeleteIcon}
               onClick={onRemoveFile(i)}
               alt="deleteicon"
             />

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import DownloadIcon from "src/assets/download_icon.svg";
 import fileDownload from "js-file-download";
 import styles from "./ResultCard.module.css";
 
@@ -11,11 +10,6 @@ const DownloadProof = ({ data }) => {
   return (
     <div className={styles.paddingBottom20}>
       <span className={styles.downloadWrapper} onClick={handleDownload}>
-        <img
-          alt="download"
-          src={DownloadIcon}
-          className={styles.downloadIcon}
-        />
         <span color="primary" className={styles.fontSize13}>
           Download Proof (json)
         </span>

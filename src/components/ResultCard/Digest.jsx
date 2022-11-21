@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import CopyIcon from "src/assets/copy_icon.svg";
 import styles from "./ResultCard.module.css";
 
 const Digest = ({ digest }) => {
@@ -19,12 +18,6 @@ const Digest = ({ digest }) => {
         <span id={`d-${digest}`} truncate className={styles.digestText}>
           {digest}
         </span>
-          <img
-            alt="copy"
-            src={CopyIcon}
-            className={styles.copyIcon}
-            onClick={copyDigestToClipboard}
-          />
       </div>
     </div>
   );
