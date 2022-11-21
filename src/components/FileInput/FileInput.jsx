@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Dropzone from "react-dropzone";
-import { cls } from "../../utils";
+import cls from "../../helpers/cls";
 import { processFiles } from "./helpers";
 import styles from "./FileInput.module.css";
 

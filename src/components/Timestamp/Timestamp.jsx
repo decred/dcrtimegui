@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import FileInput from "src/components/FileInput";
-import styles from "./TimestampForm.module.css";
+import styles from "./Timestamp.module.css";
 
 const TimestampForm = ({ history }) => {
   const [files, setFiles] = useState([]);
