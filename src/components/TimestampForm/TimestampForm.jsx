@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import FileInput from "src/components/FileInput";
-import HashInput from "src/components/HashInput";
-import Tabs from "src/components/Tabs";
-import { FileTab, HashTab } from "src/constants";
 import styles from "./TimestampForm.module.css";
 
 const TimestampForm = ({ history }) => {
