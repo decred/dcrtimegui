@@ -24,6 +24,9 @@ export default {
     "bg-color": "var(--blue-darkest)",
     // Header
     "header-bg-color": "var(--bg-color)",
+    "header-bg-gradient": "transparent linear-gradient(220deg, #09144066 0%, #091440E3 83%, #091440E3 100%) 0% 0% no-repeat padding-box",
     // Footer
-    "footer-bg-color": "var(--bg-color)"
+    "footer-bg-color": "var(--bg-color)",
+    "sm-color": "var(--white)"
+
 };

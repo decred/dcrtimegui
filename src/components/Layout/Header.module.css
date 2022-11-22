@@ -1,12 +1,13 @@
 .header {
   border: 0;
   height: 9.8rem;
-  padding: 3.5rem;
-  background: transparent linear-gradient(220deg, #09144066 0%, #091440E3 83%, #091440E3 100%) 0% 0% no-repeat padding-box;
+  padding: 0 3.5rem;
+  display: flex;
+  background: var(--header-bg-gradient);
 }
 
 .container {
-  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;

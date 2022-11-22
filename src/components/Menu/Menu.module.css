@@ -1,4 +1,40 @@
 .menu {
     display: flex;
+    height: 100%;
     font-size: var(--font-size-lg);
+}
+
+.menuLink {
+    display: flex;
+    align-items: center;
+    border-bottom: 0.2rem solid transparent;
+    margin: 0 1.7rem;
+}
+
+.menuLink:last-of-type {
+    margin: 0 0 0 1.7rem;
+}
+
+.menuLinkDark {
+    composes: menuLink;
+}
+
+.menuLinkLight {
+    composes: menuLink;
+}
+
+.menuLinkDark:hover {
+    border-bottom: 0.2rem solid rgba(255,255,255,0.55);
+}
+
+.menuLinkDark:active {
+    border-bottom: 0.2rem solid rgba(255,255,255,0.55);
+}
+
+.menuLinkLight:hover {
+    border-bottom: 0.2rem solid var(--blue-darkest);
+}
+
+.menuLinkLight:active {
+    border-bottom: 0.2rem solid var(--blue-darkest);
 }

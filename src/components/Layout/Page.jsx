@@ -4,12 +4,17 @@ import Header from "./Header";
 import Footer from "./Footer";
 import styles from "./Page.module.css";
 import ErrorBoundary from "src/components/ErrorBoundary";
+import useTheme from "src/theme/useTheme";
 
 const Page = ({ children }) => {
+    const {theme} = useTheme();
+    const isDarkTheme = theme === "dark";
+    const containerClass = isDarkTheme ? styles.containerDark : styles.containerLight;
+    const mainClass = isDarkTheme ? styles.mainDark : styles.mainLight;
     return (
-	      <div className={styles.container}>
+	      <div className={containerClass}>
             <Header />
-            <div className={styles.main}>
+            <div className={mainClass}>
                 <div className={styles.mainContainer}>
                     <ErrorBoundary>
                         {children}

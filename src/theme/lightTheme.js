@@ -8,6 +8,7 @@ export default {
     "grey": "#787F98",
     "grey-smokey": "#707070",
     // Whites
+    "white": "#FFF",
     "white-lilac": "#F7F7F9",
     "white-lavender": "#DFE0E6",
     "white-ghost": "#CACDD6",
@@ -19,9 +20,11 @@ export default {
     "font-size-lg": "15px",
     "font-size-xl": "21px",
     // Layout
-    "bg-color": "var(--white)",
+    "bg-color": "var(--white-lilac)",
     // Header
-    "header-bg-color": "var(--bg-color)",
+    "header-bg-color": "var(--white)",
+    "header-bg-gradient": "transparent linear-gradient(240deg, #F7F7F98C 0%, #F7F7F98C 15%, #F7F7F9B9 60%, #F7F7F9E3 100%) 0% 0% no-repeat padding-box",
     // Footer
-    "footer-bg-color": "var(--bg-color)"
+    "footer-bg-color": "var(--white)",
+    "sm-color": "var(--blue-darkest)"
 };

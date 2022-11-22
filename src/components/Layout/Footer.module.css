@@ -8,7 +8,6 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column-reverse;
-  opacity: 0.55;
   max-width: 50rem;
   margin: 0 auto;
 }
@@ -19,9 +18,10 @@
   flex-wrap: wrap;
   width: 100%;
   align-items: flex-start;
+  opacity: 0.55;
 }
 
-.column > span {
+.column > a {
   margin: 0 1.6rem 0.3rem 0;
 }
 
@@ -33,6 +33,7 @@
   composes: column;
   justify-content: space-between;
   margin-bottom: 2rem;
+  color: var(--sm-color);
 }
 
 @media screen and (min-width: 769px) {
@@ -55,7 +56,7 @@
     justify-content: center;
     margin-bottom: 0;
   }
-  .socialMedia > img {
+  .socialMedia > a {
     margin: 0 2.1rem 1.3rem 0;
   }
 }
@@ -81,7 +82,7 @@
     justify-content: center;
     margin-bottom: 0;
   }
-  .socialMedia > img {
+  .socialMedia > a {
     margin: 0 2.1rem 1.3rem 0;
   }
 }

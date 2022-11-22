@@ -8,14 +8,15 @@ import styles from "./Header.module.css";
 
 const Header = ({ history }) => {
     const {theme} = useTheme();
-    const logo = theme === "dark" ? LogoDark : LogoLight;
+    const isDarkTheme = theme === "dark";
+    const logo = isDarkTheme ? LogoDark : LogoLight;
     return (
         <div className={styles.header}>
             <div className={styles.container}>
                 <NavLink to="/">
                     <img src={logo} alt="timestamply logo" />
                 </NavLink>
-                {/* <Menu /> */}
+                <Menu />
             </div>
         </div>
     );

@@ -3,14 +3,32 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: var(--bg-color) url('../../assets/icons/background-dark.svg') 60% -152px / 1100px 1100px no-repeat padding-box;
+}
+
+.containerDark {
+  composes: container;
+  background: var(--bg-color) url('../../assets/background/background-dark.svg') 60% -152px / 1100px 1100px no-repeat padding-box;
+}
+
+.containerLight {
+  composes: container;
+  background: var(--bg-color) url('../../assets/background/background-light.svg') 60% -152px / 1100px 1100px no-repeat padding-box;
 }
 
 .main {
   flex-grow: 1;
   width: 100%;
-  background: transparent linear-gradient(220deg, #09144066 0%, #091440E3 45%, #091440E3 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
+}
+
+.mainDark {
+  composes: main;
+  background: transparent linear-gradient(220deg, #09144066 0%, #091440E3 45%, #091440E3 100%) 0% 0% no-repeat padding-box;
+}
+
+.mainLight {
+  composes: main;
+  background: transparent linear-gradient(240deg, #F7F7F98C 0%, #F7F7F9E3 100%) 0% 0% no-repeat padding-box;
 }
 
 .mainContainer {
@@ -21,28 +39,40 @@
 }
 
 @media screen and (min-width: 769px) {
-  .container {
-    background: var(--bg-color) url('../../assets/icons/background-dark.svg') 30.5% -190px / 1100px 1100px no-repeat padding-box;
+  .containerDark {
+    background: var(--bg-color) url('../../assets/background/background-dark.svg') 30.5% -190px / 1100px 1100px no-repeat padding-box;
   }
-  .main {
+  .containerLight {
+    background: var(--bg-color) url('../../assets/background/background-light.svg') 30.5% -190px / 1100px 1100px no-repeat padding-box;
+  }
+  .mainDark {
     background: transparent linear-gradient(220deg, #09144066 0%, #091440E3 60%, #091440E3 100%) 0% 0% no-repeat padding-box;
   }
 }
 
 @media screen and (min-width: 1000px) {
-  .container {
-    background: var(--bg-color) url('../../assets/icons/background-dark.svg') 77% -326px / 1375px 1380px no-repeat padding-box;
+  .containerDark {
+    background: var(--bg-color) url('../../assets/background/background-dark.svg') 77% -326px / 1375px 1380px no-repeat padding-box;
+  }
+  .containerLight {
+    background: var(--bg-color) url('../../assets/background/background-light.svg') 77% -326px / 1375px 1380px no-repeat padding-box;
   }
 }
 
 @media screen and (min-width: 1400px) {
-  .container {
-    background: var(--bg-color) url('../../assets/icons/background-dark.svg') 50% -403px / 1695px 1700px no-repeat padding-box;
+  .containerDark {
+    background: var(--bg-color) url('../../assets/background/background-dark.svg') 50% -403px / 1695px 1700px no-repeat padding-box;
+  }
+  .containerLight {
+    background: var(--bg-color) url('../../assets/background/background-light.svg') 50% -403px / 1695px 1700px no-repeat padding-box;
   }
 }
 
 @media screen and (min-width: 1650px) {
-  .container {
-    background: var(--bg-color) url('../../assets/icons/background-dark.svg') 50% -403px / cover no-repeat padding-box;
+  .containerDark {
+    background: var(--bg-color) url('../../assets/background/background-dark.svg') 50% -403px / cover no-repeat padding-box;
+  }
+  .containerLight {
+    background: var(--bg-color) url('../../assets/background/background-light.svg') 50% -403px / cover no-repeat padding-box;
   }
 }
