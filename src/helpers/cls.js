@@ -5,7 +5,7 @@ const isString = (arg) => typeof arg == "string";
  * @param {String} args
  * @returns {String}
  */
- const cls = (...args) =>
- args.filter(Boolean).filter(isString).join(" ");
+const cls = (...args) =>
+    args.filter(Boolean).filter(isString).join(" ");
 
- export default cls;
+export default cls;

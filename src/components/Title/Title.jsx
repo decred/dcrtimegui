@@ -3,15 +3,13 @@ import PropTypes from "prop-types";
 import styles from "./Title.module.css";
 
 const Title = ({ title }) => {
-  return (
-    <div className={styles.title}>
-      <h1>{title}</h1>
-    </div>
-  );
+    return (
+        <h1 className={styles.title}>{title}</h1>
+    );
 };
 
 Title.propTypes = {
-  title: PropTypes.string
+    title: PropTypes.string
 };
 
 export default Title;

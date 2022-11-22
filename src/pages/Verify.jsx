@@ -4,9 +4,9 @@ import Title from "src/components/Title";
 
 const Verify = () => (
     <Page>
-      <Title title="Verify" />
-      <div>Verify here!</div>
+        <Title title="Verify" />
+        <div>Verify here!</div>
     </Page>
-  );
+);
 
 export default Verify;

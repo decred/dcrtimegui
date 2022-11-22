@@ -18,7 +18,8 @@ module.exports = {
   rules: {
     quotes: 2,
     semi: 2,
-    "comma-dangle": 2
+    "comma-dangle": 2,
+    indent: ["error", 4]
   },
   globals: {
     Uint8Array: true

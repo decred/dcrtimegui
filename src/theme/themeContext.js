@@ -1,9 +1,9 @@
 import { createContext } from "react";
 
 const ThemeContext = createContext({
-  theme: "",
-  themes: {},
-  setThemeName: () => {}
+    theme: "",
+    themes: {},
+    setThemeName: () => {}
 });
 
 export default ThemeContext;

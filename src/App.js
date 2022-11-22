@@ -7,22 +7,22 @@ import lightTheme from "./theme/lightTheme";
 import darkTheme from "./theme/darkTheme";
 
 const themes = {
-  "light": lightTheme,
-  "dark": darkTheme
+    "light": lightTheme,
+    "dark": darkTheme
 };
 
 const App = () => {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider themes={themes} defaultTheme="light">
-        <Router>
-          <Suspense fallback={"Loading..."}>
-            <Routes />
-          </Suspense>
-        </Router>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
+    return (
+        <ErrorBoundary>
+            <ThemeProvider themes={themes} defaultTheme="dark">
+                <Router>
+                    <Suspense fallback={"Loading..."}>
+                        <Routes />
+                    </Suspense>
+                </Router>
+            </ThemeProvider>
+        </ErrorBoundary>
+    );
 };
 
 export default App;

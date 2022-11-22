@@ -4,12 +4,12 @@ import Title from "src/components/Title";
 import Results from "src/components/Results";
 
 const ResultsPage = () => {
-  return (
-    <Page>
-      <Title title="Results" />
-      <Results />
-    </Page>
-  );
+    return (
+        <Page>
+            <Title title="Results" />
+            <Results />
+        </Page>
+    );
 };
 
 export default ResultsPage;

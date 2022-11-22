@@ -6,21 +6,23 @@ import styles from "./Page.module.css";
 import ErrorBoundary from "src/components/ErrorBoundary";
 
 const Page = ({ children }) => {
-  return (
-    <div className={styles.container}>
-      <Header />
-      <div className={styles.pageMain}>
-        <ErrorBoundary>
-          {children}
-        </ErrorBoundary>
-      </div>
-      <Footer />
-    </div>
-  );
+    return (
+	      <div className={styles.container}>
+            <Header />
+            <div className={styles.main}>
+                <div className={styles.mainContainer}>
+                    <ErrorBoundary>
+                        {children}
+                    </ErrorBoundary>
+                </div>
+            </div>
+            <Footer />
+        </div>
+    );
 };
 
 Page.propTypes = {
-  children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired
 };
 
 export default Page;

@@ -7,8 +7,8 @@ export const EMPTY_DIGEST = "";
 
 export const DCRDATA_URL =
   process.env.REACT_APP_NETWORK === "testnet"
-    ? "https://testnet.dcrdata.org"
-    : "https://explorer.dcrdata.org";
+  	? "https://testnet.dcrdata.org"
+  	: "https://explorer.dcrdata.org";
 
 // Tabs
 export const FileTab = 0;
@@ -16,5 +16,5 @@ export const HashTab = 1;
 
 // Dcrtime error to formatted UI error
 export const ERROR_MAP = {
-  "Invalid Digests array": "Invalid hashes, please check your search inputs"
+    "Invalid Digests array": "Invalid hashes, please check your search inputs"
 };
