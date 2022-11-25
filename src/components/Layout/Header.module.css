@@ -15,6 +15,14 @@
   margin: 0 auto;
 }
 
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 470px) {
+  .header {
+    padding: 0 2rem;
+  }
+}
+
 @media screen and (min-width: 769px) {
   .header {
     background: var(--header-bg-color);

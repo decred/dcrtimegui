@@ -38,6 +38,15 @@
   padding: 0 3.5rem;
 }
 
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 470px) {
+  .mainContainer {
+    padding: 0 2rem;
+  }
+}
+
+
 @media screen and (min-width: 769px) {
   .containerDark {
     background: var(--bg-color) url('../../assets/background/background-dark.svg') 30.5% -190px / 1100px 1100px no-repeat padding-box;

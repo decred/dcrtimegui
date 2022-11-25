@@ -10,7 +10,7 @@ const ToggleTheme = () => {
     const ToggleComponent = isDarkTheme ? ThemeToggleDark : ThemeToggleLight;
     const toggleButtonClass = isDarkTheme ? styles.toggleButtonDark : styles.toggleButtonLight;
     return (
-        <button className={toggleButtonClass} onClick={() => setTheme(isDarkTheme ? "light" : "dark")}>
+        <button className={toggleButtonClass} onClick={() => setTheme(isDarkTheme ? "light" : "dark")} aria-label={"Click to toggle theme"}>
             <ToggleComponent />
         </button>
     );

@@ -6,7 +6,7 @@ const LangDropdown = ({className}) => {
     const selectedLang = "ENG";
     const menuOptions = allLangOptions.filter(l => l !== selectedLang);
     return (
-        <Dropdown toggleText={selectedLang} menuOptions={menuOptions} className={className} />
+        <Dropdown toggleText={selectedLang} menuOptions={menuOptions} className={className} ariaLabel="Click to open language options" />
     );
 };
 

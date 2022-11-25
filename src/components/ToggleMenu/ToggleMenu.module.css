@@ -1,0 +1,38 @@
+.toggleButton {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    width: auto;
+    height: auto;
+    text-transform: none;
+    cursor: pointer;
+    display: block;
+    background: transparent;
+    align-self: center;
+    margin-left: 3.5rem;
+}
+
+.toggleButtonLight {
+    composes: toggleButton
+}
+
+.toggleButtonDark {
+    composes: toggleButton
+}
+
+@media screen and (min-width: 769px) {
+    .toggleButton {
+      display: none;
+    }
+}
+
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 470px) {
+    .toggleButton {
+        margin-left: 1.2rem;
+    }
+}

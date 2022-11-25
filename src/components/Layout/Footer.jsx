@@ -11,7 +11,7 @@ import {ReactComponent as DiscordLogo} from "../../assets/icons/icon-frontpage-d
 
 const Footer = () => {
     return (
-        <div className={styles.footer}>
+        <footer className={styles.footer}>
             <div className={styles.container}>
                 <div className={styles.decredDevs}>
                     <a href="https://github.com/decred" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred Github">
@@ -39,7 +39,7 @@ const Footer = () => {
                     <a href="https://www.reddit.com/r/decred" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred subreddit"><RedditLogo /></a>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 };
 

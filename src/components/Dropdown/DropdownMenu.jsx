@@ -8,7 +8,7 @@ export const DropdownMenu = ({options, handleClickOutside}) => {
     return (
         <ul ref={setdropdownMenuEl} className={styles.dropdownMenu}>
             {options.map(op => (
-                <li>
+                <li key={op}>
                     <button className={styles.dropdownMenuItem}>{op}</button>
                 </li>
             ))}

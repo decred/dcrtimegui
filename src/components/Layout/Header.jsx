@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import useTheme from "src/theme/useTheme";
 import LogoLight from "src/assets/icons/logo-light.svg";
@@ -10,15 +10,16 @@ const Header = ({ history }) => {
     const {theme} = useTheme();
     const isDarkTheme = theme === "dark";
     const logo = isDarkTheme ? LogoDark : LogoLight;
+    const [showMenu, setShowMenu] = useState(false);
     return (
-        <div className={styles.header}>
+        <header className={styles.header} style={showMenu ? {background: "var(--header-bg-color)"} : {}}>
             <div className={styles.container}>
                 <NavLink to="/">
                     <img src={logo} alt="timestamply logo" />
                 </NavLink>
-                <Menu />
+                <Menu showMenu={showMenu} setShowMenu={setShowMenu}/>
             </div>
-        </div>
+        </header>
     );
 };
 

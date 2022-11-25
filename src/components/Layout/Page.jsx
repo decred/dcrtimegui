@@ -14,13 +14,13 @@ const Page = ({ children }) => {
     return (
 	      <div className={containerClass}>
             <Header />
-            <div className={mainClass}>
+            <main className={mainClass}>
                 <div className={styles.mainContainer}>
                     <ErrorBoundary>
                         {children}
                     </ErrorBoundary>
                 </div>
-            </div>
+            </main>
             <Footer />
         </div>
     );
