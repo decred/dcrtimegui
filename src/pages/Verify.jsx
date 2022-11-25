@@ -1,12 +1,17 @@
 import React from "react";
 import Page from "src/components/Layout/Page";
-import Title from "src/components/Title";
+import MainSection from "src/components/MainSection";
+import LatestHashes from "src/components/LatestHashesSection";
 
-const Verify = () => (
-    <Page>
-        <Title title="Verify" />
-        <div>Verify here!</div>
-    </Page>
-);
+const Verify = () => {
+    return (
+        <Page>
+            <MainSection>
+                <div>Verify here!</div>
+            </MainSection>
+            <LatestHashes />
+        </Page>
+    );
+};
 
 export default Verify;

@@ -5,6 +5,7 @@ export default {
     "blue-darkest": "#091440",
     "blue-zodiac": "#18234D",
     // Greys
+    "grey-light": "#ABAEBE",
     "grey": "#787F98",
     "grey-smokey": "#707070",
     // Whites
@@ -24,8 +25,14 @@ export default {
     // Header
     "header-bg-color": "var(--white)",
     "header-bg-gradient": "transparent linear-gradient(240deg, #F7F7F98C 0%, #F7F7F98C 15%, #F7F7F9B9 60%, #F7F7F9E3 100%) 0% 0% no-repeat padding-box",
-    "header-lang-toggle-color": "#ABAEBE",
+    "header-lang-toggle-color": "var(--grey-light)",
+    // Main Card
+    "main-card-bg-color": "var(--white)",
     // Footer
     "footer-bg-color": "var(--white)",
-    "sm-color": "var(--blue-darkest)"
+    "sm-color": "var(--blue-darkest)",
+    // File Inout
+    "file-input-border-color": "var(--grey-light)",
+    // Latest Hash
+    "latest-hash-section-bg-color": "var(--bg-color)"
 };

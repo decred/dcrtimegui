@@ -26,8 +26,13 @@ export default {
     "header-bg-color": "var(--bg-color)",
     "header-bg-gradient": "transparent linear-gradient(220deg, #09144066 0%, #091440E3 83%, #091440E3 100%) 0% 0% no-repeat padding-box",
     "header-lang-toggle-color": "#F7F7F98C",
+    // Main Card
+    "main-card-bg-color": "var(--blue-zodiac)",
     // Footer
     "footer-bg-color": "var(--bg-color)",
-    "sm-color": "var(--white)"
-
+    "sm-color": "var(--white)",
+    // File Inout
+    "file-input-border-color": "var(--grey)",
+    // Latest Hash
+    "latest-hash-section-bg-color": "var(--blue-zodiac)"
 };

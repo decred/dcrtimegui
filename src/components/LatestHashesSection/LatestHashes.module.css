@@ -1,0 +1,5 @@
+.latestHashes {
+    margin-top: 10rem;
+    background: var(--latest-hash-section-bg-color);
+    height: 100rem;
+}

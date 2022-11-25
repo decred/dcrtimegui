@@ -1,6 +1,8 @@
 .header {
   border: 0;
   height: 9.8rem;
+  /* Add min-height to prevent flex-grow to shrink it */
+  min-height: 9.8rem;
   padding: 0 3.5rem;
   display: flex;
   background: var(--header-bg-gradient);

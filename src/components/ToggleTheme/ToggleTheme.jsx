@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styles from "./ToggleTheme.module.css";
 import {ReactComponent as ThemeToggleLight} from "src/assets/icons/color-mode-light.svg";
 import {ReactComponent as ThemeToggleDark} from "src/assets/icons/color-mode-dark.svg";

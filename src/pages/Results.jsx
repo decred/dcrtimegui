@@ -1,13 +1,14 @@
 import React from "react";
 import Page from "src/components/Layout/Page";
-import Title from "src/components/Title";
 import Results from "src/components/Results";
+import MainSection from "src/components/MainSection";
 
 const ResultsPage = () => {
     return (
         <Page>
-            <Title title="Results" />
-            <Results />
+            <MainSection>
+                <Results />
+            </MainSection>
         </Page>
     );
 };

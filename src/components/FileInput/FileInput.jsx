@@ -13,7 +13,7 @@ const FileInput = ({ files, setFiles }) => {
 
     return (
         <>
-            <div style={files.length > 0 ? { paddingTop: "2em" } : {}}>
+            <div>
                 {files.map((file, i) => (
                     <div key={`f-${i}`} className={styles.fileInputLine}>
                         <span id={`t-${i}`} className={styles.textFileName} truncate>
@@ -27,10 +27,7 @@ const FileInput = ({ files, setFiles }) => {
                     </div>
                 ))}
             </div>
-            <div
-                style={!files.length ? { paddingTop: "3em" } : { paddingTop: "1em" }}
-                className={styles.dropzoneWrapper}
-            >
+            <div className={styles.dropzoneWrapper}>
                 <Dropzone
                     multiple
                     disabled={processing}
