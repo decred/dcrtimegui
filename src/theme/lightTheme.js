@@ -28,11 +28,26 @@ export default {
     "header-lang-toggle-color": "var(--grey-light)",
     // Main Card
     "main-card-bg-color": "var(--white)",
+    "main-card-heading-color": "var(--grey-light)",
+    "main-card-heading-line-color": "var(--white-lavender)",
     // Footer
     "footer-bg-color": "var(--white)",
     "sm-color": "var(--blue-darkest)",
     // File Inout
     "file-input-border-color": "var(--grey-light)",
     // Latest Hash
-    "latest-hash-section-bg-color": "var(--bg-color)"
+    "latest-hash-section-bg-color": "var(--bg-color)",
+    // Button
+    "button-primary-bg-color": "var(--blue)",
+    "button-primary-bg-hover-color": "var(--blue-dark)",
+    "button-primary-color": "var(--white)",
+    "button-disabled-bg-color": "var(--grey-light)",
+    "button-disabled-color": "var(--white-ghost)",
+    "button-secondary-bg-color": "var(--grey-light)",
+    "button-secondary-bg-hover-color": "var(--grey)",
+    "button-secondary-color": "var(--white)",
+    // Input
+    "input-bg-color": "var(--white-lavender)",
+    "input-placeholder-color": "var(--grey)",
+    "input-hover-border-color": "var(--white-ghost)"
 };

@@ -5,7 +5,7 @@ import cls from "../../helpers/cls";
 import { processFiles } from "./helpers";
 import styles from "./FileInput.module.css";
 
-const FileInput = ({ files, setFiles }) => {
+const FileInput = ({ files, setFiles, text }) => {
     const [processing, setProcessing] = useState(false);
 
     const onRemoveFile = idx => () =>
@@ -52,8 +52,8 @@ const FileInput = ({ files, setFiles }) => {
                             <input {...getInputProps()} />
                             <span className={styles.dropzoneText}>
                                 {!processing
-                                    ? "Drop your files here or click to select them"
-                                    : "Processing your files..."}
+                                    ? text
+                                    : "Processing files..."}
                             </span>
                         </div>
                     )}

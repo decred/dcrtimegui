@@ -1,8 +1,8 @@
 .container {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  min-height: 100%;
 }
 
 .containerDark {
@@ -18,7 +18,6 @@
 .main {
   flex-grow: 1;
   width: 100%;
-  opacity: 1;
 }
 
 .mainDark {
@@ -32,19 +31,9 @@
 }
 
 .mainContainer {
-  max-width: 120rem;
   margin: 0 auto;
   padding-top: 5rem;
 }
-
-/* This is needed for the site to be usable on very small
-screen sizes */
-@media screen and (max-width: 470px) {
-  .mainContainer {
-    padding: 0 2rem;
-  }
-}
-
 
 @media screen and (min-width: 769px) {
   .containerDark {

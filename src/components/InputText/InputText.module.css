@@ -1,0 +1,17 @@
+.inputText {
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background: var(--input-bg-color);
+    font-size: var(--font-size-lg);
+    color: var(--font-color);
+    outline: none;
+    padding: 0.6rem 0.8rem;
+}
+
+.inputText:hover {
+    border: 1px solid #FFFFFF57;
+}
+
+.inputText::placeholder {
+    color: var(--input-placeholder-color);
+}

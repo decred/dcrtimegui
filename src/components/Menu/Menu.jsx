@@ -20,7 +20,7 @@ function Menu({showMenu, setShowMenu, location: {pathname}}) {
             <div className={styles.nav} style={showMenu ? {display: "block"} : {}}>
                 <NavLink className={cls(menuLinkClass, generateActive && activeMenuLinkClass)} to="/">Generate</NavLink>
                 <NavLink className={cls(menuLinkClass, verifyActive && activeMenuLinkClass)} to="/verify">Verify</NavLink>
-                <NavLink className={cls(menuLinkClass, documentationActive && activeMenuLinkClass)} to="/documentation">Documentation</NavLink>
+                <a className={cls(menuLinkClass, documentationActive && activeMenuLinkClass)} href="https://docs.decred.org/advanced/dcrtime/" target="_blank" rel="noopener noreferrer" aria-label="Dcrtime docs">Documentation</a>
             </div>
             <LangDropdown className={styles.langDropdown}/>
             <ToggleTheme />

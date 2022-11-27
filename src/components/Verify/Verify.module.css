@@ -1,0 +1,62 @@
+
+.heading {
+    margin: 2.5rem 0;
+    color: var(--main-card-heading-color);
+    font-size: var(--font-size-md);
+    font-weight: normal;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.doubleLineHeading {
+    composes: heading;
+}
+
+.doubleLineHeading:before, .doubleLineHeading:after {
+    content: "";
+    border-top: 0.1rem solid var(--main-card-heading-line-color);
+    margin: 0 1.3rem 0 0;
+    flex: 1 0 1.3rem;
+}
+
+.doubleLineHeading:after {
+    margin: 0 0 0 1.3rem;
+}
+
+.singleLineHeading {
+    composes: heading;
+}
+
+.singleLineHeading:after {
+    content: "";
+    border-top: 0.1rem solid var(--main-card-heading-line-color);
+    margin: 0 0 0 1.3rem;
+    flex: 1 0 1.3rem;
+}
+
+.verifyByHashButton {
+    margin-left: 2rem;
+}
+
+.manuallyForm {
+    display: flex;
+}
+
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 470px) {
+    .manuallyForm {
+      flex-direction: column;
+    }
+    .verifyByHashButton {
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+}
+
+.manuallyForm > input {
+    flex-grow: 1;
+}

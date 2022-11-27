@@ -1,1 +1,56 @@
 
+.heading {
+  margin: 2.5rem 0;
+  color: var(--main-card-heading-color);
+  font-size: var(--font-size-md);
+  font-weight: normal;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.heading:after {
+  content: "";
+  border-top: 0.1rem solid;
+  margin: 0 0 0 1.3rem;
+  flex: 1 0 1.3rem;
+}
+
+.actionsSection {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nextAnchorWrapper {
+  padding-right: 1rem;
+}
+
+.actionButtonsWrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.nextAnchorTime {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.timestampActionButton:not(:last-of-type) {
+  margin-right: 2rem;
+}
+
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 640px) {
+  .actionsSection {
+    flex-direction: column-reverse;
+  }
+  .nextAnchorWrapper {
+    padding: 0;
+    margin-top: 2rem;
+  }
+}

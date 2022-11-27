@@ -1,0 +1,11 @@
+.hashConfList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hashConfListItem {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

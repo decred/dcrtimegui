@@ -6,7 +6,8 @@ export default {
     "blue-zodiac": "#18234D",
     // Greys
     "grey-jet": "#5F6683",
-    "grey-light": "#E4E6EA",
+    "grey-lighter": "#E4E6EA",
+    "grey-light": "#ABAEBE",
     "grey": "#787F98",
     "grey-regent": "#9196AA",
     "grey-rhino-light": "#3F486B",
@@ -14,6 +15,7 @@ export default {
     "grey-smokey": "#707070",
     // White
     "white": "#fff",
+    "white-ghost": "#CACDD6",
     // Font
     "font-color": "var(--white)",
     "font-size-sm": "8px",
@@ -28,11 +30,27 @@ export default {
     "header-lang-toggle-color": "#F7F7F98C",
     // Main Card
     "main-card-bg-color": "var(--blue-zodiac)",
+    "main-card-heading-color": "var(--grey-jet)",
+    "main-card-heading-line-color": "var(--grey-rhino)",
     // Footer
     "footer-bg-color": "var(--bg-color)",
     "sm-color": "var(--white)",
     // File Inout
     "file-input-border-color": "var(--grey)",
     // Latest Hash
-    "latest-hash-section-bg-color": "var(--blue-zodiac)"
+    "latest-hash-section-bg-color": "var(--blue-zodiac)",
+    "latest-hash-timeago-color": "var(--grey)",
+    // Button
+    "button-primary-bg-color": "var(--blue)",
+    "button-primary-bg-hover-color": "var(--blue-dark)",
+    "button-primary-color": "var(--white)",
+    "button-disabled-bg-color": "var(--grey-light)",
+    "button-disabled-color": "var(--white-ghost)",
+    "button-secondary-bg-color": "var(--grey-light)",
+    "button-secondary-bg-hover-color": "var(--grey)",
+    "button-secondary-color": "var(--white)",
+    // Input
+    "input-bg-color": "var(--blue-darkest)",
+    "input-placeholder-color": "var(--grey)",
+    "input-hover-border-color": "#FFFFFF57"
 };

@@ -10,7 +10,6 @@
 }
 
 .dropzone {
-  height: 9rem;
   font-size: var(--font-size-xl);
   display: flex;
   flex-direction: column;
@@ -20,10 +19,19 @@
   border-radius: 0.5rem;
   border-color: var(--file-input-border-color);
   border-style: dashed;
+  text-align: center;
   outline: none;
   user-select: none;
   cursor: pointer;
   transition: border 0.24s ease-in-out;
+  padding: 2rem 3rem;
+}
+
+@media screen and (min-width: 769px) {
+  .dropzone {
+    box-sizing: border-box;
+    height: 9rem;
+  }
 }
 
 .dropzoneActive {

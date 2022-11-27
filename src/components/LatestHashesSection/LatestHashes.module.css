@@ -1,5 +1,44 @@
 .latestHashes {
     margin-top: 10rem;
     background: var(--latest-hash-section-bg-color);
-    height: 100rem;
+    padding: 2rem 3.5rem 5.5rem 3.5rem;
+}
+
+.content {
+    max-width: 103.5rem;
+    margin: 0 auto;
+}
+
+.heading {
+    margin-top: 0;
+    margin-bottom: 3.5rem;
+    font-size: var(--font-size-xl);
+    font-weight: normal;
+}
+
+.hashesList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hashesListItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hashesListItem:not(:last-of-type) {
+    margin-bottom: 1rem;
+}
+
+.timeago {
+    color: var(--latest-hash-timeago-color);
+    padding-right: 1rem;
+    min-width: 5rem;
+}
+
+.hash {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
