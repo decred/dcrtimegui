@@ -20,7 +20,7 @@ function applyTheme(theme) {
 
 function validateTheme(theme, themesAllowed) {
     if (typeof theme !== "string" || !themesAllowed.find(el => el === theme)) {
-        throw new Error(`Theme should be one of: ${themesAllowed.join(", ")}`);
+        throw new Error(`Theme should be one of: ${themesAllowed.join(", ")}. Got: ${theme}`);
     }
 }
 
@@ -35,6 +35,7 @@ const ThemeProvider = ({
     const setThemeWithValidation = (theme) => {
         validateTheme(theme, themesAllowed);
         setTheme(theme);
+        localStorage.setItem("theme", theme);
     };
     const themeProperties = useMemo(() => themes[theme], [themes, theme]);
     useLayoutEffect(() => {

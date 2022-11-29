@@ -12,9 +12,10 @@ const themes = {
 };
 
 const App = () => {
+    const theme = localStorage.getItem("theme");
     return (
         <ErrorBoundary>
-            <ThemeProvider themes={themes} defaultTheme="dark">
+            <ThemeProvider themes={themes} defaultTheme={theme || "dark"}>
                 <Router>
                     <Suspense fallback={"Loading..."}>
                         <Routes />
