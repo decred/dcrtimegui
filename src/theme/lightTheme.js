@@ -49,5 +49,8 @@ export default {
     // Input
     "input-bg-color": "var(--white-lavender)",
     "input-placeholder-color": "var(--grey)",
-    "input-hover-border-color": "var(--white-ghost)"
+    "input-hover-border-color": "var(--white-ghost)",
+    // Search
+    "search-icon-hover-color": "var(--blue-darkest)",
+    "search-input-placeholder-color": "var(--blue-darkest)"
 };

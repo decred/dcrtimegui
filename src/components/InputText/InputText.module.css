@@ -9,9 +9,27 @@
 }
 
 .inputText:hover {
-    border: 1px solid #FFFFFF57;
+    border: 1px solid var(--input-hover-border-color);
+}
+
+.inputText:focus {
+    border: 1px solid var(--input-hover-border-color);
+}
+
+.inputText:active {
+    border: 1px solid var(--input-hover-border-color);
 }
 
 .inputText::placeholder {
     color: var(--input-placeholder-color);
+}
+
+.iconWrapper {
+    position: relative;
+    right: 2.5rem;
+    top: 0.2rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
 }

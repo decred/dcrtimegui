@@ -1,5 +1,9 @@
 import React from "react";
 import styles from "./LatestHashes.module.css";
+import InputText from "src/components/InputText";
+import {ReactComponent as SearchLight} from "../../assets/icons/hash-search-light.svg";
+import {ReactComponent as SearchDark} from "../../assets/icons/hash-search-dark.svg";
+import useTheme from "src/theme/useTheme";
 
 const hashesMock = [
     {
@@ -25,12 +29,19 @@ const hashesMock = [
 ];
 
 const LatestHashes = () => {
+    const {theme} = useTheme();
+    const isDarkTheme = theme === "dark";
     return (
         <div className={styles.latestHashes}>
             <div className={styles.content}>
-                <h2 className={styles.heading}>
-                    Latest Hashes
-                </h2>
+                <div className={styles.title}>
+                    <h2 className={styles.heading}>
+                        Latest Hashes
+                    </h2>
+                    <div>
+                        <InputText placeholder="Search by hash" className={styles.input} Icon={isDarkTheme ? SearchDark : SearchLight}/>
+                    </div>
+                </div>
                 <ul className={styles.hashesList}>
                     {hashesMock.map(h => <li className={styles.hashesListItem}>
                         <span className={styles.timeago}>{h.timeago}</span>

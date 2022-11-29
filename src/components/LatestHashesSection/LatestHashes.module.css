@@ -11,9 +11,10 @@
 
 .heading {
     margin-top: 0;
-    margin-bottom: 3.5rem;
+    margin-right: 1rem;
     font-size: var(--font-size-xl);
     font-weight: normal;
+    margin-bottom: 1rem;
 }
 
 .hashesList {
@@ -41,4 +42,47 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+}
+
+.input {
+    box-sizing: border-box;
+    padding: 0.7rem 3.2rem 0.8rem 1.5rem !important;
+    border-radius: 1.7rem !important;
+    min-width: 23.8rem;
+    width: 23.8rem;
+    max-width: 29.2rem;
+}
+
+.input:hover + button > svg > g > g, .input:hover + button > svg > g > line {
+    stroke: var(--search-icon-hover-color);
+}
+
+.input:active + button > svg > g > g, .input:active + button > svg > g > line {
+    stroke: var(--search-icon-hover-color);
+}
+
+.input:focus + button > svg > g > g, .input:focus + button > svg > g > line {
+    stroke: var(--search-icon-hover-color);
+}
+
+.input::placeholder {
+    color: var(--search-input-placeholder-color) !important;
+}
+
+@media screen and (min-width: 769px) {
+    .input {
+        width: 28.2rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .input {
+        width: 29.2rem;
+    }
 }

@@ -52,5 +52,8 @@ export default {
     // Input
     "input-bg-color": "var(--blue-darkest)",
     "input-placeholder-color": "var(--grey)",
-    "input-hover-border-color": "#FFFFFF57"
+    "input-hover-border-color": "#FFFFFF57",
+    // Search
+    "search-icon-hover-color": "var(--white)",
+    "search-input-placeholder-color": "var(--white)"
 };
