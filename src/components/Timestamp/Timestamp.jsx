@@ -38,6 +38,8 @@ const hashesMock = [
     }
 ];
 
+const minsToHour = () => 60 - Math.round(new Date() % 3.6e6 / 6e4);
+
 const TimestampForm = ({ history }) => {
     const [files, setFiles] = useState([]);
 
@@ -59,7 +61,7 @@ const TimestampForm = ({ history }) => {
             <HashConfList hashes={hashesMock}/>
             <div className={styles.actionsSection}>
                 <span className={styles.nextAnchorWrapper}>
-                  Next anchoring in <span className={styles.nextAnchorTime}>15 minutes</span>
+                  Next anchoring in <span className={styles.nextAnchorTime}>{minsToHour()} minutes</span>
                 </span>
                 <div className={styles.actionButtonsWrapper}>
                     <Button text="Download Hashes" amount={2} kind="secondary" className={styles.timestampActionButton} />
