@@ -1,36 +1,64 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Name from "./Name";
 import Digest from "./Digest";
 import ChainInfo from "./ChainInfo";
 import DownloadProof from "./DownloadProof";
 import styles from "./ResultCard.module.css";
+import {ReactComponent as TimestampedDark} from "../../assets/icons/timestamped-dark.svg";
+import {ReactComponent as TimestampedLight} from "../../assets/icons/timestamped-light.svg";
+import {ReactComponent as Pending} from "../../assets/icons/pending.svg";
+import useTheme from "src/theme/useTheme";
+import Button from "src/components/Button";
+import { withRouter } from "react-router-dom";
 
 const ResultCard = ({
     name,
     digest,
     chainInfo,
-    statusTag,
-    isDigestAnchored
+    status,
+    history
 }) => {
-    const hasFileName = name !== digest;
+    const {theme} = useTheme();
+    const isDarkTheme = theme === "dark";
+    let StatusComponent = null;
+    let statusText = "";
+    switch (status) {
+    case "Timestamped":
+        if (isDarkTheme) StatusComponent = TimestampedDark;
+        else StatusComponent = TimestampedLight;
+        statusText = "Timestamped";
+        break;
+    case "Pending":
+        StatusComponent = Pending;
+        statusText = "Pending";
+        break;
+    default: StatusComponent = null;
+    };
     return (
         <div className={styles.card}>
             <div className={styles.content}>
-                <Name name={name} statusTag={statusTag} hasFileName={hasFileName} />
-                <Digest digest={digest} />
-                {isDigestAnchored ? (
-                    <>
-                        <ChainInfo chainInfo={chainInfo} />
-                        <DownloadProof
-                            data={{
-                                digest: digest,
-                                ...chainInfo
-                            }}
-                            name={name}
-                        />
-                    </>
+                <h3 className={styles.heading}>Hash status</h3>
+                <div className={styles.statusDigestWrapper}>
+                    <Digest digest={digest} />
+                    <div className={styles.statusWrapper}>
+                        <span className={styles.statusText}>{statusText}</span>
+                        <StatusComponent />
+                    </div>
+                </div>
+                <h3 className={styles.heading}>Details</h3>
+                {status === "Timestamped" || status === "Pending" ? (
+                    <ChainInfo chainInfo={chainInfo} />
                 ) : null}
+                <div className={styles.actionButtons}>
+                    <Button kind="secondary" text="Go Back" handleClick={() => history.goBack()}/>
+                    <DownloadProof
+                        data={{
+                            digest: digest,
+                            ...chainInfo
+                        }}
+                        name={name}
+                    />
+                </div>
             </div>
         </div>
     );
@@ -44,4 +72,4 @@ ResultCard.propTypes = {
     isDigestAnchored: PropTypes.bool
 };
 
-export default ResultCard;
+export default withRouter(ResultCard);

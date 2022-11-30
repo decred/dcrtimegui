@@ -1,42 +1,40 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import ResultCard from "src/components/ResultCard";
-import { isDigestAnchored, isDigestAnchorPending } from "src/helpers/dcrtime";
+import { isDigestAnchored, isDigestAnchorPending,isDigestFound } from "src/helpers/dcrtime";
 import useProcessDigests from "./hooks";
-import styles from "./Results.module.css";
+
+const getStatus = digest => {
+    if (isDigestAnchored(digest)) {
+        return "Timestamped";
+    }
+    if (isDigestAnchorPending(digest)) {
+        return "Pending";
+    }
+    if (isDigestFound(digest)) {
+        return "Waiting anchoring time";
+    }
+    return "Not Found";
+};
 
 const Results = ({ location }) => {
     const { digests, loading, error } = useProcessDigests(location.hash);
 
     if (error) throw error;
 
-    const getStatusTag = useCallback(digest => {
-        const renderStatusTag = (text, type) => (
-            <span text={text} type={type} className={styles.resultTag} />
-        );
-
-        if (isDigestAnchored(digest)) {
-            return renderStatusTag("Timestamped", "greenCheck");
-        }
-        if (isDigestAnchorPending(digest)) {
-            return renderStatusTag("Pending", "bluePending");
-        }
-        return renderStatusTag("Not Found", "orangeNegativeCircled");
-    }, []);
-
     return loading && !error ? (
-        <div className={styles.spinner}>
-      Loading
+        <div>
+            Loading
         </div>
     ) : (
         digests.map(d => (
             <ResultCard
                 key={`d-${d.digest}`}
                 name={d.name}
+                serverTimestamp={d.servertimestamp}
                 digest={d.digest}
                 chainInfo={d.chaininformation}
-                statusTag={getStatusTag(d)}
-                isDigestAnchored={isDigestAnchored(d)}
+                status={getStatus(d)}
             />
         ))
     );

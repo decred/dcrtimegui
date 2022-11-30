@@ -5,6 +5,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import ThemeProvider from "./theme/themeProvider";
 import lightTheme from "./theme/lightTheme";
 import darkTheme from "./theme/darkTheme";
+import LoadingSkeleton from "./components/Loading";
 
 const themes = {
     "light": lightTheme,
@@ -17,7 +18,7 @@ const App = () => {
         <ErrorBoundary>
             <ThemeProvider themes={themes} defaultTheme={theme || "dark"}>
                 <Router>
-                    <Suspense fallback={"Loading..."}>
+                    <Suspense fallback={<LoadingSkeleton />}>
                         <Routes />
                     </Suspense>
                 </Router>

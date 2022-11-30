@@ -29,8 +29,8 @@ const useProcessDigests = hash => {
                 // if 'shouldTimestamp' is true
                 if (
                     shouldTimestamp &&
-          notTimestampedDigests &&
-          notTimestampedDigests.length
+                    notTimestampedDigests &&
+                    notTimestampedDigests.length
                 ) {
                     const tsRes = await handleTimestamp(notTimestampedDigests);
                     const tsDigests = mergeDigestsAndResult(notTimestampedDigests, tsRes);
@@ -43,12 +43,11 @@ const useProcessDigests = hash => {
             }
         }
 
-        console.log(hash);
         const { data, shouldTimestamp } = processQueryData(hash);
-        console.log(data);
         handleProcessDigests(data, shouldTimestamp);
     }, [hash]);
 
+    console.log(digests);
     return { digests, loading, error };
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import FileInput from "src/components/FileInput";
 import HashConfList from "src/components/HashConfList";
@@ -42,6 +42,14 @@ const minsToHour = () => 60 - Math.round(new Date() % 3.6e6 / 6e4);
 
 const TimestampForm = ({ history }) => {
     const [files, setFiles] = useState([]);
+    const [minsToNextHour, setMinsToNextHour] = useState(minsToHour());
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setMinsToNextHour(minsToHour());
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     // const handleSubmit = () => {
     //     const digests = files
@@ -61,7 +69,7 @@ const TimestampForm = ({ history }) => {
             <HashConfList hashes={hashesMock}/>
             <div className={styles.actionsSection}>
                 <span className={styles.nextAnchorWrapper}>
-                  Next anchoring in <span className={styles.nextAnchorTime}>{minsToHour()} minutes</span>
+                  Next anchoring in <span className={styles.nextAnchorTime}>{minsToNextHour} minutes</span>
                 </span>
                 <div className={styles.actionButtonsWrapper}>
                     <Button text="Download Hashes" amount={2} kind="secondary" className={styles.timestampActionButton} />

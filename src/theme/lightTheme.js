@@ -52,5 +52,7 @@ export default {
     "input-hover-border-color": "var(--white-ghost)",
     // Search
     "search-icon-hover-color": "var(--blue-darkest)",
-    "search-input-placeholder-color": "var(--blue-darkest)"
+    "search-input-placeholder-color": "var(--blue-darkest)",
+    // Hash view
+    "status-color": "var(--blue-darkest)"
 };

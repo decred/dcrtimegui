@@ -12,13 +12,10 @@ const Digest = ({ digest }) => {
     };
 
     return (
-        <div className={styles.paddingBottom20}>
-            <span className={styles.fontSize13}>Digest</span>
-            <div className={styles.digestWrapper}>
-                <span id={`d-${digest}`} truncate className={styles.digestText}>
-                    {digest}
-                </span>
-            </div>
+        <div className={styles.digestWrapper}>
+            <span id={`d-${digest}`} className={styles.digestText}>
+                {digest}
+            </span>
         </div>
     );
 };

@@ -55,5 +55,7 @@ export default {
     "input-hover-border-color": "#FFFFFF57",
     // Search
     "search-icon-hover-color": "var(--white)",
-    "search-input-placeholder-color": "var(--white)"
+    "search-input-placeholder-color": "var(--white)",
+    // Hash view
+    "status-color": "var(--grey)"
 };

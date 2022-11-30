@@ -11,13 +11,9 @@ export const processQueryData = locationHash => {
         hashes: strHashes,
         timestamp: strTimestamp
     } = qs.parse(locationHash);
-    console.log(locationHash);
-
     const hashes = strHashes.split(",");
     const shouldTimestamp = strTimestamp === "true";
 
-    // file names are set from the query param if existent otherwise the
-    // digest is used as the name
     const data = hashes.map(d => ({
         digest: d
     }));

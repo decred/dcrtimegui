@@ -43,7 +43,7 @@ const LatestHashes = () => {
                     </div>
                 </div>
                 <ul className={styles.hashesList}>
-                    {hashesMock.map(h => <li className={styles.hashesListItem}>
+                    {hashesMock.map(h => <li key={h.hash} className={styles.hashesListItem}>
                         <span className={styles.timeago}>{h.timeago}</span>
                         <span className={styles.hash}>{h.hash}</span>
                     </li>)}

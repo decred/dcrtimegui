@@ -4,6 +4,7 @@
     background: var(--input-bg-color);
     font-size: var(--font-size-lg);
     color: var(--font-color);
+    font-weight: 500;
     outline: none;
     padding: 0.6rem 0.8rem;
 }
