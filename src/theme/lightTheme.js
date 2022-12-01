@@ -26,6 +26,8 @@ export default {
     "header-bg-color": "var(--white)",
     "header-bg-gradient": "transparent linear-gradient(240deg, #F7F7F98C 0%, #F7F7F98C 15%, #F7F7F9B9 60%, #F7F7F9E3 100%) 0% 0% no-repeat padding-box",
     "header-lang-toggle-color": "var(--grey-light)",
+    // Menu
+    "menu-active-color": "var(--blue-darkest)",
     // Main Card
     "main-card-bg-color": "var(--white)",
     "main-card-heading-color": "var(--grey-light)",
@@ -34,7 +36,8 @@ export default {
     "footer-bg-color": "var(--white)",
     "sm-color": "var(--blue-darkest)",
     // File Inout
-    "file-input-border-color": "var(--grey-light)",
+    "file-input-border-color": "var(--white-ghost)",
+    "file-input-hover-bg-color": "var(--white-lilac)",
     // Latest Hash
     "latest-hash-section-bg-color": "var(--bg-color)",
     // Button

@@ -1,13 +1,3 @@
-.dropzoneWrapper {
-  /* padding-bottom: 42px; */
-}
-
-.dropzoneText {
-  /* width: 100%;
-  text-align: center;
-  color: var(--color-primary-dark);
-  font-size: 13px; */
-}
 
 .dropzone {
   font-size: var(--font-size-xl);
@@ -23,8 +13,12 @@
   outline: none;
   user-select: none;
   cursor: pointer;
-  transition: border 0.24s ease-in-out;
+  transition: border 0.5s ease-in;
   padding: 2rem 3rem;
+}
+
+.dropzone:hover {
+  background: var(--file-input-hover-bg-color);
 }
 
 @media screen and (min-width: 769px) {
@@ -35,9 +29,9 @@
 }
 
 .dropzoneActive {
-  border-color: var(--color-primary);
+  border-color: var(--font-color);
 }
 
 .dropzone:focus {
-  border-color: var(--color-primary);
+  border-color: var(--font-color);
 }

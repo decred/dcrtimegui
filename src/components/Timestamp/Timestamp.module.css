@@ -22,7 +22,6 @@
   margin-top: 3.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .nextAnchorWrapper {
@@ -45,12 +44,25 @@
 
 /* This is needed for the site to be usable on very small
 screen sizes */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 470px) {
   .actionsSection {
     flex-direction: column-reverse;
   }
   .nextAnchorWrapper {
     padding: 0;
+    margin-top: 2rem;
+  }
+  .actionButtonsWrapper {
+    flex-direction: column;
+  }
+
+  .timestampActionButton:not(:last-of-type) {
+    margin-right: 0;
+  }
+  .timestampActionButton {
+    width: 100%;
+  }
+  .timestampActionButton:last-of-type {
     margin-top: 2rem;
   }
 }

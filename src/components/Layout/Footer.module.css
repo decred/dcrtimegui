@@ -2,6 +2,7 @@
   padding: 3.5rem 3.5rem 5.5rem 3.5rem;
   background: var(--footer-bg-color);
   font-size: var(--font-size-lg);
+  flex-grow: 1;
 }
 
 /* This is needed for the site to be usable on very small
@@ -61,7 +62,7 @@ screen sizes */
   .socialMedia {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 0;
   }
   .socialMedia > a {
@@ -87,7 +88,7 @@ screen sizes */
   .socialMedia {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 0;
   }
   .socialMedia > a {

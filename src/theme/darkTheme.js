@@ -28,6 +28,8 @@ export default {
     "header-bg-color": "var(--bg-color)",
     "header-bg-gradient": "transparent linear-gradient(220deg, #09144066 0%, #091440E3 83%, #091440E3 100%) 0% 0% no-repeat padding-box",
     "header-lang-toggle-color": "#F7F7F98C",
+    // Menu
+    "menu-active-color": "var(--white)",
     // Main Card
     "main-card-bg-color": "var(--blue-zodiac)",
     "main-card-heading-color": "var(--grey-jet)",
@@ -37,6 +39,7 @@ export default {
     "sm-color": "var(--white)",
     // File Inout
     "file-input-border-color": "var(--grey)",
+    "file-input-hover-bg-color": "#1f2952",
     // Latest Hash
     "latest-hash-section-bg-color": "var(--blue-zodiac)",
     "latest-hash-timeago-color": "var(--grey)",
@@ -44,10 +47,10 @@ export default {
     "button-primary-bg-color": "var(--blue)",
     "button-primary-bg-hover-color": "var(--blue-dark)",
     "button-primary-color": "var(--white)",
-    "button-disabled-bg-color": "var(--grey-light)",
-    "button-disabled-color": "var(--white-ghost)",
-    "button-secondary-bg-color": "var(--grey-light)",
-    "button-secondary-bg-hover-color": "var(--grey)",
+    "button-disabled-bg-color": "var(--grey-jet)",
+    "button-disabled-color": "var(--grey-regent)",
+    "button-secondary-bg-color": "var(--grey-rhino-light)",
+    "button-secondary-bg-hover-color": "var(--grey-rhino)",
     "button-secondary-color": "var(--white)",
     // Input
     "input-bg-color": "var(--blue-darkest)",

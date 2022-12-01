@@ -13,14 +13,16 @@ const Page = ({ children }) => {
     const mainClass = isDarkTheme ? styles.mainDark : styles.mainLight;
     return (
 	      <div className={containerClass}>
-            <Header />
-            <main className={mainClass}>
-                <div className={styles.mainContainer}>
-                    <ErrorBoundary>
-                        {children}
-                    </ErrorBoundary>
-                </div>
-            </main>
+            <div className={styles.bg}>
+                <Header />
+                <main className={mainClass}>
+                    <div className={styles.mainContainer}>
+                        <ErrorBoundary>
+                            {children}
+                        </ErrorBoundary>
+                    </div>
+                </main>
+            </div>
             <Footer />
         </div>
     );

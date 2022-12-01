@@ -1,6 +1,7 @@
 .mainCard {
     margin: 0 auto;
     max-width: 103.5rem;
+    box-sizing: border-box;
     background: var(--main-card-bg-color);
     padding: 2rem;
     border-radius: 0.5rem;

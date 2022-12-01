@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./Dropdown.module.css";
+import cls from "src/helpers/cls";
 
-export const DropdownToggle = ({text, handleClick, ariaLabel, ariaExpanded}) => {
+export const DropdownToggle = ({text, handleClick, ariaLabel, ariaExpanded, className}) => {
     return (
-        <button className={styles.toggleButton} onClick={handleClick} aria-label={ariaLabel} aria-expanded={ariaExpanded}>
+        <button className={cls(styles.toggleButton, className)} onClick={handleClick} aria-label={ariaLabel} aria-expanded={ariaExpanded}>
             {text}
         </button>
     );

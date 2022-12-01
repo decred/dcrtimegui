@@ -3,11 +3,19 @@
   flex-direction: column;
   align-items: stretch;
   min-height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
 }
 
 .containerDark {
   composes: container;
   background: var(--bg-color) url('../../assets/background/background-dark.svg') 60% -152px / 1100px 1100px no-repeat padding-box;
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed; */
 }
 
 .containerLight {
@@ -16,7 +24,7 @@
 }
 
 .main {
-  flex-grow: 1;
+  flex-grow: 2;
   width: 100%;
 }
 
@@ -44,6 +52,10 @@
   }
   .mainDark {
     background: transparent linear-gradient(220deg, #09144066 0%, #091440E3 60%, #091440E3 100%) 0% 0% no-repeat padding-box;
+  }
+  .mainContainer {
+    margin: 0 auto;
+    padding-top: 10rem;
   }
 }
 

@@ -38,7 +38,7 @@ const LatestHashes = () => {
                     <h2 className={styles.heading}>
                         Latest Hashes
                     </h2>
-                    <div>
+                    <div className={styles.searchWrapper}>
                         <InputText placeholder="Search by hash" className={styles.input} Icon={isDarkTheme ? SearchDark : SearchLight}/>
                     </div>
                 </div>
