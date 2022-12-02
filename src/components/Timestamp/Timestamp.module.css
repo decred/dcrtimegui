@@ -22,47 +22,105 @@
   margin-top: 3.5rem;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 .nextAnchorWrapper {
-  padding-right: 1rem;
+  padding: 0;
+  margin-bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.nextAnchor {
+  display: flex;
+}
+
+.tooltip {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.tooltipText {
+  cursor: default;
+  box-sizing: border-box;
+  visibility: hidden;
+  position: absolute;
+  padding: 0.8rem;
+  width: 26.4rem;
+  font-size: var(--font-size-sm);
+  background-color: var(--tooltip-bg-color);
+  color: #fff;
+  text-align: center;
+  border-radius: 0.5rem;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity .5s;
+  top: 135%;
+  left: calc(50% - 13.2rem);
+}
+
+.tooltipText::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: calc(50% - 0.5rem);
+  border-width: 0.5rem;
+  border-style: solid;
+  border-color: transparent transparent var(--tooltip-bg-color) transparent;
+}
+
+.tooltip:hover .tooltipText {
+  visibility: visible;
+  opacity: 1;
 }
 
 .actionButtonsWrapper {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .nextAnchorTime {
   text-decoration: underline;
   text-underline-offset: 0.2rem;
+  margin: 0 1.3rem 0 0.5rem;
 }
 
-.timestampActionButton:not(:last-of-type) {
-  margin-right: 2rem;
-}
 
-/* This is needed for the site to be usable on very small
-screen sizes */
+
 @media screen and (max-width: 470px) {
-  .actionsSection {
-    flex-direction: column-reverse;
-  }
-  .nextAnchorWrapper {
-    padding: 0;
-    margin-top: 2rem;
-  }
-  .actionButtonsWrapper {
-    flex-direction: column;
-  }
-
-  .timestampActionButton:not(:last-of-type) {
-    margin-right: 0;
-  }
   .timestampActionButton {
     width: 100%;
   }
   .timestampActionButton:last-of-type {
     margin-top: 2rem;
+  }
+  .timestampActionButton:not(:last-of-type) {
+    margin-right: 0;
+  }
+  .actionButtonsWrapper {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .actionsSection {
+    flex-direction: row;
+  }
+  .nextAnchorWrapper {
+    padding-right: 1rem;
+    margin: 0;
+  }
+  .timestampActionButton:not(:last-of-type) {
+    margin-right: 2rem;
+  }
+  .timestampActionButton {
+    width: auto;
+  }
+  .timestampActionButton:last-of-type {
+    margin-top: 0;
   }
 }

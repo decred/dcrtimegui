@@ -4,6 +4,7 @@ import FileInput from "src/components/FileInput";
 import HashConfList from "src/components/HashConfList";
 import Button from "src/components/Button";
 import styles from "./Timestamp.module.css";
+import {ReactComponent as Tooltip} from "../../assets/icons/tooltip.svg";
 
 const hashesMock = [
     {
@@ -68,9 +69,17 @@ const TimestampForm = ({ history }) => {
             <h3 className={styles.heading}>Timestamping status</h3>
             <HashConfList hashes={hashesMock}/>
             <div className={styles.actionsSection}>
-                <span className={styles.nextAnchorWrapper}>
-                  Next anchoring in <span className={styles.nextAnchorTime}>{minsToNextHour} minutes</span>
-                </span>
+                <div className={styles.nextAnchorWrapper}>
+                    <span className={styles.nextAnchor}>
+                        Next anchoring in <span className={styles.nextAnchorTime}>{minsToNextHour} minutes</span>
+                        <div className={styles.tooltip}>
+                            <Tooltip/>
+                            <span className={styles.tooltipText}>
+                                Listed hashes have been successfully uploaded to the dcrtime server and will be anchored to the Decred blockchain at XX:XX:XX UTC (in YY minutes).
+                            </span>
+                        </div>
+                    </span>
+                </div>
                 <div className={styles.actionButtonsWrapper}>
                     <Button text="Download Hashes" amount={2} kind="secondary" className={styles.timestampActionButton} />
                     <Button text="Download Proofs" kind="primary" className={styles.timestampActionButton} />

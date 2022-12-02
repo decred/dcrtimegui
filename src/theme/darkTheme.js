@@ -18,7 +18,7 @@ export default {
     "white-ghost": "#CACDD6",
     // Font
     "font-color": "var(--white)",
-    "font-size-sm": "8px",
+    "font-size-sm": "10px",
     "font-size-md": "13px",
     "font-size-lg": "15px",
     "font-size-xl": "21px",
@@ -60,5 +60,7 @@ export default {
     "search-icon-hover-color": "var(--white)",
     "search-input-placeholder-color": "var(--white)",
     // Hash view
-    "status-color": "var(--grey)"
+    "status-color": "var(--grey)",
+    // Tooltip
+    "tooltip-bg-color": "var(--grey-rhino-light)"
 };

@@ -16,7 +16,7 @@ export default {
     "white-pink": "#EBECF0",
     // Font
     "font-color": "var(--blue-darkest)",
-    "font-size-sm": "8px",
+    "font-size-sm": "10px",
     "font-size-md": "13px",
     "font-size-lg": "15px",
     "font-size-xl": "21px",
@@ -57,5 +57,7 @@ export default {
     "search-icon-hover-color": "var(--blue-darkest)",
     "search-input-placeholder-color": "var(--blue-darkest)",
     // Hash view
-    "status-color": "var(--blue-darkest)"
+    "status-color": "var(--blue-darkest)",
+    // Tooltip
+    "tooltip-bg-color": "var(--grey-rhino-light)"
 };
