@@ -1,4 +1,5 @@
 import dcrtime from "dcrtimejs";
+import { HASH_IN_SERVER } from "../constants";
 
 dcrtime.setNetwork(process.env.REACT_APP_NETWORK);
 
@@ -40,7 +41,23 @@ export const getDigests = data => data.map(d => d.digest);
 export const isDigestAnchored = digest =>
     !!(digest.chaininformation && digest.chaininformation.chaintimestamp);
 
-export const isDigestFound = digest => digest.result === 1;
+export const getLastHourBucketTimestamp = () => {
+    const date = new Date();
+    date.setMinutes(date.getMinutes() - 60);
+    date.setMinutes(0, 0, 0);
+    const roundedTs = date.getTime();
+    // convert to seconds timestamp
+    return roundedTs/1000;
+};
+
+export const nextAnchoringDate = () => {
+    const date = new Date();
+    date.setMinutes(date.getMinutes() + 60);
+    date.setMinutes(0, 0, 0);
+    return date;
+};
+
+export const isDigestFound = digest => digest.result === HASH_IN_SERVER;
 
 export const isDigestAnchorPending = digest =>
     isDigestFound(digest) && !isDigestAnchored(digest);

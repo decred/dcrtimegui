@@ -1,0 +1,26 @@
+/* <defs><style>.checkbox-wrapper,.checkbox-check{fill:#fff;}.checkbox-wrapper{opacity:0;}.checkbox-square,.checkbox-filler-1{fill:none;}.checkbox-square{stroke:currentColor;stroke-miterlimit:10;}.checkbox-filler-2{stroke:none;}</style></defs> */
+
+.checkboxWrapper {
+    fill: none;
+}
+
+.checkboxCheck {
+    fill: var(--checkbox-check-color);
+}
+
+.checkboxCheckNone {
+    fill: none;
+}
+
+.checkboxSquare, .checkboxFiller1 {
+    fill: none;
+}
+
+.checkboxSquare {
+    stroke: currentColor;
+    stroke-miterlimit: 10;
+}
+
+.checkboxFiller2 {
+    stroke:none;
+}

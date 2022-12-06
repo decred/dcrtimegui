@@ -8,4 +8,73 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    /*after*/
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.iconsWrapper {
+    display: flex;
+}
+
+.hashWrapper {
+    box-sizing: border-box;
+    padding: 0rem 0.8rem;
+    flex-grow: 1;
+    margin-right: 0.5rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-md);
+    font-family: Inter;
+    color: var(--white);
+}
+
+.hashWrapper:hover {
+    border: 0.1rem solid var(--progress-bar-border-color);
+    padding: 0rem 0.7rem;
+}
+
+.hashWrapper:focus {
+    border: 0.1rem solid var(--progress-bar-border-color);
+    padding: 0rem 0.7rem;
+}
+
+.hashWrapper0 {
+    composes: hashWrapper;
+    background-image: linear-gradient(to right, var(--progress-bar-bg-color) 0%, var(--progress-bar-bg-color) 100%);
+}
+
+.hashWrapper1 {
+    composes: hashWrapper;
+    background-image: linear-gradient(to right, var(--progress-bar-bg-color-step) 0%, var(--progress-bar-bg-color-step) 16.67%, var(--progress-bar-bg-color) 16.67%, var(--progress-bar-bg-color) 100%);
+}
+
+.hashWrapper2 {
+    composes: hashWrapper;
+    background-image: linear-gradient(to right, var(--progress-bar-bg-color-step) 0%, var(--progress-bar-bg-color-step) 33.33%, var(--progress-bar-bg-color) 33.33%, var(--progress-bar-bg-color) 100%);
+}
+
+.hashWrapper3 {
+    composes: hashWrapper;
+    background-image: linear-gradient(to right, var(--progress-bar-bg-color-step) 0%, var(--progress-bar-bg-color-step) 50%, var(--progress-bar-bg-color) 50%, var(--progress-bar-bg-color) 100%);
+}
+
+.hashWrapper4 {
+    composes: hashWrapper;
+    background-image: linear-gradient(to right, var(--progress-bar-bg-color-step) 0%, var(--progress-bar-bg-color-step) 66.67%, var(--progress-bar-bg-color) 66.67%, var(--progress-bar-bg-color) 100%);
+}
+
+.hashWrapper5 {
+    composes: hashWrapper;
+    background-image: linear-gradient(to right, var(--progress-bar-bg-color-step) 0%, var(--progress-bar-bg-color-step) 83.33%, var(--progress-bar-bg-color) 83.33%, var(--progress-bar-bg-color) 100%);
+}
+
+.hashWrapper6 {
+    composes: hashWrapper;
+    background: var(--progress-bar-bg-color-done);
 }

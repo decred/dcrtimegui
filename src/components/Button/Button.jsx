@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Button.module.css";
 import cls from "src/helpers/cls";
 
-const Button = ({type = "button", text, amount, handleClick, className, kind = "primary"}) => {
+const Button = ({type = "button", text, amount, handleClick, className, Icon, kind = "primary"}) => {
     let buttonClass = null;
     switch(kind) {
     case "primary":
@@ -19,7 +19,7 @@ const Button = ({type = "button", text, amount, handleClick, className, kind = "
     }
     return (
         <button type={type} onClick={handleClick} className={cls(buttonClass, className)} disabled={kind === "disabled"}>
-            {`${text}${amount ? ` (${amount})` : ""}`}
+            {Icon ? <Icon style={{marginRight: "0.8rem", fill: "var(--go-back-color)"}}/> : null}{`${text}${amount ? ` (${amount})` : ""}`}
         </button>
     );
 };

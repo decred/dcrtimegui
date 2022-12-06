@@ -7,6 +7,7 @@ import styles from "./ResultCard.module.css";
 import {ReactComponent as TimestampedDark} from "../../assets/icons/timestamped-dark.svg";
 import {ReactComponent as TimestampedLight} from "../../assets/icons/timestamped-light.svg";
 import {ReactComponent as Pending} from "../../assets/icons/pending.svg";
+import {ReactComponent as GoBack} from "../../assets/icons/goback-button-arrow-dark.svg";
 import useTheme from "src/theme/useTheme";
 import Button from "src/components/Button";
 import { withRouter } from "react-router-dom";
@@ -32,7 +33,9 @@ const ResultCard = ({
         StatusComponent = Pending;
         statusText = "Pending";
         break;
-    default: StatusComponent = null;
+    default:
+        StatusComponent = Pending;
+        statusText = "Not found";
     };
     return (
         <div className={styles.card}>
@@ -45,12 +48,14 @@ const ResultCard = ({
                         <StatusComponent />
                     </div>
                 </div>
-                <h3 className={styles.heading}>Details</h3>
                 {status === "Timestamped" || status === "Pending" ? (
-                    <ChainInfo chainInfo={chainInfo} />
+                    <>
+                        <h3 className={styles.heading}>Details</h3>
+                        <ChainInfo chainInfo={chainInfo} />
+                    </>
                 ) : null}
                 <div className={styles.actionButtons}>
-                    <Button kind="secondary" text="Go Back" handleClick={() => history.goBack()}/>
+                    <Button kind="secondary" text="Go Back" Icon={GoBack} handleClick={() => history.goBack()}/>
                     <DownloadProof
                         data={{
                             digest: digest,

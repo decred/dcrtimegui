@@ -6,8 +6,11 @@ export default {
     "blue-zodiac": "#18234D",
     // Greys
     "grey-light": "#ABAEBE",
+    "grey-steel": "#777E96",
     "grey": "#787F98",
     "grey-smokey": "#707070",
+    "grey-regent": "#9196AA",
+    "grey-rhino-light": "#3F486B",
     // Whites
     "white": "#FFF",
     "white-lilac": "#F7F7F9",
@@ -40,6 +43,7 @@ export default {
     "file-input-hover-bg-color": "var(--white-lilac)",
     // Latest Hash
     "latest-hash-section-bg-color": "var(--bg-color)",
+    "latest-hash-hover-color": "var(--blue-darkest)",
     // Button
     "button-primary-bg-color": "var(--blue)",
     "button-primary-bg-hover-color": "var(--blue-dark)",
@@ -58,6 +62,19 @@ export default {
     "search-input-placeholder-color": "var(--blue-darkest)",
     // Hash view
     "status-color": "var(--blue-darkest)",
+    "go-back-color": "var(--white)",
     // Tooltip
-    "tooltip-bg-color": "var(--grey-rhino-light)"
+    "tooltip-bg-color": "var(--grey-rhino-light)",
+    "tooltip-hover-color": "var(--grey-regent)",
+    // Icons
+    "button-icon-hover-bg-color": "var(--white-pink)",
+    "button-icon-hover-color": "var(--blue-darkest)",
+    "copy-to-clipboard-color": "var(--grey)",
+    "checkbox-color": "var(--white-ghost)",
+    "checkbox-check-color": "var(--blue-darkest)",
+    // Progress bar
+    "progress-bar-border-color": "var(--blue-darkest)",
+    "progress-bar-bg-color": "var(--grey-light)",
+    "progress-bar-bg-color-step": "var(--grey-steel)",
+    "progress-bar-bg-color-done": "var(--blue)"
 };

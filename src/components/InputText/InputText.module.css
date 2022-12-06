@@ -9,6 +9,10 @@
     padding: 0.6rem 0.8rem;
 }
 
+.error {
+    border: 1px solid red !important;
+}
+
 .inputText:hover {
     border: 1px solid var(--input-hover-border-color);
 }

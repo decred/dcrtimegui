@@ -32,10 +32,28 @@
   min-width: 10rem;
 }
 
+.chainInfoLink {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
 .digestWrapper {
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .digestWrapper {
+    width: auto;
+    margin-right: 2rem;
+  }
+}
+
+.digestText {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-right: 0.5rem;
 }
 
 .actionButtons {

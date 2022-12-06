@@ -41,6 +41,11 @@
   display: flex;
   align-items: center;
   position: relative;
+  padding: 0.2rem;
+}
+
+.tooltip:hover > svg > path {
+  fill: var(--tooltip-hover-color);
 }
 
 .tooltipText {
@@ -53,7 +58,7 @@
   font-size: var(--font-size-sm);
   background-color: var(--tooltip-bg-color);
   color: #fff;
-  text-align: center;
+  text-align: left;
   border-radius: 0.5rem;
   z-index: 100;
   opacity: 0;
@@ -86,7 +91,7 @@
 .nextAnchorTime {
   text-decoration: underline;
   text-underline-offset: 0.2rem;
-  margin: 0 1.3rem 0 0.5rem;
+  margin: 0 1.1rem 0 0.5rem;
 }
 
 

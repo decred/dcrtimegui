@@ -43,6 +43,7 @@ export default {
     // Latest Hash
     "latest-hash-section-bg-color": "var(--blue-zodiac)",
     "latest-hash-timeago-color": "var(--grey)",
+    "latest-hash-hover-color": "var(--white)",
     // Button
     "button-primary-bg-color": "var(--blue)",
     "button-primary-bg-hover-color": "var(--blue-dark)",
@@ -61,6 +62,19 @@ export default {
     "search-input-placeholder-color": "var(--white)",
     // Hash view
     "status-color": "var(--grey)",
+    "go-back-color": "var(--grey)",
     // Tooltip
-    "tooltip-bg-color": "var(--grey-rhino-light)"
+    "tooltip-bg-color": "var(--grey-rhino-light)",
+    "tooltip-hover-color": "var(--grey-regent)",
+    // Icons
+    "button-icon-hover-bg-color": "#ffffff15",
+    "button-icon-hover-color": "var(--white)",
+    "copy-to-clipboard-color": "var(--grey)",
+    "checkbox-color": "var(--grey)",
+    "checkbox-check-color": "var(--white)",
+    // Progress bar
+    "progress-bar-border-color": "var(--white)",
+    "progress-bar-bg-color": "var(--grey-rhino-light)",
+    "progress-bar-bg-color-step": "var(--grey)",
+    "progress-bar-bg-color-done": "var(--blue)"
 };

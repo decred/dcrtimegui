@@ -47,7 +47,6 @@ const useProcessDigests = hash => {
         handleProcessDigests(data, shouldTimestamp);
     }, [hash]);
 
-    console.log(digests);
     return { digests, loading, error };
 };
 

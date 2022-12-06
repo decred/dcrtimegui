@@ -6,6 +6,7 @@ import ThemeProvider from "./theme/themeProvider";
 import lightTheme from "./theme/lightTheme";
 import darkTheme from "./theme/darkTheme";
 import LoadingSkeleton from "./components/Loading";
+import ScrollToTop from "./components/ScrollToTop";
 
 const themes = {
     "light": lightTheme,
@@ -18,9 +19,11 @@ const App = () => {
         <ErrorBoundary>
             <ThemeProvider themes={themes} defaultTheme={theme || "dark"}>
                 <Router>
-                    <Suspense fallback={<LoadingSkeleton />}>
-                        <Routes />
-                    </Suspense>
+                    <ScrollToTop>
+                        <Suspense fallback={<LoadingSkeleton />}>
+                            <Routes />
+                        </Suspense>
+                    </ScrollToTop>
                 </Router>
             </ThemeProvider>
         </ErrorBoundary>
