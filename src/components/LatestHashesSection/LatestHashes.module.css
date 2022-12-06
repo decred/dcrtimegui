@@ -26,6 +26,8 @@
 }
 
 .hashTimeWrapper {
+    box-sizing: border-box;
+    width: calc(100% - 2.2rem);
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
@@ -103,3 +105,18 @@
         width: 29.2rem;
     }
 }
+
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 470px) {
+    .title {
+      flex-direction: column;
+    }
+    .input {
+        width: 100%;
+        max-width: 100%;
+    }
+    .heading {
+        margin-bottom: 2.5rem;
+    }
+  }

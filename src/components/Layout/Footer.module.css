@@ -59,14 +59,15 @@ screen sizes */
     align-items: flex-start;
     justify-content: flex-start;
   }
+
   .socialMedia {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     margin-bottom: 0;
   }
-  .socialMedia > a {
-    margin: 0 2.1rem 1.3rem 0;
+  .column > a {
+    margin: 0 1.6rem 1.2rem 0;
   }
 }
 
@@ -77,21 +78,5 @@ screen sizes */
     flex-direction: row;
     width: 100%;
     max-width: 120rem;
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  .socialMedia {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-bottom: 0;
-  }
-  .socialMedia > a {
-    margin: 0 2.1rem 1.3rem 0;
   }
 }

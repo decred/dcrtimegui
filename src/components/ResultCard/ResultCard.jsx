@@ -7,7 +7,7 @@ import styles from "./ResultCard.module.css";
 import {ReactComponent as TimestampedDark} from "../../assets/icons/timestamped-dark.svg";
 import {ReactComponent as TimestampedLight} from "../../assets/icons/timestamped-light.svg";
 import {ReactComponent as Pending} from "../../assets/icons/pending.svg";
-import {ReactComponent as GoBack} from "../../assets/icons/goback-button-arrow-dark.svg";
+import {ReactComponent as GoBack} from "../../assets/icons/goback-button-arrow.svg";
 import useTheme from "src/theme/useTheme";
 import Button from "src/components/Button";
 import { withRouter } from "react-router-dom";

@@ -12,15 +12,13 @@
 .containerDark {
   composes: container;
   background: var(--bg-color) url('../../assets/background/background-dark.svg') 60% -152px / 1100px 1100px no-repeat padding-box;
-  /* background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-attachment: fixed; */
+  background-attachment: fixed;
 }
 
 .containerLight {
   composes: container;
   background: var(--bg-color) url('../../assets/background/background-light.svg') 60% -152px / 1100px 1100px no-repeat padding-box;
+  background-attachment: fixed;
 }
 
 .main {
@@ -46,9 +44,11 @@
 @media screen and (min-width: 769px) {
   .containerDark {
     background: var(--bg-color) url('../../assets/background/background-dark.svg') 30.5% -190px / 1100px 1100px no-repeat padding-box;
+    background-attachment: fixed;
   }
   .containerLight {
     background: var(--bg-color) url('../../assets/background/background-light.svg') 30.5% -190px / 1100px 1100px no-repeat padding-box;
+    background-attachment: fixed;
   }
   .mainDark {
     background: transparent linear-gradient(220deg, #09144066 0%, #091440E3 60%, #091440E3 100%) 0% 0% no-repeat padding-box;
@@ -62,26 +62,32 @@
 @media screen and (min-width: 1000px) {
   .containerDark {
     background: var(--bg-color) url('../../assets/background/background-dark.svg') 77% -326px / 1375px 1380px no-repeat padding-box;
+    background-attachment: fixed;
   }
   .containerLight {
     background: var(--bg-color) url('../../assets/background/background-light.svg') 77% -326px / 1375px 1380px no-repeat padding-box;
+    background-attachment: fixed;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .containerDark {
     background: var(--bg-color) url('../../assets/background/background-dark.svg') 50% -403px / 1695px 1700px no-repeat padding-box;
+    background-attachment: fixed;
   }
   .containerLight {
     background: var(--bg-color) url('../../assets/background/background-light.svg') 50% -403px / 1695px 1700px no-repeat padding-box;
+    background-attachment: fixed;
   }
 }
 
 @media screen and (min-width: 1650px) {
   .containerDark {
     background: var(--bg-color) url('../../assets/background/background-dark.svg') 50% -403px / cover no-repeat padding-box;
+    background-attachment: fixed;
   }
   .containerLight {
     background: var(--bg-color) url('../../assets/background/background-light.svg') 50% -403px / cover no-repeat padding-box;
+    background-attachment: fixed;
   }
 }

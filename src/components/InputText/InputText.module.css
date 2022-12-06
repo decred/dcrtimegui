@@ -7,6 +7,13 @@
     font-weight: 500;
     outline: none;
     padding: 0.6rem 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inputWrapper {
+    flex-grow: 1;
+    position: relative;
 }
 
 .error {
@@ -31,7 +38,7 @@
 
 .iconWrapper {
     position: absolute;
-    right: 1rem;
+    right: 1.1rem;
     top: 1.1rem;
     padding: 0;
     background: transparent;

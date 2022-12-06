@@ -20,12 +20,14 @@ const Footer = () => {
                 </div>
                 <div className={styles.column}>
                     <a href="https://decred.org/brand/" target="_blank" rel="noopener noreferrer">Brand Resources</a>
-                    <a href="https://decred.org/news/" target="_blank" rel="noopener noreferrer">Press</a>
+                    <a href="https://decred.org/news/" target="_blank" rel="noopener noreferrer">News</a>
+                    <a href="https://decred.org/vsp/" target="_blank" rel="noopener noreferrer">Voting Service Providers</a>
                     <a href="https://docs.decred.org/contributing/overview/" target="_blank" rel="noopener noreferrer">Become a Contributor</a>
                 </div>
                 <div className={styles.column}>
                     <a href="https://docs.decred.org/research/overview/" target="_blank" rel="noopener noreferrer">Technical Overview</a>
                     <a href="https://dcrdata.decred.org/" target="_blank" rel="noopener noreferrer">Block Explorer</a>
+                    <a href="https://timestamp.decred.org/" target="_blank" rel="noopener noreferrer">Timestamping Service</a>
                     <a href="https://bounty.decred.org/" target="_blank" rel="noopener noreferrer">Bug Bounty Program</a>
                 </div>
                 <div className={styles.socialMedia}>
