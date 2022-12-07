@@ -17,7 +17,7 @@
     "start": "REACT_APP_NETWORK=testnet HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "build-testnet": "REACT_APP_NETWORK=testnet react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "lint:js": "eslint --fix --ext=.js,.jsx src"
   },
