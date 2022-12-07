@@ -8,7 +8,7 @@ const DownloadProof = ({ data }) => {
         fileDownload(JSON.stringify(data, null, 2), `${data?.digest}.json`);
 
     return (
-        <Button kind="primary" text="Download Proof" handleClick={handleDownload} />
+        <Button kind={data.chaintimestamp ? "primary" : "disabled"} text="Download Proof" handleClick={handleDownload} />
     );
 };
 

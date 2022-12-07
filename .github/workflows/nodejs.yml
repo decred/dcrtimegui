@@ -17,8 +17,6 @@ jobs:
 
     - name: yarn
       run: yarn --network-concurrency 1
-    - name: lint:css
-      run: yarn lint:css
     - name: lint:js
       run: yarn lint:js
     - name: test
