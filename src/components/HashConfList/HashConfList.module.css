@@ -5,9 +5,6 @@
 }
 
 .hashConfListItem {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     /*after*/
     display: flex;
     justify-content: space-between;
@@ -19,6 +16,10 @@
 }
 
 .hashWrapper {
+    text-align: start;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
     box-sizing: border-box;
     padding: 0rem 0.8rem;
     flex-grow: 1;
@@ -27,8 +28,6 @@
     cursor: pointer;
     border: 0;
     outline: 0;
-    display: flex;
-    align-items: center;
     font-size: var(--font-size-md);
     font-family: Inter;
     color: var(--white);

@@ -109,6 +109,10 @@
   .actionButtonsWrapper {
     flex-direction: column;
   }
+  .tooltipText {
+    width: 16rem;
+    left: calc(50% - 8rem);
+  }
 }
 
 @media screen and (min-width: 769px) {
