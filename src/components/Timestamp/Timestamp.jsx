@@ -35,16 +35,16 @@ const downloadHashes = (hashes) => {
     fileDownload(JSON.stringify(hashes, null, 2), "hashes.json");
 };
 
-const filesArrayToObj = (files) => {
-    return files.reduce((acc, cur) => {
-        return {
-            ...acc,
-            [cur.digest]: {
-                ...cur
-            }
-        };
-    }, {});
-};
+// const filesArrayToObj = (files) => {
+//     return files.reduce((acc, cur) => {
+//         return {
+//             ...acc,
+//             [cur.digest]: {
+//                 ...cur
+//             }
+//         };
+//     }, {});
+// };
 
 const TimestampForm = ({ history }) => {
     const [files, setFiles] = useState([]);
