@@ -11,6 +11,7 @@ import {ReactComponent as GoBack} from "../../assets/icons/goback-button-arrow.s
 import useTheme from "src/theme/useTheme";
 import Button from "src/components/Button";
 import { withRouter } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ResultCard = ({
     name,
@@ -19,6 +20,7 @@ const ResultCard = ({
     status,
     history
 }) => {
+    const {t} = useTranslation();
     const {theme} = useTheme();
     const isDarkTheme = theme === "dark";
     let StatusComponent = null;
@@ -55,7 +57,7 @@ const ResultCard = ({
                     </>
                 ) : null}
                 <div className={styles.actionButtons}>
-                    <Button kind="secondary" text="Go Back" Icon={GoBack} handleClick={() => history.goBack()}/>
+                    <Button kind="secondary" text={t("hashView.goBack")} Icon={GoBack} handleClick={() => history.goBack()}/>
                     <DownloadProof
                         data={{
                             digest: digest,

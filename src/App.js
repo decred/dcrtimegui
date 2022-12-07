@@ -7,6 +7,7 @@ import lightTheme from "./theme/lightTheme";
 import darkTheme from "./theme/darkTheme";
 import LoadingSkeleton from "./components/Loading";
 import ScrollToTop from "./components/ScrollToTop";
+import "./i18n";
 
 const themes = {
     "light": lightTheme,

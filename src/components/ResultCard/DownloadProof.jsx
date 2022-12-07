@@ -2,13 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import fileDownload from "js-file-download";
 import Button from "../Button";
+import { useTranslation } from "react-i18next";
 
 const DownloadProof = ({ data }) => {
+    const {t} = useTranslation();
     const handleDownload = () =>
         fileDownload(JSON.stringify(data, null, 2), `${data?.digest}.json`);
 
     return (
-        <Button kind={data.chaintimestamp ? "primary" : "disabled"} text="Download Proof" handleClick={handleDownload} />
+        <Button kind={data.chaintimestamp ? "primary" : "disabled"} text={t("downloadProof.singular")} handleClick={handleDownload} />
     );
 };
 

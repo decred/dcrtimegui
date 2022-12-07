@@ -13,6 +13,8 @@
     background: transparent;
     color: var(--header-lang-toggle-color);
     padding: 0 1.2rem;
+    min-width: 5.54rem;
+    box-sizing: border-box;
 }
 
 .dropdownMenu {

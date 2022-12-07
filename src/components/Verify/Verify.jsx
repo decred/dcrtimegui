@@ -7,8 +7,10 @@ import InputText from "src/components/InputText";
 import {
     handleVerify
 } from "src/helpers/dcrtime";
+import { useTranslation } from "react-i18next";
 
 const Verify = () => {
+    const {t} = useTranslation();
     const [files, setFiles] = useState([]);
     const [hashValue, setHashValue] = useState("");
     const [error, setError] = useState(null);
@@ -37,14 +39,14 @@ const Verify = () => {
     return (
         <div>
             <div>
-                <FileInput files={files} setFiles={setFiles} text="Verify by dropping proof or original file here" handleDrop={handleDrop} />
+                <FileInput files={files} setFiles={setFiles} text={t("fileInput.verify.text")} handleDrop={handleDrop} />
             </div>
-            <h3 className={styles.doubleLineHeading}>Or manually</h3>
+            <h3 className={styles.doubleLineHeading}>{t("verify.manually.title")}</h3>
             <form className={styles.manuallyForm} onSubmit={handleVerifyManually}>
-                <InputText value={hashValue} error={error} onChange={handleInputChange} placeholder="Type or paste here a 32-byte hash" />
-                <Button type="submit" kind="primary" text="Verify by Hash" className={styles.verifyByHashButton} />
+                <InputText value={hashValue} error={error} onChange={handleInputChange} placeholder={t("verify.manually.placeholder")} />
+                <Button type="submit" kind="primary" text={t("verify.button")} className={styles.verifyByHashButton} />
             </form>
-            {files.length ? (<h3 className={styles.singleLineHeading}>Verify log</h3>): null}
+            {files.length ? (<h3 className={styles.singleLineHeading}>{t("verify.log")}</h3>): null}
             <HashConfList hashes={files} noCheck/>
         </div>
     );

@@ -13,6 +13,7 @@ import {
     nextAnchoringDate,
     isDigestFound
 } from "src/helpers/dcrtime";
+import { useTranslation } from "react-i18next";
 
 const minsToHour = () => 60 - Math.round(new Date() % 3.6e6 / 6e4);
 const convertMinsToMs = (mins) => mins * 60000;
@@ -47,6 +48,7 @@ const downloadHashes = (hashes) => {
 // };
 
 const TimestampForm = ({ history }) => {
+    const { t } = useTranslation();
     const [files, setFiles] = useState([]);
     const [minsToNextHour, setMinsToNextHour] = useState(minsToHour());
     // const [startPolling, setStartPolling] = useState(false);
@@ -142,25 +144,25 @@ const TimestampForm = ({ history }) => {
     return (
         <div>
             <div>
-                <FileInput files={files} setFiles={setFiles} handleDrop={handleDrop} text="Timestamp files by dropping them here" />
+                <FileInput files={files} setFiles={setFiles} handleDrop={handleDrop} text={t("fileInput.timestamp.text")} />
             </div>
             {files.length > 0 ? (<h3 className={styles.heading}>Timestamping status</h3>) : null}
             <HashConfList hashes={files} checked={checked} handleCheckboxClick={handleCheckboxClick} />
             <div className={styles.actionsSection}>
                 <div className={styles.nextAnchorWrapper}>
                     <span className={styles.nextAnchor}>
-                        Next anchoring in <span className={styles.nextAnchorTime}>{minsToNextHour} minutes</span>
+                        {t("nextAnchoring")} <span className={styles.nextAnchorTime}>{minsToNextHour} {minsToNextHour < 2 ? t("minute") : t("minutes")}</span>
                         <div className={styles.tooltip}>
                             <Tooltip/>
                             <span className={styles.tooltipText}>
-                                Listed hashes have been successfully uploaded to the dcrtime server and will be anchored to the Decred blockchain at {nextAnchoringDate().toUTCString()} (in {minsToNextHour} minutes).
+                                {t("nextAnchoring.tooltip", {date: nextAnchoringDate().toUTCString(), minsToHour: minsToNextHour})}
                             </span>
                         </div>
                     </span>
                 </div>
                 <div className={styles.actionButtonsWrapper}>
                     <Button text={amountOfHashesToDownload > 1 ? "Download Hashes" : "Download Hash"} amount={amountOfHashesToDownload} kind={amountOfHashesToDownload > 0 ? "secondary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadHashes(hashesToDownload)} />
-                    <Button text={amountOfProofsToDownload > 1 ? "Download Proofs" : "Download Proof"} amount={amountOfProofsToDownload} kind={amountOfProofsToDownload > 0 ? "primary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadArrayOfProofs(proofsToDownload)} />
+                    <Button text={amountOfProofsToDownload > 1 ? t("downloadProof.plural") : t("downloadProof.singular")} amount={amountOfProofsToDownload} kind={amountOfProofsToDownload > 0 ? "primary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadArrayOfProofs(proofsToDownload)} />
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import {ReactComponent as SearchLight} from "../../assets/icons/hash-search-ligh
 import {ReactComponent as SearchDark} from "../../assets/icons/hash-search-dark.svg";
 import useTheme from "src/theme/useTheme";
 import { withRouter } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const hashesMock = [
     {
@@ -33,15 +34,16 @@ const hashesMock = [
 const LatestHashes = ({history}) => {
     const {theme} = useTheme();
     const isDarkTheme = theme === "dark";
+    const {t} = useTranslation();
     return (
         <div className={styles.latestHashes}>
             <div className={styles.content}>
                 <div className={styles.title}>
                     <h2 className={styles.heading}>
-                        Latest Hashes
+                        {t("latestHashes.title")}
                     </h2>
                     <div className={styles.searchWrapper}>
-                        <InputText placeholder="Search by hash" className={styles.input} Icon={isDarkTheme ? SearchDark : SearchLight}/>
+                        <InputText placeholder={t("searchByHash.placeholder")} className={styles.input} Icon={isDarkTheme ? SearchDark : SearchLight}/>
                     </div>
                 </div>
                 <ul className={styles.hashesList}>

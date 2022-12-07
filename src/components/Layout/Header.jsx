@@ -6,7 +6,7 @@ import LogoDark from "src/assets/icons/logo-dark.svg";
 import Menu from "src/components/Menu";
 import styles from "./Header.module.css";
 
-const Header = ({ history }) => {
+const Header = () => {
     const {theme} = useTheme();
     const isDarkTheme = theme === "dark";
     const logo = isDarkTheme ? LogoDark : LogoLight;
