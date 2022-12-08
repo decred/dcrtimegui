@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonIcon from "src/components/ButtonIcon";
+import Tooltip from "src/components/Tooltip";
 import {ReactComponent as CopyIcon} from "../../assets/icons/copy-to-clipboard.svg";
 
 const copyToClipboard = (text) => {
@@ -8,7 +9,7 @@ const copyToClipboard = (text) => {
 
 const Copy = ({text}) => {
     return (
-        <ButtonIcon Icon={<CopyIcon />} handleClick={() => copyToClipboard(text)} color={"var(--copy-to-clipboard-color)"}/>
+        <Tooltip tooltipTrigger={<ButtonIcon Icon={<CopyIcon />} handleClick={() => copyToClipboard(text)} color={"var(--copy-to-clipboard-color)"}/>} tooltipText="Copied!" tooltipHover={false} tooltipTextStyle={{width: "52px", left: "calc(50% - 26px)"}} />
     );
 };
 

@@ -1,0 +1,58 @@
+
+.tooltip {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.2rem;
+  }
+
+  .tooltip:hover > svg > path {
+    fill: var(--tooltip-hover-color);
+  }
+
+  .tooltipText {
+    cursor: default;
+    box-sizing: border-box;
+    visibility: hidden;
+    position: absolute;
+    padding: 0.8rem;
+    width: 26.4rem;
+    font-size: var(--font-size-sm);
+    background-color: var(--tooltip-bg-color);
+    color: #fff;
+    text-align: left;
+    border-radius: 0.5rem;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity .5s;
+    top: 135%;
+    left: calc(50% - 13.2rem);
+  }
+
+  .tooltipText::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: calc(50% - 0.5rem);
+    border-width: 0.5rem;
+    border-style: solid;
+    border-color: transparent transparent var(--tooltip-bg-color) transparent;
+  }
+
+  .tooltipHover:hover .tooltipText {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltipShow {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 470px) {
+    .tooltipText {
+      width: 16rem;
+      left: calc(50% - 8rem);
+    }
+  }

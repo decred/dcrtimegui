@@ -4,8 +4,9 @@ import fileDownload from "js-file-download";
 import FileInput from "src/components/FileInput";
 import HashConfList from "src/components/HashConfList";
 import Button from "src/components/Button";
+import Tooltip from "src/components/Tooltip";
 import styles from "./Timestamp.module.css";
-import {ReactComponent as Tooltip} from "../../assets/icons/tooltip.svg";
+import {ReactComponent as TooltipIcon} from "../../assets/icons/tooltip.svg";
 import {
     handleTimestamp,
     handleVerify,
@@ -152,12 +153,7 @@ const TimestampForm = ({ history }) => {
                 <div className={styles.nextAnchorWrapper}>
                     <span className={styles.nextAnchor}>
                         {t("nextAnchoring")} <span className={styles.nextAnchorTime}>{minsToNextHour} {minsToNextHour < 2 ? t("minute") : t("minutes")}</span>
-                        <div className={styles.tooltip}>
-                            <Tooltip/>
-                            <span className={styles.tooltipText}>
-                                {t("nextAnchoring.tooltip", {date: nextAnchoringDate().toUTCString(), minsToHour: minsToNextHour})}
-                            </span>
-                        </div>
+                        <Tooltip tooltipTrigger={<TooltipIcon/>} tooltipText={t("nextAnchoring.tooltip", {date: nextAnchoringDate().toUTCString(), minsToHour: minsToNextHour})} tooltipHover />
                     </span>
                 </div>
                 <div className={styles.actionButtonsWrapper}>
