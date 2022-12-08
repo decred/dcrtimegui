@@ -6,7 +6,7 @@
     "nextAnchoring": "Próxima ancoragem em",
     "minute": "minuto",
     "minutes": "minutos",
-    "nextAnchoring.tooltip": "As hashes listadas foram enviadas para o servidor da dcrtime e serão ancoradas a Blockchain da Decred na seguinte data: {{date}} (em {{minsToHour}} minutos)",
+    "nextAnchoring.tooltip": "As hashes listadas foram enviadas para o servidor da dcrtime e serão ancoradas a blockchain da Decred na seguinte data: {{date}} (em {{minsToHour}} minutos)",
     "downloadProof.singular": "Download Prova",
     "downloadProof.plural": "Download Provas",
     "latestHashes.title": "Últimas Hashes",

@@ -76,5 +76,8 @@ export default {
     "progress-bar-border-color": "var(--white)",
     "progress-bar-bg-color": "var(--grey-rhino-light)",
     "progress-bar-bg-color-step": "var(--grey)",
-    "progress-bar-bg-color-done": "var(--blue)"
+    "progress-bar-bg-color-done": "var(--blue)",
+    // Spinner
+    "spinner-border": "rgba(255, 255, 255, 0.3)",
+    "spinner-border-top": "var(--white)"
 };

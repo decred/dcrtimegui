@@ -2,7 +2,9 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import ResultCard from "src/components/ResultCard";
 import { isDigestAnchored, isDigestAnchorPending,isDigestFound } from "src/helpers/dcrtime";
+import Spinner from "src/components/Spinner";
 import useProcessDigests from "./hooks";
+import styles from "./Results.module.css";
 
 const getStatus = digest => {
     if (isDigestAnchored(digest)) {
@@ -23,8 +25,8 @@ const Results = ({ location }) => {
     if (error) throw error;
 
     return loading && !error ? (
-        <div>
-            Loading
+        <div className={styles.spinnerWrapper}>
+            <Spinner />
         </div>
     ) : (
         digests.map(d => (
