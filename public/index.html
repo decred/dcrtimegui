@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?v=4">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <!--
@@ -15,38 +14,103 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Decred Timestamp Service</title>
+    <title>Timestamply</title>
   </head>
   <body>
     <noscript>
-      <div class="header">
-        <img class="logo" src="/assets/logo.svg" alt="logo">
-        <span class="nojsMessage">Javascript disabled</span>
-      </div>
-      <div class="body">
-        <div class="titleContainer">
-          <p class="title">
-            Create new hash
-          </p>
-        </div>
-        <div class="card">
-          <form action="https://time.decred.org:49152/v2/timestamp" method="post">
-            <input class="digestInput" type="text" name="digest" placeholder="32-byte hash" />
-            <input class="submitButton" type="submit" value="Submit">
-          </form>
-        </div>
-        <div class="titleContainer">
-          <p class="title">
-            Verify hash
-          </p>
-        </div>
-        <div class="card">
-          <form action="https://time.decred.org:49152/v2/verify" method="post">
-            <input class="digestInput" type="text" name="digest" placeholder="32-byte hash" />
-            <input class="submitButton" type="submit" value="Submit">
-          </form>
-        </div>
-      </div>
+      <link rel="stylesheet" href="%PUBLIC_URL%/inter.css">
+      <link rel="stylesheet" href="%PUBLIC_URL%/styles.css">
+      <div class="content">
+        <header class="header">
+          <img class="logo" src="logo-light.svg" alt="timestampoly logo">
+          <nav class="nav">
+            <a href="https://docs.decred.org/advanced/dcrtime/" target="_blank" rel="noopener noreferrer" aria-label="Dcrtime docs">Documentation</a>
+          </nav>
+        </header>
+        <main class="main">
+          <div class="card">
+            <h1 class="title">
+              Generate Proof
+            </h1>
+            <form action="https://time.decred.org:49152/v2/timestamp" method="post" class="form">
+              <input class="digestInput" type="text" name="digest" placeholder="32-byte hash" />
+              <input class="submitButton" type="submit" value="Generate">
+            </form>
+          </div>
+          <div class="card">
+            <h1 class="title">
+              Verify Hash
+            </h1>
+            <form action="https://time.decred.org:49152/v2/verify" method="post" class="form">
+              <input class="digestInput" type="text" name="digest" placeholder="32-byte hash" />
+              <input class="submitButton" type="submit" value="Verify">
+            </form>
+          </div>
+        </main>
+        <footer class="footer">
+          <div class="container">
+              <div class="column">
+                  <a href="https://github.com/decred" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred Github">
+                      Decred Developers
+                  </a>
+              </div>
+              <div class="column">
+                  <a href="https://decred.org/brand/" target="_blank" rel="noopener noreferrer">
+                      Brand Resources
+                  </a>
+                  <a href="https://decred.org/news/" target="_blank" rel="noopener noreferrer">
+                      News
+                  </a>
+                  <a href="https://decred.org/vsp/" target="_blank" rel="noopener noreferrer">
+                      Voting Service Providers
+                  </a>
+                  <a href="https://docs.decred.org/contributing/overview/" target="_blank" rel="noopener noreferrer">
+                      Become a Contributor
+                  </a>
+              </div>
+              <div class="column">
+                  <a href="https://docs.decred.org/research/overview/" target="_blank" rel="noopener noreferrer">
+                      Technical Overview
+                  </a>
+                  <a href="https://dcrdata.decred.org/" target="_blank" rel="noopener noreferrer">
+                      Block Explorer
+                  </a>
+                  <a href="https://timestamp.decred.org/" target="_blank" rel="noopener noreferrer">
+                      Timestamping Service
+                  </a>
+                  <a href="https://bounty.decred.org/" target="_blank" rel="noopener noreferrer">
+                      Bug Bounty
+                  </a>
+              </div>
+              <div class="column socialMedia">
+                  <a href="https://github.com/decred/dcrtimegui" target="_blank" rel="noopener noreferrer" aria-label="Link to timestamply frontend github repo">
+                    <img src="./icons/icon-frontpage-github.svg">
+                  </a>
+                  <a href="https://twitter.com/decredproject" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred official twitter">
+                    <img src="./icons/icon-frontpage-twitter.svg">
+                  </a>
+                  <a href="https://medium.com/decred" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred official medium blog">
+                    <img src="./icons/icon-frontpage-medium.svg">
+                  </a>
+                  <a href="https://www.youtube.com/@DecredTV" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred official youtube channel">
+                    <img src="./icons/icon-frontpage-youtube.svg">
+                  </a>
+                  <a href="https://discord.com/invite/dXSmwvYury" target="_blank" rel="noopener noreferrer" aria-label="Invite to join Decred official discord">
+                    <img src="./icons/icon-frontpage-discord.svg">
+                  </a>
+                  <a href="https://chat.decred.org/" target="_blank" rel="noopener noreferrer" aria-label="Invite to join Decred official matrix chat">
+                    <img src="./icons/icon-frontpage-matrix.svg">
+                  </a>
+                  <a href="https://t.me/decred" target="_blank" rel="noopener noreferrer" aria-label="Invite to join Decred official telegram group">
+                    <img src="./icons/icon-frontpage-telegram.svg">
+                  </a>
+                  <a href="https://www.reddit.com/r/decred" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred subreddit">
+                    <img src="./icons/icon-frontpage-reddit.svg">
+                  </a>
+              </div>
+          </div>
+      </footer>
+    </div>
     </noscript>
     <div id="root"></div>
   </body>

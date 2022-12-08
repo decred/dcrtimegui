@@ -1,0 +1,182 @@
+:root {
+    --blue: #2970FF;
+    --blue-darkest: #091440;
+    --white-lilac: #F7F7F9;
+    --white: #FFFFFF;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --white-lavender: #DFE0E6;
+}
+
+html {
+    background-color: var(--white-lilac);
+    font-size: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Inter;
+    color: var(--blue-darkest);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+    background: var(--white);
+}
+
+.main {
+    padding: 3rem;
+    flex-grow: 1;
+}
+
+.card {
+    box-shadow: 0px 0.4rem 1.6rem var(--shadow);
+    max-width: 50rem;
+    padding: 2rem;
+    margin: 2rem auto;
+    background: var(--white);
+    border-radius: 0.5rem;
+}
+
+.title {
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 2.1rem;
+}
+
+.nav {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav > a {
+    text-decoration: none;
+    color: var(--blue-darkest);
+}
+
+.nav > a:visited {
+    color: var(--blue-darkest);
+}
+
+.form {
+    display: flex;
+}
+
+.digestInput {
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background: var(--white-lavender);
+    font-size: 1.5rem;
+    color: var(--blue-darkest);
+    font-weight: 500;
+    outline: none;
+    padding: 0.6rem 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-right: 1rem;
+}
+
+.submitButton {
+    background: var(--blue);
+    padding: 0.7rem 1.5rem;
+    border-radius: 1.5rem;
+    font-family: Inter;
+    font-weight: 500;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    color: var(--white);
+}
+
+.footer {
+    padding: 3.5rem 3.5rem 5.5rem 3.5rem;
+    background: var(--white);
+    font-size: 1.5rem;
+    flex-grow: 1;
+  }
+
+  /* This is needed for the site to be usable on very small
+  screen sizes */
+  @media screen and (max-width: 470px) {
+    .footer {
+      padding: 3.5rem 2rem 3.5rem 2rem;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    margin: 0 auto;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: flex-start;
+    opacity: 0.55;
+  }
+
+  .column > a {
+    margin: 0 1.6rem 0.3rem 0;
+    text-decoration: none;
+    color: var(--blue-darkest);
+  }
+
+  .socialMedia {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    color: var(--blue-darkest);
+  }
+
+  @media screen and (min-width: 769px) {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      max-width: 100%;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+
+    .socialMedia {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-bottom: 0;
+    }
+    .column > a {
+      margin: 0 1.6rem 1.2rem 0;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 100%;
+      max-width: 120rem;
+    }
+  }
