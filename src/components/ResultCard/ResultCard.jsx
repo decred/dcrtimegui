@@ -52,7 +52,7 @@ const ResultCard = ({
                 </div>
                 {status === "Timestamped" || status === "Pending" ? (
                     <>
-                        <h3 className={styles.heading}>Details</h3>
+                        <h3 className={styles.heading}>{t("hashView.details")}</h3>
                         <ChainInfo chainInfo={chainInfo} />
                     </>
                 ) : null}
