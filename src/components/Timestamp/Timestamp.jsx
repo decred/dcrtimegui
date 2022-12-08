@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import Tooltip from "src/components/Tooltip";
 import fileDownload from "js-file-download";
 import FileInput from "src/components/FileInput";
 import HashConfList from "src/components/HashConfList";
 import Button from "src/components/Button";
-import Tooltip from "src/components/Tooltip";
 import styles from "./Timestamp.module.css";
 import {ReactComponent as TooltipIcon} from "../../assets/icons/tooltip.svg";
 import {

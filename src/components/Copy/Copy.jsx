@@ -1,6 +1,6 @@
 import React from "react";
-import ButtonIcon from "src/components/ButtonIcon";
 import Tooltip from "src/components/Tooltip";
+import ButtonIcon from "src/components/ButtonIcon";
 import {ReactComponent as CopyIcon} from "../../assets/icons/copy-to-clipboard.svg";
 
 const copyToClipboard = (text) => {

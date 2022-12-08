@@ -24,4 +24,4 @@ jobs:
       env:
         CI: true
     - name: build
-      run: yarn build
+      run: CI=false yarn build
