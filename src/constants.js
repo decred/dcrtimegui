@@ -3,11 +3,6 @@ export const DCRDATA_URL =
   	? "https://testnet.dcrdata.org"
   	: "https://dcrdata.decred.org";
 
-// Dcrtime error to formatted UI error
-export const ERROR_MAP = {
-    "Invalid Digests array": "Invalid hashes, please check your search inputs"
-};
-
 export const INVALID = 0;
 
 // Timestamp Results

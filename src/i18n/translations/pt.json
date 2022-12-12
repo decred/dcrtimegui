@@ -27,5 +27,6 @@
     "footer.technicalOverview": "Overview Técnico",
     "footer.blockExplorer": "Block Explorer",
     "footer.timestamping": "Serviço de Timestamp",
-    "footer.bugBounty": "Programa de Bug Bounty"
+    "footer.bugBounty": "Programa de Bug Bounty",
+    "404.goToIndex": "Retornar para página inicial"
 }

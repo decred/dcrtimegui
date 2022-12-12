@@ -22,13 +22,15 @@ const getStatus = digest => {
 const Results = ({ location }) => {
     const { digests, loading, error } = useProcessDigests(location.hash);
 
-    if (error) throw error;
-
     return loading && !error ? (
         <div className={styles.spinnerWrapper}>
             <Spinner />
         </div>
-    ) : (
+    ) : error ? (
+        <div className={styles.error}>
+            Error: {error}. Verify if all the hashes are 64 characters long.
+        </div>
+    ): (
         digests.map(d => (
             <ResultCard
                 key={`d-${d.digest}`}

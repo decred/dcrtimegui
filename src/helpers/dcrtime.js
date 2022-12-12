@@ -15,6 +15,7 @@ export const verify = dcrtime.verify;
 export const handleVerify = async data => {
     const digests = getDigests(data);
     const res = await verify(digests);
+    console.log(res);
     if (res.error) throw res.error;
     return res;
 };

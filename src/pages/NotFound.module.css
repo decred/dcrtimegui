@@ -1,0 +1,6 @@
+.wrapper {
+    margin: 0 auto;
+    max-width: 42.5rem;
+    padding: 0 2rem;
+    user-select: none;
+}
