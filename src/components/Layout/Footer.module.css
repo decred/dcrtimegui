@@ -38,37 +38,12 @@ screen sizes */
 }
 
 .socialMedia {
-  composes: column;
+  display: flex;
+  width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 2rem;
   color: var(--sm-color);
-}
-
-@media screen and (min-width: 769px) {
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    max-width: 100%;
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-
-  .socialMedia {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-bottom: 0;
-  }
-  .column > a {
-    margin: 0 1.6rem 1.2rem 0;
-  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -77,6 +52,29 @@ screen sizes */
     flex-wrap: wrap;
     flex-direction: row;
     width: 100%;
-    max-width: 120rem;
+    max-width: 100.4rem;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .column > a {
+    margin: 0 1.6rem 1.2rem 0;
+  }
+
+  .socialMedia {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 0;
+  }
+
+  .socialMedia > a {
+    margin: 0 3.4rem 1.3rem 0;
   }
 }

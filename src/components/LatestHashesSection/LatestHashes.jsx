@@ -52,7 +52,9 @@ const LatestHashes = ({history}) => {
                             <span className={styles.timeago}>{h.timeago}</span>
                             <span className={styles.hash}>{h.hash}</span>
                         </div>
-                        <Copy text={h.hash} />
+                        <div>
+                            <Copy text={h.hash} />
+                        </div>
                     </li>)}
                 </ul>
             </div>

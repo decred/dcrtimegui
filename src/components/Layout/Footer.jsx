@@ -1,11 +1,9 @@
 import React from "react";
 import styles from "./Footer.module.css";
-import {ReactComponent as GithubLogo} from "../../assets/icons/icon-frontpage-github.svg";
 import {ReactComponent as TwitterLogo} from "../../assets/icons/icon-frontpage-twitter.svg";
 import {ReactComponent as MatrixLogo} from "../../assets/icons/icon-frontpage-matrix.svg";
 import {ReactComponent as MediumLogo} from "../../assets/icons/icon-frontpage-medium.svg";
 import {ReactComponent as RedditLogo} from "../../assets/icons/icon-frontpage-reddit.svg";
-import {ReactComponent as TelegramLogo} from "../../assets/icons/icon-frontpage-telegram.svg";
 import {ReactComponent as YoutubeLogo} from "../../assets/icons/icon-frontpage-youtube.svg";
 import {ReactComponent as DiscordLogo} from "../../assets/icons/icon-frontpage-discord.svg";
 import {useTranslation} from "react-i18next";
@@ -48,15 +46,15 @@ const Footer = () => {
                         {t("footer.bugBounty")}
                     </a>
                 </div>
-                <div className={styles.socialMedia}>
-                    <a href="https://github.com/decred/dcrtimegui" target="_blank" rel="noopener noreferrer" aria-label="Link to timestamply frontend github repo"><GithubLogo /></a>
-                    <a href="https://twitter.com/decredproject" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred official twitter"><TwitterLogo /></a>
-                    <a href="https://medium.com/decred" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred official medium blog"><MediumLogo /></a>
-                    <a href="https://www.youtube.com/@DecredTV" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred official youtube channel"><YoutubeLogo /></a>
-                    <a href="https://discord.com/invite/dXSmwvYury" target="_blank" rel="noopener noreferrer" aria-label="Invite to join Decred official discord"><DiscordLogo /></a>
-                    <a href="https://chat.decred.org/" target="_blank" rel="noopener noreferrer" aria-label="Invite to join Decred official matrix chat"><MatrixLogo /></a>
-                    <a href="https://t.me/decred" target="_blank" rel="noopener noreferrer" aria-label="Invite to join Decred official telegram group"><TelegramLogo /></a>
-                    <a href="https://www.reddit.com/r/decred" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred subreddit"><RedditLogo /></a>
+                <div className={styles.column}>
+                    <div className={styles.socialMedia}>
+                        <a href="https://chat.decred.org/" target="_blank" rel="noopener noreferrer" aria-label="Invite to join Decred official matrix chat"><MatrixLogo /></a>
+                        <a href="https://discord.com/invite/dXSmwvYury" target="_blank" rel="noopener noreferrer" aria-label="Invite to join Decred official discord"><DiscordLogo /></a>
+                        <a href="https://twitter.com/decredproject" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred official twitter"><TwitterLogo /></a>
+                        <a href="https://www.reddit.com/r/decred" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred subreddit"><RedditLogo /></a>
+                        <a href="https://www.youtube.com/@DecredTV" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred official youtube channel"><YoutubeLogo /></a>
+                        <a href="https://medium.com/decred" target="_blank" rel="noopener noreferrer" aria-label="Link to Decred official medium blog"><MediumLogo /></a>
+                    </div>
                 </div>
             </div>
         </footer>

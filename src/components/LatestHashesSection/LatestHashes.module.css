@@ -23,6 +23,7 @@
 
 .hashesListItem {
     display: flex;
+    align-items: center;
 }
 
 .hashTimeWrapper {

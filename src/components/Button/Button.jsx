@@ -18,7 +18,7 @@ const Button = ({type = "button", text, amount, handleClick, className, Icon, ki
         throw new Error("Invalid kind");
     }
     return (
-        <button type={type} onClick={handleClick} className={cls(buttonClass, className)} disabled={kind === "disabled"}>
+        <button type={type} onClick={handleClick} className={cls(buttonClass, Icon && styles.buttonWithIcon, className)} disabled={kind === "disabled"}>
             {Icon ? <Icon style={{marginRight: "0.8rem", fill: "var(--go-back-color)"}}/> : null}{`${text}${amount ? ` (${amount})` : ""}`}
         </button>
     );

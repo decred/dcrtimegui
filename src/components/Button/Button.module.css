@@ -16,6 +16,10 @@
     align-items: center;
 }
 
+.buttonWithIcon {
+    padding: 0.7rem 1.5rem 0.7rem 0.9rem;
+}
+
 .buttonDisabled {
     composes: button;
     background: var(--button-disabled-bg-color);
