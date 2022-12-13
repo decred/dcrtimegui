@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import ResultCard from "src/components/ResultCard";
-import { isDigestAnchored, isDigestAnchorPending,isDigestFound } from "src/helpers/dcrtime";
+import { isDigestAnchored, isDigestAnchorPending, isDigestWaitingAnchoring } from "src/helpers/dcrtime";
 import Spinner from "src/components/Spinner";
 import useProcessDigests from "./hooks";
 import styles from "./Results.module.css";
@@ -10,11 +10,11 @@ const getStatus = digest => {
     if (isDigestAnchored(digest)) {
         return "Timestamped";
     }
+    if (isDigestWaitingAnchoring(digest)) {
+        return "Waiting anchoring time";
+    }
     if (isDigestAnchorPending(digest)) {
         return "Pending";
-    }
-    if (isDigestFound(digest)) {
-        return "Waiting anchoring time";
     }
     return "Not Found";
 };

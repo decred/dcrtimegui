@@ -6,7 +6,12 @@ import DownloadProof from "./DownloadProof";
 import styles from "./ResultCard.module.css";
 import {ReactComponent as TimestampedDark} from "../../assets/icons/timestamped-dark.svg";
 import {ReactComponent as TimestampedLight} from "../../assets/icons/timestamped-light.svg";
-import {ReactComponent as Pending} from "../../assets/icons/pending.svg";
+import {ReactComponent as PendingLight} from "../../assets/icons/pending-light.svg";
+import {ReactComponent as PendingDark} from "../../assets/icons/pending-dark.svg";
+import {ReactComponent as WaitingLight} from "../../assets/icons/waiting-for-anchoring-light.svg";
+import {ReactComponent as WaitingDark} from "../../assets/icons/waiting-for-anchoring-dark.svg";
+import {ReactComponent as NotFoundLight} from "../../assets/icons/not-found-light.svg";
+import {ReactComponent as NotFoundDark} from "../../assets/icons/not-found-dark.svg";
 import {ReactComponent as GoBack} from "../../assets/icons/goback-button-arrow.svg";
 import useTheme from "src/theme/useTheme";
 import Button from "src/components/Button";
@@ -25,6 +30,7 @@ const ResultCard = ({
     const isDarkTheme = theme === "dark";
     let StatusComponent = null;
     let statusText = "";
+    console.log(status);
     switch (status) {
     case "Timestamped":
         if (isDarkTheme) StatusComponent = TimestampedDark;
@@ -32,11 +38,18 @@ const ResultCard = ({
         statusText = "Timestamped";
         break;
     case "Pending":
-        StatusComponent = Pending;
+        if (isDarkTheme) StatusComponent = PendingDark;
+        else StatusComponent = PendingLight;
         statusText = "Pending";
         break;
+    case "Waiting anchoring time":
+        if (isDarkTheme) StatusComponent = WaitingDark;
+        else StatusComponent = WaitingLight;
+        statusText = "Waiting anchoring time";
+        break;
     default:
-        StatusComponent = Pending;
+        if (isDarkTheme) StatusComponent = NotFoundDark;
+        else StatusComponent = NotFoundLight;
         statusText = "Not found";
     };
     return (

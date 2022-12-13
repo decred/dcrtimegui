@@ -10,12 +10,14 @@ const ChainInfo = ({ chainInfo }) => {
     return (
         <table className={styles.chainInfoTable}>
             <tbody>
-                <tr className={styles.chainInfoLine}>
-                    <td>Timestamp:</td>
-                    <td className={styles.chainInfo}>
-                        {chainInfo.chaintimestamp} ({date})
-                    </td>
-                </tr>
+                {chainInfo.chaintimestamp ? (
+                    <tr className={styles.chainInfoLine}>
+                        <td>Timestamp:</td>
+                        <td className={styles.chainInfo}>
+                            {chainInfo.chaintimestamp} ({date})
+                        </td>
+                    </tr>
+                ) : null}
                 <tr className={styles.chainInfoLine}>
                     <td>Merkle root:</td>
                     <td className={styles.chainInfo}>
