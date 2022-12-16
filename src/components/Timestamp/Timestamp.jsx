@@ -4,6 +4,7 @@ import Tooltip from "src/components/Tooltip";
 import fileDownload from "js-file-download";
 import FileInput from "src/components/FileInput";
 import HashConfList from "src/components/HashConfList";
+import ErrorList from "src/components/ErrorList";
 import Button from "src/components/Button";
 import styles from "./Timestamp.module.css";
 import {ReactComponent as TooltipIcon} from "../../assets/icons/tooltip.svg";
@@ -37,20 +38,21 @@ const downloadHashes = (hashes) => {
     fileDownload(JSON.stringify(hashes, null, 2), "hashes.json");
 };
 
-// const filesArrayToObj = (files) => {
-//     return files.reduce((acc, cur) => {
-//         return {
-//             ...acc,
-//             [cur.digest]: {
-//                 ...cur
-//             }
-//         };
-//     }, {});
-// };
+const filesArrayToObj = (files) => {
+    return files.reduce((acc, cur) => {
+        return {
+            ...acc,
+            [cur.digest]: {
+                ...cur
+            }
+        };
+    }, {});
+};
 
 const TimestampForm = ({ history }) => {
     const { t } = useTranslation();
     const [files, setFiles] = useState([]);
+    const [fileInputErrors, setFileInputErrors] = useState(null);
     const [minsToNextHour, setMinsToNextHour] = useState(minsToHour());
     // const [startPolling, setStartPolling] = useState(false);
     const [checked, setChecked] = useState({});
@@ -72,7 +74,6 @@ const TimestampForm = ({ history }) => {
                 return found ? found : d;
             });
         }
-        //const res = digestsRes.filter(d => !filesArrayToObj(files)[d.digest])
         setFiles([...files, ...digestsRes]);
     };
 
@@ -145,10 +146,20 @@ const TimestampForm = ({ history }) => {
     return (
         <div>
             <div>
-                <FileInput files={files} setFiles={setFiles} handleDrop={handleDrop} text={t("fileInput.timestamp.text")} />
+                <FileInput filesObj={filesArrayToObj(files)} error={fileInputErrors} setError={setFileInputErrors} handleDrop={handleDrop} text={t("fileInput.timestamp.text")} />
             </div>
-            {files.length > 0 ? (<h3 className={styles.heading}>Timestamping status</h3>) : null}
-            <HashConfList hashes={files} checked={checked} handleCheckboxClick={handleCheckboxClick} />
+            {fileInputErrors ? (
+                <>
+                    <h3 className={styles.heading}>Error log</h3>
+                    <ErrorList errors={[...fileInputErrors]} />
+                </>
+            ) : null}
+            {files.length > 0 ? (
+                <>
+                    <h3 className={styles.heading}>Timestamping status</h3>
+                    <HashConfList hashes={files} checked={checked} handleCheckboxClick={handleCheckboxClick} />
+                </>
+            ) : null}
             <div className={styles.actionsSection}>
                 <div className={styles.nextAnchorWrapper}>
                     <span className={styles.nextAnchor}>

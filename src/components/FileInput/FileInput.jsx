@@ -4,27 +4,52 @@ import Dropzone from "react-dropzone";
 import cls from "src/helpers/cls";
 import { processFiles } from "./helpers";
 import styles from "./FileInput.module.css";
+import {useTranslation} from "react-i18next";
 
-const FileInput = ({ files, setFiles, text, handleDrop }) => {
+const FileInput = ({ filesObj, error, setError, text, handleDrop }) => {
     const [processing, setProcessing] = useState(false);
+    const {t} = useTranslation();
 
     return (
         <div className={styles.dropzoneWrapper}>
             <Dropzone
+                maxSize={75000000}
                 multiple
                 disabled={processing}
                 disableClick={processing}
-                onDrop={async (accFiles, _rejFiles) => {
+                onDrop={async (accFiles, rejFiles) => {
                     setProcessing(true);
                     try {
+                        const errors = [];
                         const processedFiles = await processFiles(accFiles);
-                        await handleDrop(processedFiles);
+                        const duplicates = [];
+                        const res = processedFiles.filter(d => {
+                            const digest = filesObj?.[d.digest];
+                            if (digest) {
+                                duplicates.push(digest);
+                            }
+                            return !digest;
+                        });
+                        if (duplicates.length > 0) {
+                            errors.push(Error(t("error.duplicate", {hashes: duplicates.map(dup => dup.digest).join(", ")})));
+                        }
+                        await handleDrop(res);
+                        setProcessing(false);
+                        if (rejFiles.length > 0) { // max file size
+                            errors.push(Error(t("error.tooBig", {rejected: rejFiles.map(rejFile => {
+                                return `${t("file")}: '${rejFile.name}' - ${rejFile.size/1000000}mb. `;
+                            }).join(" ")})));
+                        }
+                        if (errors.length > 0) {
+                            setError(errors);
+                        } else {
+                            setError(null);
+                        }
                     }
                     catch(e) {
-                        console.error(e);
-                        throw Error("Something went wrong with processing the file");
+                        setProcessing(false);
+                        setError(e);
                     }
-                    setProcessing(false);
                 }}
             >
                 {({ getRootProps, getInputProps, isDragActive }) => (
@@ -32,7 +57,8 @@ const FileInput = ({ files, setFiles, text, handleDrop }) => {
                         {...getRootProps({
                             className: cls(
                                 styles.dropzone,
-                                isDragActive && styles.dropzoneActive
+                                isDragActive && styles.dropzoneActive,
+                                error && styles.dropzoneError
                             )
                         })}
                     >
@@ -40,7 +66,7 @@ const FileInput = ({ files, setFiles, text, handleDrop }) => {
                         <span className={styles.dropzoneText}>
                             {!processing
                                 ? text
-                                : "Processing files..."}
+                                : t("fileInput.processing")}
                         </span>
                     </div>
                 )}

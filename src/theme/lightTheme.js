@@ -17,6 +17,7 @@ export default {
     "white-lavender": "#DFE0E6",
     "white-ghost": "#CACDD6",
     "white-pink": "#EBECF0",
+    "red": "#FF2929",
     // Font
     "font-color": "var(--blue-darkest)",
     "font-size-sm": "10px",

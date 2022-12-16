@@ -3,6 +3,7 @@
     "header.nav.verify": "Verify",
     "header.nav.doc": "Documentation",
     "fileInput.timestamp.text": "Timestamp files by dropping them here",
+    "fileInput.processing": "Processing files...",
     "nextAnchoring": "Next anchoring time in",
     "minute": "minute",
     "minutes": "minutes",
@@ -19,6 +20,10 @@
     "hashView.details": "Details",
     "hashView.transaction": "Transaction",
     "hashView.goBack": "Go back",
+    "hashView.timestamped": "Timestamped",
+    "hashView.waiting": "Waiting anchoring time",
+    "hashView.pending": "Pending",
+    "hashView.notFound": "Not found",
     "footer.decredDevs": "Decred Developers",
     "footer.brandResources": "Brand Resources",
     "footer.news": "News",
@@ -28,5 +33,9 @@
     "footer.blockExplorer": "Block Explorer",
     "footer.timestamping": "Timestamping Service",
     "footer.bugBounty": "Bug Bounty Program",
-    "404.goToIndex": "Back to index"
+    "404.goToIndex": "Back to index",
+    "file": "File",
+    "error.duplicate": "[File input] you attempted to drop duplicated hashes: {{hashes}}.",
+    "error.tooBig": "[File input] files are too big. {{rejected}} Max size is 75mb.",
+    "error.invalid": "[Verify Hash input] invalid hash. Hashes must have 64 characters."
 }

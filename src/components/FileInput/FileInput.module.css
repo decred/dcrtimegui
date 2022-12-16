@@ -35,3 +35,18 @@
 .dropzone:focus {
   border-color: var(--font-color);
 }
+
+.dropzoneError::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+}
+
+.dropzoneWrapper {
+  position: relative;
+}

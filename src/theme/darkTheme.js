@@ -16,6 +16,7 @@ export default {
     // White
     "white": "#fff",
     "white-ghost": "#CACDD6",
+    "red": "#FF2929",
     // Font
     "font-color": "var(--white)",
     "font-size-sm": "10px",

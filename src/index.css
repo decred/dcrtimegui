@@ -16,6 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   background: var(--bg-color);
+  -webkit-text-size-adjust: 100%;
 }
 
 #root {

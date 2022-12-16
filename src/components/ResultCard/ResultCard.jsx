@@ -30,27 +30,26 @@ const ResultCard = ({
     const isDarkTheme = theme === "dark";
     let StatusComponent = null;
     let statusText = "";
-    console.log(status);
     switch (status) {
     case "Timestamped":
         if (isDarkTheme) StatusComponent = TimestampedDark;
         else StatusComponent = TimestampedLight;
-        statusText = "Timestamped";
+        statusText = t("hashView.timestamped");
         break;
     case "Pending":
         if (isDarkTheme) StatusComponent = PendingDark;
         else StatusComponent = PendingLight;
-        statusText = "Pending";
+        statusText = t("hashView.pending");
         break;
     case "Waiting anchoring time":
         if (isDarkTheme) StatusComponent = WaitingDark;
         else StatusComponent = WaitingLight;
-        statusText = "Waiting anchoring time";
+        statusText = t("hashView.waiting");
         break;
     default:
         if (isDarkTheme) StatusComponent = NotFoundDark;
         else StatusComponent = NotFoundLight;
-        statusText = "Not found";
+        statusText = t("hashView.notFound");
     };
     return (
         <div className={styles.card}>

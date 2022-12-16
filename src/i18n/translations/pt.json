@@ -3,6 +3,7 @@
     "header.nav.verify": "Verificar",
     "header.nav.doc": "Documentação",
     "fileInput.timestamp.text": "Arraste e solte os arquivos que deseja fazer o timestamp",
+    "fileInput.processing": "Processando arquivos...",
     "nextAnchoring": "Próxima ancoragem em",
     "minute": "minuto",
     "minutes": "minutos",
@@ -19,6 +20,10 @@
     "hashView.details": "Detalhes",
     "hashView.transaction": "Transação",
     "hashView.goBack": "Voltar",
+    "hashView.timestamped": "Timestamped",
+    "hashView.waiting": "Esperando próximo período de ancoragem",
+    "hashView.pending": "Pendente",
+    "hashView.notFound": "Não encontrado",
     "footer.decredDevs": "Decred Developers",
     "footer.brandResources": "Recursos de Marca",
     "footer.news": "Novidades",
@@ -28,5 +33,9 @@
     "footer.blockExplorer": "Block Explorer",
     "footer.timestamping": "Serviço de Timestamp",
     "footer.bugBounty": "Programa de Bug Bounty",
-    "404.goToIndex": "Retornar para página inicial"
+    "404.goToIndex": "Retornar para página inicial",
+    "file": "Arquivo",
+    "error.duplicate": "[Input de arquivos] Você tentou submeter hashes duplicadas: {{hashes}}.",
+    "error.tooBig": "[Input de arquivos] arquivos são muito grandes. {{rejected}} Tamanho máximo é 75mb.",
+    "error.invalid": "[Input de verificação de hash] hash inválida. Hashes devem ter 64 caracteres."
 }
