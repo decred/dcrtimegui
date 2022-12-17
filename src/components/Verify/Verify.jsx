@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import FileInput from "src/components/FileInput";
 import Button from "src/components/Button";
 import styles from "./Verify.module.css";
@@ -10,13 +10,18 @@ import {
     handleVerify
 } from "src/helpers/dcrtime";
 import { useTranslation } from "react-i18next";
+import {setLocalStorage, getLocalStorage} from "src/helpers/localstorage";
 
 const Verify = () => {
     const {t} = useTranslation();
-    const [files, setFiles] = useState([]);
+    const [files, setFiles] = useState(getLocalStorage("verifyFiles") || []);
     const [fileInputErrors, setFileInputErrors] = useState(null);
     const [hashValue, setHashValue] = useState("");
     const [verifyManuallyError, setVerifyManuallyError] = useState(null);
+
+    useEffect(() => {
+        setLocalStorage("verifyFiles", files);
+    }, [files]);
 
     const handleDrop = async (procFiles) => {
         const {digests} = await handleVerify(procFiles);

@@ -16,6 +16,7 @@ import {
     isDigestFound
 } from "src/helpers/dcrtime";
 import { useTranslation } from "react-i18next";
+import {setLocalStorage, getLocalStorage} from "src/helpers/localstorage";
 
 const minsToHour = () => 60 - Math.round(new Date() % 3.6e6 / 6e4);
 const convertMinsToMs = (mins) => mins * 60000;
@@ -51,11 +52,19 @@ const filesArrayToObj = (files) => {
 
 const TimestampForm = ({ history }) => {
     const { t } = useTranslation();
-    const [files, setFiles] = useState([]);
+    const [files, setFiles] = useState(getLocalStorage("timestampFiles") || []);
     const [fileInputErrors, setFileInputErrors] = useState(null);
     const [minsToNextHour, setMinsToNextHour] = useState(minsToHour());
     // const [startPolling, setStartPolling] = useState(false);
-    const [checked, setChecked] = useState({});
+    const [checked, setChecked] = useState(getLocalStorage("timestampChecked") || {});
+
+    useEffect(() => {
+        setLocalStorage("timestampFiles", files);
+    }, [files]);
+
+    useEffect(() => {
+        setLocalStorage("timestampChecked", checked);
+    }, [checked]);
 
     const handleDrop = async (procFiles) => {
         const {digests} = await handleTimestamp(procFiles);
