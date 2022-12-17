@@ -5,6 +5,7 @@ import cls from "src/helpers/cls";
 import { processFiles } from "./helpers";
 import styles from "./FileInput.module.css";
 import {useTranslation} from "react-i18next";
+import {ERROR_DUPLICATE, ERROR_BIG_FILE} from "src/constants";
 
 const FileInput = ({ filesObj, error, setError, text, handleDrop }) => {
     const [processing, setProcessing] = useState(false);
@@ -31,14 +32,14 @@ const FileInput = ({ filesObj, error, setError, text, handleDrop }) => {
                             return !digest;
                         });
                         if (duplicates.length > 0) {
-                            errors.push(Error(t("error.duplicate", {hashes: duplicates.map(dup => dup.digest).join(", ")})));
+                            errors.push({key: ERROR_DUPLICATE, options: {hashes: duplicates.map(dup => dup.digest).join(", ")}});
                         }
                         await handleDrop(res);
                         setProcessing(false);
                         if (rejFiles.length > 0) { // max file size
-                            errors.push(Error(t("error.tooBig", {rejected: rejFiles.map(rejFile => {
+                            errors.push({key: ERROR_BIG_FILE, options: {rejected: rejFiles.map(rejFile => {
                                 return `${t("file")}: '${rejFile.name}' - ${rejFile.size/1000000}mb. `;
-                            }).join(" ")})));
+                            }).join(" ")}});
                         }
                         if (errors.length > 0) {
                             setError(errors);

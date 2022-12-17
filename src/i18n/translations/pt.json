@@ -36,6 +36,6 @@
     "404.goToIndex": "Retornar para página inicial",
     "file": "Arquivo",
     "error.duplicate": "[Input de arquivos] Você tentou submeter hashes duplicadas: {{hashes}}.",
-    "error.tooBig": "[Input de arquivos] arquivos são muito grandes. {{rejected}} Tamanho máximo é 75mb.",
-    "error.invalid": "[Input de verificação de hash] hash inválida. Hashes devem ter 64 caracteres."
+    "error.tooBig": "[Input de arquivos] Arquivos são muito grandes. {{rejected}} Tamanho máximo é 75mb.",
+    "error.invalid": "[Input de verificação de hash] Hash inválida. Hashes devem ter 64 caracteres."
 }

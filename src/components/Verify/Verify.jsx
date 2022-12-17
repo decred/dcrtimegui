@@ -5,6 +5,7 @@ import styles from "./Verify.module.css";
 import HashConfList from "src/components/HashConfList";
 import ErrorList from "src/components/ErrorList";
 import InputText from "src/components/InputText";
+import { ERROR_INVALID, ERROR_DUPLICATE } from "src/constants";
 import {
     handleVerify
 } from "src/helpers/dcrtime";
@@ -34,15 +35,15 @@ const Verify = () => {
             const filesObj = filesArrayToObj(files);
             const file = filesObj[hashValue];
             if (file) {
-                throw Error(t("error.duplicate", {hashes: hashValue}));
+                throw Error("duplicate");
             }
             const {digests} = await handleVerify(param);
             setFiles([...files, ...digests]);
         } catch (e) {
             if (e === "Invalid Digests array") {
-                setVerifyManuallyError(Error(t("error.invalid")));
+                setVerifyManuallyError({key: ERROR_INVALID});
             } else {
-                setVerifyManuallyError(e);
+                setVerifyManuallyError({key: ERROR_DUPLICATE, options: {hashes: hashValue}});
             }
         }
     };

@@ -35,7 +35,7 @@
     "footer.bugBounty": "Bug Bounty Program",
     "404.goToIndex": "Back to index",
     "file": "File",
-    "error.duplicate": "[File input] you attempted to drop duplicated hashes: {{hashes}}.",
-    "error.tooBig": "[File input] files are too big. {{rejected}} Max size is 75mb.",
-    "error.invalid": "[Verify Hash input] invalid hash. Hashes must have 64 characters."
+    "error.duplicate": "[File input] You attempted to drop duplicated hashes: {{hashes}}.",
+    "error.tooBig": "[File input] Files are too big. {{rejected}} Max size is 75mb.",
+    "error.invalid": "[Verify Hash input] Invalid hash. Hashes must have 64 characters."
 }

@@ -75,6 +75,16 @@ const TimestampForm = ({ history }) => {
             });
         }
         setFiles([...files, ...digestsRes]);
+        const checkNew = digestsRes.reduce((acc, cur) => {
+            return ({
+                ...acc,
+                [cur.digest]: true
+            });
+        }, {});
+        setChecked({
+            ...checked,
+            ...checkNew
+        });
     };
 
     const handleCheckboxClick = (hash) => () => {
