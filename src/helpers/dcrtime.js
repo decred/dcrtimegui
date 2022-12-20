@@ -60,9 +60,9 @@ export const nextAnchoringDate = () => {
 export const isDigestFound = digest => digest.result === HASH_IN_SERVER;
 
 export const isDigestAnchorPending = digest =>
-    !isDigestAnchored(digest) && digest.chaininformation.transaction !== "0000000000000000000000000000000000000000000000000000000000000000";
+    !isDigestAnchored(digest) && digest.chaininformation && digest.chaininformation.transaction !== "0000000000000000000000000000000000000000000000000000000000000000";
 
-export const isDigestWaitingAnchoring = digest => digest.result === 1 && !isDigestAnchored(digest) && digest.chaininformation.transaction === "0000000000000000000000000000000000000000000000000000000000000000";
+export const isDigestWaitingAnchoring = digest => digest.result === 1 && !isDigestAnchored(digest) && (digest.chaininformation && digest.chaininformation.transaction === "0000000000000000000000000000000000000000000000000000000000000000") || !digest.chaininformation;
 
 export const isDigestNotAnchored = digest => !isDigestFound(digest);
 

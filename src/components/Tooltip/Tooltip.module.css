@@ -6,7 +6,7 @@
     position: relative;
   }
 
-  .tooltip:hover > svg > path {
+  .tooltipHoverStyle:hover > svg path {
     fill: var(--tooltip-hover-color);
   }
 
@@ -51,7 +51,7 @@
 
   @media screen and (max-width: 470px) {
     .tooltipText {
-      width: 16rem;
-      left: calc(50% - 8rem);
+      width: 12rem;
+      left: calc(50% - 6rem);
     }
   }

@@ -54,6 +54,9 @@ export default {
     "button-secondary-bg-color": "var(--grey-rhino-light)",
     "button-secondary-bg-hover-color": "var(--grey-rhino)",
     "button-secondary-color": "var(--white)",
+    "button-tertiary-color": "#E4E6EA",
+    "button-tertiary-border-color": "#3F486B",
+    "button-tertiary-border-hover-color": "#E4E6EA",
     // Input
     "input-bg-color": "var(--blue-darkest)",
     "input-placeholder-color": "var(--grey)",
@@ -80,5 +83,7 @@ export default {
     "progress-bar-bg-color-done": "var(--blue)",
     // Spinner
     "spinner-border": "rgba(255, 255, 255, 0.3)",
-    "spinner-border-top": "var(--white)"
+    "spinner-border-top": "var(--white)",
+    // Toast
+    "toast-bg-color": "var(--blue-darkest)"
 };

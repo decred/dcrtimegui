@@ -17,6 +17,7 @@ import {
 } from "src/helpers/dcrtime";
 import { useTranslation } from "react-i18next";
 import {setLocalStorage, getLocalStorage} from "src/helpers/localstorage";
+import Toast from "src/components/Toast";
 
 const minsToHour = () => 60 - Math.round(new Date() % 3.6e6 / 6e4);
 const convertMinsToMs = (mins) => mins * 60000;
@@ -57,6 +58,7 @@ const TimestampForm = ({ history }) => {
     const [minsToNextHour, setMinsToNextHour] = useState(minsToHour());
     // const [startPolling, setStartPolling] = useState(false);
     const [checked, setChecked] = useState(getLocalStorage("timestampChecked") || {});
+    const [showToastWithMsg, setShowToastWithMsg] = useState("");
 
     useEffect(() => {
         setLocalStorage("timestampFiles", files);
@@ -65,6 +67,18 @@ const TimestampForm = ({ history }) => {
     useEffect(() => {
         setLocalStorage("timestampChecked", checked);
     }, [checked]);
+
+    const clearLocalStorage = () => {
+        setLocalStorage("timestampFiles", []);
+        setLocalStorage("timestampChecked", {});
+    };
+
+    const clearList = () => {
+        setFiles([]);
+        setFileInputErrors(null);
+        setChecked({});
+        clearLocalStorage();
+    };
 
     const handleDrop = async (procFiles) => {
         const {digests} = await handleTimestamp(procFiles);
@@ -84,6 +98,12 @@ const TimestampForm = ({ history }) => {
             });
         }
         setFiles([...files, ...digestsRes]);
+        if (digestsRes.length === 1) {
+            setShowToastWithMsg("notice.hashGenerated");
+        }
+        if (digestsRes.length > 1) {
+            setShowToastWithMsg("notice.hashesGenerated");
+        }
         const checkNew = digestsRes.reduce((acc, cur) => {
             return ({
                 ...acc,
@@ -183,14 +203,18 @@ const TimestampForm = ({ history }) => {
                 <div className={styles.nextAnchorWrapper}>
                     <span className={styles.nextAnchor}>
                         {t("nextAnchoring")} <span className={styles.nextAnchorTime}>{minsToNextHour} {minsToNextHour < 2 ? t("minute") : t("minutes")}</span>
-                        <Tooltip tooltipTrigger={<TooltipIcon/>} tooltipText={t("nextAnchoring.tooltip", {date: nextAnchoringDate().toUTCString(), minsToHour: minsToNextHour})} tooltipHover />
+                        <Tooltip tooltipTrigger={<TooltipIcon/>} tooltipText={t("nextAnchoring.tooltip", {date: nextAnchoringDate().toUTCString(), minsToHour: minsToNextHour})} tooltipHover withHoverStyle />
                     </span>
                 </div>
                 <div className={styles.actionButtonsWrapper}>
+                    {files.length ? (
+                        <Button text={t("clearList")} className={styles.timestampActionButton} kind="tertiary" handleClick={() => clearList()} />
+                    ) : null}
                     <Button text={amountOfHashesToDownload > 1 ? "Download Hashes" : "Download Hash"} amount={amountOfHashesToDownload} kind={amountOfHashesToDownload > 0 ? "secondary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadHashes(hashesToDownload)} />
                     <Button text={amountOfProofsToDownload > 1 ? t("downloadProof.plural") : t("downloadProof.singular")} amount={amountOfProofsToDownload} kind={amountOfProofsToDownload > 0 ? "primary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadArrayOfProofs(proofsToDownload)} />
                 </div>
             </div>
+            <Toast textKey={showToastWithMsg} show={showToastWithMsg} onClose={() => setShowToastWithMsg("")}/>
         </div>
     );
 };

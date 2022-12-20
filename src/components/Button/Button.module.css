@@ -1,19 +1,14 @@
-/*
-"button-secondary-bg-color": "var(--grey-light)",
-"button-secondary-bg-hover-color": "var(--grey)",
-"button-secondary-color": "var(--white)",
-*/
-
 .button {
     padding: 0.7rem 1.5rem;
     border-radius: 1.5rem;
     font-family: Inter;
     font-weight: 500;
-    border: 0;
+    border: 0.1rem solid transparent;
     cursor: pointer;
     user-select: none;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .buttonWithIcon {
@@ -45,4 +40,15 @@
 
 .buttonSecondary:hover {
     background: var(--button-secondary-bg-hover-color);
+}
+
+.buttonTertiary {
+    composes: button;
+    background: transparent;
+    color: var(--button-tertiary-color);
+    border: 0.1rem solid var(--button-tertiary-border-color);
+}
+
+.buttonTertiary:hover {
+    border: 0.1rem solid var(--button-tertiary-border-hover-color);
 }

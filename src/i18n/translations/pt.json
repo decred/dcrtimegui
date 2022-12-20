@@ -37,5 +37,10 @@
     "file": "Arquivo",
     "error.duplicate": "[Input de arquivos] Você tentou submeter hashes duplicadas: {{hashes}}.",
     "error.tooBig": "[Input de arquivos] Arquivos são muito grandes. {{rejected}} Tamanho máximo é 75mb.",
-    "error.invalid": "[Input de verificação de hash] Hash inválida. Hashes devem ter 64 caracteres."
+    "error.invalid": "[Input de verificação de hash] Hash inválida. Hashes devem ter 64 caracteres.",
+    "notice.hashGenerated": "A Hash do arquivo foi gerada e adicionada à fila para ser ancorada.",
+    "notice.hashesGenerated": "As Hashes dos arquivos foram geradas e adicionadas à fila para serem ancoradas.",
+    "notice.hashVerified": "A Hash foi verificada com sucesso e o resultado foi adicionado ao registro de verificações.",
+    "notice.hashesVerified": "As Hashes foram verificadas com sucesso e os resultados foram adicionados ao registro de verificações.",
+    "clearList": "Limpar Lista"
 }

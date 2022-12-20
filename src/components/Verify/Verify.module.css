@@ -47,7 +47,7 @@
 
 /* This is needed for the site to be usable on very small
 screen sizes */
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 560px) {
     .manuallyForm {
       flex-direction: column;
     }
@@ -59,4 +59,10 @@ screen sizes */
 
 .manuallyForm > input {
     flex-grow: 1;
+}
+
+.actionButtonsWrapper {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: flex-end;
 }

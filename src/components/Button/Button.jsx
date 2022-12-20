@@ -11,6 +11,9 @@ const Button = ({type = "button", text, amount, handleClick, className, Icon, ki
     case "secondary":
         buttonClass = styles.buttonSecondary;
         break;
+    case "tertiary":
+        buttonClass = styles.buttonTertiary;
+        break;
     case "disabled":
         buttonClass = styles.buttonDisabled;
         break;

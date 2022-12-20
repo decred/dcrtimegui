@@ -31,6 +31,7 @@
     font-size: var(--font-size-md);
     font-family: Inter;
     color: var(--white);
+    user-select: none;
 }
 
 .hashWrapper:hover {

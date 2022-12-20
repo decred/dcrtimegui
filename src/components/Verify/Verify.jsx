@@ -11,6 +11,7 @@ import {
 } from "src/helpers/dcrtime";
 import { useTranslation } from "react-i18next";
 import {setLocalStorage, getLocalStorage} from "src/helpers/localstorage";
+import Toast from "src/components/Toast";
 
 const Verify = () => {
     const {t} = useTranslation();
@@ -18,13 +19,31 @@ const Verify = () => {
     const [fileInputErrors, setFileInputErrors] = useState(null);
     const [hashValue, setHashValue] = useState("");
     const [verifyManuallyError, setVerifyManuallyError] = useState(null);
+    const [showToastWithMsg, setShowToastWithMsg] = useState("");
 
     useEffect(() => {
         setLocalStorage("verifyFiles", files);
     }, [files]);
 
+    const clearLocalStorage = () => {
+        setLocalStorage("verifyFiles", []);
+    };
+
+    const clearList = () => {
+        setFiles([]);
+        setFileInputErrors(null);
+        setVerifyManuallyError(null);
+        clearLocalStorage();
+    };
+
     const handleDrop = async (procFiles) => {
         const {digests} = await handleVerify(procFiles);
+        if (digests.length === 1) {
+            setShowToastWithMsg("notice.hashVerified");
+        }
+        if (digests.length > 1) {
+            setShowToastWithMsg("notice.hashesVerified");
+        }
         setFiles([...files, ...digests]);
     };
 
@@ -43,6 +62,7 @@ const Verify = () => {
                 throw Error("duplicate");
             }
             const {digests} = await handleVerify(param);
+            setShowToastWithMsg("notice.hashVerified");
             setFiles([...files, ...digests]);
         } catch (e) {
             if (e === "Invalid Digests array") {
@@ -77,11 +97,17 @@ const Verify = () => {
             {fileInputErrors || verifyManuallyError ? (
                 <>
                     <h3 className={styles.singleLineHeading}>Error log</h3>
-                    <ErrorList errors={fileInputErrors ? [...fileInputErrors, verifyManuallyError] : [verifyManuallyError]} />
+                    <ErrorList errors={fileInputErrors && verifyManuallyError ? [...fileInputErrors, verifyManuallyError] : verifyManuallyError && !fileInputErrors ? [verifyManuallyError] : [...fileInputErrors]} />
                 </>
             ) : null}
             {files.length ? (<h3 className={styles.singleLineHeading}>{t("verify.log")}</h3>): null}
             <HashConfList hashes={files} noCheck/>
+            {files.length ? (
+                <div className={styles.actionButtonsWrapper}>
+                    <Button text={t("clearList")} className={styles.timestampActionButton} kind="tertiary" handleClick={() => clearList()} />
+                </div>
+            ) : null}
+            <Toast textKey={showToastWithMsg} show={showToastWithMsg} onClose={() => setShowToastWithMsg("")}/>
         </div>
     );
 };
