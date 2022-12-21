@@ -59,7 +59,7 @@ const FileInput = ({ filesObj, error, setError, text, handleDrop }) => {
                             className: cls(
                                 styles.dropzone,
                                 isDragActive && styles.dropzoneActive,
-                                error && styles.dropzoneError
+                                error && styles.error
                             )
                         })}
                     >

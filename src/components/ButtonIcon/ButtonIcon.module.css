@@ -1,15 +1,7 @@
 .buttonIcon {
+    composes: button from global;
     border-radius: 0.5rem;
-    padding: 0;
     border: 0;
-    cursor: pointer;
-    user-select: none;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: inherit;
-    outline: 0;
 }
 
 .buttonIcon:hover {

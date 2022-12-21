@@ -1,40 +1,9 @@
-
-.heading {
-    margin: 2.5rem 0;
-    color: var(--main-card-heading-color);
-    font-size: var(--font-size-md);
-    font-weight: normal;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
 .doubleLineHeading {
-    composes: heading;
-}
-
-.doubleLineHeading:before, .doubleLineHeading:after {
-    content: "";
-    border-top: 0.1rem solid var(--main-card-heading-line-color);
-    margin: 0 1.3rem 0 0;
-    flex: 1 0 1.3rem;
-}
-
-.doubleLineHeading:after {
-    margin: 0 0 0 1.3rem;
+    composes: doubleLineHeading from global;
 }
 
 .singleLineHeading {
-    composes: heading;
-}
-
-.singleLineHeading:after {
-    content: "";
-    border-top: 0.1rem solid var(--main-card-heading-line-color);
-    margin: 0 0 0 1.3rem;
-    flex: 1 0 1.3rem;
+    composes: singleLineHeading from global;
 }
 
 .verifyByHashButton {

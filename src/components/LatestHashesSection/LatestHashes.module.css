@@ -16,9 +16,7 @@
 }
 
 .hashesList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    composes: list from global;
 }
 
 .hashesListItem {

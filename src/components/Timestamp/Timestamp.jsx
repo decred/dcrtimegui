@@ -189,13 +189,13 @@ const TimestampForm = ({ history }) => {
             </div>
             {fileInputErrors ? (
                 <>
-                    <h3 className={styles.heading}>Error log</h3>
+                    <h3 className={styles.singleLineHeading}>Error log</h3>
                     <ErrorList errors={[...fileInputErrors]} />
                 </>
             ) : null}
             {files.length > 0 ? (
                 <>
-                    <h3 className={styles.heading}>Timestamping status</h3>
+                    <h3 className={styles.singleLineHeading}>Timestamping status</h3>
                     <HashConfList hashes={files} checked={checked} handleCheckboxClick={handleCheckboxClick} />
                 </>
             ) : null}

@@ -1,21 +1,5 @@
-
-.heading {
-  margin: 2.5rem 0;
-  color: var(--main-card-heading-color);
-  font-size: var(--font-size-md);
-  font-weight: normal;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.heading:after {
-  content: "";
-  border-top: 0.1rem solid;
-  margin: 0 0 0 1.3rem;
-  flex: 1 0 1.3rem;
+.singleLineHeading {
+  composes: singleLineHeading from global;
 }
 
 .actionsSection {

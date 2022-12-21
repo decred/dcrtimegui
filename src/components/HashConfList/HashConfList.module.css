@@ -1,11 +1,8 @@
 .hashConfList {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    composes: list from global;
 }
 
 .hashConfListItem {
-    /*after*/
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;

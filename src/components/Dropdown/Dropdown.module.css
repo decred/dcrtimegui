@@ -1,16 +1,10 @@
 .toggleButton {
-    font-family: inherit;
-    font-size: 100%;
-    margin: 0;
-    padding: 0;
+    composes: button from global;
     border: 0;
-    outline: none;
+    font-weight: 400;
     width: auto;
     height: auto;
-    text-transform: none;
-    cursor: pointer;
     display: block;
-    background: transparent;
     color: var(--header-lang-toggle-color);
     padding: 0 1.2rem;
     min-width: 5.54rem;
