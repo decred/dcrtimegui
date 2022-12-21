@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import FileInput from "src/components/FileInput";
 import Button from "src/components/Button";
 import styles from "./Verify.module.css";
@@ -7,10 +7,12 @@ import ErrorList from "src/components/ErrorList";
 import InputText from "src/components/InputText";
 import { ERROR_INVALID, ERROR_DUPLICATE } from "src/constants";
 import {
-    handleVerify
+    handleVerify,
+    filesArrayToObj
 } from "src/helpers/dcrtime";
 import { useTranslation } from "react-i18next";
 import {setLocalStorage, getLocalStorage} from "src/helpers/localstorage";
+import debounce from "src/helpers/debounce";
 import Toast from "src/components/Toast";
 
 const Verify = () => {
@@ -52,8 +54,7 @@ const Verify = () => {
         setVerifyManuallyError(null);
     };
 
-    const handleVerifyManually = async (e) => {
-        e.preventDefault();
+    const handleVerifyManually = async () => {
         const param = [{digest: hashValue}];
         try {
             const filesObj = filesArrayToObj(files);
@@ -73,16 +74,7 @@ const Verify = () => {
         }
     };
 
-    const filesArrayToObj = (files) => {
-        return files.reduce((acc, cur) => {
-            return {
-                ...acc,
-                [cur.digest]: {
-                    ...cur
-                }
-            };
-        }, {});
-    };
+    const debouncedHandleVerifyManually = useCallback(debounce(handleVerifyManually), []);
 
     return (
         <div>
@@ -90,7 +82,7 @@ const Verify = () => {
                 <FileInput filesObj={filesArrayToObj(files)} error={fileInputErrors} setError={setFileInputErrors} handleDrop={handleDrop} text={t("fileInput.verify.text")} />
             </div>
             <h3 className={styles.doubleLineHeading}>{t("verify.manually.title")}</h3>
-            <form className={styles.manuallyForm} onSubmit={handleVerifyManually}>
+            <form className={styles.manuallyForm} onSubmit={debouncedHandleVerifyManually}>
                 <InputText value={hashValue} error={verifyManuallyError} onChange={handleInputChange} placeholder={t("verify.manually.placeholder")} />
                 <Button type="submit" kind="primary" text={t("verify.button")} className={styles.verifyByHashButton} />
             </form>

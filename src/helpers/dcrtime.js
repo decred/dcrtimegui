@@ -62,7 +62,7 @@ export const isDigestFound = digest => digest.result === HASH_IN_SERVER;
 export const isDigestAnchorPending = digest =>
     !isDigestAnchored(digest) && digest.chaininformation && digest.chaininformation.transaction !== "0000000000000000000000000000000000000000000000000000000000000000";
 
-export const isDigestWaitingAnchoring = digest => digest.result === 1 && !isDigestAnchored(digest) && (digest.chaininformation && digest.chaininformation.transaction === "0000000000000000000000000000000000000000000000000000000000000000") || !digest.chaininformation;
+export const isDigestWaitingAnchoring = digest => digest.result === 1 && !isDigestAnchored(digest) && ((digest.chaininformation && digest.chaininformation.transaction === "0000000000000000000000000000000000000000000000000000000000000000") || !digest.chaininformation);
 
 export const isDigestNotAnchored = digest => !isDigestFound(digest);
 
@@ -72,3 +72,14 @@ export const getPendingDigests = digests =>
     digests.filter(isDigestAnchorPending);
 
 export const getNotAnchoredDigests = data => data.filter(isDigestNotAnchored);
+
+export const filesArrayToObj = (files) => {
+    return files.reduce((acc, cur) => {
+        return {
+            ...acc,
+            [cur.digest]: {
+                ...cur
+            }
+        };
+    }, {});
+};
