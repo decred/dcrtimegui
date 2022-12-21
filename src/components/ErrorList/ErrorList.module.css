@@ -5,4 +5,6 @@
 }
 
 .listItem {
+    word-break: break-word;
+    text-overflow: clip;
 }
