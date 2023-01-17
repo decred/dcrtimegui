@@ -11,6 +11,8 @@ export const timestamp = dcrtime.timestamp;
 
 export const verify = dcrtime.verify;
 
+export const getLastDigests = dcrtime.getLastDigests;
+
 // Handlers for API calls
 export const handleVerify = async data => {
     const digests = getDigests(data);
@@ -22,6 +24,12 @@ export const handleVerify = async data => {
 export const handleTimestamp = async data => {
     const digests = getDigests(data);
     const res = await timestamp(digests, "data");
+    if (res.error) throw res.error;
+    return res;
+};
+
+export const handleGetLastDigests = async n => {
+    const res = await getLastDigests(n);
     if (res.error) throw res.error;
     return res;
 };

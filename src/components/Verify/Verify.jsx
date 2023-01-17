@@ -8,7 +8,8 @@ import InputText from "src/components/InputText";
 import { ERROR_INVALID, ERROR_DUPLICATE } from "src/constants";
 import {
     handleVerify,
-    filesArrayToObj
+    filesArrayToObj,
+    isDigestAnchored
 } from "src/helpers/dcrtime";
 import { useTranslation } from "react-i18next";
 import {setLocalStorage, getLocalStorage} from "src/helpers/localstorage";
@@ -22,6 +23,7 @@ const Verify = () => {
     const [hashValue, setHashValue] = useState("");
     const [verifyManuallyError, setVerifyManuallyError] = useState(null);
     const [showToastWithMsg, setShowToastWithMsg] = useState("");
+    const [fetchedFirst, setFetchedFirst] = useState(false);
 
     useEffect(() => {
         setLocalStorage("verifyFiles", files);
@@ -75,6 +77,33 @@ const Verify = () => {
     };
 
     const debouncedHandleVerifyManually = useCallback(debounce(handleVerifyManually), []);
+
+    useEffect(() => {
+        const fetch = async () => {
+            const digestsToFetch = files.filter(file => !isDigestAnchored(file));
+            if (digestsToFetch.length > 0) {
+                const verifyRes = await handleVerify(digestsToFetch);
+                let filesRes = files;
+                if (verifyRes) {
+                    filesRes = files.map(d => {
+                        const found = verifyRes.digests.find(v => {
+                            return (v.digest === d.digest);
+                        });
+                        return found ? found : d;
+                    });
+                }
+                setFiles(filesRes);
+            }
+        };
+        if (!fetchedFirst) {
+            fetch();
+            setFetchedFirst(true);
+        }
+        const timeout = setTimeout(async () => {
+            await fetch();
+        }, 60000);
+        return () => clearTimeout(timeout);
+    }, [fetchedFirst, files, setFiles]);
 
     return (
         <div>

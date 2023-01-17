@@ -24,6 +24,7 @@
     "hashView.waiting": "Esperando próximo período de ancoragem",
     "hashView.pending": "Pendente",
     "hashView.notFound": "Não encontrado",
+    "hashView.verifications": "Verificações",
     "footer.decredDevs": "Decred Developers",
     "footer.brandResources": "Recursos de Marca",
     "footer.news": "Novidades",
@@ -38,9 +39,14 @@
     "error.duplicate": "[Input de arquivos] Você tentou submeter hashes duplicadas: {{hashes}}.",
     "error.tooBig": "[Input de arquivos] Arquivos são muito grandes. {{rejected}} Tamanho máximo é 75mb.",
     "error.invalid": "[Input de verificação de hash] Hash inválida. Hashes devem ter 64 caracteres.",
+    "error.searchInvalid": "[Input de busca por hash] Hash inválida. Hashes devem ter 64 caracteres.",
+    "error.malformed": "Hash com formato inválido. Hashes devem ter 64 caracteres.",
     "notice.hashGenerated": "A Hash do arquivo foi gerada e adicionada à fila para ser ancorada.",
     "notice.hashesGenerated": "As Hashes dos arquivos foram geradas e adicionadas à fila para serem ancoradas.",
     "notice.hashVerified": "A Hash foi verificada com sucesso e o resultado foi adicionado ao registro de verificações.",
     "notice.hashesVerified": "As Hashes foram verificadas com sucesso e os resultados foram adicionados ao registro de verificações.",
-    "clearList": "Limpar Lista"
+    "clearList": "Limpar Lista",
+    "timeago.lastHour": "última hora",
+    "timeago.hAgo": "{{hours}}h atrás",
+    "timeago.dAgo": "{{days}}d atrás"
 }

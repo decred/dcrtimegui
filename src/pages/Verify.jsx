@@ -8,7 +8,7 @@ const Verify = () => {
     return (
         <Page>
             <MainSection>
-                <VerifyForm />
+                <VerifyForm/>
             </MainSection>
             <LatestHashes />
         </Page>

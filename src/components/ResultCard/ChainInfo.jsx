@@ -30,6 +30,14 @@ const ChainInfo = ({ chainInfo }) => {
                         <a className={styles.chainInfoLink} href={`${DCRDATA_URL}/tx/${chainInfo.transaction}`} target="_blank" rel="noopener noreferrer" aria-label="Open transaction info on dcrdata">{chainInfo.transaction}</a>
                     </td>
                 </tr>
+                {chainInfo.minconfirmations ? (
+                    <tr className={styles.chainInfoLine}>
+                        <td>{t("hashView.verifications")}:</td>
+                        <td className={styles.chainInfo}>
+                            {chainInfo.confirmations}/{chainInfo.minconfirmations}
+                        </td>
+                    </tr>
+                ) : null}
             </tbody>
         </table>
     );};

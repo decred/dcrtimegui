@@ -24,6 +24,7 @@
     "hashView.waiting": "Waiting anchoring time",
     "hashView.pending": "Pending",
     "hashView.notFound": "Not found",
+    "hashView.verifications": "Verifications",
     "footer.decredDevs": "Decred Developers",
     "footer.brandResources": "Brand Resources",
     "footer.news": "News",
@@ -38,9 +39,14 @@
     "error.duplicate": "[File input] You attempted to drop duplicated hashes: {{hashes}}.",
     "error.tooBig": "[File input] Files are too big. {{rejected}} Max size is 75mb.",
     "error.invalid": "[Verify Hash input] Invalid hash. Hashes must have 64 characters.",
+    "error.searchInvalid": "[Search by Hash input] Invalid hash. Hashes must have 64 characters.",
+    "error.malformed": "Malformed hash. Hashes must have 64 characters.",
     "notice.hashGenerated": "Hash from file is generated and added to anchoring queue.",
     "notice.hashesGenerated": "Hashes from files are generated and added to anchoring queue.",
     "notice.hashVerified": "Hash was successfully verified and the result was added to the verify log.",
     "notice.hashesVerified": "Hashes were successfully verified and the results were added to the verify log.",
-    "clearList": "Clear List"
+    "clearList": "Clear List",
+    "timeago.lastHour": "last hour",
+    "timeago.hAgo": "{{hours}}h ago",
+    "timeago.dAgo": "{{days}}d ago"
 }

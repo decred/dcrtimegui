@@ -22,7 +22,6 @@ import {setLocalStorage, getLocalStorage} from "src/helpers/localstorage";
 import Toast from "src/components/Toast";
 
 const minsToHour = () => 60 - Math.round(new Date() % 3.6e6 / 6e4);
-const convertMinsToMs = (mins) => mins * 60000;
 
 const prepareHashesDownload = (files, checked) => {
     return files.filter(file => checked[file.digest]).map(file => file.digest);
@@ -42,12 +41,12 @@ const downloadHashes = (hashes) => {
     fileDownload(JSON.stringify(hashes, null, 2), "hashes.json");
 };
 
-const TimestampForm = ({ history }) => {
+const TimestampForm = ({handleFetchLast}) => {
     const { t } = useTranslation();
     const [files, setFiles] = useState(getLocalStorage("timestampFiles") || []);
     const [fileInputErrors, setFileInputErrors] = useState(null);
     const [minsToNextHour, setMinsToNextHour] = useState(minsToHour());
-    // const [startPolling, setStartPolling] = useState(false);
+    const [fetchedFirst, setFetchedFirst] = useState(false);
     const [checked, setChecked] = useState(getLocalStorage("timestampChecked") || {});
     const [showToastWithMsg, setShowToastWithMsg] = useState("");
 
@@ -95,6 +94,9 @@ const TimestampForm = ({ history }) => {
         if (digestsRes.length > 1) {
             setShowToastWithMsg("notice.hashesGenerated");
         }
+        if (digestsRes.length > 0) {
+            handleFetchLast();
+        }
         const checkNew = digestsRes.reduce((acc, cur) => {
             return ({
                 ...acc,
@@ -121,53 +123,32 @@ const TimestampForm = ({ history }) => {
         return () => clearInterval(interval);
     }, []);
 
-    // useEffect(() => {
-    //     let interval;
-    //     // filter out digestsAnchored and digests without txs
-    //     const digestsToPoll = files.filter(file => !isDigestAnchored(file)).filter(file => file.chaininformation && file.chaininformation.transaction !== "0000000000000000000000000000000000000000000000000000000000000000");
-    //     const txs = digestsToPoll.map(file => file.chaininformation.transaction);
-    //     let filesRes = files;
-    //     if (txs.length > 0) {
-    //         interval = setInterval(async () => {
-    //             const txsRes = await getTxsInfo(txs);
-    //             if (txsRes) {
-    //                 filesRes = files.map(d => {
-    //                     const found = txsRes.find(tx => {
-    //                         return (tx.txid === d.chaininformation?.transaction);
-    //                     });
-    //                     return found ? {
-    //                         ...d,
-    //                         confirmations: found.confirmations
-    //                     } : d;
-    //                 });
-    //                 setFiles(filesRes);
-    //             }
-    //         }, 60000);
-    //     } else {
-    //         clearInterval(interval);
-    //     }
-    //     return () => clearInterval(interval);
-    // }, [startPolling, files, setFiles]);
-
     useEffect(() => {
-        const timeout = setTimeout(async () => {
+        const fetch = async () => {
             const digestsToFetch = files.filter(file => !isDigestAnchored(file));
-            const verifyRes = await handleVerify(digestsToFetch);
-            let filesRes = files;
-            if (verifyRes) {
-                filesRes = files.map(d => {
-                    const found = verifyRes.digests.find(v => {
-                        return (v.digest === d.digest);
+            if (digestsToFetch.length > 0) {
+                const verifyRes = await handleVerify(digestsToFetch);
+                let filesRes = files;
+                if (verifyRes) {
+                    filesRes = files.map(d => {
+                        const found = verifyRes.digests.find(v => {
+                            return (v.digest === d.digest);
+                        });
+                        return found ? found : d;
                     });
-                    return found ? found : d;
-                });
+                }
+                setFiles(filesRes);
             }
-            setFiles(filesRes);
-            // setStartPolling(true);
-        }, convertMinsToMs(minsToHour()) + 30000);
-        // }, 10000);
+        };
+        if (!fetchedFirst) {
+            fetch();
+            setFetchedFirst(true);
+        }
+        const timeout = setTimeout(async () => {
+            await fetch();
+        }, 60000);
         return () => clearTimeout(timeout);
-    }, [files, setFiles]);
+    }, [fetchedFirst, files, setFiles]);
 
     const hashesToDownload = prepareHashesDownload(files, checked);
     const amountOfHashesToDownload = hashesToDownload.length;

@@ -15,6 +15,19 @@
     font-weight: normal;
 }
 
+.singleLineHeading {
+    composes: singleLineHeading from global;
+}
+
+.singleLineHeading::after {
+    margin: 0;
+}
+
+.spinnerWrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .hashesList {
     composes: list from global;
 }
@@ -56,6 +69,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.error {
+    composes: error from global;
 }
 
 .title {

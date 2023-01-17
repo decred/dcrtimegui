@@ -18,3 +18,4 @@ export const HASH_NOT_FOUND = 3;
 export const ERROR_DUPLICATE = "error.duplicate";
 export const ERROR_BIG_FILE = "error.tooBig";
 export const ERROR_INVALID = "error.invalid";
+export const ERROR_SEARCH_INVALID = "error.searchInvalid";

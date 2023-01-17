@@ -19,7 +19,7 @@ const getProgressClass = (digest) => {
     if (isDigestAnchored(digest)) {
         return styles.hashWrapper6;
     }
-    switch(digest.confirmations) {
+    switch(digest.chaininformation?.confirmations) {
     case 1:
         return styles.hashWrapper1;
     case 2:

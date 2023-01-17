@@ -5,6 +5,7 @@ import { isDigestAnchored, isDigestAnchorPending, isDigestWaitingAnchoring } fro
 import Spinner from "src/components/Spinner";
 import useProcessDigests from "./hooks";
 import styles from "./Results.module.css";
+import { useTranslation } from "react-i18next";
 
 const getStatus = digest => {
     if (isDigestAnchored(digest)) {
@@ -21,6 +22,7 @@ const getStatus = digest => {
 
 const Results = ({ location }) => {
     const { digests, loading, error } = useProcessDigests(location.hash);
+    const { t } = useTranslation();
 
     return loading && !error ? (
         <div className={styles.spinnerWrapper}>
@@ -28,7 +30,7 @@ const Results = ({ location }) => {
         </div>
     ) : error ? (
         <div className={styles.error}>
-            Error: {error}. Verify if all the hashes are 64 characters long.
+            {t("error.malformed")}
         </div>
     ): (
         digests.map(d => (
