@@ -21,7 +21,7 @@
     "hashView.transaction": "Transação",
     "hashView.goBack": "Voltar",
     "hashView.timestamped": "Timestamped",
-    "hashView.waiting": "Esperando próximo período de ancoragem",
+    "hashView.awaiting": "Esperando próximo período de ancoragem",
     "hashView.pending": "Pendente",
     "hashView.notFound": "Não encontrado",
     "hashView.verifications": "Verificações",

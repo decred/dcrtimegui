@@ -12,7 +12,7 @@ const getStatus = digest => {
         return "Timestamped";
     }
     if (isDigestWaitingAnchoring(digest)) {
-        return "Waiting anchoring time";
+        return "Awaiting anchoring time";
     }
     if (isDigestAnchorPending(digest)) {
         return "Pending";

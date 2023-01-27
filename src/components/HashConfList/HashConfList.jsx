@@ -14,6 +14,7 @@ import {ReactComponent as WaitingDark} from "../../assets/icons/waiting-for-anch
 import {ReactComponent as NotFoundLight} from "../../assets/icons/not-found-light.svg";
 import {ReactComponent as NotFoundDark} from "../../assets/icons/not-found-dark.svg";
 import useTheme from "src/theme/useTheme";
+import { useTranslation } from "react-i18next";
 
 const getProgressClass = (digest) => {
     if (isDigestAnchored(digest)) {
@@ -40,7 +41,7 @@ const getStatus = digest => {
         return "Timestamped";
     }
     if (isDigestWaitingAnchoring(digest)) {
-        return "Waiting anchoring time";
+        return "Awaiting anchoring time";
     }
     if (isDigestAnchorPending(digest)) {
         return "Pending";
@@ -57,7 +58,7 @@ const getStatusComponent = (theme, hash) => {
     case "Pending":
         if (isDarkTheme) return PendingDark;
         return PendingLight;
-    case "Waiting anchoring time":
+    case "Awaiting anchoring time":
         if (isDarkTheme) return WaitingDark;
         return WaitingLight;
     default:
@@ -66,11 +67,26 @@ const getStatusComponent = (theme, hash) => {
     };
 };
 
-const getTooltipText = (hash) => getStatus(hash);
+const getTooltipText = (hash, t) => {
+    const st = getStatus(hash);
+    switch (st) {
+    case "Timestamped":
+        return t("hashView.timestamped");
+    case "Awaiting anchoring time":
+        return t("hashView.awaiting");
+    case "Pending":
+        return t("hashView.pending");
+    case "Not found":
+        return t("hashView.notFound");
+    default:
+        return t("hashView.notFound");
+    }
+};
 
 const StatusComponent = ({theme, hash}) => {
+    const {t} = useTranslation();
     const Comp = getStatusComponent(theme, hash);
-    const tooltipText = getTooltipText(hash);
+    const tooltipText = getTooltipText(hash, t);
     return (
         <Tooltip tooltipTrigger={<Comp width="2.2rem" height="2.2rem" style={{minWidth: "2.2rem", marginRight: "0.8rem"}} />} tooltipText={tooltipText} tooltipHover tooltipTextStyle={{width: "8.5rem", left: "calc(50% - 4.75rem)"}} />
     );

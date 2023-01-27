@@ -41,10 +41,10 @@ const ResultCard = ({
         else StatusComponent = PendingLight;
         statusText = t("hashView.pending");
         break;
-    case "Waiting anchoring time":
+    case "Awaiting anchoring time":
         if (isDarkTheme) StatusComponent = WaitingDark;
         else StatusComponent = WaitingLight;
-        statusText = t("hashView.waiting");
+        statusText = t("hashView.awaiting");
         break;
     default:
         if (isDarkTheme) StatusComponent = NotFoundDark;
