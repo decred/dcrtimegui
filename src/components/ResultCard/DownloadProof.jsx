@@ -7,10 +7,10 @@ import { useTranslation } from "react-i18next";
 const DownloadProof = ({ data }) => {
     const {t} = useTranslation();
     const handleDownload = () =>
-        fileDownload(JSON.stringify(data, null, 2), `${data?.digest}.json`);
+        fileDownload(JSON.stringify(data, null, 2), `${data?.digests[0].digest}.json`);
 
     return (
-        <Button kind={data.chaintimestamp ? "primary" : "disabled"} text={t("downloadProof.singular")} handleClick={handleDownload} />
+        <Button kind={data?.digests[0].chaininformation.chaintimestamp ? "primary" : "disabled"} text={t("downloadProof.singular")} handleClick={handleDownload} />
     );
 };
 

@@ -27,12 +27,12 @@ const prepareHashesDownload = (files, checked) => {
 };
 
 const prepareProofsDownload = (files, checked) => {
-    return files.filter(file => checked[file.digest]).filter(isDigestAnchored).map(file => ({digest: file.digest, ...file.chaininformation}));
+    return files.filter(file => checked[file.digest]).filter(isDigestAnchored).map(file => ({digests: [{...file}]}));
 };
 
 const downloadArrayOfProofs = (proofs) => {
     for (const proof of proofs) {
-        fileDownload(JSON.stringify(proof, null, 2), `${proof?.digest}.json`);
+        fileDownload(JSON.stringify(proof, null, 2), `${proof?.digests[0].digest}.json`);
     }
 };
 

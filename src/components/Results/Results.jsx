@@ -36,10 +36,7 @@ const Results = ({ location }) => {
         digests.map(d => (
             <ResultCard
                 key={`d-${d.digest}`}
-                name={d.name}
-                serverTimestamp={d.servertimestamp}
-                digest={d.digest}
-                chainInfo={d.chaininformation}
+                digest={d}
                 status={getStatus(d)}
             />
         ))

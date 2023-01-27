@@ -19,9 +19,7 @@ import { withRouter } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const ResultCard = ({
-    name,
     digest,
-    chainInfo,
     status,
     history
 }) => {
@@ -56,7 +54,7 @@ const ResultCard = ({
             <div className={styles.content}>
                 <h3 className={styles.heading}>Hash status</h3>
                 <div className={styles.statusDigestWrapper}>
-                    <Digest digest={digest} />
+                    <Digest digest={digest.digest} />
                     <div className={styles.statusWrapper}>
                         <span className={styles.statusText}>{statusText}</span>
                         <StatusComponent />
@@ -65,17 +63,18 @@ const ResultCard = ({
                 {status === "Timestamped" || status === "Pending" ? (
                     <>
                         <h3 className={styles.heading}>{t("hashView.details")}</h3>
-                        <ChainInfo chainInfo={chainInfo} />
+                        <ChainInfo chainInfo={digest.chaininformation} />
                     </>
                 ) : null}
                 <div className={styles.actionButtons}>
                     <Button kind="secondary" text={t("hashView.goBack")} Icon={GoBack} handleClick={() => history.goBack()}/>
                     <DownloadProof
                         data={{
-                            digest: digest,
-                            ...chainInfo
+                            digests: [
+                                {...digest}
+                            ]
                         }}
-                        name={name}
+                        name={digest.name}
                     />
                 </div>
             </div>
@@ -84,11 +83,8 @@ const ResultCard = ({
 };
 
 ResultCard.propTypes = {
-    name: PropTypes.string,
-    digest: PropTypes.string,
-    chainInfo: PropTypes.object,
-    statusTag: PropTypes.node,
-    isDigestAnchored: PropTypes.bool
+    digest: PropTypes.object,
+    status: PropTypes.string
 };
 
 export default withRouter(ResultCard);
