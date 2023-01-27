@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect} from "react";
 import FileInput from "src/components/FileInput";
 import Button from "src/components/Button";
 import styles from "./Verify.module.css";
@@ -13,7 +13,6 @@ import {
 } from "src/helpers/dcrtime";
 import { useTranslation } from "react-i18next";
 import {setLocalStorage, getLocalStorage} from "src/helpers/localstorage";
-import debounce from "src/helpers/debounce";
 import Toast from "src/components/Toast";
 
 const Verify = () => {
@@ -56,7 +55,8 @@ const Verify = () => {
         setVerifyManuallyError(null);
     };
 
-    const handleVerifyManually = async () => {
+    const handleVerifyManually = async (e) => {
+        e.preventDefault();
         const param = [{digest: hashValue}];
         try {
             const filesObj = filesArrayToObj(files);
@@ -75,8 +75,6 @@ const Verify = () => {
             }
         }
     };
-
-    const debouncedHandleVerifyManually = useCallback(debounce(handleVerifyManually), []);
 
     useEffect(() => {
         const fetch = async () => {
@@ -111,7 +109,7 @@ const Verify = () => {
                 <FileInput filesObj={filesArrayToObj(files)} error={fileInputErrors} setError={setFileInputErrors} handleDrop={handleDrop} text={t("fileInput.verify.text")} />
             </div>
             <h3 className={styles.doubleLineHeading}>{t("verify.manually.title")}</h3>
-            <form className={styles.manuallyForm} onSubmit={debouncedHandleVerifyManually}>
+            <form className={styles.manuallyForm} onSubmit={handleVerifyManually}>
                 <InputText value={hashValue} error={verifyManuallyError} onChange={handleInputChange} placeholder={t("verify.manually.placeholder")} />
                 <Button type="submit" kind="primary" text={t("verify.button")} className={styles.verifyByHashButton} />
             </form>
