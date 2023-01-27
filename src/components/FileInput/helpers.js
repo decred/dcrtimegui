@@ -1,5 +1,4 @@
 import { digestPayload } from "src/helpers/dcrtime";
-import CryptoJS from "crypto-js";
 
 // processFiles adds the base64 payload into the file data
 export const processFiles = files =>
@@ -13,19 +12,10 @@ export const processFiles = files =>
             reader.onload = (f => event => {
                 if (f.size >= 75000000) reject(Error(`Input field file '${f.name}' is too big (size: ${f.size/1000000}mb). Max size is 75mb.`));
                 const payload = event.target.result.split(",")[1];
-                let resDigest = digestPayload(payload);
-                if (f.type === "application/json") {
-                    const words = CryptoJS.enc.Base64.parse(payload);
-                    const textString = CryptoJS.enc.Utf8.stringify(words);
-                    const json = JSON.parse(textString);
-                    if (json.digest) {
-                        resDigest = json.digest;
-                    }
-                }
                 processedFiles.push({
                     name: f.name,
                     payload,
-                    digest: resDigest
+                    digest: digestPayload(payload)
                 });
                 if (processedFiles.length === files.length) resolve(processedFiles);
             })(file);

@@ -12,7 +12,7 @@
     "downloadProof.plural": "Download Proofs",
     "latestHashes.title": "Latest Hashes",
     "searchByHash.placeholder": "Search by hash",
-    "fileInput.verify.text": "Verify by dropping proof or original file here",
+    "fileInput.verify.text": "Verify files by dropping them here",
     "verify.manually.title": "Or manually",
     "verify.manually.placeholder": "Type or paste a 32-byte hash here",
     "verify.log": "Verify log",

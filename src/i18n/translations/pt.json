@@ -12,7 +12,7 @@
     "downloadProof.plural": "Download Provas",
     "latestHashes.title": "Últimas Hashes",
     "searchByHash.placeholder": "Busca por hash",
-    "fileInput.verify.text": "Arraste e solte arquivos originais ou provas aqui para verificar",
+    "fileInput.verify.text": "Arraste e solte os arquivos que deseja verificar",
     "verify.manually.title": "Ou manualmente",
     "verify.manually.placeholder": "Digite ou cole uma hash de 32 bytes aqui",
     "verify.log": "Registro de verificação",
