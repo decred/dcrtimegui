@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import Tooltip from "src/components/Tooltip";
 import fileDownload from "js-file-download";
@@ -16,7 +16,6 @@ import {
     isDigestFound,
     filesArrayToObj
 } from "src/helpers/dcrtime";
-import debounce from "src/helpers/debounce";
 import { useTranslation } from "react-i18next";
 import {setLocalStorage, getLocalStorage} from "src/helpers/localstorage";
 import Toast from "src/components/Toast";
@@ -155,9 +154,6 @@ const TimestampForm = ({handleFetchLast}) => {
     const proofsToDownload = prepareProofsDownload(files, checked);
     const amountOfProofsToDownload = proofsToDownload.length;
 
-    const debouncedHandleDownloadHashes = useCallback(debounce(() => downloadHashes(hashesToDownload)), []);
-    const debouncedHandleDownloadProofs = useCallback(debounce(() => downloadArrayOfProofs(proofsToDownload)), []);
-
     return (
         <div>
             <div>
@@ -186,8 +182,8 @@ const TimestampForm = ({handleFetchLast}) => {
                     {files.length ? (
                         <Button text={t("clearList")} className={styles.timestampActionButton} kind="tertiary" handleClick={() => clearList()} />
                     ) : null}
-                    <Button text={amountOfHashesToDownload > 1 ? "Download Hashes" : "Download Hash"} amount={amountOfHashesToDownload} kind={amountOfHashesToDownload > 0 ? "secondary" : "disabled"} className={styles.timestampActionButton} handleClick={debouncedHandleDownloadHashes} />
-                    <Button text={amountOfProofsToDownload > 1 ? t("downloadProof.plural") : t("downloadProof.singular")} amount={amountOfProofsToDownload} kind={amountOfProofsToDownload > 0 ? "primary" : "disabled"} className={styles.timestampActionButton} handleClick={debouncedHandleDownloadProofs} />
+                    <Button text={amountOfHashesToDownload > 1 ? "Download Hashes" : "Download Hash"} amount={amountOfHashesToDownload} kind={amountOfHashesToDownload > 0 ? "secondary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadHashes(hashesToDownload)} />
+                    <Button text={amountOfProofsToDownload > 1 ? t("downloadProof.plural") : t("downloadProof.singular")} amount={amountOfProofsToDownload} kind={amountOfProofsToDownload > 0 ? "primary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadArrayOfProofs(proofsToDownload)} />
                 </div>
             </div>
             <Toast textKey={showToastWithMsg} show={showToastWithMsg} onClose={() => setShowToastWithMsg("")}/>
