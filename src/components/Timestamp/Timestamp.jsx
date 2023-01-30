@@ -23,7 +23,10 @@ import Toast from "src/components/Toast";
 const minsToHour = () => 60 - Math.round(new Date() % 3.6e6 / 6e4);
 
 const prepareHashesDownload = (files, checked) => {
-    return files.filter(file => checked[file.digest]).map(file => file.digest);
+    return ({
+        id: "timestamply_v1_hashlist",
+        hashes: files.filter(file => checked[file.digest]).map(file => file.digest)
+    });
 };
 
 const prepareProofsDownload = (files, checked) => {
@@ -150,7 +153,7 @@ const TimestampForm = ({handleFetchLast}) => {
     }, [fetchedFirst, files, setFiles]);
 
     const hashesToDownload = prepareHashesDownload(files, checked);
-    const amountOfHashesToDownload = hashesToDownload.length;
+    const amountOfHashesToDownload = hashesToDownload.hashes.length;
     const proofsToDownload = prepareProofsDownload(files, checked);
     const amountOfProofsToDownload = proofsToDownload.length;
 

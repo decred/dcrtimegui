@@ -14,24 +14,33 @@ export const processFiles = (files, isVerify) =>
             reader.onload = (f => event => {
                 if (f.size >= 75000000) reject(Error(`Input field file '${f.name}' is too big (size: ${f.size/1000000}mb). Max size is 75mb.`));
                 const payload = event.target.result.split(",")[1];
-                if (f.type === "application/json" && f.name === "hashes.json" && isVerify) {
+                if (f.type === "application/json" && isVerify) {
                     // it is a hashes file
                     const words = CryptoJS.enc.Base64.parse(payload);
                     const textString = CryptoJS.enc.Utf8.stringify(words);
-                    const hashes = JSON.parse(textString);
-                    if (!Array.isArray(hashes)) {
-                        reject({key: ERROR_INVALID_HASHES_FILE});
-                        return;
-                    }
-                    hashes.forEach(hash => {
-                        if (hash.length !== 64) {
-                            reject({key: ERROR_INVALID_HASH_ON_FILE, options: {hash: hash}});
+                    const json = JSON.parse(textString);
+                    if (json.id === "timestamply_v1_hashlist") {
+                        const hashes = json.hashes;
+                        if (!Array.isArray(hashes)) {
+                            reject({key: ERROR_INVALID_HASHES_FILE});
+                            return;
                         }
+                        hashes.forEach(hash => {
+                            if (hash.length !== 64) {
+                                reject({key: ERROR_INVALID_HASH_ON_FILE, options: {hash: hash}});
+                            }
+                            processedFiles.push({
+                                name: f.name,
+                                digest: hash
+                            });
+                        });
+                    } else {
                         processedFiles.push({
                             name: f.name,
-                            digest: hash
+                            payload,
+                            digest: digestPayload(payload)
                         });
-                    });
+                    }
                 }
                 else {
                     processedFiles.push({
