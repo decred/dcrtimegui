@@ -39,6 +39,8 @@
     "error.duplicate": "[File input] You attempted to drop duplicated hashes: {{hashes}}.",
     "error.tooBig": "[File input] Files are too big. {{rejected}} Max size is 75mb.",
     "error.invalid": "[Verify Hash input] Invalid hash. Hashes must have 64 characters.",
+    "error.invalidHashFile": "[File input] Invalid hash {{hash}} on hashes file. Hashes must have 64 characters.",
+    "error.invalidHashesFile": "[File input] Invalid hash file. Must be an array",
     "error.searchInvalid": "[Search by Hash input] Invalid hash. Hashes must have 64 characters.",
     "error.malformed": "Malformed hash. Hashes must have 64 characters.",
     "notice.hashGenerated": "Hash from file is generated and added to anchoring queue.",

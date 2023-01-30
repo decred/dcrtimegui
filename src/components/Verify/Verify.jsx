@@ -106,7 +106,7 @@ const Verify = () => {
     return (
         <div>
             <div>
-                <FileInput filesObj={filesArrayToObj(files)} error={fileInputErrors} setError={setFileInputErrors} handleDrop={handleDrop} text={t("fileInput.verify.text")} />
+                <FileInput filesObj={filesArrayToObj(files)} error={fileInputErrors} setError={setFileInputErrors} handleDrop={handleDrop} text={t("fileInput.verify.text")} isVerify={true} />
             </div>
             <h3 className={styles.doubleLineHeading}>{t("verify.manually.title")}</h3>
             <form className={styles.manuallyForm} onSubmit={handleVerifyManually}>

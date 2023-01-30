@@ -7,7 +7,7 @@ import styles from "./FileInput.module.css";
 import {useTranslation} from "react-i18next";
 import {ERROR_DUPLICATE, ERROR_BIG_FILE} from "src/constants";
 
-const FileInput = ({ filesObj, error, setError, text, handleDrop }) => {
+const FileInput = ({ filesObj, error, setError, text, handleDrop, isVerify }) => {
     const [processing, setProcessing] = useState(false);
     const {t} = useTranslation();
 
@@ -22,7 +22,7 @@ const FileInput = ({ filesObj, error, setError, text, handleDrop }) => {
                     setProcessing(true);
                     try {
                         const errors = [];
-                        const processedFiles = await processFiles(accFiles);
+                        const processedFiles = await processFiles(accFiles, isVerify);
                         const duplicates = [];
                         const res = processedFiles.filter(d => {
                             const digest = filesObj?.[d.digest];
@@ -49,7 +49,7 @@ const FileInput = ({ filesObj, error, setError, text, handleDrop }) => {
                     }
                     catch(e) {
                         setProcessing(false);
-                        setError(e);
+                        setError([e]);
                     }
                 }}
             >
@@ -78,7 +78,8 @@ const FileInput = ({ filesObj, error, setError, text, handleDrop }) => {
 
 FileInput.propTypes = {
     files: PropTypes.array,
-    setFiles: PropTypes.func
+    setFiles: PropTypes.func,
+    isVerify: PropTypes.bool
 };
 
 export default FileInput;

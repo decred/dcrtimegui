@@ -19,3 +19,5 @@ export const ERROR_DUPLICATE = "error.duplicate";
 export const ERROR_BIG_FILE = "error.tooBig";
 export const ERROR_INVALID = "error.invalid";
 export const ERROR_SEARCH_INVALID = "error.searchInvalid";
+export const ERROR_INVALID_HASH_ON_FILE = "error.invalidHashFile";
+export const ERROR_INVALID_HASHES_FILE = "error.invalidHashesFile";

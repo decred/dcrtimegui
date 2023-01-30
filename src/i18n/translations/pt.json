@@ -39,6 +39,8 @@
     "error.duplicate": "[Input de arquivos] Você tentou submeter hashes duplicadas: {{hashes}}.",
     "error.tooBig": "[Input de arquivos] Arquivos são muito grandes. {{rejected}} Tamanho máximo é 75mb.",
     "error.invalid": "[Input de verificação de hash] Hash inválida. Hashes devem ter 64 caracteres.",
+    "error.invalidHashFile": "[Input de arquivos] Hash inválida no arquivo de hashes: {{hash}}. Hashes devem conter 64 caracteres.",
+    "error.invalidHashesFile": "[Input de arquivos] Arquivo de hashes inválido. Deve ser uma array",
     "error.searchInvalid": "[Input de busca por hash] Hash inválida. Hashes devem ter 64 caracteres.",
     "error.malformed": "Hash com formato inválido. Hashes devem ter 64 caracteres.",
     "notice.hashGenerated": "A Hash do arquivo foi gerada e adicionada à fila para ser ancorada.",
