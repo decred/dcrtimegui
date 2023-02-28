@@ -1,84 +1,86 @@
-.card {
-  background: var(--color-white) 0% 0% no-repeat padding-box;
-  box-shadow: 0px 4px 16px var(--color-shadow-light);
-  opacity: 1;
-  margin-bottom: 20px;
-}
 
-.content {
+.heading {
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  color: var(--main-card-heading-color);
+  font-size: var(--font-size-md);
+  font-weight: normal;
   display: flex;
-  flex-direction: column;
-  margin-right: 30px;
-  margin-left: 30px;
-}
-
-.resultCardHeader {
-  display: flex;
-  align-items: center;
-  padding-top: 20px;
-  padding-bottom: 15px;
-}
-
-.headerName {
-  font-size: 18px;
-  padding-right: 15px;
   width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card:not(:last-of-type) {
+  margin-bottom: 6rem;
+}
+
+.heading:after {
+  content: "";
+  border-top: 0.1rem solid;
+  margin: 0 0 0 1.3rem;
+  flex: 1 0 1.3rem;
+}
+
+.chainInfoTable {
+  margin: 0;
+  border: 0;
+  width: 100%;
+  overflow-wrap: anywhere;
+  border-collapse: separate;
+  border-spacing: 0 1.3rem;
+}
+
+.chainInfoLine > td:first-of-type {
+  min-width: 10rem;
+}
+
+.chainInfoLink {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
 
 .digestWrapper {
   display: flex;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: var(--color-blue-lighter);
+  width: 100%;
 }
 
-.copyIcon {
-  cursor: pointer;
-}
-
-.copyIconTooltip {
-  font-size: 13px;
-  color: var(--color-white);
-}
-
-.copyIconTooltip > div {
-  padding-left: 5px;
-  padding-right: 5px;
-  background-color: var(--color-shadow-light);
-  box-shadow: 0 0 0 0;
+@media screen and (min-width: 769px) {
+  .digestWrapper {
+    width: auto;
+    margin-right: 2rem;
+  }
 }
 
 .digestText {
-  font-size: 18px;
-  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 0.5rem;
 }
 
-.fileIcon {
-  padding-right: 5px;
-}
-
-.downloadIcon {
-  cursor: pointer;
-  padding-right: 5px;
-}
-
-.downloadWrapper {
+.actionButtons {
   display: flex;
-  cursor: pointer;
+  justify-content: space-between;
+  margin-top: 5.5rem;
 }
 
-.paddingBottom20 {
-  padding-bottom: 20px;
+.statusWrapper {
+  display: flex;
+  align-items: center;
 }
 
-.fontSize13 {
-  font-size: 13px;
+.statusDigestWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  font-size: var(--font-size-lg);
+  justify-content: space-between;
 }
 
-.fontSize16 {
-  font-size: 16px;
-}
-
-.fontSize18 {
-  font-size: 18px;
+.statusText {
+  margin-right: 1.3rem;
+  font-weight: 500;
 }

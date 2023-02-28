@@ -1,40 +1,32 @@
 .header {
-  color: var(--color-gray-lightest2);
-  border: 0 !important;
-  height: 70px;
-}
-
-.headerContainer {
+  border: 0;
+  height: 9.8rem;
+  /* Add min-height to prevent flex-grow to shrink it */
+  min-height: 9.8rem;
+  padding: 0 3.5rem;
   display: flex;
-  justify-content: center;
-  width: 100vw;
+  background: var(--header-bg-gradient);
 }
 
-.searchBox {
-  width: 540px;
-  margin-top: 10px;
-  margin-right: 70px;
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100.4rem;
+  margin: 0 auto;
 }
 
-.searchInput {
-  border: 1px solid;
-  border-color: var(--color-gray-light);
-}
-
-.searchInput:hover {
-  border-color: rgba(41, 112, 255, 0.5);
-}
-
-.searchInput:focus {
-  border-color: var(--color-primary);
-}
-
-@media screen and (max-width: 768px){
-
-  .searchBox {
-    width: 100%;
-    padding-left: 50px;
-    margin-right: 0;
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 470px) {
+  .header {
+    padding: 0 2rem;
   }
+}
 
+@media screen and (min-width: 769px) {
+  .header {
+    background: var(--header-bg-color);
+  }
 }

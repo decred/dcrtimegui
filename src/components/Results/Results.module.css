@@ -1,9 +1,9 @@
-.spinner {
-  display: flex;
-  justify-content: center;
-  margin-top: 80px;
-}   
+.spinnerWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-.resultTag > span {
-  text-overflow: unset;
+.error {
+    font-size: var(--font-size-lg);
 }

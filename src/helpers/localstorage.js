@@ -1,7 +1,7 @@
-export const setDigestName = (digest, name) => {
-  localStorage.setItem(digest, name);
+export const setLocalStorage = (key, data) => {
+    localStorage.setItem(key, JSON.stringify(data));
 };
 
-export const getDigestName = digest => {
-  return localStorage.getItem(digest);
+export const getLocalStorage = (key) => {
+    return JSON.parse(localStorage.getItem(key));
 };

@@ -1,24 +1,80 @@
 .footer {
-  height: 80px;
-  width: 100vw;  
-  padding: 2rem;
-  margin-top: 40px;
-  background: var(--color-primary-dark);
-  flex-shrink: 0;
+  padding: 3.5rem 3.5rem 5.5rem 3.5rem;
+  background: var(--footer-bg-color);
+  font-size: var(--font-size-lg);
+  flex-grow: 1;
 }
 
-.textWrapper {
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 470px) {
+  .footer {
+    padding: 3.5rem 2rem 3.5rem 2rem;
+  }
+}
+
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
-  height: 36px;
-  min-width: 210px;
-  font-size: 13px;
-  color: var(--color-gray);
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  margin: 0 auto;
 }
 
-.ghLink {
-  color: var(--color-primary);
-  text-decoration: none;
+.column {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: flex-start;
+  opacity: 0.55;
+}
+
+.column > a {
+  margin: 0 1.6rem 0.3rem 0;
+}
+
+.decredDevs {
+  composes: column;
+}
+
+.socialMedia {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  color: var(--sm-color);
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100.4rem;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .column > a {
+    margin: 0 1.6rem 1.2rem 0;
+  }
+
+  .socialMedia {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 0;
+  }
+
+  .socialMedia > a {
+    margin: 0 3.4rem 1.3rem 0;
+  }
 }

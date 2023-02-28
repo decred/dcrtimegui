@@ -1,0 +1,24 @@
+.checkboxWrapper {
+    fill: none;
+}
+
+.checkboxCheck {
+    fill: var(--checkbox-check-color);
+}
+
+.checkboxCheckNone {
+    fill: none;
+}
+
+.checkboxSquare, .checkboxFiller1 {
+    fill: none;
+}
+
+.checkboxSquare {
+    stroke: currentColor;
+    stroke-miterlimit: 10;
+}
+
+.checkboxFiller2 {
+    stroke:none;
+}

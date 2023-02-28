@@ -1,14 +1,19 @@
-import React from "react";
-import TimestampForm from "src/components/TimestampForm";
-import ModalNewHashInfo from "src/components/ModalNewHashInfo";
+import React, { useState } from "react";
+import TimestampForm from "src/components/Timestamp";
 import Page from "src/components/Layout/Page";
-import Title from "src/components/Title";
+import MainSection from "src/components/MainSection";
+import LatestHashes from "src/components/LatestHashesSection";
 
-const Timestamp = () => (
-  <Page>
-    <Title title="Create new hash" modal={ModalNewHashInfo} />
-    <TimestampForm />
-  </Page>
-);
+const Timestamp = () => {
+    const [fetchLast, setFetchLast] = useState(false);
+    return (
+        <Page>
+            <MainSection>
+                <TimestampForm handleFetchLast={() => setFetchLast(true)} />
+            </MainSection>
+            <LatestHashes fetchLast={fetchLast} setFetchLast={setFetchLast} />
+        </Page>
+    );
+};
 
 export default Timestamp;

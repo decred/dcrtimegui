@@ -1,0 +1,46 @@
+.toast {
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 2.1rem;
+    left: calc(50% - 40%);
+    width: 80%;
+    background: var(--toast-bg-color);
+    padding: 1.5rem 0.5rem 1.5rem 2rem;
+    border: 0.1rem solid var(--blue);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0.05s;
+    transition-property: opacity;
+    transition-timing-function: ease-out;
+    transition: 0.3s;
+}
+
+@media (min-width: 1000px) {
+    .toast {
+        max-width: 82.2rem;
+        left: calc(50% - 41.1rem);
+    }
+}
+
+.toastShow {
+    opacity: 1;
+    visibility: visible;
+}
+
+.closeButton {
+    font-family: Inter;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    color: inherit;
+    background: transparent;
+    margin-left: 1rem;
+}

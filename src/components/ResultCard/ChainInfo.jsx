@@ -1,33 +1,49 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Text } from "pi-ui";
 import styles from "./ResultCard.module.css";
+import { DCRDATA_URL } from "src/constants";
+import { useTranslation } from "react-i18next";
 
-const ChainInfo = ({ chainInfo }) => (
-  <div className={styles.paddingBottom20}>
-    <p className={styles.fontSize13}>
-      Timestamp:
-      <Text color="gray" className={styles.fontSize13}>
-        {" " + chainInfo.chaintimestamp}
-      </Text>
-    </p>
-    <p className={styles.fontSize13}>
-      Merkle root:
-      <Text color="gray" className={styles.fontSize13}>
-        {" " + chainInfo.merkleroot}
-      </Text>
-    </p>
-    <p className={styles.fontSize13}>
-      Transaction:
-      <Text color="gray" className={styles.fontSize13}>
-        {" " + chainInfo.transaction}
-      </Text>
-    </p>
-  </div>
-);
+const ChainInfo = ({ chainInfo }) => {
+    const {t} = useTranslation();
+    const date = new Date(chainInfo.chaintimestamp*1000).toUTCString();
+    return (
+        <table className={styles.chainInfoTable}>
+            <tbody>
+                {chainInfo.chaintimestamp ? (
+                    <tr className={styles.chainInfoLine}>
+                        <td>Timestamp:</td>
+                        <td className={styles.chainInfo}>
+                            {chainInfo.chaintimestamp} ({date})
+                        </td>
+                    </tr>
+                ) : null}
+                <tr className={styles.chainInfoLine}>
+                    <td>Merkle root:</td>
+                    <td className={styles.chainInfo}>
+                        {chainInfo.merkleroot}
+                    </td>
+                </tr>
+                <tr className={styles.chainInfoLine}>
+                    <td>{t("hashView.transaction")}:</td>
+                    <td className={styles.chainInfo}>
+                        <a className={styles.chainInfoLink} href={`${DCRDATA_URL}/tx/${chainInfo.transaction}`} target="_blank" rel="noopener noreferrer" aria-label="Open transaction info on dcrdata">{chainInfo.transaction}</a>
+                    </td>
+                </tr>
+                {chainInfo.minconfirmations ? (
+                    <tr className={styles.chainInfoLine}>
+                        <td>{t("hashView.verifications")}:</td>
+                        <td className={styles.chainInfo}>
+                            {chainInfo.confirmations}/{chainInfo.minconfirmations}
+                        </td>
+                    </tr>
+                ) : null}
+            </tbody>
+        </table>
+    );};
 
 ChainInfo.propTypes = {
-  chainInfo: PropTypes.object
+    chainInfo: PropTypes.object
 };
 
 export default ChainInfo;

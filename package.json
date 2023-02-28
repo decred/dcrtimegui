@@ -3,41 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "crypto-js": "^3.3.0",
+    "crypto-js": "^4.1.1",
     "dcrtimejs": "https://github.com/tiagoalvesdulce/dcrtimejs",
+    "i18next": "^22.1.4",
     "js-file-download": "^0.4.12",
-    "pi-ui": "https://github.com/decred/pi-ui",
     "query-string": "^6.14.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-dropzone": "^10.2.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.4"
+    "react-i18next": "^12.1.1",
+    "react-router-dom": "^5.2.0"
   },
   "scripts": {
     "start": "REACT_APP_NETWORK=testnet HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "build-testnet": "REACT_APP_NETWORK=testnet react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
-    "lint:css": "stylelint --fix 'src/**/*.css'",
     "lint:js": "eslint --fix --ext=.js,.jsx src"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "prettier --write",
-      "yarn lint:css",
-      "yarn lint:js",
-      "git add"
-    ]
   },
   "browserslist": [
     ">0.2%",
@@ -46,6 +29,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "react-scripts": "^3.4.4",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.15.0",
@@ -55,12 +39,6 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "husky": "^3.1.0",
-    "lint-staged": "^9.5.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.19.1",
-    "stylelint": "^13.10.0",
-    "stylelint-config-recommended": "^3.0.0",
-    "typescript": "^3.9.9"
+    "react-error-overlay": "6.0.9"
   }
 }

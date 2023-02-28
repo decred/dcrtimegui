@@ -1,0 +1,78 @@
+:global(.button) {
+    font-family: Inter;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid transparent;
+    outline: 0;
+    padding: 0;
+    color: inherit;
+    font-size: 100%;
+    text-transform: none;
+}
+
+:global(.list) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+:global(.error::after) {
+    content: "";
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background-color: var(--red);
+    position: absolute;
+    top: -0.3rem;
+    left: -0.3rem;
+}
+
+:global(.singleLineHeading) {
+    margin: 2.5rem 0;
+    color: var(--main-card-heading-color);
+    font-size: var(--font-size-md);
+    font-weight: normal;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+:global(.doubleLineHeading) {
+    margin: 2.5rem 0;
+    color: var(--main-card-heading-color);
+    font-size: var(--font-size-md);
+    font-weight: normal;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+:global(.singleLineHeading::after) {
+    content: "";
+    border-top: 0.1rem solid var(--main-card-heading-line-color);
+    margin: 0 0 0 1.3rem;
+    flex: 1 0 1.3rem;
+}
+
+:global(.doubleLineHeading::before) {
+    content: "";
+    border-top: 0.1rem solid var(--main-card-heading-line-color);
+    margin: 0 1.3rem 0 0;
+    flex: 1 0 1.3rem;
+}
+
+:global(.doubleLineHeading::after) {
+    content: "";
+    border-top: 0.1rem solid var(--main-card-heading-line-color);
+    margin: 0 0 0 1.3rem;
+    flex: 1 0 1.3rem;
+}

@@ -1,0 +1,47 @@
+.inputText {
+    border: 0.1rem solid transparent;
+    border-radius: 0.5rem;
+    background: var(--input-bg-color);
+    font-size: var(--font-size-lg);
+    color: var(--font-color);
+    font-weight: 500;
+    outline: none;
+    padding: 0.6rem 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inputWrapper {
+    flex-grow: 1;
+    position: relative;
+}
+
+.error {
+    composes: error from global;
+}
+
+.inputText:hover {
+    border: 0.1rem solid var(--input-hover-border-color);
+}
+
+.inputText:focus {
+    border: 0.1rem solid var(--input-hover-border-color);
+}
+
+.inputText:active {
+    border: 0.1rem solid var(--input-hover-border-color);
+}
+
+.inputText::placeholder {
+    color: var(--input-placeholder-color);
+}
+
+.iconWrapper {
+    position: absolute;
+    right: 1.1rem;
+    top: 1.1rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}

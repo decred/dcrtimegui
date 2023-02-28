@@ -1,0 +1,71 @@
+.singleLineHeading {
+  composes: singleLineHeading from global;
+}
+
+.actionsSection {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.nextAnchorWrapper {
+  padding: 0;
+  margin-bottom: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.nextAnchor {
+  display: flex;
+}
+
+.actionButtonsWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.nextAnchorTime {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  margin: 0 1.1rem 0 0.5rem;
+}
+
+@media screen and (max-width: 560px) {
+  .timestampActionButton {
+    width: 100%;
+  }
+  .timestampActionButton:not(:first-of-type) {
+    margin-top: 2rem;
+  }
+  .timestampActionButton:not(:last-of-type) {
+    margin-right: 0;
+  }
+  .actionButtonsWrapper {
+    flex-direction: column;
+  }
+  .tooltipText {
+    width: 16rem;
+    left: calc(50% - 8rem);
+  }
+}
+
+@media screen and (min-width: 840px) {
+  .actionsSection {
+    flex-direction: row;
+  }
+  .nextAnchorWrapper {
+    padding-right: 1rem;
+    margin: 0;
+  }
+  .timestampActionButton:not(:last-of-type) {
+    margin-right: 2rem;
+  }
+  .timestampActionButton {
+    width: auto;
+  }
+  .timestampActionButton:last-of-type {
+    margin-top: 0;
+  }
+}

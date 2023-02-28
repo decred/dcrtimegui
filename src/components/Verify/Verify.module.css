@@ -1,0 +1,37 @@
+.doubleLineHeading {
+    composes: doubleLineHeading from global;
+}
+
+.singleLineHeading {
+    composes: singleLineHeading from global;
+}
+
+.verifyByHashButton {
+    margin-left: 2rem;
+}
+
+.manuallyForm {
+    display: flex;
+}
+
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 560px) {
+    .manuallyForm {
+      flex-direction: column;
+    }
+    .verifyByHashButton {
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+}
+
+.manuallyForm > input {
+    flex-grow: 1;
+}
+
+.actionButtonsWrapper {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: flex-end;
+}

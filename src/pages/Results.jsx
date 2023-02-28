@@ -1,16 +1,18 @@
 import React from "react";
-import ModalResultsInfo from "src/components/ModalResultsInfo";
 import Page from "src/components/Layout/Page";
-import Title from "src/components/Title";
 import Results from "src/components/Results";
+import MainSection from "src/components/MainSection";
+import LatestHashes from "src/components/LatestHashesSection";
 
 const ResultsPage = () => {
-  return (
-    <Page>
-      <Title title="Results" modal={ModalResultsInfo} />
-      <Results />
-    </Page>
-  );
+    return (
+        <Page>
+            <MainSection>
+                <Results />
+            </MainSection>
+            <LatestHashes />
+        </Page>
+    );
 };
 
 export default ResultsPage;

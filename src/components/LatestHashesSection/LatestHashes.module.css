@@ -1,0 +1,138 @@
+.latestHashes {
+    margin-top: 10rem;
+    background: var(--latest-hash-section-bg-color);
+    padding: 2rem 3.5rem 5.5rem 3.5rem;
+}
+
+.content {
+    max-width: 103.5rem;
+    margin: 0 auto;
+}
+
+.heading {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: normal;
+}
+
+.singleLineHeading {
+    composes: singleLineHeading from global;
+}
+
+.singleLineHeading::after {
+    margin: 0;
+}
+
+.spinnerWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.hashesList {
+    composes: list from global;
+}
+
+.hashesListItem {
+    display: flex;
+    align-items: center;
+}
+
+.hashTimeWrapper {
+    box-sizing: border-box;
+    width: calc(100% - 2.2rem);
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    border: 0.1rem solid transparent;
+    border-radius: 0.2rem;
+    padding: 0.3rem 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.hashTimeWrapper:hover {
+    border: 0.1rem solid var(--latest-hash-hover-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+.hashesListItem:not(:last-of-type) {
+    margin-bottom: 1rem;
+}
+
+.timeago {
+    color: var(--latest-hash-timeago-color);
+    padding-right: 1rem;
+    min-width: 5rem;
+}
+
+.hash {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.error {
+    composes: error from global;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+}
+
+.input {
+    box-sizing: border-box;
+    padding: 0.7rem 3.2rem 0.8rem 1.5rem !important;
+    border-radius: 1.7rem !important;
+    min-width: 23.8rem;
+    width: 23.8rem;
+    max-width: 29.2rem;
+}
+
+.searchWrapper {
+    position: relative;
+}
+
+.input:hover + button > svg > g > g, .input:hover + button > svg > g > line {
+    stroke: var(--search-icon-hover-color);
+}
+
+.input:active + button > svg > g > g, .input:active + button > svg > g > line {
+    stroke: var(--search-icon-hover-color);
+}
+
+.input:focus + button > svg > g > g, .input:focus + button > svg > g > line {
+    stroke: var(--search-icon-hover-color);
+}
+
+.input::placeholder {
+    color: var(--search-input-placeholder-color) !important;
+}
+
+@media screen and (min-width: 769px) {
+    .input {
+        width: 28.2rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .input {
+        width: 29.2rem;
+    }
+}
+
+/* This is needed for the site to be usable on very small
+screen sizes */
+@media screen and (max-width: 470px) {
+    .title {
+      flex-direction: column;
+    }
+    .input {
+        width: 100%;
+        max-width: 100%;
+    }
+    .heading {
+        margin-bottom: 2.5rem;
+    }
+  }

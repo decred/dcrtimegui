@@ -1,0 +1,47 @@
+.button {
+    composes: button from global;
+    padding: 0.7rem 1.5rem;
+    border-radius: 1.5rem;
+}
+
+.buttonWithIcon {
+    padding: 0.7rem 1.5rem 0.7rem 0.9rem;
+}
+
+.buttonDisabled {
+    composes: button;
+    background: var(--button-disabled-bg-color);
+    color: var(--button-disabled-color);
+    cursor: not-allowed;
+}
+
+.buttonPrimary {
+    composes: button;
+    background: var(--button-primary-bg-color);
+    color: var(--button-primary-color);
+}
+
+.buttonPrimary:hover {
+    background: var(--button-primary-bg-hover-color);
+}
+
+.buttonSecondary {
+    composes: button;
+    background: var(--button-secondary-bg-color);
+    color: var(--button-secondary-color);
+}
+
+.buttonSecondary:hover {
+    background: var(--button-secondary-bg-hover-color);
+}
+
+.buttonTertiary {
+    composes: button;
+    background: transparent;
+    color: var(--button-tertiary-color);
+    border: 0.1rem solid var(--button-tertiary-border-color);
+}
+
+.buttonTertiary:hover {
+    border: 0.1rem solid var(--button-tertiary-border-hover-color);
+}

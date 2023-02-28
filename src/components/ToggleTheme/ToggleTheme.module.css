@@ -1,0 +1,25 @@
+.toggleButton {
+    composes: button from global;
+    border: 0;
+    outline: none;
+    width: auto;
+    height: auto;
+    display: block;
+    align-self: center;
+}
+
+.toggleButtonLight {
+    composes: toggleButton
+}
+
+.toggleButtonDark {
+    composes: toggleButton
+}
+
+.toggleButtonLight:hover > svg > circle {
+    opacity: 0;
+}
+
+.toggleButtonDark:hover > svg > circle {
+    opacity: 1;
+}

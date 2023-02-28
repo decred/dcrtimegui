@@ -1,0 +1,14 @@
+.buttonIcon {
+    composes: button from global;
+    border-radius: 0.5rem;
+    border: 0;
+}
+
+.buttonIcon:hover {
+    /*
+        Important is required because the color is set inline.
+        The only way we can overwrite it is using !important.
+    */
+    color: var(--button-icon-hover-color) !important;
+    background: var(--button-icon-hover-bg-color);
+}

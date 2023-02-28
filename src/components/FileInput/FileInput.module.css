@@ -1,54 +1,45 @@
-.dropzoneWrapper {
-  padding-bottom: 42px;
-}
-
-.dropzoneText {
-  width: 100%;
-  text-align: center;
-  color: var(--color-primary-dark);
-  font-size: 13px;
-}
-
-.fileInputLine {
-  display: flex;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  height: 50px;
-  width: 100%;
-}
-
-.textFileName {
-  margin-top: 5px;
-  margin-left: 5px;
-  font-size: 13px;
-  color: var(--color-gray-dark);
-  width: 100%;
-}
-
-.deleteIcon {
-  cursor: pointer;
-}
 
 .dropzone {
-  height: 80px;
-  flex: 1;
+  font-size: var(--font-size-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-width: 1.5px;
-  border-radius: 2px;
-  border-color: var(--color-gray-light);
+  border-width: 0.2rem;
+  border-radius: 0.5rem;
+  border-color: var(--file-input-border-color);
   border-style: dashed;
+  text-align: center;
   outline: none;
+  user-select: none;
   cursor: pointer;
-  transition: border .24s ease-in-out;
+  transition: border 0.5s ease-in;
+  padding: 2rem 3rem;
 }
-  
+
+.dropzone:hover {
+  background: var(--file-input-hover-bg-color);
+}
+
+@media screen and (min-width: 769px) {
+  .dropzone {
+    box-sizing: border-box;
+    height: 9rem;
+  }
+}
+
 .dropzoneActive {
-  border-color: var(--color-primary);
+  border-color: var(--font-color);
 }
-  
+
 .dropzone:focus {
-  border-color: var(--color-primary);
+  border-color: var(--font-color);
+}
+
+.error {
+  composes: error from global;
+}
+
+.dropzoneWrapper {
+  position: relative;
 }
