@@ -1,5 +1,5 @@
 # Build image
-FROM node:14
+FROM node:16
 
 LABEL description="dcrtimegui build"
 LABEL version="1.0"
@@ -14,7 +14,7 @@ RUN yarn --network-concurrency 1
 RUN INLINE_RUNTIME_CHUNK=false yarn build
 
 # Serve image (stable nginx version)
-FROM nginx:1.16
+FROM nginx:1.22
 
 LABEL description="dcrtimegui serve"
 LABEL version="1.0"
