@@ -49,6 +49,6 @@
     "notice.hashesVerified": "تم التحقق من التجزئات بنجاح وأضيفت النتائج إلى سجل التحقق.",
     "clearList": "مسح القائمة",
     "timeago.lastHour": "الساعة الأخيرة",
-    "timeago.hAgo": "{{hours}}ساعة مضت",
-    "timeago.dAgo": "{{days}}يوم مضى"
+    "timeago.hAgo": "ساعات {{hours}} منذ",
+    "timeago.dAgo": "أيام {{days}} منذ"
 }
