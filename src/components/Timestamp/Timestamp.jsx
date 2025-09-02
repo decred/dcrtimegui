@@ -170,7 +170,7 @@ const TimestampForm = ({handleFetchLast}) => {
             ) : null}
             {files.length > 0 ? (
                 <>
-                    <h3 className={styles.singleLineHeading}>Timestamping status</h3>
+                  <h3 className={styles.singleLineHeading}>{t("timestampingStatus")}</h3>
                     <HashConfList hashes={files} checked={checked} handleCheckboxClick={handleCheckboxClick} />
                 </>
             ) : null}
@@ -185,7 +185,7 @@ const TimestampForm = ({handleFetchLast}) => {
                     {files.length ? (
                         <Button text={t("clearList")} className={styles.timestampActionButton} kind="tertiary" handleClick={() => clearList()} />
                     ) : null}
-                    <Button text={amountOfHashesToDownload > 1 ? "Download Hashes" : "Download Hash"} amount={amountOfHashesToDownload} kind={amountOfHashesToDownload > 0 ? "secondary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadHashes(hashesToDownload)} />
+                    <Button text={amountOfHashesToDownload > 1 ?t("downloadHash.plural") : t("downloadHash.singular")} amount={amountOfHashesToDownload} kind={amountOfHashesToDownload > 0 ? "secondary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadHashes(hashesToDownload)} />
                     <Button text={amountOfProofsToDownload > 1 ? t("downloadProof.plural") : t("downloadProof.singular")} amount={amountOfProofsToDownload} kind={amountOfProofsToDownload > 0 ? "primary" : "disabled"} className={styles.timestampActionButton} handleClick={() => downloadArrayOfProofs(proofsToDownload)} />
                 </div>
             </div>

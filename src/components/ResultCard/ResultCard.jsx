@@ -52,7 +52,7 @@ const ResultCard = ({
     return (
         <div className={styles.card}>
             <div className={styles.content}>
-                <h3 className={styles.heading}>Hash status</h3>
+                <h3 className={styles.heading}>{t("hash.Status")}</h3>
                 <div className={styles.statusDigestWrapper}>
                     <Digest digest={digest.digest} />
                     <div className={styles.statusWrapper}>

@@ -10,6 +10,8 @@
     "nextAnchoring.tooltip": "Anchoring is done hourly and the next one is in {{minsToHour}} minutes ({{date}}).",
     "downloadProof.singular": "Download Proof",
     "downloadProof.plural": "Download Proofs",
+    "downloadHash.singular": "Download Hash",
+    "downloadHash.plural": "Download Hashes",
     "latestHashes.title": "Latest Hashes",
     "searchByHash.placeholder": "Search by hash",
     "fileInput.verify.text": "Verify files by dropping them here",
@@ -25,6 +27,7 @@
     "hashView.pending": "Pending",
     "hashView.notFound": "Not found",
     "hashView.verifications": "Verifications",
+    "hash.Status": "Hash Status",
     "footer.decredDevs": "Decred Developers",
     "footer.brandResources": "Brand Resources",
     "footer.news": "News",
@@ -50,5 +53,6 @@
     "clearList": "Clear List",
     "timeago.lastHour": "last hour",
     "timeago.hAgo": "{{hours}}h ago",
+    "timestampingStatus": "Timestamping status",
     "timeago.dAgo": "{{days}}d ago"
 }
