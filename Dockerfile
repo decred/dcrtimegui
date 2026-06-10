@@ -14,7 +14,7 @@ RUN yarn --network-concurrency 1
 RUN INLINE_RUNTIME_CHUNK=false yarn build
 
 # Serve image (stable nginx version)
-FROM nginx:1.22
+FROM nginx:1.30
 
 LABEL description="dcrtimegui serve"
 LABEL version="1.0"
